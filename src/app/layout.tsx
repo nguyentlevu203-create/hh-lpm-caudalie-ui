@@ -1,20 +1,43 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const caudalieRegular = localFont({
+  src: [
+    { path: "./fonts/Caudalie-Regular.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/Caudalie-Italic.woff2", weight: "400", style: "italic" },
+  ],
+  variable: "--font-caudalie",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const caudalieLight = localFont({
+  src: [
+    { path: "./fonts/Caudalie-Light.woff2", weight: "300", style: "normal" },
+    { path: "./fonts/Caudalie-LightItalic.woff2", weight: "300", style: "italic" },
+  ],
+  variable: "--font-caudalie-light",
+  display: "swap",
+});
+
+const caudalieBold = localFont({
+  src: [{ path: "./fonts/Caudalie-Bold.woff2", weight: "700", style: "normal" }],
+  variable: "--font-caudalie-bold",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Website Clone",
-  description: "Pixel-perfect website clone",
+  title: "CAUDALIE: Natural Beauty Skincare ⋅ Face ⋅ Body ⋅ Spa - Caudalie",
+  description:
+    "CAUDALIE natural skincare: face care, body care, sun care, and fresh fragrances made with grape-derived active ingredients.",
+  icons: {
+    icon: [
+      { url: "/seo/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/seo/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: "/seo/apple-touch-icon.png",
+    other: [{ rel: "mask-icon", url: "/seo/safari-pinned-tab.svg" }],
+  },
 };
 
 export default function RootLayout({
@@ -25,7 +48,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${caudalieRegular.variable} ${caudalieLight.variable} ${caudalieBold.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
