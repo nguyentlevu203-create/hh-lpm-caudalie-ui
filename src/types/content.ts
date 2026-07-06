@@ -64,32 +64,41 @@ export interface SocialLink {
   href: string;
 }
 
-export interface NavLink {
+export interface MegaMenuLink {
   label: string;
-  href: string;
+  href?: string;
 }
 
 export interface MegaMenuColumn {
   heading: string;
-  links: NavLink[];
+  links: MegaMenuLink[];
 }
 
 export interface MegaMenuPromoTile {
-  image: string;
-  label: string;
-  href: string;
+  title: string;
+  caption: string;
+  href?: string;
+}
+
+export interface MegaMenuContent {
+  /** Multi-column layout (e.g. "Shop"). */
+  columns?: MegaMenuColumn[];
+  /** Single vertical list layout (e.g. "Gifts & offers", "Needs" left column). */
+  links?: MegaMenuLink[];
+  /** Optional portrait promo tiles rendered alongside a list layout. */
+  promoTiles?: MegaMenuPromoTile[];
+  /** Optional centered call-to-action button below the menu content. */
+  ctaLabel?: string;
+  ctaHref?: string;
 }
 
 export interface NavItem {
   label: string;
-  href: string;
-  highlighted?: boolean;
-  megaMenu?: {
-    columns?: MegaMenuColumn[];
-    promoTiles?: MegaMenuPromoTile[];
-    ctaLabel?: string;
-    ctaHref?: string;
-  };
+  href?: string;
+  /** Visual treatment for the nav item itself. */
+  variant?: "default" | "pill-yellow" | "pill-grey";
+  /** Present when the item opens a hover mega menu (desktop) / accordion (mobile). */
+  megaMenu?: MegaMenuContent;
 }
 
 export interface InstagramPost {
