@@ -55,6 +55,17 @@ const ASSETS = [
   ["https://assets.caudalie.com/f/286013/1365x818/564f2f7c16/lpcadeaux-egiftcard.jpg/m/filters:quality(90)", "offers/egift-card.jpg"],
   ["https://assets.caudalie.com/f/286013/721x433/6e1e4a562f/page_offres-avantages_bestsellers.jpg/m/filters:quality(90)", "offers/bestsellers.jpg"],
   ["https://assets.caudalie.com/f/286013/546x326/3618ae86dd/quoi_offrir_duo_vp_suncare.jpg/m/filters:quality(90)", "offers/limited-editions.jpg"],
+
+  // Brand story — https://en.caudalie.com/about-caudalie/our-story
+  ["https://assets.caudalie.com/f/286013/2734x880/942bb607d1/dsc02041_mbt_tree_5-2x.jpg/m/filters:quality(90)", "brand-story/hero.jpg"],
+  ["https://assets.caudalie.com/f/286013/2578x1200/db8c4ca746/1993.jpg/m/filters:quality(90)", "brand-story/1993-encounter.jpg"],
+  ["https://assets.caudalie.com/f/286013/2578x1200/f31a663998/mathilde-thomas-bertrand-thomas-vignes-nb.jpg/m/filters:quality(90)", "brand-story/1995-polyphenols.jpg"],
+  ["https://assets.caudalie.com/f/286013/2578x1200/af0fca0dc4/11270-china_summer_5-2x.png/m/filters:quality(90)", "brand-story/1997-beauty-elixir.png"],
+  ["https://assets.caudalie.com/f/286013/2578x1200/d83903b35c/brand-desktop-viniferine.jpg/m/filters:quality(90)", "brand-story/2005-viniferine.jpg"],
+  ["https://assets.caudalie.com/f/286013/2578x1200/9fc6475ab5/brand-desktop-cosmethique.jpg/m/filters:quality(90)", "brand-story/2006-cosmethics.jpg"],
+  ["https://assets.caudalie.com/f/286013/2578x1200/b40b21cee3/brand-desktop-partnership.jpg/m/filters:quality(90)", "brand-story/2013-2023-partnership.jpg"],
+  ["https://assets.caudalie.com/f/286013/2578x1200/c2ac6ae4eb/12255-caudalie_pc_packshoot-2x.jpg/m/filters:quality(90)", "brand-story/2025-premier-cru.jpg"],
+  ["https://assets.caudalie.com/f/286013/284x45/a9a2b617b2/signature_tdv_mathilde.png/m/filters:quality(90)", "brand-story/mathilde-signature.png"],
 ];
 
 async function downloadOne([url, relativePath]) {
