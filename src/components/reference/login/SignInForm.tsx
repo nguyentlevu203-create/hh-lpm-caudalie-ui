@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Eye, EyeOff } from "@/components/icons";
 
@@ -124,12 +125,12 @@ export function SignInForm({
       <p className="mt-4 mb-2 text-center font-bold text-primary">
         Don&apos;t have an account yet?
       </p>
-      <button
-        type="button"
-        className="h-12 w-full rounded-md border-2 border-primary text-base text-primary"
+      <Link
+        href="/reference/register"
+        className="flex h-12 w-full items-center justify-center rounded-md border-2 border-primary text-base text-primary"
       >
         Register today
-      </button>
+      </Link>
     </div>
   );
 }
