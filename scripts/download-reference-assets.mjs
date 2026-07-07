@@ -26,6 +26,12 @@ const ASSETS = [
   ["https://caudalie-europe.imgix.net/media/catalog/product/5/_/5_vinoperfect_2026_serum_before-after_caudalie-en_1.jpg?w=900&fit=fill&fill=solid&fill-color=f4f3f1", "pdp/vinoperfect-before-after.jpg"],
   ["https://caudalie-europe.imgix.net/media/catalog/product/7/_/7_vinoperfect_2026_serum_ingredients_caudalie-en_1.jpg?w=900&fit=fill&fill=solid&fill-color=f4f3f1", "pdp/vinoperfect-ingredients.jpg"],
   ["https://caudalie-europe.imgix.net/media/catalog/product/1/_/1_fresh-fragrance_rdv_caudalie_packshot_0_1.jpg?w=700&fit=fill&fill=solid&fill-color=f4f3f1", "pdp/rose-de-vigne-packshot.jpg"],
+
+  // Search results — https://en.caudalie.com/search?q=serum (products not already covered above)
+  ["https://caudalie-europe.imgix.net/media/catalog/product/m/a/masque_detox_75ml.jpg?w=700&fit=fill&fill=solid&fill-color=f4f3f1", "search/pore-minimising-detox-mask.jpg"],
+  ["https://caudalie-europe.imgix.net/media/catalog/product/1/_/1_resveratrol-lift_cachemire_caudalie_packshot_offwhite_1_2026.jpg?w=700&fit=fill&fill=solid&fill-color=f4f3f1", "search/resveratrol-lift-cashmere-cream.jpg"],
+  ["https://caudalie-europe.imgix.net/media/catalog/product/1/_/1_premiercru_lacremeyeux_caudalie_packshot_241115.jpg?w=700&fit=fill&fill=solid&fill-color=f4f3f1", "search/premier-cru-eye-cream.jpg"],
+  ["https://caudalie-europe.imgix.net/media/catalog/product/1/_/1_premiercru_lacreme_caudalie_packshot.jpg?w=700&fit=fill&fill=solid&fill-color=f4f3f1", "search/premier-cru-the-cream.jpg"],
 ];
 
 async function downloadOne([url, relativePath]) {

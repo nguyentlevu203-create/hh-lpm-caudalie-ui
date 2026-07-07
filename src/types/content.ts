@@ -106,3 +106,13 @@ export interface InstagramPost {
   image: string;
   href: string;
 }
+
+export interface SearchProduct {
+  id: string;
+  /** Brand/collection line shown above the title (search fallback cards only). */
+  eyebrow?: string;
+  title: string;
+  image: string;
+  price: number;
+  href: string;
+}
