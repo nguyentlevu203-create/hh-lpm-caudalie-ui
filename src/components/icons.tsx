@@ -18,6 +18,8 @@ export {
   Play,
   Gift,
   Lock,
+  Eye,
+  EyeOff,
 } from "lucide-react";
 
 // Social icons use real downloaded rasters at public/images/caudalie/icon-{instagram,facebook,youtube,tiktok,linkedin}.png
