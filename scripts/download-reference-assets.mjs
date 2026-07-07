@@ -44,6 +44,17 @@ const ASSETS = [
   ["https://assets.caudalie.com/f/286013/722x806/823bf5d2b8/lp-des-lp-suncare.jpg/m/filters:quality(90)", "diagnosis/suncare.jpg"],
   ["https://assets.caudalie.com/f/286013/722x806/4989605fbe/lp-des-lp-beauty-elix_202506.jpg/m/filters:quality(90)", "diagnosis/beauty-elixir.jpg"],
   ["https://assets.caudalie.com/f/286013/722x806/c8b89e0a7a/lp-des-lp-eaux.jpg/m/filters:quality(90)", "diagnosis/eaux-fraiches.jpg"],
+
+  // Offers hub — https://en.caudalie.com/gift-offers/all-offers
+  ["https://assets.caudalie.com/f/286013/1140x1140/e45013d687/page_offre_dyp.png/m/filters:quality(90)", "offers/double-your-points.png"],
+  ["https://assets.caudalie.com/f/286013/1140x1140/297b23c951/page_offre_refresh_v1.jpg/m/filters:quality(90)", "offers/summer-freshness.jpg"],
+  ["https://assets.caudalie.com/f/286013/1140x1140/24ce78e0bb/page_offre-aftersun.jpg/m/filters:quality(90)", "offers/long-lasting-tan.jpg"],
+  ["https://assets.caudalie.com/f/286013/1080x1080/63a607fb5e/page-offre-coffret-editions-limitees.jpg/m/filters:quality(90)", "offers/limited-edition-gift-sets.jpg"],
+  ["https://assets.caudalie.com/f/286013/1080x1080/15ada20464/caudalie_rewards_and_benefits.jpg/m/filters:quality(90)", "offers/mycaudalie-loyalty.jpg"],
+  ["https://assets.caudalie.com/f/286013/1140x1140/2fad8417cc/welcome_offer_page.jpg/m/filters:quality(90)", "offers/welcome-offer.jpg"],
+  ["https://assets.caudalie.com/f/286013/1365x818/564f2f7c16/lpcadeaux-egiftcard.jpg/m/filters:quality(90)", "offers/egift-card.jpg"],
+  ["https://assets.caudalie.com/f/286013/721x433/6e1e4a562f/page_offres-avantages_bestsellers.jpg/m/filters:quality(90)", "offers/bestsellers.jpg"],
+  ["https://assets.caudalie.com/f/286013/546x326/3618ae86dd/quoi_offrir_duo_vp_suncare.jpg/m/filters:quality(90)", "offers/limited-editions.jpg"],
 ];
 
 async function downloadOne([url, relativePath]) {
