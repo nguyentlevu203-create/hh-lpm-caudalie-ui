@@ -14,6 +14,10 @@ export {
   Heart,
   Plus,
   Minus,
+  SlidersHorizontal,
+  Play,
+  Gift,
+  Lock,
 } from "lucide-react";
 
 // Social icons use real downloaded rasters at public/images/caudalie/icon-{instagram,facebook,youtube,tiktok,linkedin}.png
