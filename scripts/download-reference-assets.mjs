@@ -32,6 +32,18 @@ const ASSETS = [
   ["https://caudalie-europe.imgix.net/media/catalog/product/1/_/1_resveratrol-lift_cachemire_caudalie_packshot_offwhite_1_2026.jpg?w=700&fit=fill&fill=solid&fill-color=f4f3f1", "search/resveratrol-lift-cashmere-cream.jpg"],
   ["https://caudalie-europe.imgix.net/media/catalog/product/1/_/1_premiercru_lacremeyeux_caudalie_packshot_241115.jpg?w=700&fit=fill&fill=solid&fill-color=f4f3f1", "search/premier-cru-eye-cream.jpg"],
   ["https://caudalie-europe.imgix.net/media/catalog/product/1/_/1_premiercru_lacreme_caudalie_packshot.jpg?w=700&fit=fill&fill=solid&fill-color=f4f3f1", "search/premier-cru-the-cream.jpg"],
+
+  // Find your regimen / diagnosis hub — https://en.caudalie.com/find-your-regimen/find-your-regimen
+  ["https://assets.caudalie.com/f/286013/722x806/d7300c94af/lp-des-lp-premiercru.jpg/m/filters:quality(90)", "diagnosis/premier-cru.jpg"],
+  ["https://assets.caudalie.com/f/286013/634x680/d729dd97ca/range_rvl_2023.png/m/filters:quality(90)", "diagnosis/resveratrol-lift.png"],
+  ["https://assets.caudalie.com/f/286013/722x806/1c0c88947e/lp-des-lp-vinoperfect.jpg/m/filters:quality(90)", "diagnosis/vinoperfect.jpg"],
+  ["https://assets.caudalie.com/f/286013/722x806/3fc34f6b9d/vh_c_r.jpg/m/filters:quality(90)", "diagnosis/vinohydra.jpg"],
+  ["https://assets.caudalie.com/f/286013/722x806/313c1babf1/vinoclean_2025_lp_des_lp.jpg/m/filters:quality(90)", "diagnosis/vinoclean.jpg"],
+  ["https://assets.caudalie.com/f/286013/722x806/496fab492b/lp-des-lp-vinopure.jpg/m/filters:quality(90)", "diagnosis/vinopure.jpg"],
+  ["https://assets.caudalie.com/f/286013/634x680/9ba02318a4/vinosculpt-634-x-680_2025-03.jpg/m/filters:quality(90)", "diagnosis/vinosculpt.jpg"],
+  ["https://assets.caudalie.com/f/286013/722x806/823bf5d2b8/lp-des-lp-suncare.jpg/m/filters:quality(90)", "diagnosis/suncare.jpg"],
+  ["https://assets.caudalie.com/f/286013/722x806/4989605fbe/lp-des-lp-beauty-elix_202506.jpg/m/filters:quality(90)", "diagnosis/beauty-elixir.jpg"],
+  ["https://assets.caudalie.com/f/286013/722x806/c8b89e0a7a/lp-des-lp-eaux.jpg/m/filters:quality(90)", "diagnosis/eaux-fraiches.jpg"],
 ];
 
 async function downloadOne([url, relativePath]) {
