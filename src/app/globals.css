@@ -51,6 +51,24 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* Hoàng Hà / Le Petit Marseillais Việt Nam production tokens — additive
+     only, independent from the Caudalie tokens above. Never referenced by
+     any /reference/* component; only consumed via `font-hh`/`bg-hh-*`/
+     `text-hh-*` utilities inside `src/components/hh/HHShell.tsx` and its
+     children. */
+  --font-hh: var(--font-hh-vietnam-pro), "Be Vietnam Pro", ui-sans-serif,
+    system-ui, Arial, sans-serif;
+  --color-hh-primary: var(--hh-primary);
+  --color-hh-primary-foreground: var(--hh-primary-foreground);
+  --color-hh-primary-dark: var(--hh-primary-dark);
+  --color-hh-accent: var(--hh-accent);
+  --color-hh-accent-foreground: var(--hh-accent-foreground);
+  --color-hh-cream: var(--hh-cream);
+  --color-hh-ink: var(--hh-ink);
+  --color-hh-muted: var(--hh-muted);
+  --color-hh-muted-foreground: var(--hh-muted-foreground);
+  --color-hh-border: var(--hh-border);
 }
 
 :root {
@@ -92,6 +110,19 @@
   --brand-cream: #f4f3f1;
   --brand-yellow: #fae25f;
   --brand-terracotta: #cd3c1f;
+
+  /* Hoàng Hà / Le Petit Marseillais Việt Nam brand tokens (production UI
+     only — an independent palette, not derived from any Caudalie color). */
+  --hh-primary: #2f6b4f; /* deep herb green — Provence / savon de Marseille */
+  --hh-primary-dark: #204a37;
+  --hh-primary-foreground: #ffffff;
+  --hh-accent: #e08a3e; /* warm terracotta / Provence sun */
+  --hh-accent-foreground: #2a1a08;
+  --hh-cream: #fbf6ec;
+  --hh-ink: #20241f;
+  --hh-muted: #eef1e8;
+  --hh-muted-foreground: #5b6459;
+  --hh-border: #dfe4d8;
 }
 
 .dark {
