@@ -33,7 +33,7 @@ export const DIAGNOSIS_CONCERNS: DiagnosisConcern[] = [
     id: "premier-cru",
     eyebrow: "Premier Cru",
     heading: "The anti-ageing solution without compromise",
-    body: "There's n longer any need to choose, these exceptional formulas, boosted by the patented TET8™ technology, correct all signs of ageing: settled wrinkles, fine lines, firmness, volume, elasticity, dark spots, hydration and radiance.",
+    body: "There's no longer any need to choose, these exceptional formulas, boosted by the patented TET8™ technology, correct all signs of ageing: settled wrinkles, fine lines, firmness, volume, elasticity, dark spots, hydration and radiance.",
     image: "/images/reference/diagnosis/premier-cru.jpg",
     imageAlt:
       "Caudalie skincare products on a purple background, including a serum, eye cream, and creams, with a grape on the side.",
