@@ -4,13 +4,19 @@ import { useMemo, useState } from "react";
 import { Search, X } from "lucide-react";
 import { useSiteUI } from "@/components/hh/SiteUIContext";
 import { ProductCard } from "@/components/hh/product/ProductCard";
-import { HH_PRODUCTS, HH_CATEGORIES } from "@/data/products";
+import { HH_PRODUCTS, HH_CATEGORIES, getBestSellers } from "@/data/products";
 import { cn } from "@/lib/utils";
 
-/** Full-screen search overlay — pattern cloned from /reference/search
- * (category quick-links, result-count summary, product grid, empty state)
- * but wired to a real (client-side, substring) search over the static
- * catalog instead of a "try this fixed query" toggle. */
+/** Full-screen search overlay — internal content structure aligned with
+ * /reference/search's SearchResultsView + its 4 sub-components: a
+ * result-count summary ("(N kết quả)" / "Không tìm thấy"), a category-pill
+ * sidebar block derived from the real matched products, a responsive
+ * `lg:grid lg:grid-cols-3` sidebar/grid split (stacked below `lg`), and a
+ * real-bestsellers fallback grid (mirroring the reference's "Bestsellers"
+ * empty-state rail) instead of a bare "no results" message. Wired to a
+ * real (client-side, substring) search over the static catalog — no
+ * "try this fixed query" toggle, since that reference affordance is
+ * flagged in the spec as reference-only, not part of the live site. */
 export function SearchOverlay() {
   const { active, close } = useSiteUI();
   const isOpen = active === "search";
@@ -26,6 +32,15 @@ export function SearchOverlay() {
       );
     });
   }, [query]);
+
+  const matchedCategories = useMemo(() => {
+    return results.map(
+      (product) => HH_CATEGORIES.find((c) => c.slug === product.category)?.name ?? ""
+    );
+  }, [results]);
+
+  const bestSellers = useMemo(() => getBestSellers(), []);
+  const hasQuery = query.trim() !== "";
 
   return (
     <div
@@ -52,43 +67,75 @@ export function SearchOverlay() {
         </button>
       </div>
 
-      <div className="flex-1 overflow-y-auto px-4 py-6">
-        {query.trim() === "" ? (
+      <div className="mx-auto w-full max-w-[1280px] flex-1 overflow-y-auto px-4 py-6 md:px-8">
+        {!hasQuery ? (
           <>
-            <p className="text-sm font-medium text-hh-ink">Danh mục gợi ý</p>
-            <div className="mt-3 flex flex-wrap gap-2">
+            <p className="mb-4 text-base font-medium text-hh-ink">Danh mục gợi ý</p>
+            <ul className="flex flex-wrap gap-2">
               {HH_CATEGORIES.map((cat) => (
-                <button
-                  key={cat.slug}
-                  type="button"
-                  onClick={() => setQuery(cat.shortName)}
-                  className="rounded-full border border-hh-border px-4 py-1.5 text-sm text-hh-ink"
-                >
-                  {cat.shortName}
-                </button>
-              ))}
-            </div>
-          </>
-        ) : results.length === 0 ? (
-          <div className="flex flex-col items-center gap-2 py-16 text-center">
-            <p className="text-lg font-medium text-hh-ink">Không tìm thấy sản phẩm cho “{query}”</p>
-            <p className="text-sm text-hh-muted-foreground">
-              Thử tìm theo tên mùi hương như &quot;oải hương&quot;, &quot;hoa hồng&quot;...
-            </p>
-          </div>
-        ) : (
-          <>
-            <p className="mb-4 text-sm font-medium text-hh-ink">
-              {results.length} kết quả cho &quot;{query}&quot;
-            </p>
-            <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-              {results.map((product) => (
-                <li key={product.id}>
-                  <ProductCard product={product} />
+                <li key={cat.slug}>
+                  <button
+                    type="button"
+                    onClick={() => setQuery(cat.shortName)}
+                    className="inline-block rounded border border-hh-border px-3 py-1 text-sm text-hh-ink"
+                  >
+                    {cat.shortName}
+                  </button>
                 </li>
               ))}
             </ul>
           </>
+        ) : (
+          <div className="lg:grid lg:grid-cols-3 lg:gap-4">
+            <div>
+              <p className="mb-4 text-center text-base font-medium text-hh-ink lg:text-left">
+                {results.length > 0
+                  ? `(${results.length} kết quả)`
+                  : `Không tìm thấy sản phẩm cho “${query}”`}
+              </p>
+              {matchedCategories.length > 0 && (
+                <div className="mb-6">
+                  <p className="mb-4 text-base font-medium text-hh-ink">Danh mục</p>
+                  <ul className="flex flex-wrap gap-2">
+                    {matchedCategories.map((category, index) => (
+                      <li key={`${category}-${index}`}>
+                        <button
+                          type="button"
+                          onClick={() => setQuery(category)}
+                          className="inline-block rounded bg-hh-primary px-3 py-1 text-sm text-white"
+                        >
+                          {category}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+
+            <div className="lg:col-span-2">
+              {results.length > 0 ? (
+                <ul className="grid grid-cols-2 gap-4 md:grid-cols-3">
+                  {results.map((product) => (
+                    <li key={product.id}>
+                      <ProductCard product={product} />
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <>
+                  <p className="mb-4 text-base font-medium text-hh-ink">Sản phẩm bán chạy</p>
+                  <ul className="grid grid-cols-2 gap-4 md:grid-cols-3">
+                    {bestSellers.map((product) => (
+                      <li key={product.id}>
+                        <ProductCard product={product} />
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
+            </div>
+          </div>
         )}
       </div>
     </div>
