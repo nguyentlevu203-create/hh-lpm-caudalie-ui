@@ -1,8 +1,9 @@
 import { ProductCard } from "@/components/hh/product/ProductCard";
 import type { HHProduct } from "@/data/products";
 
-/** Responsive grid shell cloned from /reference/category's ProductGrid
- * (2 → 3 → 4 columns) plus /reference/search's empty-state pattern. */
+/** Responsive grid shell cloned from /reference/category's ProductGrid —
+ * 2 → 3 → 4 columns at the exact same breakpoints (`md`/`lg`) and gap scale
+ * (`gap-x-4 gap-y-10`) — plus /reference/search's empty-state pattern. */
 export function ProductGrid({ products }: { products: HHProduct[] }) {
   if (products.length === 0) {
     return (
@@ -14,7 +15,7 @@ export function ProductGrid({ products }: { products: HHProduct[] }) {
   }
 
   return (
-    <ul className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 lg:grid-cols-4">
+    <ul className="grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-3 lg:grid-cols-4">
       {products.map((product) => (
         <li key={product.id}>
           <ProductCard product={product} />
