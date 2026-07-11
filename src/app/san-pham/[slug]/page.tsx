@@ -8,6 +8,9 @@ import { Footer } from "@/components/hh/layout/Footer";
 import { ProductGallery } from "@/components/hh/pdp/ProductGallery";
 import { ProductBuyBox } from "@/components/hh/pdp/ProductBuyBox";
 import { ProductDescription } from "@/components/hh/pdp/ProductDescription";
+import { ProductAccordions } from "@/components/hh/pdp/ProductAccordions";
+import { TrustBadges } from "@/components/hh/pdp/TrustBadges";
+import { ProductReviews } from "@/components/hh/pdp/ProductReviews";
 import { RelatedProducts } from "@/components/hh/pdp/RelatedProducts";
 import { getProductBySlug, getRelatedProducts, HH_PRODUCTS } from "@/data/products";
 
@@ -30,10 +33,10 @@ export async function generateMetadata({ params }: ProductDetailPageProps): Prom
   };
 }
 
-/** PDP shell — pattern cloned from /reference/pdp (gallery + buy box 2-col
- * grid, description block, related row) rebuilt with placeholder art
- * instead of real packshots and no ingredients/FAQ accordion or reviews
- * section yet (see production report for what's still missing). */
+/** PDP shell — structure cloned 1:1 from /reference/pdp: gallery + buy box
+ * (2-col grid) → trust badges → description → accordions → reviews →
+ * related products, rebuilt with placeholder art instead of real packshots
+ * (see production report for what real assets are still needed). */
 export default async function ProductDetailPage({ params }: ProductDetailPageProps) {
   const { slug } = await params;
   const product = getProductBySlug(slug);
@@ -50,7 +53,10 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
           <ProductGallery product={product} />
           <ProductBuyBox product={product} />
         </div>
+        <TrustBadges />
         <ProductDescription product={product} />
+        <ProductAccordions productName={product.name} />
+        <ProductReviews product={product} />
         <RelatedProducts products={related} />
       </main>
       <Footer />
