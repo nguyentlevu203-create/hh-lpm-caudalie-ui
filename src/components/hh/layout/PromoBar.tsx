@@ -14,8 +14,8 @@ export function PromoBar() {
   }, []);
 
   return (
-    <div className="flex h-9 w-full items-center justify-center bg-hh-primary px-4">
-      <p className="truncate text-center text-xs text-white sm:text-sm">{PROMO_MESSAGES[index]}</p>
+    <div className="flex h-10 w-full items-center justify-center bg-hh-primary px-4">
+      <p className="truncate text-center text-sm text-white md:text-base">{PROMO_MESSAGES[index]}</p>
     </div>
   );
 }

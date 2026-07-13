@@ -8,22 +8,28 @@ import { MegaMenu } from "@/components/hh/layout/MegaMenu";
 import { BRAND_NAME, NAV_ITEMS } from "@/data/site-content";
 import { cn } from "@/lib/utils";
 
-/** Desktop/mobile header — pattern cloned from the shared Caudalie Header
- * (sticky top row, hamburger left on mobile, search/account/cart icons
- * right, hover mega-menu on desktop for the product nav item) rebuilt with
- * a from-scratch text/badge wordmark (no Caudalie logo asset) and HH nav. */
+const CONTAINER = "mx-auto w-full max-w-[1280px] px-4 md:px-8";
+
+/**
+ * Desktop/mobile header — row structure cloned from the shared Caudalie
+ * Header (src/components/Header.tsx): (1) a logo + account/cart icon row,
+ * (2) a separate desktop-only nav row with a hover/click mega-menu
+ * positioned full-width directly below it, (3) a dedicated search-trigger
+ * row (sticky on mobile, static on desktop) that also holds the mobile
+ * hamburger. Rebuilt with a from-scratch text/badge wordmark (no Caudalie
+ * logo asset) and HH nav/copy. The search trigger only opens the shared
+ * SearchOverlay (owned by another workstream) — its internal content is
+ * untouched here.
+ */
 export function Header() {
   const { openSearch, openAuth, openCart, openMenu, cartLines } = useSiteUI();
   const [megaOpen, setMegaOpen] = useState(false);
   const cartCount = cartLines.reduce((n, line) => n + line.quantity, 0);
 
   return (
-    <header className="sticky top-0 z-30 border-b border-hh-border bg-white">
-      <div className="mx-auto flex h-16 w-full max-w-[1280px] items-center gap-4 px-4 md:px-8">
-        <button type="button" onClick={openMenu} aria-label="Mở menu" className="text-hh-ink lg:hidden">
-          <Menu className="size-6" />
-        </button>
-
+    <header className="relative z-30 w-full bg-white">
+      {/* Main header row: logo + account/cart icons */}
+      <div className={cn(CONTAINER, "flex items-center gap-4 py-3")}>
         <Link href="/" className="flex items-center gap-2" aria-label="Trang chủ Hoàng Hà">
           <span className="flex size-9 items-center justify-center rounded-full bg-hh-primary text-sm font-bold text-white">
             HH
@@ -36,48 +42,75 @@ export function Header() {
           </span>
         </Link>
 
-        <nav className="hidden flex-1 items-center gap-6 lg:flex">
+        <div className="flex-1" />
+
+        <div className="flex items-center gap-4 md:gap-5">
+          <button type="button" onClick={openAuth} aria-label="Tài khoản" className="hidden text-hh-ink sm:block">
+            <User className="size-6" />
+          </button>
+          <button type="button" onClick={openCart} aria-label="Giỏ hàng" className="relative text-hh-ink">
+            <ShoppingBag className="size-6" />
+            {cartCount > 0 && (
+              <span className="absolute -right-2 -top-2 flex size-4 items-center justify-center rounded-full bg-hh-primary text-[10px] text-white">
+                {cartCount}
+              </span>
+            )}
+          </button>
+        </div>
+      </div>
+
+      {/* Primary nav row (desktop only) */}
+      <div className="relative hidden bg-white lg:block" onMouseLeave={() => setMegaOpen(false)}>
+        <nav className={cn(CONTAINER, "flex items-center gap-6 py-2")}>
           {NAV_ITEMS.map((item) =>
             item.href === "/san-pham" ? (
-              <div
+              <button
                 key={item.href}
-                className="relative"
+                type="button"
                 onMouseEnter={() => setMegaOpen(true)}
-                onMouseLeave={() => setMegaOpen(false)}
+                onClick={() => setMegaOpen((v) => !v)}
+                className="flex items-center gap-1 py-1 text-sm text-hh-ink"
+                aria-expanded={megaOpen}
               >
-                <button
-                  type="button"
-                  onClick={() => setMegaOpen((v) => !v)}
-                  className="flex items-center gap-1 text-sm text-hh-ink"
-                  aria-expanded={megaOpen}
-                >
-                  {item.label}
-                  <ChevronDown className={cn("size-3.5 transition-transform", megaOpen && "rotate-180")} />
-                </button>
-                {megaOpen && <MegaMenu onNavigate={() => setMegaOpen(false)} />}
-              </div>
+                {item.label}
+                <ChevronDown className={cn("size-3.5 transition-transform", megaOpen && "rotate-180")} />
+              </button>
             ) : (
-              <Link key={item.href} href={item.href} className="text-sm text-hh-ink">
+              <Link key={item.href} href={item.href} className="inline-block py-1 text-sm text-hh-ink">
                 {item.label}
               </Link>
             )
           )}
         </nav>
 
-        <div className="ml-auto flex items-center gap-4">
-          <button type="button" onClick={openSearch} aria-label="Tìm kiếm" className="text-hh-ink">
-            <Search className="size-5" />
+        {megaOpen && (
+          <div
+            className="absolute top-full left-0 z-20 w-full border-t border-hh-border bg-white shadow-lg"
+            onMouseEnter={() => setMegaOpen(true)}
+          >
+            <MegaMenu onNavigate={() => setMegaOpen(false)} />
+          </div>
+        )}
+      </div>
+
+      {/* Search trigger row */}
+      <div className="sticky top-0 z-10 w-full border-b border-hh-border bg-white lg:relative lg:border-b-0">
+        <div className={cn(CONTAINER, "flex items-center gap-3 py-2")}>
+          <button
+            type="button"
+            onClick={openMenu}
+            aria-label="Mở menu"
+            className="flex size-6 items-center justify-center text-hh-ink lg:hidden"
+          >
+            <Menu className="size-6" />
           </button>
-          <button type="button" onClick={openAuth} aria-label="Tài khoản" className="hidden text-hh-ink sm:block">
-            <User className="size-5" />
-          </button>
-          <button type="button" onClick={openCart} aria-label="Giỏ hàng" className="relative text-hh-ink">
-            <ShoppingBag className="size-5" />
-            {cartCount > 0 && (
-              <span className="absolute -right-2 -top-2 flex size-4 items-center justify-center rounded-full bg-hh-primary text-[10px] text-white">
-                {cartCount}
-              </span>
-            )}
+          <button
+            type="button"
+            onClick={openSearch}
+            className="flex h-10 flex-1 items-center gap-2 rounded-md bg-hh-muted px-3 text-left text-sm text-hh-muted-foreground"
+          >
+            <Search className="size-5 shrink-0 text-hh-ink" />
+            <span>Tìm sản phẩm, hương thơm...</span>
           </button>
         </div>
       </div>
