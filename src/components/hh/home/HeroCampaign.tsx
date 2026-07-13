@@ -5,7 +5,7 @@ import Link from "next/link";
 import { HERO_CAMPAIGN, HERO_SECONDARY_SLIDE } from "@/data/site-content";
 import { cn } from "@/lib/utils";
 
-const CONTAINER = "mx-auto w-full max-w-[1280px] px-4 md:px-8";
+const CONTAINER = "mx-auto w-full max-w-[1440px] px-4 md:px-8";
 
 interface Slide {
   id: string;
@@ -38,12 +38,30 @@ const SLIDES: Slide[] = [
   },
 ];
 
-function SlidePanel({ slide }: { slide: Slide }) {
+/** Structured "photo" placeholder — a gradient base plus plain geometric
+ * accent shapes, standing in for a real campaign photo (no HH campaign
+ * photography exists yet, no Caudalie imagery may be reused). Reads as an
+ * abstract placeholder with background-image-like depth rather than a flat
+ * empty gradient fill. */
+function SlideBackground({ slide }: { slide: Slide }) {
   return (
     <div
-      className="relative h-full w-full overflow-hidden"
+      className="absolute inset-0"
       style={{ background: `linear-gradient(135deg, ${slide.colorFrom}, ${slide.colorTo})` }}
     >
+      <svg className="absolute inset-0 h-full w-full opacity-25" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <circle cx="82" cy="20" r="26" fill="#ffffff" fillOpacity="0.3" />
+        <circle cx="10" cy="90" r="34" fill="#000000" fillOpacity="0.15" />
+      </svg>
+      <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/35 to-transparent" />
+    </div>
+  );
+}
+
+function SlidePanel({ slide }: { slide: Slide }) {
+  return (
+    <div className="relative h-full w-full overflow-hidden">
+      <SlideBackground slide={slide} />
       <div className="relative z-10 flex h-full flex-col items-start justify-end gap-3 p-8 text-white sm:p-10 lg:p-12">
         <p className="text-sm font-medium uppercase tracking-widest text-white/80">{slide.eyebrow}</p>
         <h2 className="max-w-md text-3xl font-semibold leading-tight sm:text-4xl">{slide.heading}</h2>
@@ -68,12 +86,12 @@ export function HeroCampaign() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className={cn("flex min-h-[60vh] pb-6", CONTAINER, "pt-6")}>
+    <section className={cn("flex min-h-[70vh] pb-6", CONTAINER, "pt-6")}>
       <div className="flex w-full flex-col">
         {/* Desktop: both slides side-by-side */}
         <div className="hidden w-full flex-1 gap-4 lg:flex">
           {SLIDES.map((slide) => (
-            <div key={slide.id} className="min-h-[60vh] flex-1 overflow-hidden rounded-2xl">
+            <div key={slide.id} className="min-h-[70vh] flex-1 overflow-hidden">
               <SlidePanel slide={slide} />
             </div>
           ))}
@@ -81,7 +99,7 @@ export function HeroCampaign() {
 
         {/* Mobile / tablet: single slide with dot indicators */}
         <div className="flex w-full flex-1 flex-col lg:hidden">
-          <div className="relative min-h-[60vh] w-full flex-1 overflow-hidden rounded-2xl">
+          <div className="relative min-h-[70vh] w-full flex-1 overflow-hidden">
             {SLIDES.map((slide, index) => (
               <div
                 key={slide.id}

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Search, User, ShoppingBag, Menu, ChevronDown } from "lucide-react";
+import { Search, User, ShoppingBag, Menu, ChevronDown, MapPin, Mic } from "lucide-react";
 import { useSiteUI } from "@/components/hh/SiteUIContext";
 import { MegaMenu } from "@/components/hh/layout/MegaMenu";
 import { BRAND_NAME, NAV_ITEMS } from "@/data/site-content";
@@ -30,11 +30,11 @@ export function Header() {
     <header className="relative z-30 w-full bg-white">
       {/* Main header row: logo + account/cart icons */}
       <div className={cn(CONTAINER, "flex items-center gap-4 py-3")}>
-        <Link href="/" className="flex items-center gap-2" aria-label="Trang chủ Hoàng Hà">
-          <span className="flex size-9 items-center justify-center rounded-full bg-hh-primary text-sm font-bold text-white">
+        <Link href="/" className="flex shrink-0 items-center gap-2" aria-label="Trang chủ Hoàng Hà">
+          <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-hh-primary text-sm font-bold leading-none text-white">
             HH
           </span>
-          <span className="hidden flex-col leading-tight sm:flex">
+          <span className="hidden flex-col justify-center leading-tight sm:flex">
             <span className="text-sm font-semibold text-hh-ink">{BRAND_NAME}</span>
             <span className="text-[10px] uppercase tracking-wide text-hh-muted-foreground">
               Le Petit Marseillais
@@ -45,7 +45,10 @@ export function Header() {
         <div className="flex-1" />
 
         <div className="flex items-center gap-4 md:gap-5">
-          <button type="button" onClick={openAuth} aria-label="Tài khoản" className="hidden text-hh-ink sm:block">
+          <button type="button" aria-label="Tìm cửa hàng" className="hidden text-hh-ink lg:block">
+            <MapPin className="size-6" />
+          </button>
+          <button type="button" onClick={openAuth} aria-label="Tài khoản" className="text-hh-ink">
             <User className="size-6" />
           </button>
           <button type="button" onClick={openCart} aria-label="Giỏ hàng" className="relative text-hh-ink">
@@ -110,7 +113,8 @@ export function Header() {
             className="flex h-10 flex-1 items-center gap-2 rounded-md bg-hh-muted px-3 text-left text-sm text-hh-muted-foreground"
           >
             <Search className="size-5 shrink-0 text-hh-ink" />
-            <span>Tìm sản phẩm, hương thơm...</span>
+            <span className="flex-1">Tìm sản phẩm, hương thơm...</span>
+            <Mic className="size-5 shrink-0 text-hh-ink" />
           </button>
         </div>
       </div>
