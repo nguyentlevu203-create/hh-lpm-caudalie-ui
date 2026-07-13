@@ -4,6 +4,7 @@ import { HHShell } from "@/components/hh/HHShell";
 import { PromoBar } from "@/components/hh/layout/PromoBar";
 import { Header } from "@/components/hh/layout/Header";
 import { Footer } from "@/components/hh/layout/Footer";
+import { MembershipSection } from "@/components/hh/home/MembershipSection";
 import { BrandStoryView } from "@/components/hh/brand-story/BrandStoryView";
 
 export const metadata: Metadata = {
@@ -19,6 +20,10 @@ export default function CauChuyenThuongHieuPage() {
       <Header />
       <main className="flex-1">
         <BrandStoryView />
+        {/* Shared loyalty/benefits band, reused as-is — structural parity
+            with /reference/brand-story, which renders the shared
+            `PermanentBenefits` bar right before the footer. */}
+        <MembershipSection />
       </main>
       <Footer />
     </HHShell>

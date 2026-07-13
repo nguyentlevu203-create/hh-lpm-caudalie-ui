@@ -132,10 +132,42 @@ export const SCENT_ADVISOR_QUESTIONS = [
   },
 ];
 
+export interface BrandStoryMilestone {
+  year: string;
+  heading: string;
+  body: string;
+  /** Optional "Find out more"-style CTA — only some milestones have one,
+   * mirroring the reference timeline where only a couple of entries carry
+   * a CTA. Typed as an explicit optional field (rather than left implicit)
+   * so every milestone shares one consistent shape. */
+  cta?: { label: string; href: string };
+}
+
 export const BRAND_STORY = {
   heading: "Le Petit Marseillais tại Việt Nam",
   intro:
     "Le Petit Marseillais mang tinh thần chăm sóc cá nhân vùng Provence, Pháp — nơi những công thức xà phòng, sữa tắm truyền thống được gìn giữ qua nhiều thế hệ. Hoàng Hà tự hào là đơn vị phân phối, đưa các sản phẩm này đến gần hơn với người tiêu dùng Việt Nam.",
+  /** Editorial callout mirroring the reference's brand-name etymology
+   * block ([KODALI]) — here explaining the traditional "Savon de
+   * Marseille" term the Le Petit Marseillais formulas draw on. Public,
+   * generic craft terminology, not brand-specific copy. */
+  termCallout: {
+    term: "[SAVON DE MARSEILLE]",
+    lines: [
+      "Tên gọi truyền thống cho xà phòng bánh vùng Marseille, miền Nam nước Pháp.",
+      "Công thức nguyên bản gồm tối thiểu 72% dầu thực vật, chủ yếu là dầu ô liu, không phẩm màu, không chất tạo bọt tổng hợp.",
+      "Le Petit Marseillais kế thừa tinh thần công thức này trong từng sản phẩm sữa tắm và xà phòng.",
+    ],
+  },
+  /** Pull-quote block mirroring the reference's founder-quote block.
+   * Attributed to Hoàng Hà as the distributor (no invented founder
+   * identity), and intentionally has no signature image — no real
+   * signature asset exists and none may be substituted. */
+  quote: {
+    text: "Chúng tôi cam kết mang trọn vẹn hương thơm Provence và chất lượng nguyên bản của Le Petit Marseillais đến tay người tiêu dùng Việt Nam.",
+    name: "Đại diện Hoàng Hà",
+    role: "Nhà phân phối chính thức Le Petit Marseillais tại Việt Nam",
+  },
   milestones: [
     {
       year: "Truyền thống",
@@ -151,7 +183,16 @@ export const BRAND_STORY = {
       year: "Hoàng Hà tại Việt Nam",
       heading: "Đồng hành cùng người tiêu dùng Việt",
       body: "Hoàng Hà phân phối sản phẩm chính hãng, đảm bảo nguồn gốc rõ ràng và dịch vụ chăm sóc khách hàng tận tâm tại thị trường Việt Nam.",
+      cta: { label: "Khám phá sản phẩm", href: "/san-pham" },
     },
+  ] satisfies BrandStoryMilestone[],
+  /** Small-print footnote block mirroring the reference's numbered
+   * citation list — generic distributor/sourcing disclaimers rather than
+   * fabricated sales statistics. */
+  footnotes: [
+    "(1) Thông tin về công thức xà phòng truyền thống vùng Marseille được tổng hợp từ tư liệu công khai, mang tính tham khảo.",
+    "(2) Hoàng Hà là nhà phân phối chính thức tại Việt Nam, không phải chủ sở hữu thương hiệu Le Petit Marseillais.",
+    "(3) Thành phần và mùi hương có thể thay đổi theo từng dòng sản phẩm — vui lòng tham khảo bao bì thực tế trước khi sử dụng.",
   ],
 };
 
