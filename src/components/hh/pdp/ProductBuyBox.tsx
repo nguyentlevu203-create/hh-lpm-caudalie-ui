@@ -7,13 +7,22 @@ import { useSiteUI } from "@/components/hh/SiteUIContext";
 import { formatVnd } from "@/components/hh/product/ProductCard";
 import type { HHProduct } from "@/data/products";
 
-/** Buy box pattern cloned from /reference/pdp's ProductBuyBox (title, rating
- * link to reviews, price, gift/shipping banner, qty stepper, sticky-style
- * CTA) — quantity and "Mua ngay"/"Thêm vào giỏ" are wired to the real cart
- * context instead of being decorative. */
+/** 10.000₫ = 1 điểm — same membership ratio published on the homepage's
+ * Câu Lạc Bộ Hoàng Hà section (see MEMBERSHIP.perks[0] in site-content.ts). */
+const VND_PER_LOYALTY_POINT = 10000;
+
+/** Buy box structure cloned 1:1 from /reference/pdp's ProductBuyBox: title +
+ * subtitle, review-count link to the reviews anchor, price row + loyalty
+ * pill, a selector-equivalent block (combo contents), the CTA button (price
+ * shown inline, matching "Add to bag | €price"), then a delivery-estimate
+ * bar and a gift/shipping banner last — same order as the reference.
+ * Quantity stepper and cart wiring are real (production-specific — the
+ * reference has no live cart to wire to). */
 export function ProductBuyBox({ product }: { product: HHProduct }) {
   const { addToCart } = useSiteUI();
   const [quantity, setQuantity] = useState(1);
+
+  const loyaltyPoints = Math.round((product.price * quantity) / VND_PER_LOYALTY_POINT);
 
   return (
     <div className="flex flex-col gap-4">
@@ -32,13 +41,18 @@ export function ProductBuyBox({ product }: { product: HHProduct }) {
         </Link>
       </div>
 
-      <div className="flex items-center gap-3">
-        <span className="text-2xl font-semibold text-hh-ink">{formatVnd(product.price)}</span>
-        {product.compareAtPrice && (
-          <span className="text-base text-hh-muted-foreground line-through">
-            {formatVnd(product.compareAtPrice)}
-          </span>
-        )}
+      <div>
+        <div className="flex items-center gap-3">
+          <span className="text-2xl font-semibold text-hh-ink">{formatVnd(product.price)}</span>
+          {product.compareAtPrice && (
+            <span className="text-base text-hh-muted-foreground line-through">
+              {formatVnd(product.compareAtPrice)}
+            </span>
+          )}
+        </div>
+        <p className="mt-2 inline-block rounded-full bg-hh-accent/20 px-3 py-1 text-sm text-hh-ink">
+          Tích {loyaltyPoints} điểm thành viên
+        </p>
       </div>
 
       {product.isCombo && product.comboIncludes && (
@@ -51,11 +65,6 @@ export function ProductBuyBox({ product }: { product: HHProduct }) {
           </ul>
         </div>
       )}
-
-      <div className="flex items-center gap-2 rounded-lg bg-hh-muted px-4 py-3 text-sm text-hh-ink">
-        <Gift className="size-4 shrink-0" />
-        Miễn phí vận chuyển cho đơn từ 399.000₫
-      </div>
 
       <div className="flex items-center gap-3">
         <div className="flex items-center gap-3 rounded-full border border-hh-border px-3 py-2">
@@ -82,7 +91,7 @@ export function ProductBuyBox({ product }: { product: HHProduct }) {
           onClick={() => addToCart(product.slug, quantity)}
           className="h-12 flex-1 rounded-md bg-hh-primary text-sm font-semibold text-white"
         >
-          Mua ngay | {formatVnd(product.price * quantity)}
+          Mua ngay <span className="opacity-60">|</span> {formatVnd(product.price * quantity)}
         </button>
       </div>
 
@@ -93,6 +102,15 @@ export function ProductBuyBox({ product }: { product: HHProduct }) {
       >
         Thêm vào giỏ
       </button>
+
+      <div className="rounded-md border border-hh-border px-4 py-3 text-center text-base text-hh-ink">
+        Giao hàng dự kiến: 2-5 ngày làm việc
+      </div>
+
+      <div className="flex items-center gap-3 rounded-md bg-hh-muted px-4 py-3">
+        <Gift className="size-6 shrink-0 text-hh-primary" />
+        <p className="text-sm text-hh-ink">Miễn phí vận chuyển cho đơn từ 399.000₫</p>
+      </div>
     </div>
   );
 }
