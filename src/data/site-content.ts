@@ -58,42 +58,192 @@ export const MEMBERSHIP = {
   cta: { label: "Đăng ký thành viên", action: "register" as const },
 };
 
-export const OFFERS = [
+/**
+ * Offers-hub campaign cards — structure cloned from /reference/offers
+ * (image|text split card, optional "Code:" line, optional per-card
+ * "Điều kiện áp dụng" accordion, optional gift-badge overlay). `colorFrom`/
+ * `colorTo` feed `ProductPlaceholderArt` (no real HH campaign photography
+ * exists yet) and are tints/shades derived from `--hh-primary`/`--hh-accent`.
+ */
+export interface HHOffer {
+  id: string;
+  heading: string;
+  body: string;
+  code?: string;
+  cta: string;
+  /** Fine-print paragraphs shown under a "Điều kiện áp dụng" accordion toggle. Omitted on cards with no terms, matching the reference's mixed pattern. */
+  terms?: string[];
+  /** Small gift-box badge overlaid top-right of the image — reference's per-card flag, not a systemic treatment. */
+  hasGiftBadge?: boolean;
+  colorFrom: string;
+  colorTo: string;
+  shape?: "bottle" | "soap" | "tube";
+}
+
+export const OFFERS: HHOffer[] = [
   {
-    id: "o1",
-    heading: "Ưu đãi nhập khẩu Pháp",
-    body: "Giảm 10% cho đơn hàng đầu tiên khi đăng ký thành viên Câu Lạc Bộ Hoàng Hà.",
-    code: "HHMOI10",
-    cta: "Nhận ưu đãi",
+    id: "nhan-doi-diem",
+    heading: "Nhân đôi điểm thành viên",
+    body: "Nhân đôi điểm tích lũy Câu Lạc Bộ Hoàng Hà cho mọi đơn hàng từ nay đến hết 31/07.",
+    cta: "Mua ngay",
+    terms: [
+      "*Áp dụng cho đơn hàng đặt từ 01/07 đến 31/07/2026 (không áp dụng cho phiếu quà tặng):",
+      "1) Trên hoangha.example.vn cho mọi đơn đặt hàng trực tuyến. Điểm thưởng được cộng vào tài khoản trong vòng 48 giờ kể từ khi đơn hàng được bàn giao cho đơn vị vận chuyển.",
+      "2) Tại hệ thống cửa hàng Hoàng Hà khi xuất trình tài khoản thành viên Câu Lạc Bộ Hoàng Hà hoặc đăng ký tại quầy.",
+    ],
+    colorFrom: "#2f6b4f",
+    colorTo: "#204a37",
+    shape: "bottle",
   },
   {
-    id: "o2",
+    id: "mua-2-tang-1-xa-phong",
     heading: "Mua 2 tặng 1 dòng xà phòng bánh",
-    body: "Áp dụng cho toàn bộ xà phòng bánh Le Petit Marseillais, số lượng có hạn.",
+    body: "Tặng ngay 1 xà phòng bánh 100g khi mua 2 sản phẩm bất kỳ trong dòng xà phòng bánh Le Petit Marseillais*.",
     code: "XAPHONG21",
     cta: "Mua ngay",
+    terms: [
+      "*Quà tặng: 1 xà phòng bánh 100g khi mua 2 sản phẩm bất kỳ trong dòng xà phòng bánh Le Petit Marseillais. Áp dụng trên hoangha.example.vn (nhập mã tại bước thanh toán) và tại hệ thống cửa hàng Hoàng Hà. Không áp dụng đồng thời với chương trình khuyến mãi khác. Số lượng có hạn.",
+    ],
+    colorFrom: "#7fb79c",
+    colorTo: "#2f6b4f",
+    shape: "soap",
   },
   {
-    id: "o3",
+    id: "qua-tang-duong-the",
+    heading: "Tặng dưỡng thể khi mua từ 499.000₫",
+    body: "Nhận ngay 1 chai dưỡng thể 200ml khi đơn hàng đạt từ 499.000₫*.",
+    code: "HHQUATANG49",
+    cta: "Mua ngay",
+    hasGiftBadge: true,
+    terms: [
+      "*Quà tặng: 1 dưỡng thể chiết xuất hạnh nhân 200ml. Áp dụng khi đơn hàng đạt từ 499.000₫ trên hoangha.example.vn (nhập mã tại bước thanh toán) và tại các điểm bán tham gia chương trình. Không áp dụng đồng thời với chương trình khuyến mãi khác. Số lượng có hạn đến hết 31/08/2026.",
+    ],
+    colorFrom: "#e08a3e",
+    colorTo: "#925a28",
+    shape: "tube",
+  },
+  {
+    id: "mien-phi-van-chuyen",
     heading: "Miễn phí vận chuyển toàn quốc",
     body: "Áp dụng cho đơn hàng từ 399.000₫, giao hàng toàn quốc trong 2-5 ngày.",
     cta: "Đặt hàng",
+    colorFrom: "#d9c39b",
+    colorTo: "#b8935c",
+    shape: "bottle",
   },
   {
-    id: "o4",
-    heading: "Combo quà tặng tiết kiệm hơn 20%",
-    body: "Chọn combo đóng hộp sẵn, tiết kiệm hơn so với mua lẻ từng sản phẩm.",
-    cta: "Xem combo",
+    id: "uu-dai-hoi-vien",
+    heading: "Ưu đãi Câu Lạc Bộ Hoàng Hà",
+    body: "Đăng ký đơn hàng\nTích điểm mỗi lần mua\nChọn quà yêu thích!\n100 điểm = 1 sản phẩm full-size miễn phí",
+    cta: "Tìm hiểu thêm",
+    colorFrom: "#204a37",
+    colorTo: "#123023",
+    shape: "bottle",
+  },
+  {
+    id: "chao-mung-thanh-vien-moi",
+    heading: "Ưu đãi chào mừng thành viên mới",
+    body: "Giảm 10% cho đơn hàng đầu tiên khi đăng ký nhận email từ Hoàng Hà!*\n\nLà người đầu tiên biết đến ưu đãi độc quyền, sản phẩm mới và nhiều điều thú vị khác.",
+    cta: "Đăng ký",
+    terms: [
+      "*Giảm 10% cho đơn hàng trực tuyến đầu tiên khi đăng ký nhận email từ Hoàng Hà. Mã giảm giá được gửi qua email sau khi đăng ký, áp dụng tại bước thanh toán trên hoangha.example.vn. Chỉ áp dụng 1 mã cho mỗi đơn hàng, không áp dụng cho phiếu quà tặng và sản phẩm đã giảm giá.",
+    ],
+    colorFrom: "#f3cf87",
+    colorTo: "#e08a3e",
+    shape: "bottle",
   },
 ];
 
-export const SCENT_ADVISOR_QUESTIONS = [
+export interface HHGiftDiscoveryTile {
+  id: string;
+  caption: string;
+  href: string;
+  colorFrom: string;
+  colorTo: string;
+  shape?: "bottle" | "soap" | "tube";
+}
+
+/** "Looking for the perfect gift?" discovery row — structure cloned from
+ * /reference/offers's `GiftDiscoveryTiles` (image+caption tile, no card
+ * chrome, whole tile is the link). Reference itself links all three tiles
+ * to placeholder anchors, so this mirrors that exactly. */
+export const HH_GIFT_DISCOVERY_TILES: HHGiftDiscoveryTile[] = [
+  {
+    id: "the-qua-tang",
+    caption: "Thẻ quà tặng Hoàng Hà",
+    href: "#",
+    colorFrom: "#e08a3e",
+    colorTo: "#204a37",
+    shape: "bottle",
+  },
+  {
+    id: "san-pham-ban-chay",
+    caption: "Sản phẩm bán chạy",
+    href: "/san-pham",
+    colorFrom: "#2f6b4f",
+    colorTo: "#7fb79c",
+    shape: "bottle",
+  },
+  {
+    id: "phien-ban-gioi-han",
+    caption: "Phiên bản giới hạn",
+    href: "/san-pham",
+    colorFrom: "#d9c39b",
+    colorTo: "#b8935c",
+    shape: "soap",
+  },
+];
+
+export interface HHScentAdvisorQuestion {
+  id: string;
+  scent: string;
+  title: string;
+  body: string;
+  /** Original single-hex per-card color (unused by ScentCard — kept for
+   * backward compatibility). Superseded by the `cardBg`/`headingColor`/
+   * `buttonBg` treatment below, whose values are tints/shades derived from
+   * `--hh-primary`/`--hh-accent` per the color-block-per-card pattern
+   * cloned from /reference/diagnosis's `ConcernCard`. */
+  color: string;
+  /** Card background color (hex) — tint/shade of an `--hh-*` token. */
+  cardBg: string;
+  /** Heading + eyebrow text color when the card sits on a dark background. */
+  onDark?: boolean;
+  headingColor: string;
+  buttonBg: string;
+  buttonTextColor: string;
+  /** Soft-desaturated heading/button treatment, mirroring the reference's
+   * VinoHydra/Vinopure "muted" cards — body copy stays full-strength. */
+  muted?: boolean;
+  /** Gradient feeding `ProductPlaceholderArt` (no real HH product
+   * photography exists yet), tinted to match the card's color family. */
+  colorFrom: string;
+  colorTo: string;
+  shape?: "bottle" | "soap" | "tube";
+}
+
+/**
+ * Scent-advisor cards — structure cloned from /reference/diagnosis's
+ * "1 issue, 1 solution" `ConcernCard` grid (image|text split, italic
+ * eyebrow, colored card background, "Shop now"-style CTA), re-themed as
+ * scent-family matching (an already-approved business-logic swap: this is
+ * about mood/scent matching, not skin concerns).
+ */
+export const SCENT_ADVISOR_QUESTIONS: HHScentAdvisorQuestion[] = [
   {
     id: "relax",
     scent: "Oải hương",
     title: "Muốn thư giãn cuối ngày",
     body: "Hương oải hương dịu nhẹ, phù hợp dùng buổi tối trước khi ngủ.",
     color: "#7c6fb0",
+    cardBg: "#204a37",
+    onDark: true,
+    headingColor: "#FFFFFF",
+    buttonBg: "#FFFFFF",
+    buttonTextColor: "#204a37",
+    colorFrom: "#2f6b4f",
+    colorTo: "#204a37",
+    shape: "bottle",
   },
   {
     id: "fresh",
@@ -101,6 +251,13 @@ export const SCENT_ADVISOR_QUESTIONS = [
     title: "Thích cảm giác tươi mới",
     body: "Hương hoa cam tươi mát, lý tưởng để bắt đầu ngày mới.",
     color: "#e2a33a",
+    cardBg: "#eaf0ed",
+    headingColor: "#2f6b4f",
+    buttonBg: "#2f6b4f",
+    buttonTextColor: "#FFFFFF",
+    colorFrom: "#7fb79c",
+    colorTo: "#2f6b4f",
+    shape: "bottle",
   },
   {
     id: "warm",
@@ -108,6 +265,13 @@ export const SCENT_ADVISOR_QUESTIONS = [
     title: "Yêu thích hương ấm áp, ngọt dịu",
     body: "Mật ong và sữa mang lại cảm giác ấm áp, nhẹ nhàng.",
     color: "#e2a33a",
+    cardBg: "#f7e2cf",
+    headingColor: "#925a28",
+    buttonBg: "#925a28",
+    buttonTextColor: "#FFFFFF",
+    colorFrom: "#e08a3e",
+    colorTo: "#925a28",
+    shape: "tube",
   },
   {
     id: "sweet",
@@ -115,6 +279,14 @@ export const SCENT_ADVISOR_QUESTIONS = [
     title: "Yêu sự lãng mạn, nữ tính",
     body: "Hương hoa hồng nhẹ nhàng, tinh tế cho mọi khoảnh khắc.",
     color: "#d98fa0",
+    cardBg: "#653e1c",
+    onDark: true,
+    headingColor: "#FFFFFF",
+    buttonBg: "#F2F2F2",
+    buttonTextColor: "#653e1c",
+    colorFrom: "#925a28",
+    colorTo: "#653e1c",
+    shape: "bottle",
   },
   {
     id: "classic",
@@ -122,6 +294,14 @@ export const SCENT_ADVISOR_QUESTIONS = [
     title: "Ưa chuộng công thức truyền thống",
     body: "Dầu ô liu nguyên chất theo công thức Marseille lâu đời.",
     color: "#8fa06a",
+    cardBg: "#eef1e8",
+    headingColor: "#9e774c",
+    buttonBg: "#9e774c",
+    buttonTextColor: "#FFFFFF",
+    muted: true,
+    colorFrom: "#c9b98f",
+    colorTo: "#9e774c",
+    shape: "soap",
   },
   {
     id: "gentle",
@@ -129,6 +309,13 @@ export const SCENT_ADVISOR_QUESTIONS = [
     title: "Cần chăm sóc dịu nhẹ cho da khô",
     body: "Sữa hạnh nhân giàu dưỡng chất, làm mềm da tức thì.",
     color: "#d9c39b",
+    cardBg: "#fbf6ec",
+    headingColor: "#204a37",
+    buttonBg: "#204a37",
+    buttonTextColor: "#FFFFFF",
+    colorFrom: "#fbf6ec",
+    colorTo: "#dcead9",
+    shape: "tube",
   },
 ];
 
