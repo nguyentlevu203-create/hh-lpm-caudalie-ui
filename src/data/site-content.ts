@@ -295,7 +295,7 @@ export const SCENT_ADVISOR_QUESTIONS: HHScentAdvisorQuestion[] = [
     body: "Dầu ô liu nguyên chất theo công thức Marseille lâu đời.",
     color: "#8fa06a",
     cardBg: "#eef1e8",
-    headingColor: "#9e774c",
+    headingColor: "#7c5e3a",
     buttonBg: "#9e774c",
     buttonTextColor: "#FFFFFF",
     muted: true,

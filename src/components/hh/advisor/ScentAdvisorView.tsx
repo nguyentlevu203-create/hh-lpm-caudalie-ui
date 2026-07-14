@@ -19,12 +19,12 @@ export function ScentAdvisorView() {
           <Link
             key={question.id}
             href={`/san-pham?scent=${encodeURIComponent(question.scent)}`}
-            className="flex flex-col gap-3 rounded-2xl p-6 text-white transition-transform hover:-translate-y-1"
-            style={{ backgroundColor: question.color }}
+            className="flex flex-col gap-3 rounded-2xl p-6 transition-transform hover:-translate-y-1"
+            style={{ backgroundColor: question.cardBg, color: question.headingColor }}
           >
-            <p className="text-xs font-medium uppercase tracking-widest text-white/80">Hương {question.scent}</p>
+            <p className="text-xs font-medium uppercase tracking-widest opacity-80">Hương {question.scent}</p>
             <p className="text-lg font-semibold">{question.title}</p>
-            <p className="text-sm text-white/85">{question.body}</p>
+            <p className="text-sm opacity-90">{question.body}</p>
             <span className="mt-2 text-sm font-medium underline underline-offset-2">Xem sản phẩm</span>
           </Link>
         ))}
