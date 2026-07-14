@@ -5,6 +5,7 @@ import { HHShell } from "@/components/hh/HHShell";
 import { PromoBar } from "@/components/hh/layout/PromoBar";
 import { Header } from "@/components/hh/layout/Header";
 import { Footer } from "@/components/hh/layout/Footer";
+import { ProductBreadcrumb, type ProductBreadcrumbItem } from "@/components/hh/product/ProductBreadcrumb";
 import { ProductGallery } from "@/components/hh/pdp/ProductGallery";
 import { ProductBuyBox } from "@/components/hh/pdp/ProductBuyBox";
 import { ProductDescription } from "@/components/hh/pdp/ProductDescription";
@@ -12,7 +13,7 @@ import { ProductAccordions } from "@/components/hh/pdp/ProductAccordions";
 import { TrustBadges } from "@/components/hh/pdp/TrustBadges";
 import { ProductReviews } from "@/components/hh/pdp/ProductReviews";
 import { RelatedProducts } from "@/components/hh/pdp/RelatedProducts";
-import { getProductBySlug, getRelatedProducts, HH_PRODUCTS } from "@/data/products";
+import { getProductBySlug, getRelatedProducts, HH_CATEGORIES, HH_PRODUCTS } from "@/data/products";
 
 interface ProductDetailPageProps {
   params: Promise<{ slug: string }>;
@@ -43,13 +44,21 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
   if (!product) notFound();
 
   const related = getRelatedProducts(product);
+  const categoryName = HH_CATEGORIES.find((c) => c.slug === product.category)?.name ?? product.category;
+  const breadcrumbItems: ProductBreadcrumbItem[] = [
+    { label: "Trang chủ", href: "/" },
+    { label: "Sản phẩm", href: "/san-pham" },
+    { label: categoryName, href: `/san-pham?category=${product.category}` },
+    { label: product.name },
+  ];
 
   return (
     <HHShell>
       <PromoBar />
       <Header />
       <main className="mx-auto w-full max-w-[1280px] flex-1 px-4 py-10 md:px-8">
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
+        <ProductBreadcrumb items={breadcrumbItems} />
+        <div className="mt-6 grid grid-cols-1 gap-10 lg:grid-cols-2">
           <ProductGallery product={product} />
           <ProductBuyBox product={product} />
         </div>

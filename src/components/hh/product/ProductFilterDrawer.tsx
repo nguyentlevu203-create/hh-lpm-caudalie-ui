@@ -66,6 +66,7 @@ export function ProductFilterDrawer({ activeCategory, activeScent }: ProductFilt
         role="dialog"
         aria-modal="true"
         aria-label="Bộ lọc"
+        aria-hidden={!open}
       >
         <div className="flex items-center justify-between px-6 py-5">
           <h2 className="text-2xl text-hh-ink">Bộ lọc</h2>
