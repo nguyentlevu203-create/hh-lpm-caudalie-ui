@@ -1,0 +1,7 @@
+{
+  "_meta": {
+    "totalRecords": 0,
+    "reason": "Neither hh_web_company.xlsx nor lpm_brand_web.xlsx contains a legal/policy sheet (terms, privacy, return/shipping policy, etc.). All 17 sheets across both workbooks were inspected; 05_Trang_noi_dung's 'Loại trang' values are limited to Bài viết, Trang nguyên liệu, Nội dung thương hiệu, Danh sách nguyên liệu — none are policy/legal content. This file intentionally contains zero imported records rather than fabricated legal copy. Existing site policy links (đổi trả, vận chuyển, etc.) remain the pre-existing placeholder '#' hrefs in src/data/site-content.ts, unchanged."
+  },
+  "legalPages": []
+}

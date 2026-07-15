@@ -1,0 +1,501 @@
+{
+  "_meta": {
+    "totalRecords": 19
+  },
+  "ingredients": [
+    {
+      "sourceWorkbook": "lpm_brand_web.xlsx",
+      "sourceSheet": "03_Nguyen_lieu",
+      "sourceRow": 2,
+      "importStatus": "imported",
+      "dataWarnings": [],
+      "fields": {
+        "id": "ing-1",
+        "name": "Hoa cam",
+        "slug": "fleur-d-oranger",
+        "headline": "Hoa cam đánh thức các giác quan",
+        "h1": "Hoa cam đánh thức các giác quan",
+        "intro": "Thơm ngát, ngon ngọt và tinh tế, hoa cam đánh thức mọi giác quan. Là biểu tượng đích thực của vùng Địa Trung Hải và ánh nắng mặt trời – từ bánh ngọt đến các sản phẩm làm đẹp – thứ mật ngọt tinh tế từ hoa của cây cam đắng này ẩn chứa những bí mật mà Le Petit Marseillais rất vui được chia sẻ với bạn.",
+        "origin": "Tinh dầu hoa cam được chiết xuất từ ​​hoa của cây cam đắng. Các nhà sản xuất đối tác của chúng tôi hái bằng tay những bông hoa này, sau đó được chưng cất cẩn thận. Kết quả là một loại tinh dầu đặc biệt giàu các đặc tính phục hồi. Được sử dụng trong y học cổ truyền Trung Quốc từ thời cổ đại, chiết xuất hoa cam có đặc tính làm dịu, vẫn còn có lợi ích trong y học toàn diện ngày nay.",
+        "benefit": null,
+        "beautyTip": "Với đặc tính dưỡng ẩm, làm mềm và chống oxy hóa, nó là thành phần hoàn hảo cho làn da trưởng thành thiếu độ săn chắc. Tác dụng làm dịu của nó cũng hiệu quả đối với làn da nhạy cảm dễ bị chàm. Hương thơm của nó là một điểm cộng thực sự: tươi mát, hương hoa và nhẹ nhàng, nó mang đến cho các dòng sản phẩm sữa dưỡng thể, kem dưỡng da và lăn khử mùi của chúng tôi một trải nghiệm khứu giác thực sự dễ chịu. Hãy để bản thân được đưa đến vùng nắng Địa Trung Hải với thành phần độc đáo này, gợi lên hình ảnh những khu vườn xinh đẹp thơm ngát hương thơm mùa hè…",
+        "scentExperience": null,
+        "fullContent": "Hoa Cam: Đánh Thức Các Giác Quan\nThơm, ngọt và tinh tế, hoa cam đánh thức các giác quan. Là biểu tượng đích thực của vùng Địa Trung Hải và ánh nắng mặt trời—từ bánh ngọt đến các sản phẩm làm đẹp—mật hoa tinh tế từ hoa của cây cam đắng này chứa đựng những bí mật mà Le Petit Marseillais rất vui được chia sẻ với bạn.\nHoa Cam: Một Loại Tinh Dầu Thiết Yếu\nHoa cam được chiết xuất từ ​​hoa của cây cam đắng. Các đối tác trồng trọt của chúng tôi hái bằng tay những bông hoa này, sau đó được chưng cất với niềm đam mê. Điều này tạo ra một loại dầu đặc biệt với nhiều đặc tính phục hồi. Được sử dụng trong y học cổ truyền Trung Quốc và từ thời cổ đại, chiết xuất hoa cam có đặc tính làm dịu, vẫn có lợi trong y học toàn diện.\nBí Quyết Làm Đẹp Được Giữ Kín…\nCác đặc tính dưỡng ẩm, làm mềm và chống oxy hóa của nó làm cho nó trở thành thành phần hoàn hảo cho làn da trưởng thành thiếu sức sống. Tác dụng làm dịu của nó cũng hiệu quả đối với làn da nhạy cảm dễ bị chàm, chẳng hạn. Hương thơm của nó cũng là một điểm cộng thực sự: tươi mát, hương hoa và nhẹ nhàng, nó mang đến cho các dòng sản phẩm sữa dưỡng thể, kem dưỡng da và lăn khử mùi của chúng tôi một trải nghiệm khứu giác thực sự thú vị. Hãy để bản thân được đắm chìm trong ánh nắng Địa Trung Hải với thành phần độc đáo này, gợi lên hình ảnh những khu vườn xinh đẹp ngát hương thơm mùa hè…\nVà đó là tất cả! Các thành phần của chúng tôi\nNày! Hãy hoàn thiện quy trình làm đẹp của bạn",
+        "heroImageUrl": "https://images.ctfassets.net/jncafthqaw2i/6RpqOV4rp6gLcDpxrdInsQ/dcc8e7b539f72cbc9b393eebc8aafc3e/fleur-d-oranger.svg?fm=webp&w=3840",
+        "sourceUrl": "https://www.lepetitmarseillais.com/coucou-la-marque/bonjour-nature/nos-ingredients/fleur-d-oranger",
+        "duplicateOf": {
+          "sourceSheet": "05_Trang_noi_dung",
+          "sourceRow": 3
+        }
+      }
+    },
+    {
+      "sourceWorkbook": "lpm_brand_web.xlsx",
+      "sourceSheet": "03_Nguyen_lieu",
+      "sourceRow": 3,
+      "importStatus": "imported",
+      "dataWarnings": [],
+      "fields": {
+        "id": "ing-2",
+        "name": "Quả mơ",
+        "slug": "abricot",
+        "headline": "Quả mơ, biểu tượng của những cánh đồng đầy nắng.",
+        "h1": "Quả mơ, biểu tượng của những cánh đồng đầy nắng.",
+        "intro": "Mọng nước, ngọt ngào và dịu nhẹ, quả mơ là loại trái cây đặc trưng của mùa hè ngập tràn ánh nắng. Là biểu tượng của những cánh đồng ngập nắng, thơm ngát ở vùng Provence thân yêu, quả mơ sở hữu những đặc tính tuyệt vời cho da và tóc. Le Petit Marseillais đã lấy cảm hứng từ quả mơ để tạo ra các dòng sản phẩm giúp bạn có làn da rạng rỡ khỏe mạnh trong mọi mùa.",
+        "origin": "Vào đầu mỗi mùa hè, trên những cánh đồng bằng phẳng đầy nắng của Roussillon, những quả mơ của chúng tôi được thu hoạch bằng tay một cách tỉ mỉ. Hợp tác cùng những người bạn sản xuất địa phương, những người cùng chia sẻ niềm đam mê với mảnh đất quê hương của chúng tôi, họ mang đến cho chúng tôi sản phẩm chất lượng cao trong mỗi vụ thu hoạch, tự hào để cho những quả mơ phát triển theo tốc độ tự nhiên của chúng.",
+        "benefit": "Ngoài nhiều loại vitamin có lợi, dầu chiết xuất từ ​​hạt mơ còn sở hữu những đặc tính quý hiếm giúp da và tóc rạng rỡ. Giàu axit béo, nó cung cấp sự mềm mại và dưỡng ẩm cho làn da xỉn màu và mệt mỏi. Chứa nhiều chất chống oxy hóa, quả mơ hoạt động như một chất tăng cường độ rạng rỡ thực sự cho làn da khỏe mạnh, phản chiếu màu sắc tươi tắn của nó. Le Petit Marseillais, với các dòng sản phẩm Chăm sóc da Khỏe mạnh và Rạng rỡ, mang đến cho bạn làn da tươi tắn và rạng rỡ suốt cả năm. Từ mặt nạ và gel ngủ đến kem dưỡng ẩm và sữa rửa mặt, mỗi sản phẩm đều tôn trọng nhu cầu tự nhiên của làn da bạn, mang đến trải nghiệm giác quan vượt thời gian.",
+        "beautyTip": null,
+        "scentExperience": null,
+        "fullContent": "Quả mơ, biểu tượng của những cánh đồng ngập nắng\nMọng nước, ngọt ngào và dịu nhẹ, quả mơ là loại trái cây đặc trưng của những cánh đồng ngập nắng. Là biểu tượng của những cánh đồng thơm ngát, ngập nắng ở vùng Provence thân yêu của chúng ta, nó sở hữu những đặc tính tuyệt vời cho da và tóc. Le Petit Marseillais đã lấy cảm hứng từ quả mơ cho các dòng sản phẩm của mình, dành riêng để mang đến cho bạn vẻ rạng rỡ khỏe mạnh trong mọi mùa.\nMùa thu hoạch hài hòa với thiên nhiên cho những quả mơ Roussillon của chúng tôi\nMỗi mùa hè, trên những cánh đồng ngập nắng của Roussillon, những quả mơ của chúng tôi được hái bằng tay một cách tỉ mỉ. Hợp tác với những người nông dân địa phương thân thiết, những người cùng chia sẻ niềm đam mê với mảnh đất quê hương của họ, họ mang đến cho chúng tôi những vụ thu hoạch chất lượng cao trong mỗi mùa vụ, và chúng tôi trân trọng để cho cây cối phát triển theo tốc độ tự nhiên của chúng.\nSản phẩm ngập nắng với những lợi ích độc đáo\nNgoài nhiều vitamin có lợi, dầu thu được từ việc ép hạt mơ còn chứa những đặc tính quý hiếm cho làn da và mái tóc rạng rỡ. Giàu axit béo, quả mơ mang lại sự mềm mại và dưỡng ẩm cho làn da xỉn màu và mệt mỏi. Chứa nhiều chất chống oxy hóa, quả mơ hoạt động như một chất tăng cường độ rạng rỡ thực sự cho làn da khỏe mạnh, phản chiếu màu sắc tươi tắn của nó. Le Petit Marseillais, với các dòng sản phẩm Healthy Glow và Radiant, mang đến cho bạn làn da tươi tắn và rạng rỡ suốt cả năm. Mặt nạ đêm, gel, kem dưỡng ẩm hay sữa rửa mặt—mỗi sản phẩm đều tôn trọng nhu cầu tự nhiên của làn da bạn, mang đến trải nghiệm giác quan vượt thời gian.\nVà đó là tất cả các thành phần của chúng tôi!\nNày! Hoàn thiện quy trình làm đẹp của bạn",
+        "heroImageUrl": "https://images.ctfassets.net/jncafthqaw2i/3yZoTRmYRIPV2g9vfXalkU/cea1143634f7bf07a5ddb5eb5ff36555/abricot-adp_0.svg?fm=webp&w=3840",
+        "sourceUrl": "https://www.lepetitmarseillais.com/coucou-la-marque/bonjour-nature/nos-ingredients/abricot",
+        "duplicateOf": {
+          "sourceSheet": "05_Trang_noi_dung",
+          "sourceRow": 82
+        }
+      }
+    },
+    {
+      "sourceWorkbook": "lpm_brand_web.xlsx",
+      "sourceSheet": "03_Nguyen_lieu",
+      "sourceRow": 4,
+      "importStatus": "imported",
+      "dataWarnings": [],
+      "fields": {
+        "id": "ing-3",
+        "name": "Nha đam",
+        "slug": "aloe-vera",
+        "headline": "Nha đam: công dụng và lợi ích",
+        "h1": "Nha đam: công dụng và lợi ích",
+        "intro": "Là một loại cây cổ xưa với những lợi ích đã được chứng minh qua nhiều thế kỷ, lô hội sở hữu những đặc tính chữa bệnh và làm đẹp vượt trội, đã chinh phục trái tim người dân Le Petit Marseillais...",
+        "origin": "Lô hội không phải ngẫu nhiên mà được mệnh danh là \"hoa huệ sa mạc\". Hoang dã và xinh đẹp, nó mọc ở những vùng đất khô cằn của châu Phi, Hoa Kỳ, Mexico, Philippines và nhiều nơi khác, và có thể cao tới 1 mét. Không đòi hỏi nhiều, loại cây này dễ trồng tại nhà miễn là được giữ ở nhiệt độ từ 18 đến 21°C. Vào mùa xuân, nó phát triển mạnh mẽ, khoe sắc những chiếc lá xanh tươi đẹp, với phần thịt quả tươi, dạng gel mang lại nhiều lợi ích cho sức khỏe.",
+        "benefit": "Làm dịu, chữa lành, chứa nhiều vitamin, khoáng chất, axit amin và thậm chí tăng cường miễn dịch: nha đam là một thành phần tuyệt vời! Với thành phần chính là 99% nước, nó hoàn hảo cho mái tóc khô xơ, thiếu độ mềm mại và bóng mượt. Điều tương tự cũng đúng với làn da: dù là da khô hay da lão hóa, chất bổ sung dưỡng ẩm này sẽ cung cấp các chất dinh dưỡng cần thiết cho làn da của bạn để trở nên mềm mại và mịn màng. Về mặt y học, nó có đặc tính chữa lành và làm dịu để làm dịu vết cháy nắng hoặc bỏng.",
+        "beautyTip": null,
+        "scentExperience": null,
+        "fullContent": "Nha Đam: Công dụng và Lợi ích\nLà một loại cây cổ xưa với những lợi ích đã được công nhận qua nhiều thế kỷ, nha đam sở hữu những đặc tính chữa bệnh và làm đẹp tuyệt vời đã chinh phục trái tim người dân Paris…\nMột loại cây dễ trồng, ưa nắng\nNha đam không phải tự nhiên mà được mệnh danh là \"hoa huệ sa mạc\". Hoang dã và xinh đẹp, nó mọc ở những vùng đất khô cằn của Châu Phi, Hoa Kỳ, Mexico, Philippines và nhiều nơi khác, và có thể cao tới 1 mét. Dễ trồng, loại cây này rất dễ trồng tại nhà miễn là duy trì nhiệt độ từ 18 đến 21°C. Vào mùa xuân, nó phát triển mạnh mẽ, khoe sắc những chiếc lá xanh tươi đẹp, với phần thịt quả tươi, dạng gel mang lại nhiều lợi ích.\nGel Nha Đam và những Lợi ích Không Thể Phủ Nhận\nLàm dịu, chữa lành, giàu vitamin, khoáng chất, axit amin, và thậm chí là chất tăng cường hệ miễn dịch: nha đam là một thành phần tuyệt vời! Với 99% là nước, nó hoàn hảo cho mái tóc khô xơ, thiếu độ mềm mại và bóng mượt. Điều tương tự cũng áp dụng cho da: dù là da khô hay da lão hóa, thực phẩm bổ sung dưỡng ẩm này sẽ cung cấp các dưỡng chất cần thiết cho làn da mềm mại và mịn màng. Về mặt y học, nó có đặc tính chữa lành và làm dịu da, giúp làm giảm cháy nắng hoặc bỏng.\nVà đó là tất cả các thành phần của chúng tôi!\nNày! Hoàn thiện quy trình làm đẹp của bạn",
+        "heroImageUrl": "https://images.ctfassets.net/jncafthqaw2i/eZKzmtJjYtvjlpBXj5KsX/696b1127326340e7085aa12fc4019b55/aloe-vera-adp_0-fr-fr?fm=webp&w=3840",
+        "sourceUrl": "https://www.lepetitmarseillais.com/coucou-la-marque/bonjour-nature/nos-ingredients/aloe-vera",
+        "duplicateOf": {
+          "sourceSheet": "05_Trang_noi_dung",
+          "sourceRow": 83
+        }
+      }
+    },
+    {
+      "sourceWorkbook": "lpm_brand_web.xlsx",
+      "sourceSheet": "03_Nguyen_lieu",
+      "sourceRow": 5,
+      "importStatus": "imported",
+      "dataWarnings": [],
+      "fields": {
+        "id": "ing-4",
+        "name": "Hạnh nhân",
+        "slug": "amande",
+        "headline": "Hạnh nhân, cho làn da đẹp tự nhiên",
+        "h1": "Hạnh nhân, cho làn da đẹp tự nhiên",
+        "intro": "Ngọt ngào và thơm ngon, hạnh nhân là một trong những loại hạt nhắc nhở chúng ta về vẻ đẹp và sự trù phú của thiên nhiên miền Nam. Vì vậy, Le Petit Marseillais đã đưa nó vào các dòng sản phẩm được thiết kế để tôn lên vẻ đẹp tự nhiên của bạn.",
+        "origin": "Những quả hạnh nhân tươi được thu hoạch cẩn thận vào cuối tháng Sáu. Cây hạnh nhân cho ra những quả xanh mượt tuyệt đẹp trong tiết trời mùa xuân ôn hòa. Đó là lý do tại sao chúng tôi hợp tác với những người trồng trọt đầy tâm huyết và giàu kinh nghiệm, những người hiểu rõ nhịp điệu của mảnh đất ngập tràn ánh nắng mặt trời của họ.",
+        "benefit": null,
+        "beautyTip": "Mặc dù tất cả các bộ phận của cây hạnh nhân đều có những đặc tính có lợi, nhưng chính tinh dầu từ quả hạnh nhân mới mang lại những lợi ích làm đẹp đáng kể. Giàu axit béo omega, vitamin, khoáng chất, sắt và kẽm, tinh dầu hạnh nhân dưỡng ẩm, làm dịu và phục hồi độ đàn hồi cho da và tóc khô. Tinh dầu hạnh nhân ngọt hoạt động như một lớp màng bảo vệ và tái tạo. Bơ hạnh nhân, được chiết xuất từ ​​tinh dầu, và chiết xuất hạnh nhân cũng có lợi cho cơ thể và tóc khi được sử dụng trong các liệu trình chăm sóc sâu hơn. Hạnh nhân, với hương thơm ngọt ngào, quyến rũ, được sử dụng trong các dòng sản phẩm sữa dưỡng thể và mặt nạ tóc của chúng tôi. Một bí quyết làm đẹp từ miền Nam nước Mỹ được chia sẻ rộng rãi.",
+        "scentExperience": null,
+        "fullContent": "Hạnh nhân, cho làn da đẹp tự nhiên\nNgọt ngào và thơm ngon, hạnh nhân là một trong những loại hạt gợi nhớ đến vẻ đẹp và sự trù phú của miền Nam nước Pháp. Vì vậy, Le Petit Marseillais đã khéo léo đưa chúng vào các dòng sản phẩm được thiết kế để tôn lên vẻ đẹp tự nhiên của bạn.\nCây hạnh nhân: một loài cây cần được chăm sóc và quan tâm\nHạnh nhân tươi được thu hoạch cẩn thận vào cuối tháng Sáu. Cây hạnh nhân cho ra những quả xanh mượt mà, đẹp mắt trong tiết trời mùa xuân ôn hòa. Đó là lý do tại sao chúng tôi hợp tác với những người trồng trọt đầy tâm huyết và kinh nghiệm, những người hiểu rõ nhịp điệu của mảnh đất ngập tràn ánh nắng mặt trời của họ.\nHạnh nhân ngọt và những bí quyết làm đẹp của chúng\nMặc dù tất cả các bộ phận của cây hạnh nhân đều chứa các đặc tính có lợi, nhưng chính dầu từ quả của nó - hạnh nhân - mới mang lại những lợi ích làm đẹp đáng kể. Thật vậy, giàu omega, vitamin, khoáng chất, sắt và kẽm, nó sẽ dưỡng ẩm, làm dịu và phục hồi độ đàn hồi cho da và tóc khô. Dầu hạnh nhân ngọt hoạt động như một lớp màng bảo vệ và tái tạo. Bơ hạnh nhân được chiết xuất từ ​​dầu và chiết xuất hạnh nhân cũng có lợi cho cơ thể và tóc như một phần của các liệu trình chăm sóc chuyên sâu. Hạnh nhân, với hương thơm ngọt ngào, quyến rũ, là thành phần chính trong các dòng sản phẩm sữa dưỡng thể và mặt nạ tóc của chúng tôi. Một bí quyết làm đẹp từ miền Nam đang được lan tỏa rộng rãi.\nVà đó là tất cả! Các thành phần của chúng tôi\nNày! Hoàn thiện quy trình làm đẹp của bạn",
+        "heroImageUrl": "https://images.ctfassets.net/jncafthqaw2i/2vv90A6urcw05jbE6eqsG0/a6ef94366e6b0f951e6cb4f4980122cc/amande.svg?fm=webp&w=3840",
+        "sourceUrl": "https://www.lepetitmarseillais.com/coucou-la-marque/bonjour-nature/nos-ingredients/amande",
+        "duplicateOf": {
+          "sourceSheet": "05_Trang_noi_dung",
+          "sourceRow": 84
+        }
+      }
+    },
+    {
+      "sourceWorkbook": "lpm_brand_web.xlsx",
+      "sourceSheet": "03_Nguyen_lieu",
+      "sourceRow": 6,
+      "importStatus": "imported",
+      "dataWarnings": [],
+      "fields": {
+        "id": "ing-5",
+        "name": "Dầu argan",
+        "slug": "argan",
+        "headline": "Dầu Argan, bí quyết làm đẹp vùng Địa Trung Hải.",
+        "h1": "Dầu Argan, bí quyết làm đẹp vùng Địa Trung Hải.",
+        "intro": "Là bí quyết làm đẹp của phụ nữ Địa Trung Hải, dầu argan đã trở thành bí quyết làm đẹp \"tự nhiên\" được ưa chuộng chỉ trong vài năm. Le Petit Marseillais đã bị cuốn hút bởi vẻ đẹp của nó và nhanh chóng đưa nó vào các dòng sản phẩm dành riêng cho sức khỏe của bạn.",
+        "origin": "Dầu argan được chiết xuất từ ​​quả hạch của cây argan, một loại cây chỉ được tìm thấy ở tây nam Maroc và tây Algeria. Loại cây quý hiếm này, một Di sản Thế giới của UNESCO, có thể sống tới 200 năm ở những vùng đất vô cùng khô cằn.",
+        "benefit": "Dầu argan quý hiếm và khó chiết xuất, sở hữu những lợi ích ấn tượng: vitamin, chất chống oxy hóa và axit béo omega giúp làm dịu và phục hồi độ mềm mại cho làn da khô. Đối với tóc, nó cũng mang lại nhiều lợi ích: khả năng chống oxy hóa giúp phục hồi sâu sợi tóc và bảo vệ tóc khỏi các tác nhân gây hại từ bên ngoài. Được thiết kế vì sức khỏe của bạn, dòng sản phẩm dầu argan của Le Petit Marseillais bao gồm mặt nạ và dầu xả dưỡng chất dành cho tóc rất khô và xoăn. Trải nghiệm những khoái cảm tuyệt vời của phòng tắm hơi hammam với sữa tắm argan của chúng tôi, với kết cấu dầu thơm quyến rũ sẽ khơi gợi các giác quan và đánh thức niềm đam mê khám phá của bạn.",
+        "beautyTip": null,
+        "scentExperience": null,
+        "fullContent": "Dầu Argan, bí quyết làm đẹp Địa Trung Hải\nLà bí quyết làm đẹp của phụ nữ Địa Trung Hải, dầu argan đã trở thành bí quyết làm đẹp \"tự nhiên\" được ưa chuộng chỉ trong vài năm. Le Petit Marseillais đã bị cuốn hút bởi vẻ đẹp của nó và nhanh chóng đưa nó vào các dòng sản phẩm dành riêng cho sức khỏe của bạn.\nHướng đến ánh nắng rực rỡ của vùng Maghreb\nDầu argan được chiết xuất từ ​​quả hạch của cây argan, một loại cây chỉ được tìm thấy ở tây nam Morocco và tây Algeria. Loại cây quý hiếm này, một Di sản Thế giới của UNESCO, có thể sống đến 200 năm trên những vùng đất rất khô cằn.\nDầu argan, hay \"vàng lỏng\"\nHiếm và khó chiết xuất, dầu argan có những lợi ích ấn tượng: vitamin, chất chống oxy hóa và axit béo omega giúp làm dịu và phục hồi độ mềm mại cho da khô. Đối với tóc, nó mang lại rất nhiều lợi ích: khả năng chống oxy hóa của nó giúp phục hồi sâu sợi tóc và bảo vệ tóc khỏi các tác nhân gây hại từ bên ngoài. Được thiết kế cho sức khỏe của bạn, các dòng sản phẩm dầu argan của Le Petit Marseillais bao gồm mặt nạ và dầu xả dưỡng chất dành cho tóc rất khô và xoăn. Trải nghiệm những thú vui thư giãn của phòng tắm hơi hammam với sữa tắm argan của chúng tôi, với kết cấu dầu thơm sẽ kích thích các giác quan và khơi dậy niềm đam mê khám phá của bạn.\nVà đó là tất cả! Thành phần của chúng tôi\nNày! Hoàn thiện quy trình làm đẹp của bạn",
+        "heroImageUrl": "https://images.ctfassets.net/jncafthqaw2i/3nZHIvNQVXxO9mpMeKbLCp/c6a0f88385c8d5d394d5181bf877fe48/argan.svg?fm=webp&w=3840",
+        "sourceUrl": "https://www.lepetitmarseillais.com/coucou-la-marque/bonjour-nature/nos-ingredients/argan",
+        "duplicateOf": {
+          "sourceSheet": "05_Trang_noi_dung",
+          "sourceRow": 85
+        }
+      }
+    },
+    {
+      "sourceWorkbook": "lpm_brand_web.xlsx",
+      "sourceSheet": "03_Nguyen_lieu",
+      "sourceRow": 7,
+      "importStatus": "imported",
+      "dataWarnings": [],
+      "fields": {
+        "id": "ing-6",
+        "name": "Argile",
+        "slug": "argile",
+        "headline": "Đất sét, người bạn của da và tóc",
+        "h1": "Đất sét, người bạn của da và tóc",
+        "intro": "Xanh lá, trắng, hồng, đỏ, vàng… đất sét mang đến một bảng màu đa dạng và những đặc tính tuyệt vời cho làn da và mái tóc của bạn. Le Petit Marseillais đã kết hợp thành phần lâu đời này vào các dòng sản phẩm mang đậm phong cách miền Nam để giúp bạn xinh đẹp trong mọi mùa.",
+        "origin": "Được hình thành từ quá trình phong hóa của một số khoáng chất trong đất, đất sét là một loại đá cấu tạo từ nhiều khoáng chất và nguyên tố vi lượng. Nó được tìm thấy dọc theo bờ các con sông, suối và có nhiều màu sắc khác nhau tùy thuộc vào thành phần của nó. Ở dạng rắn, sệt hoặc bột, sự giàu khoáng chất của đất sét khiến nó trở thành một thành phần lý tưởng để giữ gìn vẻ đẹp của da và tóc.",
+        "benefit": null,
+        "beautyTip": "Đất sét xanh được ưa chuộng nhất nhờ hàm lượng khoáng chất cao. Có khả năng thấm hút, tẩy tế bào chết và chống viêm, nó giúp cân bằng lại làn da hỗn hợp đến da dầu hoặc da dễ nổi mụn và da đầu nhanh bị nhờn. Đất sét trắng cũng được đánh giá cao, nhưng nhờ tính dịu nhẹ và tác dụng làm thông thoáng lỗ chân lông. Với các dòng sản phẩm từ đất sét, Le Petit Marseillais mang đến cho bạn những liệu trình chăm sóc tóc hiệu quả và đầy cảm giác: dầu gội, mặt nạ và các sản phẩm dưỡng tóc – vô số lựa chọn cho mái tóc đẹp, khỏe mạnh và mềm mại đến khó tin.",
+        "scentExperience": null,
+        "fullContent": "Đất sét, người bạn của da và tóc\nXanh lá cây, trắng, hồng, đỏ, vàng… đất sét mang đến một bảng màu và những đặc tính tuyệt vời cho làn da và mái tóc của bạn. Le Petit Marseillais đã kết hợp thành phần lâu đời này vào các dòng sản phẩm mang đậm phong cách miền Nam để giúp bạn luôn xinh đẹp trong mọi mùa.\nĐất sét, một loại đá tự nhiên\nĐược hình thành từ sự phong hóa của một số khoáng chất trong đất, đất sét là một loại đá bao gồm nhiều khoáng chất và nguyên tố vi lượng. Nó được tìm thấy dọc theo các tuyến đường thủy và có màu sắc khác nhau tùy thuộc vào thành phần của nó. Ở dạng rắn, dạng sệt hoặc dạng bột, sự giàu khoáng chất của nó làm cho nó trở thành một thành phần lý tưởng để giữ gìn vẻ đẹp của làn da và mái tóc.\nKhi đất sét tiết lộ những bí mật của nó…\nĐất sét xanh lá cây là loại phổ biến nhất nhờ nồng độ khoáng chất cao. Có khả năng thấm hút, tẩy tế bào chết và chống viêm, nó giúp cân bằng lại làn da hỗn hợp đến da dầu hoặc da dễ nổi mụn và da đầu nhanh bị nhờn. Đất sét trắng cũng được đánh giá cao, nhưng vì tính dịu nhẹ và khả năng làm thông thoáng lỗ chân lông. Với các dòng sản phẩm từ đất sét, Le Petit Marseillais mang đến cho bạn quy trình chăm sóc tóc hiệu quả và đầy cảm giác: dầu gội, mặt nạ và các sản phẩm dưỡng tóc – vô vàn lựa chọn cho mái tóc đẹp, khỏe mạnh và mềm mại đến khó tin…\nVà đó là tất cả các thành phần của chúng tôi!\nNày! Hãy hoàn thiện quy trình làm đẹp của bạn",
+        "heroImageUrl": "https://images.ctfassets.net/jncafthqaw2i/4AIrrAbpaQ38K9fJyBYhmU/0a65a47d4e853e3c8865fa7115c0db49/argile.svg?fm=webp&w=3840",
+        "sourceUrl": "https://www.lepetitmarseillais.com/coucou-la-marque/bonjour-nature/nos-ingredients/argile",
+        "duplicateOf": {
+          "sourceSheet": "05_Trang_noi_dung",
+          "sourceRow": 86
+        }
+      }
+    },
+    {
+      "sourceWorkbook": "lpm_brand_web.xlsx",
+      "sourceSheet": "03_Nguyen_lieu",
+      "sourceRow": 8,
+      "importStatus": "imported",
+      "dataWarnings": [],
+      "fields": {
+        "id": "ing-7",
+        "name": "Chanh",
+        "slug": "citron",
+        "headline": "Chanh, một nguồn giàu vitamin C.",
+        "h1": "Chanh, một nguồn giàu vitamin C.",
+        "intro": "Được tắm mình trong ánh nắng mặt trời, quả chanh chưa hề bị vắt để bộc lộ hết hàm lượng vitamin C dồi dào, một loại vitamin chỉ được phát hiện vào năm 1932! Nó được biết đến như một trợ thủ đắc lực giúp giảm cân trong một lối sống lành mạnh và cân bằng. Là những người yêu thích các sản phẩm từ những vùng đất ngập tràn ánh nắng, Le Petit Marseillais đã biến nó thành một thành phần chính trong các sản phẩm lấy cảm hứng từ vùng Địa Trung Hải của mình.",
+        "origin": "Chính tại Sicily, Le Petit Marseillais đã bắt đầu hành trình tìm kiếm những quả chanh hữu cơ tuyệt đẹp. Nổi tiếng với việc tuân thủ những tiêu chuẩn khắt khe, chanh Sicily được thu hoạch từ mùa đông đến mùa xuân khi chúng đạt đến màu vàng tươi tắn. Chính tinh dầu được chiết xuất từ ​​lớp vỏ thơm, sần sùi của chúng mang lại những đặc tính tuyệt vời cho da và tóc.",
+        "benefit": "Với công dụng tuyệt vời cả bên trong lẫn bên ngoài, chanh và các đặc tính làm đẹp của nó chắc chắn sẽ chinh phục bạn! Khi dùng trong nước xả, chanh giúp tóc bóng mượt và làm sạch da đầu. Đặc tính làm trắng giúp móng tay chắc khỏe và đẹp. Là một chất chống oxy hóa mạnh mẽ, chỉ cần vài giọt trong mặt nạ tự chế là đủ để làm sạch da. Khám phá dòng sản phẩm chanh Le Petit Marseillais và để bản thân được đắm chìm trong những vùng đất ngập tràn ánh nắng mỗi khi sử dụng. Dầu gội và sữa tắm làm sạch – tất cả đều có sẵn để làm hài lòng cơ thể bạn!",
+        "beautyTip": null,
+        "scentExperience": null,
+        "fullContent": "Chanh, kho báu vitamin C\nĐầy ắp ánh nắng mặt trời, quả chanh không cần phải vắt để lộ ra hàm lượng vitamin C dồi dào, chỉ được phát hiện vào năm 1932! Nó được biết đến như một trợ thủ đắc lực giúp giảm cân trong lối sống lành mạnh và cân bằng. Là những người yêu thích các sản phẩm từ vùng đất ngập tràn ánh nắng, Le Petit Marseillais đã biến nó thành một thành phần chính trong các sản phẩm lấy cảm hứng từ Địa Trung Hải của mình.\nDưới ánh mặt trời, chính xác là…\nLe Petit Marseillais đã bắt đầu hành trình tìm kiếm những quả chanh hữu cơ tuyệt đẹp của mình ở Sicily. Nổi tiếng với việc tuân thủ các tiêu chuẩn khắt khe, chanh Sicily được thu hoạch từ mùa đông đến mùa xuân khi chúng đạt đến màu vàng tươi đẹp. Chính tinh dầu được chiết xuất từ ​​vỏ chanh có mùi thơm, mang lại những đặc tính tuyệt vời cho da và tóc.\nChanh giúp bạn đẹp từ đầu đến chân!\n\nHiệu quả cả bên trong lẫn bên ngoài, chanh và các đặc tính làm đẹp của nó chắc chắn sẽ chinh phục được nhiều người! Khi dùng trong nước xả tóc, nó giúp tóc bóng mượt và làm sạch da đầu. Đặc tính làm trắng của nó giúp móng tay chắc khỏe và đẹp. Là một chất chống oxy hóa mạnh mẽ, chỉ cần vài giọt trong mặt nạ tự chế là đủ để làm sạch da. Khám phá dòng sản phẩm chanh Petit Marseillais và để bản thân được đưa đến những vùng đất ngập tràn ánh nắng mặt trời mỗi khi sử dụng. Dầu gội và sữa tắm thanh lọc – tất cả đều có ở đây để làm cho cơ thể bạn cảm ơn bạn!\nVà đó là tất cả các thành phần của chúng tôi!\nNày! Hoàn thiện quy trình làm đẹp của bạn",
+        "heroImageUrl": "https://images.ctfassets.net/jncafthqaw2i/2GOvWUvq91tlRrH8lXsGTa/be5561b0f60bbbe747f94c55bde50d60/citron.svg?fm=webp&w=3840",
+        "sourceUrl": "https://www.lepetitmarseillais.com/coucou-la-marque/bonjour-nature/nos-ingredients/citron",
+        "duplicateOf": {
+          "sourceSheet": "05_Trang_noi_dung",
+          "sourceRow": 87
+        }
+      }
+    },
+    {
+      "sourceWorkbook": "lpm_brand_web.xlsx",
+      "sourceSheet": "03_Nguyen_lieu",
+      "sourceRow": 9,
+      "importStatus": "imported",
+      "dataWarnings": [],
+      "fields": {
+        "id": "ing-8",
+        "name": "Citron Vert",
+        "slug": "citron-vert",
+        "headline": "Chanh, thêm chút vị chua.",
+        "h1": "Chanh, thêm chút vị chua.",
+        "intro": "Nhỏ hơn và có vị chua hơn so với người anh em họ màu vàng tươi của nó, chanh không chỉ dùng để tạo hương vị cho món ăn; nó còn mang lại nhiều lợi ích cho sức khỏe. Hãy khám phá những bí mật của loại trái cây nhỏ bé mà Le Petit Marseillais yêu thích để sử dụng trong các sản phẩm của mình!",
+        "origin": "Được trồng dưới ánh nắng mặt trời của hòn đảo xinh đẹp này, những quả chanh hữu cơ được thu hoạch cẩn thận từ tháng Mười đến tháng Mười Một. Từ nhiều thế hệ nay, các nhà sản xuất Corsica đã mang đến cho chúng ta những sản vật tốt nhất từ ​​vùng đất của họ, những viên ngọc quý của vùng Địa Trung Hải.",
+        "benefit": "Với đặc tính sát trùng, chống viêm và chống oxy hóa, chanh rất lý tưởng để điều tiết lượng bã nhờn dư thừa trên da đầu và da đầu, nguyên nhân gây ra làn da xỉn màu, dễ nổi mụn và tóc yếu. Với hương thơm tươi mát, đậm chất mùa hè cùng tác dụng làm săn chắc và kích thích, chanh mang lại hiệu quả tuyệt vời. Khi được sử dụng như một liệu pháp chăm sóc tóc, nó mang đến luồng gió mới cho mái tóc nhẹ nhàng và tinh khiết. Sữa tắm chanh của chúng tôi mang đến sự tươi mát sảng khoái, làm hài lòng cả gia đình mỗi khi sử dụng. Với Le Petit Marseillais, hãy bắt đầu một chuyến đi một chiều đến vùng đất của các giác quan...",
+        "beautyTip": null,
+        "scentExperience": null,
+        "fullContent": "Chanh xanh, điểm nhấn chua thanh\nNhỏ hơn và chua hơn so với người anh em họ màu vàng tươi của nó, chanh xanh không chỉ dùng để tạo hương vị cho món ăn; nó còn sở hữu nhiều đặc tính có lợi cho cơ thể. Khám phá những bí mật của loại trái cây nhỏ bé mà Le Petit Marseillais yêu thích cho các sản phẩm của mình!\nHãy sẵn sàng cho lối sống xanh!\n\nĐược trồng dưới ánh nắng mặt trời của Corsica, chanh xanh hữu cơ được thu hoạch cẩn thận từ tháng 10 đến tháng 11. Từ nhiều thế hệ, các nhà sản xuất Corsica đã mang đến cho chúng ta những sản phẩm tốt nhất từ ​​vùng đất của họ, những viên ngọc quý của Địa Trung Hải.\nLợi ích vượt trội\nCó tính sát trùng, chống viêm và chống oxy hóa, chanh xanh lý tưởng để điều tiết lượng bã nhờn dư thừa trên da đầu và da đầu, nguyên nhân gây ra làn da xỉn màu, dễ nổi mụn và tóc yếu. Với hương thơm tươi mát, đậm chất mùa hè cùng tác dụng làm săn chắc và kích thích, chanh xanh mang lại hiệu quả tuyệt vời. Khi được sử dụng như một liệu pháp chăm sóc tóc, nó mang lại sự tươi mát cho mái tóc, giúp tóc nhẹ nhàng và sạch sẽ. Sữa tắm chanh xanh của chúng tôi mang đến sự tươi mát sẽ làm hài lòng cả gia đình mỗi khi sử dụng. Với Le Petit Marseillais, hãy bắt đầu chuyến hành trình một chiều đến vùng đất của các giác quan...\nVà đó là tất cả! Tất cả các thành phần của chúng tôi\nNày! Hoàn thiện quy trình làm đẹp của bạn",
+        "heroImageUrl": "https://images.ctfassets.net/jncafthqaw2i/1rW6tAsjqgIap9ewItYrJX/49b245c7fccddbde579b745972a5fa1c/citron-vert.svg?fm=webp&w=3840",
+        "sourceUrl": "https://www.lepetitmarseillais.com/coucou-la-marque/bonjour-nature/nos-ingredients/citron-vert",
+        "duplicateOf": {
+          "sourceSheet": "05_Trang_noi_dung",
+          "sourceRow": 88
+        }
+      }
+    },
+    {
+      "sourceWorkbook": "lpm_brand_web.xlsx",
+      "sourceSheet": "03_Nguyen_lieu",
+      "sourceRow": 10,
+      "importStatus": "imported",
+      "dataWarnings": [],
+      "fields": {
+        "id": "ing-9",
+        "name": "Dừa",
+        "slug": "coco",
+        "headline": "Dừa, một loại trái cây kỳ lạ với hương vị tinh tế.",
+        "h1": "Dừa, một loại trái cây kỳ lạ với hương vị tinh tế.",
+        "intro": "Được tất cả các bé yêu thích, dừa đã trở thành một phần không thể thiếu trong thói quen chăm sóc sức khỏe của chúng ta. Le Petit Marseillais yêu thích loại trái cây kỳ lạ này với hương vị tinh tế và tiềm năng hiếm có, điều mà phụ nữ trên đảo đã trân trọng qua nhiều thế hệ.",
+        "origin": "Cây dừa, có nguồn gốc từ các hòn đảo, có thể sống tới 80 năm và mất từ ​​5 đến 6 năm sau khi trồng để cho ra những quả dừa ngon ngọt. Tùy thuộc vào độ chín của dừa, công dụng của nó sẽ khác nhau. Dừa non có thể cho ra nước dừa thơm ngon, bổ dưỡng, trong khi dừa chín hơn được chọn để sản xuất dầu dừa. Le Petit Marseillais dành thời gian lựa chọn dừa: không vội vàng dưới ánh mặt trời!",
+        "benefit": "Từ cùi, nước cho đến vỏ, mọi thứ trong quả dừa đều tuyệt vời! Dưỡng ẩm, chống oxy hóa và tái tạo, nước dừa lý tưởng để phục hồi độ bóng mượt cho mái tóc khô xơ. Được sử dụng như một liệu pháp cho mái tóc khô ráp và mệt mỏi, dầu dừa giàu vitamin và sắt sẽ mang lại sự mềm mại và chắc khỏe cho mái tóc của bạn. Được chiết xuất từ ​​dầu dừa, bơ dừa cũng là một phương thuốc kỳ diệu để phục hồi sâu. Tác dụng kháng khuẩn của nó rất lý tưởng cho da đầu khô và bong tróc. Rất giàu dưỡng chất, dầu dừa cũng tốt cho da: được nuôi dưỡng, săn chắc và rạng rỡ, tạm biệt các kích ứng và chào đón làn da mềm mại, thơm mát! Khám phá các dòng sản phẩm \"Coco-ning\" của chúng tôi để có một trải nghiệm tắm gội với hương vị kỳ lạ, các sản phẩm chăm sóc tóc từ nước dừa cho mái tóc rạng rỡ, và dành thời gian để nuông chiều bản thân, như thể bạn đang ở dưới những tán dừa!",
+        "beautyTip": null,
+        "scentExperience": null,
+        "fullContent": "Dừa, một loại trái cây kỳ lạ với hương vị tinh tế\nĐược tất cả các bé yêu thích, dừa đã trở thành một phần không thể thiếu trong các liệu trình chăm sóc sức khỏe của chúng ta. Le Petit Marseillais yêu thích loại trái cây kỳ lạ này với hương vị tinh tế và tiềm năng hiếm có, điều mà phụ nữ trên đảo đã trân trọng qua nhiều thế hệ.\nMột loại trái cây mọc trên cao\nLà loài cây đặc trưng của các hòn đảo, cây dừa có thể sống đến 80 năm và mất từ ​​5 đến 6 năm sau khi trồng để cho ra những quả dừa tuyệt đẹp. Tùy thuộc vào độ chín của dừa, công dụng của nó sẽ khác nhau. Dừa non có thể cho ra nước dừa thơm ngon, bổ dưỡng, trong khi dừa chín hơn được chọn để sản xuất dầu dừa. Le Petit Marseillais dành thời gian để lựa chọn dừa: không cần vội vàng dưới ánh mặt trời!\n“Loại trái cây hữu ích nhất thế giới”\nTừ cùi đến nước và vỏ, mọi thứ trong quả dừa đều tốt! Dưỡng ẩm, chống oxy hóa và tái tạo, nước dừa lý tưởng để phục hồi độ bóng mượt cho mái tóc khô xơ. Được sử dụng như một phương pháp điều trị cho mái tóc khô xơ và mệt mỏi, dầu dừa giàu vitamin và sắt sẽ mang lại sự mềm mại và chắc khỏe cho mái tóc của bạn. Được chiết xuất từ ​​dầu dừa, bơ dừa cũng là một phương thuốc kỳ diệu để phục hồi sâu. Tác dụng kháng khuẩn của nó rất lý tưởng cho da đầu khô và bong tróc. Rất giàu dưỡng chất, dầu dừa cũng tốt cho da: được nuôi dưỡng, săn chắc và rạng rỡ, tạm biệt các kích ứng và chào đón làn da mềm mại, thơm mát! Khám phá các dòng sản phẩm \"Coco-ning\" của chúng tôi để có một trải nghiệm tắm gội với hương vị kỳ lạ, các sản phẩm chăm sóc tóc từ nước dừa cho mái tóc rạng rỡ, và dành thời gian để nuông chiều bản thân, như thể bạn đang ở dưới những tán dừa!\nVà đó là tất cả các thành phần của chúng tôi!\nNày! Hoàn thiện quy trình làm đẹp của bạn",
+        "heroImageUrl": "https://images.ctfassets.net/jncafthqaw2i/22IvPCq5l2WLFcyZ37z5Zi/705fac3e86c2243ebabd41088c3840ee/coco.svg?fm=webp&w=3840",
+        "sourceUrl": "https://www.lepetitmarseillais.com/coucou-la-marque/bonjour-nature/nos-ingredients/coco",
+        "duplicateOf": {
+          "sourceSheet": "05_Trang_noi_dung",
+          "sourceRow": 89
+        }
+      }
+    },
+    {
+      "sourceWorkbook": "lpm_brand_web.xlsx",
+      "sourceSheet": "03_Nguyen_lieu",
+      "sourceRow": 11,
+      "importStatus": "imported",
+      "dataWarnings": [],
+      "fields": {
+        "id": "ing-10",
+        "name": "Quả sung",
+        "slug": "figue",
+        "headline": "Quả sung, một món ăn không thể thiếu trong thực đơn mùa hè.",
+        "h1": "Quả sung, một món ăn không thể thiếu trong thực đơn mùa hè.",
+        "intro": "Mọng nước, ngập tràn ánh nắng và là biểu tượng của miền Nam, quả sung là loại trái cây mùa hè điển hình. Với phần thịt đỏ và vỏ xanh hoặc tím, quả sung gợi nhớ đến những bữa sáng đầy nắng và những chiếc bánh tart từ những kỳ nghỉ của chúng ta ở Provence. Để lưu giữ mãi những ký ức quý giá này, Le Petit Marseillais đã đưa quả sung vào tâm điểm trong các dòng sản phẩm mùa hè và dành cho trải nghiệm giác quan của mình.",
+        "origin": "Tùy thuộc vào loại cây sung, vụ thu hoạch diễn ra vào mùa thu hoặc mùa hè. Là loại trái cây mỏng manh, chín trong vòng 48 giờ, chúng tôi chỉ hợp tác với những nhà sản xuất thu hoạch những trái cây quý giá này bằng tay, tôn trọng nhịp điệu của tự nhiên. Có lời đồn rằng những quả sung ngon nhất được thu hoạch ở vùng Địa Trung Hải, nhưng đó chỉ là bí mật giữa chúng ta thôi…",
+        "benefit": "Giàu nước, quả sung cung cấp độ ẩm và độ mềm mại cho các lớp biểu bì, giúp da căng mọng và tươi tắn. Tinh dầu của quả sung, với nhiều đặc tính có lợi, cũng được chiết xuất, đặc biệt là khả năng chống lại tác động của thời gian bằng cách làm săn chắc các tế bào da. Được sử dụng trong ngành nước hoa, tinh dầu quả sung mang đến hương thơm mùa hè tươi mát, vị trái cây mà những người yêu thích nắng hè không thể cưỡng lại. Le Petit Marseillais cung cấp đầy đủ các loại kem dưỡng da, sữa dưỡng thể, dầu gội và sản phẩm chăm sóc tóc với tinh dầu quả sung. Mỗi lần sử dụng sẽ là một chuyến trở về với những kỷ niệm kỳ nghỉ của bạn, mang đến cho cuộc sống thường nhật của bạn niềm vui và sự tươi tắn.",
+        "beautyTip": null,
+        "scentExperience": null,
+        "fullContent": "Quả sung, ngôi sao trong các dòng sản phẩm mùa hè của chúng tôi\nMọng nước, chín mọng dưới ánh nắng mặt trời và là biểu tượng của miền Nam, quả sung là loại trái cây mùa hè điển hình. Với phần thịt đỏ và vỏ xanh hoặc tím, quả sung gợi nhớ đến những bữa sáng đầy nắng và những chiếc bánh tart từ những kỳ nghỉ của chúng ta ở Provence. Để kéo dài ký ức quý giá này, Le Petit Marseillais đã đặt quả sung vào vị trí trung tâm trong các dòng sản phẩm mùa hè và cảm quan của mình.\nMột loại trái cây tinh tế cần được chăm sóc\nTùy thuộc vào loại cây sung, vụ thu hoạch diễn ra vào mùa thu hoặc mùa hè. Là một loại trái cây tinh tế chín trong vòng 48 giờ, chúng tôi chỉ hợp tác với các nhà sản xuất thu hoạch những trái cây nhỏ quý giá này bằng tay, hài hòa với thiên nhiên. Người ta nói rằng những quả sung ngon nhất được thu hoạch ở lưu vực Địa Trung Hải, nhưng đó chỉ là bí mật giữa chúng ta thôi…\nLợi ích độc đáo cho làn da\nGiàu nước, nó cung cấp độ ẩm và độ đàn hồi cho các lớp biểu bì, cho làn da căng mọng và tươi tắn. Tinh dầu sung cũng được chiết xuất, tự hào với nhiều đặc tính có lợi, đặc biệt là khả năng chống lại tác động của lão hóa nhờ tác dụng làm săn chắc các tế bào da. Cũng được sử dụng trong ngành nước hoa, tinh dầu quả sung tỏa ra hương thơm mùa hè và trái cây mà những người yêu thích nắng hè sẽ không thể cưỡng lại. Le Petit Marseillais cung cấp một loạt các sản phẩm kem dưỡng da, sữa dưỡng thể, dầu gội và sản phẩm chăm sóc tóc từ quả sung. Mỗi lần sử dụng sẽ là một chuyến hành trình trở về những kỷ niệm kỳ nghỉ của bạn, thêm chút nắng ấm và niềm vui vào cuộc sống thường nhật.\nVà đó là tất cả các thành phần của chúng tôi!\nNày! Hoàn thiện quy trình làm đẹp của bạn",
+        "heroImageUrl": "https://images.ctfassets.net/jncafthqaw2i/5rCo2sWbEpXJWNPXgVE65t/ad6a0b4dfdf00f5548aa2e4dc93e9356/figue.svg?fm=webp&w=3840",
+        "sourceUrl": "https://www.lepetitmarseillais.com/coucou-la-marque/bonjour-nature/nos-ingredients/figue",
+        "duplicateOf": {
+          "sourceSheet": "05_Trang_noi_dung",
+          "sourceRow": 90
+        }
+      }
+    },
+    {
+      "sourceWorkbook": "lpm_brand_web.xlsx",
+      "sourceSheet": "03_Nguyen_lieu",
+      "sourceRow": 12,
+      "importStatus": "imported",
+      "dataWarnings": [],
+      "fields": {
+        "id": "ing-11",
+        "name": "Lựu",
+        "slug": "grenade",
+        "headline": "Quả lựu, một người bạn đồng hành của sắc đẹp và sức khỏe.",
+        "h1": "Quả lựu, một người bạn đồng hành của sắc đẹp và sức khỏe.",
+        "intro": "Quả lựu, loại quả mọng với 400 hạt và hàng ngàn công dụng! Khám phá tất cả những điều bạn chưa biết về quả lựu, một người bạn đồng hành của sắc đẹp và sức khỏe.",
+        "origin": "Quả lựu, trái của cây lựu, nổi tiếng với vô số lợi ích cho sức khỏe. Đó là lý do tại sao nó được trồng từ năm 3000 trước Công nguyên và được người Hy Lạp coi là biểu tượng của sự sinh sôi nảy nở. Có hình dạng giống như một quả táo mọng nước, quả lựu được xếp vào loại quả mọng và có thể chứa tới 400 hạt! Nó có thể được ăn tươi hoặc thưởng thức ở dạng lỏng, chẳng hạn như trong món grenadine cổ điển.",
+        "benefit": "Hạt màu đỏ của quả lựu, đặc biệt giàu chất xơ và vitamin C, khiến nó trở thành \"nhà vô địch\" về năng lượng! Đặc tính chống viêm của nó giúp chống lại các cơn đau liên quan đến bệnh thấp khớp.",
+        "beautyTip": "Chiết xuất quả lựu, thu được từ hạt của quả, giàu axit hữu cơ tự nhiên và nổi tiếng với tác dụng tái tạo. Tannin có trong quả lựu làm sạch và se khít lỗ chân lông – một lợi ích tuyệt vời cho da dầu! Tác dụng làm săn chắc tự nhiên của nó khiến nó trở thành một thành phần chất lượng cao trong chăm sóc da chống lão hóa.",
+        "scentExperience": null,
+        "fullContent": "Quả Lựu: Người bạn đồng hành của sắc đẹp và sức khỏe\nQuả lựu, loại quả mọng với 400 hạt và hàng ngàn lợi ích! Khám phá mọi điều bạn chưa biết về quả lựu, một người bạn đồng hành của sắc đẹp và sức khỏe.\nQuả lựu là gì?\n\nLà quả của cây lựu, quả lựu nổi bật với vô số lợi ích. Đó là lý do tại sao nó được trồng từ năm 3000 trước Công nguyên và được người Hy Lạp coi là biểu tượng của sự sinh sản. Có hình dạng giống như một quả táo mọng nước, quả lựu được coi là một loại quả mọng và có thể chứa tới 400 hạt! Nó có thể được ăn tươi hoặc ở dạng lỏng, chẳng hạn như trong món grenadine nổi tiếng.\nLợi ích sức khỏe của quả lựu\nNhững hạt màu đỏ của nó, đặc biệt giàu chất xơ và vitamin C, khiến quả lựu trở thành nhà vô địch về năng lượng! Đặc tính chống viêm của nó giúp chống lại cơn đau liên quan đến bệnh thấp khớp.\nLợi ích sức khỏe của quả lựu\nNhững hạt màu đỏ của nó, đặc biệt giàu chất xơ và vitamin C, khiến quả lựu trở thành nhà vô địch về năng lượng! Đặc tính chống viêm của nó giúp chống lại cơn đau liên quan đến bệnh thấp khớp.\nLợi ích sức khỏe của quả lựu ## Chiết xuất quả lựu, người bạn đồng hành làm đẹp của bạn\nChiết xuất quả lựu, được chiết xuất từ ​​hạt của quả, giàu axit hữu cơ tự nhiên và nổi tiếng với tác dụng tái tạo. Tannin có trong quả lựu giúp làm sạch và se khít lỗ chân lông. Một lợi ích tuyệt vời cho da dầu! Tác dụng làm săn chắc tự nhiên của nó khiến nó trở thành một thành phần chất lượng cao trong chăm sóc da chống lão hóa.\nVà đó là tất cả các thành phần của chúng tôi!\nHãy hoàn thiện quy trình làm đẹp của bạn!",
+        "heroImageUrl": "https://images.ctfassets.net/jncafthqaw2i/6TdbM1v9xPqt9vs9XASqwb/90c8ea8f362f4c11286e0d9a69d4e6f5/grenade.svg?fm=webp&w=3840",
+        "sourceUrl": "https://www.lepetitmarseillais.com/coucou-la-marque/bonjour-nature/nos-ingredients/grenade",
+        "duplicateOf": {
+          "sourceSheet": "05_Trang_noi_dung",
+          "sourceRow": 91
+        }
+      }
+    },
+    {
+      "sourceWorkbook": "lpm_brand_web.xlsx",
+      "sourceSheet": "03_Nguyen_lieu",
+      "sourceRow": 13,
+      "importStatus": "imported",
+      "dataWarnings": [],
+      "fields": {
+        "id": "ing-12",
+        "name": "Bơ hạt mỡ",
+        "slug": "karite",
+        "headline": "Bơ hạt mỡ, sản phẩm được yêu thích dành cho da khô.",
+        "h1": "Bơ hạt mỡ, sản phẩm được yêu thích dành cho da khô.",
+        "intro": "Bơ hạt mỡ là thành phần được ưa chuộng nhất dành cho da khô. Cho dù ở dạng dầu hay dạng bơ, hãy khám phá tất cả những lợi ích của bơ hạt mỡ.",
+        "origin": "Cây shea có nguồn gốc từ thảo nguyên châu Phi, có thể cao tới 45 mét và sống từ hai đến ba thế kỷ. Quả của nó, cũng được gọi là hạt shea, mọc thành chùm gồm các quả mọng màu xanh đậm đến nâu, mỗi quả chứa một hoặc hai nhân. Quả shea, được dùng để làm bơ hạt mỡ, được thu hoạch từ giữa tháng Sáu đến giữa tháng Chín. Dầu shea, được đánh giá cao trong ngành mỹ phẩm, được chiết xuất từ ​​bơ hạt mỡ bằng cách lọc để thu được phần chất lỏng.",
+        "benefit": "Mặc dù được sử dụng trong ẩm thực truyền thống châu Phi, bơ hạt mỡ còn là, và trên hết, một người bạn đồng hành thực sự cho sức khỏe. Đặc tính chống viêm của nó làm cho nó rất hiệu quả trong việc giảm đau nhức, đau cơ và thấp khớp. Nó cũng được các vận động viên đánh giá cao, thường xuyên sử dụng để làm ấm cơ bắp trước và sau khi tập luyện. Nó cũng được sử dụng như một chất làm lành vết thương trong điều trị bệnh chàm.",
+        "beautyTip": "Bơ hạt mỡ, thường được sử dụng trong các sản phẩm mỹ phẩm, nổi bật với đặc tính dưỡng ẩm và nuôi dưỡng da và tóc. Ở dạng dầu, bơ hạt mỡ làm dịu mẩn đỏ và kích ứng da, đồng thời giúp bảo vệ da khỏi tia cực tím và các tác nhân gây hại từ bên ngoài như lạnh, gió và ô nhiễm. Đó là lý do tại sao dầu hạt mỡ đặc biệt được khuyên dùng để ngăn ngừa lão hóa da. Bơ hạt mỡ, nổi tiếng với những lợi ích phục hồi, thường được sử dụng như một loại kem dưỡng ẩm và làm mềm da. Nó được sử dụng, trong số những công dụng khác, như son dưỡng môi để ngăn ngừa khô môi, kem dưỡng thể và kem dưỡng tay, và rất hiệu quả trong việc điều trị ngăn ngừa rạn da! Cuối cùng, bơ hạt mỡ rất lý tưởng để nuôi dưỡng tóc khô hoặc tóc xoăn.",
+        "scentExperience": null,
+        "fullContent": "Bơ hạt mỡ, Thành phần được ưa chuộng nhất cho da khô\nBơ hạt mỡ là thành phần được ưa chuộng nhất cho da khô. Cho dù ở dạng dầu hay bơ, hãy khám phá tất cả những lợi ích của bơ hạt mỡ.\nBơ hạt mỡ là gì?\n\nCây shea, có nguồn gốc từ thảo nguyên châu Phi, có thể cao tới 15 mét và sống từ hai đến ba thế kỷ. Quả của nó, cũng được gọi là hạt shea, mọc thành chùm màu xanh đậm đến nâu, mỗi quả chứa một hoặc hai nhân. Quả shea, được dùng để làm bơ, được thu hoạch từ giữa tháng 6 đến giữa tháng 9. Dầu shea, được đánh giá cao trong mỹ phẩm, được chiết xuất từ ​​bơ hạt mỡ, được lọc để thu được phần chất lỏng.\nBơ hạt mỡ và Y học\nMặc dù được tiêu thụ trong ẩm thực truyền thống châu Phi, bơ hạt mỡ còn là, và trên hết, một người bạn đồng hành thực sự cho sức khỏe. Đặc tính chống viêm của nó làm cho nó rất hiệu quả đối với các cơn đau nhức, đau cơ và thấp khớp. Nó cũng được các vận động viên đánh giá cao, những người thường xuyên sử dụng nó để làm ấm cơ bắp trước và sau khi tập luyện. Nó cũng được sử dụng như một chất làm lành trong điều trị bệnh chàm.\nBơ hạt mỡ trong mỹ phẩm\nThường được sử dụng trong các sản phẩm mỹ phẩm, bơ hạt mỡ nổi bật với đặc tính dưỡng ẩm và nuôi dưỡng da và tóc. Ở dạng dầu, bơ hạt mỡ làm dịu vết đỏ và kích ứng da, đồng thời giúp bảo vệ da khỏi tia cực tím và các tác nhân gây hại từ bên ngoài như lạnh, gió và ô nhiễm. Đó là lý do tại sao dầu hạt mỡ đặc biệt được khuyên dùng để ngăn ngừa lão hóa da. Bơ hạt mỡ, nổi tiếng với những lợi ích phục hồi, thường được sử dụng như một loại kem dưỡng ẩm và làm mềm da. Nó được sử dụng, trong số những công dụng khác, như son dưỡng môi chống khô, kem dưỡng thể và kem dưỡng tay, và rất hiệu quả trong điều trị ngăn ngừa rạn da!\n\nCuối cùng, bơ hạt mỡ rất lý tưởng để nuôi dưỡng tóc khô hoặc tóc xoăn.\nVà đó là tất cả! Tất cả các thành phần của chúng tôi\nNày! Hoàn thiện quy trình làm đẹp của bạn",
+        "heroImageUrl": "https://images.ctfassets.net/jncafthqaw2i/2xRGOGu8YmNZeyEgxjWeV/d7355b348fc3d4e4901d84f12fca9710/karite.svg?fm=webp&w=3840",
+        "sourceUrl": "https://www.lepetitmarseillais.com/coucou-la-marque/bonjour-nature/nos-ingredients/karite",
+        "duplicateOf": {
+          "sourceSheet": "05_Trang_noi_dung",
+          "sourceRow": 92
+        }
+      }
+    },
+    {
+      "sourceWorkbook": "lpm_brand_web.xlsx",
+      "sourceSheet": "03_Nguyen_lieu",
+      "sourceRow": 14,
+      "importStatus": "imported",
+      "dataWarnings": [],
+      "fields": {
+        "id": "ing-13",
+        "name": "Oải hương",
+        "slug": "lavande",
+        "headline": "Hoa oải hương, một báu vật của vùng Địa Trung Hải.",
+        "h1": "Hoa oải hương, một báu vật của vùng Địa Trung Hải.",
+        "intro": "Hoa oải hương là một báu vật của vùng Địa Trung Hải, gợi lên những chuyến du lịch và hương thơm của nó thì chúng ta đều biết rõ. Hãy cùng khám phá tất cả những bí mật của hoa oải hương.",
+        "origin": "Hoa oải hương là một loại cây lâu năm, mọc thành từng cụm nhỏ ở những nơi khô ráo, nhiều nắng. Có nguồn gốc từ lưu vực Địa Trung Hải phía tây, hoa oải hương đã được người La Mã sử ​​dụng để bảo quản vải lanh và tạo hương thơm cho bồn tắm. Trên thực tế, tên gọi của nó bắt nguồn từ từ tiếng Latinh \"lavare\", có nghĩa là rửa. Ở Provence, hoa oải hương đã được sử dụng từ thời Trung cổ để làm nước hoa và thuốc; tuy nhiên, việc trồng trọt loại cây này mới thực sự phát triển từ thế kỷ 19 trở đi.",
+        "benefit": "Như bạn có thể đoán, trong khi màu sắc và hương thơm của nó ngay lập tức đưa chúng ta đến vùng Provence, đó không phải là công dụng duy nhất của hoa oải hương. Thật vậy, nó chứa nhiều phân tử khác nhau (linalool, acetate, cineole, v.v.) với vô số lợi ích chữa bệnh. Để khai thác tối đa các đặc tính này, hoa phải được chưng cất để thu được tinh dầu. Chính ở dạng này, nó được sử dụng nhờ các đặc tính làm dịu, chống viêm, sát trùng, kháng khuẩn và chữa lành!",
+        "beautyTip": "Tinh dầu oải hương, được chiết xuất từ ​​hoa của cây Lavanda Angustifolia, là một hoạt chất phục hồi với đặc tính làm se khít lỗ chân lông, thanh lọc và làm dịu da. Do đó, nó rất lý tưởng cho da dầu hoặc thậm chí da dễ nổi mụn, cần làm sạch lỗ chân lông bị tắc nghẽn do bã nhờn và ô nhiễm.",
+        "scentExperience": null,
+        "fullContent": "Hoa oải hương, một báu vật Địa Trung Hải\nHoa oải hương là một báu vật Địa Trung Hải gợi lên những chuyến du lịch và hương thơm của nó thì chúng ta đều biết rõ. Hãy cùng khám phá tất cả những bí mật của hoa oải hương.\nHoa oải hương là gì?\n\nLà một loại cây lâu năm, hoa oải hương mọc thành từng bụi ở những nơi khô ráo, nhiều nắng. Có nguồn gốc từ lưu vực Địa Trung Hải phía tây, hoa oải hương đã được người La Mã sử ​​dụng để bảo quản vải lanh và tạo hương thơm cho bồn tắm. Tên gọi của nó bắt nguồn từ tiếng Latinh \"lavare\", có nghĩa là rửa. Ở Provence, hoa oải hương đã được sử dụng từ thời Trung Cổ để làm thành phần của nước hoa và thuốc; nhưng phải đến thế kỷ 19 trở đi, việc trồng trọt loại cây này mới thực sự phát triển.\nHoa oải hương và Y học\nNhư bạn có thể đoán, trong khi màu sắc và hương thơm của nó ngay lập tức đưa chúng ta đến Provence, thì đó không phải là sức mạnh duy nhất của hoa oải hương. Thật vậy, nó chứa nhiều phân tử khác nhau (linalool, acetate, cineole, v.v.) với nhiều lợi ích y học. Để tận dụng tối đa các đặc tính của nó, hoa phải được chưng cất để thu được tinh dầu. Chính ở dạng này mà nó được sử dụng nhờ các đặc tính làm dịu, chống viêm, sát trùng, kháng khuẩn và chữa lành!\nHoa oải hương trong mỹ phẩm\nTinh dầu hoa oải hương, được chiết xuất từ ​​hoa của cây Lavanda Angustifolia, là một hoạt chất phục hồi với các đặc tính làm se khít lỗ chân lông, làm sạch và làm dịu da. Do đó, nó lý tưởng cho da dầu hoặc thậm chí da dễ nổi mụn cần làm sạch lỗ chân lông bị tắc nghẽn bởi bã nhờn và ô nhiễm.\nVà đó là tất cả các thành phần của chúng tôi!\nNày! Hoàn thiện quy trình làm đẹp của bạn",
+        "heroImageUrl": "https://images.ctfassets.net/jncafthqaw2i/3MoxbcSFRrcqH1xG6N0LHC/4e0eac08cc585af6c087cf440cf68419/lavande.svg?fm=webp&w=3840",
+        "sourceUrl": "https://www.lepetitmarseillais.com/coucou-la-marque/bonjour-nature/nos-ingredients/lavande",
+        "duplicateOf": {
+          "sourceSheet": "05_Trang_noi_dung",
+          "sourceRow": 93
+        }
+      }
+    },
+    {
+      "sourceWorkbook": "lpm_brand_web.xlsx",
+      "sourceSheet": "03_Nguyen_lieu",
+      "sourceRow": 15,
+      "importStatus": "imported",
+      "dataWarnings": [],
+      "fields": {
+        "id": "ing-14",
+        "name": "Miel Haute Provence",
+        "slug": "miel-haute-provence",
+        "headline": "Mật ong từ vùng Haute Provence",
+        "h1": "Mật ong từ vùng Haute Provence",
+        "intro": "Bạn chưa từng biết đến mật ong hoa oải hương? Vậy thì đây là tất cả những gì bạn cần biết!",
+        "origin": "Mật ong được ong tạo ra từ mật hoa, nhựa cây và các chất đường khác từ thực vật. Có nhiều loại mật ong khác nhau: mật ong hoa dại, mật ong núi, mật ong đồng bằng và mật ong hoa oải hương nổi tiếng. Loại mật ong hoa oải hương này độc đáo ở chỗ nó được làm từ mật ong do ong thu thập mật từ hoa oải hương ở miền đông nam nước Pháp.",
+        "benefit": "Mật ong hoa oải hương có đặc tính chống oxy hóa. Nhiều nghiên cứu cũng đã chứng minh tác dụng sát trùng và kháng khuẩn của nó. Hơn nữa, đặc tính chữa lành của mật ong hoa oải hương khiến nó trở thành một thành phần quan trọng trong điều trị vết thương.",
+        "beautyTip": "Mật ong hoa oải hương chứa 76% carbohydrate (glucose, fructose và sucrose), giúp nó có đặc tính dưỡng ẩm. Thật vậy, carbohydrate có tính hút ẩm, nghĩa là chúng thu hút và giữ lại độ ẩm xung quanh. Do đó, mật ong được khuyên dùng cho da khô hoặc da lão hóa. Hơn nữa, các khoáng chất có trong đó (kali, canxi, magiê và phốt pho) góp phần vào quá trình trao đổi chất tế bào khỏe mạnh. Mật hoa oải hương làm cho mật ong trở thành một chất làm dịu tự nhiên cho làn da nhạy cảm hoặc bị kích ứng.",
+        "scentExperience": null,
+        "fullContent": "Mật ong vùng Haute Provence\nBạn chưa quen với mật ong hoa oải hương? Dưới đây là tất cả những gì bạn cần biết!\nMật ong hoa oải hương là gì?\n\nMật ong được ong tạo ra từ mật hoa, nhựa cây và các chất ngọt khác từ thực vật. Có nhiều loại mật ong khác nhau: mật ong hoa dại, mật ong núi, mật ong đồng bằng và mật ong hoa oải hương nổi tiếng. Đặc điểm độc đáo của mật ong hoa oải hương là nó được tạo ra từ mật ong do ong thu thập mật hoa oải hương ở vùng đông nam nước Pháp.\nMật ong hoa oải hương và sức khỏe\nMật ong hoa oải hương có đặc tính chống oxy hóa. Nhiều nghiên cứu cũng đã chứng minh đặc tính sát trùng và kháng khuẩn của nó. Hơn nữa, khả năng chữa lành của mật ong hoa oải hương khiến nó trở thành một yếu tố quan trọng trong điều trị vết thương.\nMật ong trong mỹ phẩm\nMật ong hoa oải hương bao gồm 76% carbohydrate (glucose, fructose và sucrose), mang lại cho nó đặc tính dưỡng ẩm. Thật vậy, carbohydrate có đặc tính hút ẩm, có nghĩa là chúng thu giữ và giữ lại độ ẩm xung quanh. Do đó, mật ong được khuyên dùng cho da khô hoặc da lão hóa. Hơn nữa, các khoáng chất có trong mật ong (kali, canxi, magiê và phốt pho) góp phần vào quá trình trao đổi chất khỏe mạnh của tế bào. Mật hoa giúp mật ong trở thành chất làm dịu tự nhiên cho làn da nhạy cảm hoặc bị kích ứng.\nVà đó là tất cả các thành phần của chúng tôi!\nNày! Hãy hoàn thiện quy trình làm đẹp của bạn!",
+        "heroImageUrl": "https://images.ctfassets.net/jncafthqaw2i/2QbncK55esAgGp5mbHf1B2/d05996a046f3a4e088bfebf809bbf109/mieldehauteprovence.svg?fm=webp&w=3840",
+        "sourceUrl": "https://www.lepetitmarseillais.com/coucou-la-marque/bonjour-nature/nos-ingredients/miel-haute-provence",
+        "duplicateOf": {
+          "sourceSheet": "05_Trang_noi_dung",
+          "sourceRow": 94
+        }
+      }
+    },
+    {
+      "sourceWorkbook": "lpm_brand_web.xlsx",
+      "sourceSheet": "03_Nguyen_lieu",
+      "sourceRow": 16,
+      "importStatus": "imported",
+      "dataWarnings": [],
+      "fields": {
+        "id": "ing-15",
+        "name": "Nectarine",
+        "slug": "nectarine",
+        "headline": "Quả xuân đào, người bạn đồng hành của làn da nhạy cảm",
+        "h1": "Quả xuân đào, người bạn đồng hành của làn da nhạy cảm",
+        "intro": "Dưới đây là tất cả những điều bạn chưa biết về quả xuân đào, một loại trái cây đầy bất ngờ! Thành phần này, được Le Petit Marseillais lựa chọn kỹ lưỡng, là một trợ thủ đắc lực cho làn da nhạy cảm...",
+        "origin": "Cây xuân đào, còn được gọi là cây Brugnon, mọc trên cây ăn quả có thể cao tới 6 mét. Bạn có bao giờ nhầm lẫn giữa xuân đào và đào không? Điều đó hoàn toàn bình thường! Xuân đào thực chất là một giống lai giữa đào và mận, do đó vỏ của nó rất mịn, và thậm chí cùng một cây có thể cho cả đào và xuân đào. Hoa xuân đào có màu hồng nhưng màu sắc có thể khác nhau tùy thuộc vào từng cây.",
+        "benefit": "Quả xuân đào rất giàu đường và cũng chứa axit, tanin, pectin và cellulose. Thành phần dinh dưỡng cao, giàu vitamin (vitamin A, B1, B2, PP, C và E) khiến loại quả có thịt màu trắng hoặc vàng này trở thành nguồn năng lượng thơm ngon!",
+        "beautyTip": "Nồng độ đường và axit cao trong quả xuân đào mang lại đặc tính dưỡng ẩm và làm mềm da thực sự, lý tưởng cho da khô và nhạy cảm. Nhưng đó chưa phải là tất cả! Bên cạnh độ mềm mại, xuân đào, với hàm lượng vitamin và khoáng chất, là một thành phần nuôi dưỡng nổi tiếng trong mỹ phẩm. Chiết xuất xuân đào, giàu tannin, cũng nổi tiếng với đặc tính làm săn chắc và nâng cơ. Cuối cùng, lá đào và lá xuân đào được cho là có tác dụng làm sảng khoái.",
+        "scentExperience": null,
+        "fullContent": "Quả xuân đào, người bạn đồng hành của làn da nhạy cảm\nĐây là tất cả những điều bạn chưa biết về quả xuân đào, một loại trái cây đầy bất ngờ! Thành phần này, được Le Petit Marseillais lựa chọn kỹ lưỡng, là một người bạn đồng hành đặc biệt cho làn da nhạy cảm...\nNhững điều bạn có thể chưa biết về quả xuân đào…\nQuả xuân đào, còn được gọi là brugnon, mọc trên cây ăn quả có thể cao tới 6 mét. Bạn có đôi khi nhầm lẫn giữa quả xuân đào và quả đào không? Điều đó là bình thường! Quả xuân đào thực chất là sự lai tạo giữa quả đào và quả mận, do đó vỏ của nó mịn, và thậm chí cùng một cây có thể cho cả đào và xuân đào. Hoa xuân đào có màu hồng nhưng có thể khác nhau tùy thuộc vào cây.\nQuả xuân đào, nhà vô địch năng lượng\nRất giàu đường, quả xuân đào chứa axit, tanin, pectin và cellulose. Thành phần giống như cocktail giàu vitamin (vitamin A, B1, B2, PP, C và E) khiến loại trái cây có thịt màu trắng hoặc vàng này trở thành một nguồn năng lượng thơm ngon!\nQuả xuân đào trong mỹ phẩm\nNồng độ đường và axit cao trong quả xuân đào mang lại đặc tính dưỡng ẩm và làm mềm da tuyệt vời, trở thành người bạn đồng hành hoàn hảo cho làn da khô và nhạy cảm. Nhưng đó chưa phải là tất cả! Bên cạnh độ mềm mại, quả xuân đào với hàm lượng vitamin và khoáng chất còn là một thành phần nuôi dưỡng nổi tiếng trong mỹ phẩm. Chiết xuất xuân đào, giàu tannin, cũng nổi tiếng với đặc tính làm săn chắc và nâng cơ. Cuối cùng, lá đào và lá xuân đào được cho là có tác dụng làm sảng khoái.\nVà đó là tất cả các thành phần của chúng tôi!\nHãy hoàn thiện quy trình làm đẹp của bạn!",
+        "heroImageUrl": "https://images.ctfassets.net/jncafthqaw2i/8dnR289vKuYdvLqtbRtxF/3828df686137ccbdc0f2b51283e371e6/nectarine.svg?fm=webp&w=3840",
+        "sourceUrl": "https://www.lepetitmarseillais.com/coucou-la-marque/bonjour-nature/nos-ingredients/nectarine",
+        "duplicateOf": {
+          "sourceSheet": "05_Trang_noi_dung",
+          "sourceRow": 95
+        }
+      }
+    },
+    {
+      "sourceWorkbook": "lpm_brand_web.xlsx",
+      "sourceSheet": "03_Nguyen_lieu",
+      "sourceRow": 17,
+      "importStatus": "imported",
+      "dataWarnings": [],
+      "fields": {
+        "id": "ing-16",
+        "name": "Olive Verte",
+        "slug": "olive-verte",
+        "headline": "Ô liu xanh, loại trái cây biểu tượng của vùng Provence.",
+        "h1": "Ô liu xanh, loại trái cây biểu tượng của vùng Provence.",
+        "intro": "Bạn có thực sự biết về quả ô liu xanh, loại quả nhỏ bé là biểu tượng của vùng Provence? Hãy khám phá tất cả những lợi ích của nó với Le Petit Marseillais.",
+        "origin": "Quả ô liu, trái của cây ô liu, phát triển mạnh ở vùng khí hậu ấm áp, đó là lý do tại sao nó được trồng chủ yếu ở các vùng Địa Trung Hải. Ô liu ăn tươi được thu hoạch vào mùa thu, trong khi ô liu dùng để ép dầu được thu hoạch từ tháng 11 đến tháng 2. Mặc dù việc trồng ô liu đã lan rộng khắp lưu vực Địa Trung Hải vào thế kỷ 16, nhưng lịch sử của nó đã kéo dài 6.000 năm!",
+        "benefit": "Dầu ô liu được chiết xuất từ ​​hỗn hợp quả ô liu nghiền nhuyễn, sau đó được ép trong máy ép. Bơ ô liu, ít được biết đến hơn, được làm từ dầu ô liu nguyên chất. Dù ở dạng dầu hay bơ, quả ô liu đều có đặc tính chống oxy hóa và dinh dưỡng.",
+        "beautyTip": "Nhờ đặc tính nuôi dưỡng và làm mềm da và tóc, dầu ô liu là một thành phần quan trọng trong mỹ phẩm. Ở dạng dầu, dầu ô liu chống lại tình trạng mất nước ở cả da khô và da dầu. Bơ ô liu, một chất nuôi dưỡng và dưỡng ẩm mạnh mẽ, củng cố hàng rào bảo vệ tự nhiên của da và mang lại độ đàn hồi và mềm mại cho da khô, bị kích ứng hoặc bị tổn thương. Nó cũng giúp củng cố và nuôi dưỡng tóc khô và dễ gãy. Không thể không nhắc đến hiệu quả của lá ô liu, với đặc tính chống oxy hóa giúp chống lại quá trình lão hóa da. Là một chất làm sạch hiệu quả thực sự, chiết xuất lá ô liu cũng có đặc tính giải độc và kích thích loại bỏ tế bào da chết và độc tố.",
+        "scentExperience": null,
+        "fullContent": "Quả Ô liu Xanh, Loại Trái Cây Biểu Tượng của Provence\nBạn có thực sự biết đến quả ô liu xanh, loại trái cây nhỏ bé là biểu tượng của Provence? Khám phá tất cả những lợi ích của nó với Le Petit Marseillais.\nCâu Chuyện Về Quả Ô liu\nQuả ô liu, trái cây của cây ô liu, ưa nhiệt, đó là lý do tại sao nó được trồng rộng rãi ở các vùng Địa Trung Hải. Ô liu ăn được thu hoạch vào mùa thu, trong khi ô liu dùng để chiết xuất dầu được thu hoạch từ tháng 11 đến tháng 2. Mặc dù việc trồng ô liu phát triển khắp lưu vực Địa Trung Hải vào thế kỷ 16, nhưng lịch sử của nó đã có từ 6.000 năm trước!\nDầu Ô liu và Bơ Ô liu\nDầu ô liu được thu được từ hỗn hợp nghiền nhuyễn của ô liu, sau đó được ép trong máy ép. Bơ ô liu, ít được biết đến hơn, được thu được từ dầu ô liu nguyên chất.\n\nDù ở dạng dầu hay bơ, ô liu đều có đặc tính chống oxy hóa và nuôi dưỡng.\nÔ liu trong Mỹ Phẩm\nTác dụng nuôi dưỡng và làm mềm da và tóc khiến nó trở thành một thành phần quan trọng trong mỹ phẩm. Ở dạng dầu, ô liu chống lại tình trạng mất nước ở cả da khô và da dầu. Bơ ô liu, một chất nuôi dưỡng và dưỡng ẩm mạnh mẽ, giúp tăng cường hàng rào bảo vệ tự nhiên của da và mang lại độ đàn hồi, mềm mại cho làn da khô, bị kích ứng hoặc bị tổn thương. Nó cũng củng cố và nuôi dưỡng tóc khô và dễ gãy.\n\nĐừng quên hiệu quả của lá ô liu, với đặc tính chống oxy hóa giúp chống lại quá trình lão hóa da. Là một chất làm sạch hiệu quả thực sự, chiết xuất lá ô liu cũng có đặc tính giải độc và kích thích loại bỏ tế bào da chết và độc tố.\nVà đó là tất cả các thành phần của chúng tôi!\nNày! Hoàn thiện quy trình chăm sóc sắc đẹp của bạn",
+        "heroImageUrl": "https://images.ctfassets.net/jncafthqaw2i/1yKfvPuMZVQnkbW8uPkti3/eb700226de38dc31e469da19e222beb6/olive-verte.svg?fm=webp&w=3840",
+        "sourceUrl": "https://www.lepetitmarseillais.com/coucou-la-marque/bonjour-nature/nos-ingredients/olive-verte",
+        "duplicateOf": {
+          "sourceSheet": "05_Trang_noi_dung",
+          "sourceRow": 96
+        }
+      }
+    },
+    {
+      "sourceWorkbook": "lpm_brand_web.xlsx",
+      "sourceSheet": "03_Nguyen_lieu",
+      "sourceRow": 18,
+      "importStatus": "imported",
+      "dataWarnings": [],
+      "fields": {
+        "id": "ing-17",
+        "name": "Đào",
+        "slug": "peche",
+        "headline": "Quả đào, một loại trái cây giàu vitamin đến từ vùng Provence.",
+        "h1": "Quả đào, một loại trái cây giàu vitamin đến từ vùng Provence.",
+        "intro": "Hãy khám phá quả đào trắng, một loại trái cây thơm ngon và mọng nước đến từ vùng Provence, nhưng đó chưa phải là tất cả! Nó còn có nhiều đặc tính có lợi. Hãy cùng chúng tôi khám phá tất cả những ưu điểm của nó.",
+        "origin": "Quả đào là quả của cây đào, một loại cây có thể cao tới 6 mét. Có nguồn gốc từ Trung Quốc, cây đào đã được du nhập rộng rãi và hiện nay được trồng khắp châu Âu. Hoa của nó thường có màu hồng, và quả đào rất mọng nước, có thể có màu trắng hoặc vàng và luôn được bao phủ bởi lớp vỏ mịn như nhung.",
+        "benefit": "Đào là loại trái cây giàu đường, axit, tanin, pectin và cellulose. Chứa sáu loại vitamin—A, B1, B2, PP, C và E—đào thực sự là một nguồn cung cấp năng lượng tuyệt vời.",
+        "beautyTip": "Giàu đường và axit, quả đào được đánh giá cao trong ngành mỹ phẩm nhờ đặc tính làm mềm và dưỡng ẩm. Được coi là rất bổ dưỡng nhờ các vitamin và khoáng chất, chúng cũng nổi tiếng với tác dụng làm mịn và mềm da, trở thành thành phần thiết yếu trong các sản phẩm chăm sóc da dành cho da bị kích ứng hoặc viêm nhiễm. Quả đào cũng được biết đến với đặc tính phục hồi, làm sạch và giải độc! Một báu vật thực sự cho làn da dễ bị mụn trứng cá.",
+        "scentExperience": null,
+        "fullContent": "Quả đào, một loại trái cây vùng Provence giàu vitamin\nKhám phá quả đào trắng, một loại trái cây ngon ngọt đặc trưng của vùng Provence, nhưng đó chưa phải là tất cả! Nó còn mang lại vô số lợi ích cho sức khỏe. Hãy cùng chúng tôi khám phá tất cả những ưu điểm của nó.\nNhững điều bạn có thể chưa biết về quả đào…\nQuả đào là quả của cây đào, một loại cây có thể cao tới 6 mét. Có nguồn gốc từ Trung Quốc, cây đào đã được du nhập rộng rãi. Ngày nay, nó được trồng khắp châu Âu. Hoa của nó thường có màu hồng, và quả rất mọng nước có thể có màu trắng hoặc vàng và luôn được bao phủ bởi lớp vỏ mịn như nhung.\nQuả đào, một loại trái cây giàu vitamin\nĐào là loại trái cây giàu đường, axit, tannin, pectin và cellulose. Chứa sáu loại vitamin—A, B1, B2, PP, C và E—quả đào thực sự là một nguồn năng lượng dồi dào.\nĐào trong mỹ phẩm\nVới hàm lượng đường và axit cao, quả đào được đánh giá cao trong mỹ phẩm nhờ đặc tính làm mềm và dưỡng ẩm. Được coi là rất bổ dưỡng nhờ các vitamin và khoáng chất, chúng còn nổi tiếng với tác dụng làm mịn và mềm da, khiến chúng trở thành thành phần thiết yếu trong việc bào chế các sản phẩm chăm sóc da dành cho da bị kích ứng hoặc viêm nhiễm. Đào cũng được biết đến với đặc tính phục hồi, làm sạch và giải độc! Một kho báu thực sự cho làn da dễ bị mụn.\nVà đó là tất cả các thành phần của chúng tôi!\nNày! Hoàn thiện quy trình làm đẹp của bạn",
+        "heroImageUrl": "https://images.ctfassets.net/jncafthqaw2i/54Hvc2fBQDIHYp3KrWsAnB/a490b8613fedcc83121e79ca67627503/peche.svg?fm=webp&w=3840",
+        "sourceUrl": "https://www.lepetitmarseillais.com/coucou-la-marque/bonjour-nature/nos-ingredients/peche",
+        "duplicateOf": {
+          "sourceSheet": "05_Trang_noi_dung",
+          "sourceRow": 97
+        }
+      }
+    },
+    {
+      "sourceWorkbook": "lpm_brand_web.xlsx",
+      "sourceSheet": "03_Nguyen_lieu",
+      "sourceRow": 19,
+      "importStatus": "imported",
+      "dataWarnings": [],
+      "fields": {
+        "id": "ing-18",
+        "name": "Hoa hồng",
+        "slug": "rose",
+        "headline": "Hoa hồng: mỹ phẩm, lợi ích và quy trình làm đẹp",
+        "h1": "Hoa hồng: mỹ phẩm, lợi ích và quy trình làm đẹp",
+        "intro": "Chúng tôi sẽ bật mí cho bạn tất cả những công dụng bất ngờ của một nguyên liệu được Le Petit Marseillais lựa chọn kỹ lưỡng vì những lợi ích của nó: hoa hồng!",
+        "origin": "Loại hoa hồng được sử dụng phổ biến nhất trong các sản phẩm chăm sóc da là Rosa Damascena. Nó phát triển mạnh trên đất cát, đá và dưới ánh nắng mặt trời mùa hè. Để chiết xuất hương thơm, hoa hồng được hái bằng tay một cách cẩn thận vào lúc bình minh chỉ trong tháng Năm và tháng Sáu! Tinh dầu hoa hồng, thu được từ những bông hoa tươi, có nhiều lợi ích trị liệu và làm đẹp.",
+        "benefit": null,
+        "beautyTip": "Hoa hồng đã trở thành một thành phần thiết yếu trong mỹ phẩm hữu cơ, nhờ các hoạt chất như citronellol và nerol, mang lại nhiều lợi ích cho mọi loại da: da thường, da nhạy cảm, da khô hoặc da dầu. 1. Dưỡng ẩm: Làm mềm và tái tạo da, hoa hồng mang lại sự thoải mái và mềm mại cho da khô và da lão hóa. 2. Làm dịu: Là người bạn đồng hành của làn da nhạy cảm, hoa hồng giúp làm dịu mẩn đỏ, bảo vệ và làm dịu các kích ứng da. 3. Làm săn chắc da: Được biết đến với khả năng phục hồi vẻ rạng rỡ của làn da, các sản phẩm từ hoa hồng kích thích sự tái tạo tế bào và mang lại vẻ tươi sáng khỏe mạnh. 4. Làm sạch: Bằng cách se khít lỗ chân lông mà không làm khô da và hạn chế bã nhờn dư thừa, hoa hồng làm sạch da hỗn hợp đến da dầu và cải thiện kết cấu da. 5. Chống lão hóa: Hoạt tính chống oxy hóa đồng nghĩa với lợi ích chống lão hóa! Lão hóa da có liên quan đến nhiều yếu tố, trong đó có việc thiếu độ ẩm tự nhiên; hàng rào bảo vệ da suy yếu và nếp nhăn dần xuất hiện. Nước hoa hồng chưng cất giúp duy trì độ ẩm cho da và do đó tăng cường hàng rào bảo vệ này! 6. Quyến rũ: Không có gì ngạc nhiên khi một trong những đặc điểm chính của hoa hồng, và cũng là một trong những yếu tố thành công lớn của nó trong ngành mỹ phẩm, chính là hương thơm. Mùi hương độc đáo và dễ nhận biết này là do citronellol, có trong nụ và cánh hoa hồng.",
+        "scentExperience": null,
+        "fullContent": "Hoa Hồng: Mỹ Phẩm, Lợi Ích và Quy Trình Làm Đẹp\nChúng tôi sẽ cho bạn biết tất cả về những công dụng bất ngờ của một thành phần được Le Petit Marseillais lựa chọn kỹ lưỡng vì những đặc tính có lợi của nó: hoa hồng!\nHoa Hồng Damascena\nLoại hoa hồng được sử dụng phổ biến nhất trong các sản phẩm chăm sóc da là Rosa Damascena. Nó đặc biệt phát triển mạnh trong đất cát, đá và dưới ánh nắng mặt trời mùa hè. Để chiết xuất hương thơm của nó, hoa hồng được hái bằng tay một cách tinh tế vào lúc bình minh trong các tháng Năm và Sáu! Tinh dầu hoa hồng, thu được từ những bông hoa tươi, sở hữu nhiều lợi ích trị liệu và làm đẹp.\nCác Đặc Tính Mỹ Phẩm của Hoa Hồng\nHoa hồng đã trở thành một thành phần chủ yếu của mỹ phẩm hữu cơ, nhờ các thành phần hoạt tính như citronellol và nerol, mang lại nhiều lợi ích cho mọi loại da: da thường, da nhạy cảm, da khô hoặc da dầu. 1. Dưỡng ẩm: Làm mềm và tái tạo, hoa hồng mang lại sự thoải mái và mềm mại cho làn da khô và da lão hóa. 2. Làm dịu: Là người bạn của làn da nhạy cảm, hoa hồng làm dịu vết đỏ, bảo vệ và làm dịu các kích ứng da. 3. Làm săn chắc da: Nổi tiếng với khả năng phục hồi vẻ rạng rỡ cho làn da, các sản phẩm từ hoa hồng kích thích tái tạo tế bào và mang lại vẻ tươi sáng khỏe mạnh. 4. Làm sạch: Se khít lỗ chân lông mà không làm khô da và hạn chế bã nhờn dư thừa, hoa hồng làm sạch da hỗn hợp đến da dầu và cải thiện kết cấu da. 5. Chống lão hóa: Hoạt tính chống oxy hóa đồng nghĩa với lợi ích chống lão hóa! Lão hóa da, trong số những nguyên nhân khác, có liên quan đến việc thiếu độ ẩm tự nhiên; hàng rào bảo vệ suy yếu và nếp nhăn dần xuất hiện. Nước hoa hồng giúp duy trì độ ẩm cho da và do đó tăng cường hàng rào bảo vệ này! 6. Quyến rũ: Không có gì ngạc nhiên khi một trong những đặc điểm chính của hoa hồng, và cũng là một trong những yếu tố thành công chính của nó trong mỹ phẩm, là hương thơm. Mùi hương độc đáo và dễ nhận biết này là do citronellol, có trong nụ và cánh hoa hồng.\nVà đó là tất cả! Tất cả các thành phần của chúng tôi\nNày! Hoàn thiện quy trình làm đẹp của bạn",
+        "heroImageUrl": "https://images.ctfassets.net/jncafthqaw2i/4ZbYDYt0WtUuUeygqADR6a/ad16f6db6ec633d8f811c0c3a4ae6b67/rose.svg?fm=webp&w=3840",
+        "sourceUrl": "https://www.lepetitmarseillais.com/coucou-la-marque/bonjour-nature/nos-ingredients/rose",
+        "duplicateOf": {
+          "sourceSheet": "05_Trang_noi_dung",
+          "sourceRow": 98
+        }
+      }
+    },
+    {
+      "sourceWorkbook": "lpm_brand_web.xlsx",
+      "sourceSheet": "03_Nguyen_lieu",
+      "sourceRow": 20,
+      "importStatus": "imported",
+      "dataWarnings": [],
+      "fields": {
+        "id": "ing-19",
+        "name": "Xô thơm",
+        "slug": "sauge",
+        "headline": "Sage, một viên ngọc quý phương Nam",
+        "h1": "Sage, một viên ngọc quý phương Nam",
+        "intro": "Cây xô thơm sở hữu một sức mạnh gần như huyền bí. Hãy khám phá tất cả những bí mật nhỏ bé của loài cây quý giá phương Nam này.",
+        "origin": "Cây xô thơm là một loại cây bụi nhỏ, cao từ 20 đến 30 cm, cho ra những bông hoa màu xanh lam, hồng và tím nhạt tinh tế. Ưa thích đất đá ấm áp, cây xô thơm mọc ở miền nam châu Âu. Tên Latin của nó, \"Salvia,\" có nghĩa là \"cứu rỗi,\" nhưng đôi khi nó cũng được gọi là \"thảo dược thiêng liêng.\" Được người La Mã trồng trọt lần đầu tiên, nó cũng được người bản địa châu Mỹ sử dụng, trộn với mỡ gấu, để điều trị các vấn đề về da.",
+        "benefit": "Chiết xuất cây xô thơm thường được sử dụng để giảm viêm và đau cơ. Cây xô thơm cũng được đánh giá cao nhờ đặc tính thư giãn và giải độc.",
+        "beautyTip": "Nhờ chất tannin có trong chiết xuất của nó, cây xô thơm giúp chống lại quá trình lão hóa tế bào và nổi bật với đặc tính làm se khít lỗ chân lông, lý tưởng để thu nhỏ lỗ chân lông trên da dầu. Chiết xuất xô thơm cũng là một thành phần quan trọng trong các sản phẩm chăm sóc da làm dịu da nhạy cảm và hạn chế hiệu quả sự xuất hiện của các dấu hiệu lão hóa sớm. Nó cũng thường được sử dụng trong công thức của các sản phẩm khử mùi tự nhiên.",
+        "scentExperience": null,
+        "fullContent": "Cây xô thơm, một viên ngọc quý của miền Nam\nCây xô thơm sở hữu một sức mạnh gần như huyền bí. Hãy khám phá tất cả những bí mật nhỏ bé của loại cây quý giá này.\nCây xô thơm là gì?\n\nCây xô thơm là một loại cây bụi nhỏ, cao từ 20 đến 30 cm và cho ra những bông hoa màu xanh lam, hồng và tím nhạt tinh tế. Ưa thích đất đá ấm áp, cây xô thơm phát triển mạnh ở miền nam châu Âu. Tên Latinh của nó, \"Salvia,\" có nghĩa là \"cứu rỗi,\" nhưng đôi khi nó cũng được gọi là \"thảo dược thiêng liêng.\" Được người La Mã thu hoạch lần đầu tiên, nó cũng được người Mỹ bản địa sử dụng, trộn với mỡ gấu, để điều trị các vấn đề về da.\nCây xô thơm và những công dụng trị liệu\nChiết xuất cây xô thơm thường được sử dụng để giảm viêm và đau cơ. Cây xô thơm cũng được đánh giá cao nhờ đặc tính thư giãn và giải độc.\nCây xô thơm trong mỹ phẩm\nNhờ các chất tannin có trong chiết xuất của nó, cây xô thơm giúp chống lại sự lão hóa tế bào và nổi bật với đặc tính làm se khít lỗ chân lông, lý tưởng để thu nhỏ lỗ chân lông trên da dầu. Chiết xuất cây xô thơm cũng là một thành phần quan trọng trong các sản phẩm chăm sóc da làm dịu da nhạy cảm và giúp hạn chế hiệu quả sự xuất hiện của các dấu hiệu lão hóa sớm. Nó cũng thường được sử dụng trong công thức của các sản phẩm khử mùi tự nhiên.\nVà đó là tất cả các thành phần của chúng tôi!\nNày! Hãy hoàn thiện quy trình làm đẹp của bạn!",
+        "heroImageUrl": "https://images.ctfassets.net/jncafthqaw2i/7MMmbKgX1kAH1TZmA3aP5k/18dd0ffeb8d8e4d8695deecbebc1f697/sauge.svg?fm=webp&w=3840",
+        "sourceUrl": "https://www.lepetitmarseillais.com/coucou-la-marque/bonjour-nature/nos-ingredients/sauge",
+        "duplicateOf": {
+          "sourceSheet": "05_Trang_noi_dung",
+          "sourceRow": 99
+        }
+      }
+    }
+  ]
+}

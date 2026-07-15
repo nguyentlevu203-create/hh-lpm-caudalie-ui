@@ -1,0 +1,2373 @@
+{
+  "_meta": {
+    "status": "phase_b_complete",
+    "methodology": "Confidence tier reuses the Phase 1 audit's manually reviewed classification (§6.1 exact / §6.2 approximate / §6.3 unmatched). The 14 SKUs individually side-by-side verified in the Phase 2 audit (§9) are hardcoded to their confirmed LPM row. All other §6.1 'exact' SKUs are resolved by IDF-weighted token overlap (tokens weighted by inverse document frequency across the 147-product LPM corpus, so generic cosmetic vocabulary like 'hữu cơ'/'chiết xuất' contributes almost nothing and distinctive scent/ingredient words dominate — full Vietnamese diacritics kept throughout to avoid tone-mark homograph collisions). 'medium'/'low' tier (§6.2) candidates are always reviewStatus=needs_manual_review. 'unmatched' (§6.3) gets no candidate.",
+    "tierCounts": {
+      "exact": 40,
+      "medium": 28,
+      "low": 3,
+      "unmatched": 12,
+      "not_applicable": 6
+    },
+    "overrideResolutionFailures": [
+      "ST01868",
+      "DG01841"
+    ],
+    "exactTierLowScoreFlags": []
+  },
+  "matches": [
+    {
+      "hhSku": "ST01496",
+      "hhId": "hh-ST01496",
+      "hhName": "Sữa Tắm Hữu Cơ Pháp Le Petit Marseillais Hương Quả Đào & Xuân Đào",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "unmatched",
+      "lpmMatch": null,
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.3) — no candidate reached defensible confidence"
+      }
+    },
+    {
+      "hhSku": "ST01601",
+      "hhId": "hh-ST01601",
+      "hhName": "Gel Tắm Hữu Cơ Pháp Le Petit Marseillais Cỏ Roi Ngựa & Chanh",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "unmatched",
+      "lpmMatch": null,
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.3) — no candidate reached defensible confidence"
+      }
+    },
+    {
+      "hhSku": "ST68867",
+      "hhId": "hh-ST68867",
+      "hhName": "Sữa Tắm Hữu Cơ Pháp Le Petit Marseillais Hương Hoa Hồng Dại",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "unmatched",
+      "lpmMatch": null,
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.3) — no candidate reached defensible confidence"
+      }
+    },
+    {
+      "hhSku": "ST08273",
+      "hhId": "hh-ST08273",
+      "hhName": "Sữa Tắm Hữu Cơ Pháp Le Petit Marseillais Hạnh Nhân",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-15",
+        "sourceRow": 16,
+        "nameVi": "Sữa tắm hạnh nhân hữu cơ được chứng nhận",
+        "nameOriginal": "Crème de Douche certifiée Bio Amande Douce",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/7FLQ1eyZEQV8RB3dHa07uW/5025a2557069b3fe294e05d988fdc7fc/3574661608273_1-fr-fr",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/corps/douches/gel-douche-bio-amande-douce",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 1.0,
+        "sharedTokens": [
+          "cơ",
+          "hạnh",
+          "hữu",
+          "nhân",
+          "sữa",
+          "tắm"
+        ]
+      },
+      "evidence": {
+        "reason": "manually verified in Phase 1 audit (§6.1); specific LPM row resolved by IDF-weighted token overlap on real name/scent fields"
+      }
+    },
+    {
+      "hhSku": "ST55031",
+      "hhId": "hh-ST55031",
+      "hhName": "Gel Tắm Pháp Le Petit Marseillais Dưỡng Ẩm Siêu dịu nhẹ Lô Hội",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "unmatched",
+      "lpmMatch": null,
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.3) — no candidate reached defensible confidence"
+      }
+    },
+    {
+      "hhSku": "ST55017",
+      "hhId": "hh-ST55017",
+      "hhName": "Gel Tắm Pháp Le Petit Marseillais Siêu dịu nhẹ Hoa Thanh Cúc",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "medium",
+      "lpmMatch": {
+        "lpmId": "lpm-7",
+        "sourceRow": 8,
+        "nameVi": "Sữa tắm gội dịu nhẹ cho bé chiết xuất cúc vạn thọ",
+        "nameOriginal": "Gel Lavant Doux Bébé Corps & Cheveux Calendula",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/5HSHlKueM82dZ8BCm19Luz/682f4ed6549a125345155b6c8a1331bf/LPM_EMEA_FR_3574661870168_90796600_648002_Baby_Hair_BW_Awake_700ml_000_TIF.jpg",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/bebe/la-nouvelle-routine-de-soin-de-bebe/gel-lavant-doux-bebe-corps-et-cheveux-calendula",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.559,
+        "sharedTokens": [
+          "cúc",
+          "dịu",
+          "hoa",
+          "nhẹ",
+          "tắm"
+        ]
+      },
+      "reviewStatus": "needs_manual_review",
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.2) as approximate-match territory; candidate is a best-effort IDF-weighted token-overlap suggestion, NOT independently re-verified"
+      }
+    },
+    {
+      "hhSku": "ST55055",
+      "hhId": "hh-ST55055",
+      "hhName": "Gel Tắm Pháp Le Petit Marseillais Làm Mềm Da Siêu dịu nhẹ Hương Hoa Hạnh Nhân",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "unmatched",
+      "lpmMatch": null,
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.3) — no candidate reached defensible confidence"
+      }
+    },
+    {
+      "hhSku": "ST53379",
+      "hhId": "hh-ST53379",
+      "hhName": "Sữa Tắm Pháp Le Petit Marseillais Làm Mềm Da Siêu dịu nhẹ Quả Mơ",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "unmatched",
+      "lpmMatch": null,
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.3) — no candidate reached defensible confidence"
+      }
+    },
+    {
+      "hhSku": "ST53386",
+      "hhId": "hh-ST53386",
+      "hhName": "Sữa Tắm Pháp Le Petit Marseillais Siêu dịu nhẹ Hoa Bông",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "unmatched",
+      "lpmMatch": null,
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.3) — no candidate reached defensible confidence"
+      }
+    },
+    {
+      "hhSku": "ST19308",
+      "hhId": "hh-ST19308",
+      "hhName": "Gel Tắm Pháp Le Petit Marseillais Dịu Nhẹ Lựu Hữu Cơ",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-49",
+        "sourceRow": 50,
+        "nameVi": "Sữa tắm dịu nhẹ với chiết xuất lựu hữu cơ",
+        "nameOriginal": "Gel Douche Extra Doux Grenade BIO",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/2Nmkg73nsTkMQGvwUyeZZW/5e8a2357366e936e0c71291f2ae5b8c5/LPM_EMEA_FR_3574661853765_90726300_530605_SHGEL_POMEGRANATE_300ML_PR_000_TIF.WEBP",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/douches/gel-douche-grenade-bio",
+        "resolvedBy": "manual_verification_phase2"
+      },
+      "evidence": {
+        "reason": "manually verified side-by-side in Phase 2 audit (§9 demo-product table) — highest confidence tier"
+      }
+    },
+    {
+      "hhSku": "ST54463",
+      "hhId": "hh-ST54463",
+      "hhName": "Gel Tắm Pháp Le Petit Marseillais Dịu Nhẹ Muối Biển",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-62",
+        "sourceRow": 63,
+        "nameVi": "Sữa tắm muối biển dịu nhẹ",
+        "nameOriginal": "Gel Douche Extra Doux Sel Marin",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/5AmFtso2yIRzLu5cdvYB0s/3ca6452e81aa623361c9b1e804b19ab2/LPM_EMEA_FR_3574661853789_90726500_529412_SHOWER_GEL_SALT_300ML_PR_000_TIF.WEBP",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/douches/gel-douche-sel-marin",
+        "resolvedBy": "manual_verification_phase2"
+      },
+      "evidence": {
+        "reason": "manually verified side-by-side in Phase 2 audit (§9 demo-product table) — highest confidence tier"
+      }
+    },
+    {
+      "hhSku": "ST92871",
+      "hhId": "hh-ST92871",
+      "hhName": "Gel Tắm Pháp Le Petit Marseillais Dịu Nhẹ Lá Bạc Hà Hữu Cơ",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-33",
+        "sourceRow": 34,
+        "nameVi": "Sữa tắm dịu nhẹ với chiết xuất lá bạc hà hữu cơ",
+        "nameOriginal": "Gel Douche Extra Doux Feuille de Menthe BIO",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/2rAq9kVhcl72vGm3ESxBWJ/ad30c80385eda5da4d442c21233c20a6/LPM_EMEA_FR_3574661853833_90727000_529709_SHGEL_MINT_LEAVES_300ML_PR_000_TIF.WEBP",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/douches/douche-creme-feuille-de-menthe-bio",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.884,
+        "sharedTokens": [
+          "bạc",
+          "cơ",
+          "dịu",
+          "hà",
+          "hữu",
+          "lá",
+          "nhẹ",
+          "tắm"
+        ]
+      },
+      "evidence": {
+        "reason": "manually verified in Phase 1 audit (§6.1); specific LPM row resolved by IDF-weighted token overlap on real name/scent fields"
+      }
+    },
+    {
+      "hhSku": "ST99493",
+      "hhId": "hh-ST99493",
+      "hhName": "Gel Tắm Pháp Le Petit Marseillais Dịu Nhẹ Hoa Tiaré",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-48",
+        "sourceRow": 49,
+        "nameVi": "Sữa tắm hoa Tiare dịu nhẹ",
+        "nameOriginal": "Gel Douche Extra Doux Fleur de Tiaré",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/319qc5u3CvkbEP88bz5kkE/021ae75e19c3c4db7643cafdbf3c51c4/LPM_EMEA_FR_3574661853710_90725800_530314_SHGEL_MONOI_300ML_PR_000_TIF.WEBP",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/douches/gel-douche-fleur-de-tiar%C3%A9",
+        "resolvedBy": "manual_verification_phase2"
+      },
+      "evidence": {
+        "reason": "manually verified side-by-side in Phase 2 audit (§9 demo-product table) — highest confidence tier"
+      }
+    },
+    {
+      "hhSku": "ST99622",
+      "hhId": "hh-ST99622",
+      "hhName": "Gel Tắm Pháp Le Petit Marseillais Dịu Nhẹ Xoài Hữu Cơ & Chanh Dây",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-57",
+        "sourceRow": 58,
+        "nameVi": "Sữa tắm dịu nhẹ hương xoài và chanh dây hữu cơ.",
+        "nameOriginal": "Gel Douche Extra Doux Mangue BIO & Passion",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/1tjRw7iMUYpbOJ0GDzWGFE/1f3204d80aec54559cc9c6d5b8b2ba78/LPM_EMEA_FR_3574661853734_90726000_529816_SHGEL_PASSION_MANGO_300ml_PR_000_TIF.WEBP",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/douches/gel-douche-mangue-bio-et-passion",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.881,
+        "sharedTokens": [
+          "chanh",
+          "cơ",
+          "dây",
+          "dịu",
+          "hữu",
+          "nhẹ",
+          "tắm",
+          "xoài"
+        ]
+      },
+      "evidence": {
+        "reason": "manually verified in Phase 1 audit (§6.1); specific LPM row resolved by IDF-weighted token overlap on real name/scent fields"
+      }
+    },
+    {
+      "hhSku": "ST48441",
+      "hhId": "hh-ST48441",
+      "hhName": "Sữa Tắm Pháp Le Petit Marseillais Dịu Nhẹ Mâm Xôi Hữu Cơ & Hoa Mẫu Đơn",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-35",
+        "sourceRow": 36,
+        "nameVi": "Sữa tắm dịu nhẹ với chiết xuất quả mâm xôi hữu cơ và hoa mẫu đơn.",
+        "nameOriginal": "Crème de Douche Extra Douce Framboise BIO & Pivoine",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/783UhqUDCnZDbHveKXewHo/289d0f5ea7da0073dc4cf728d7627831/LPM_EMEA_FR_3574661853772_SHGEL_RASP_PEONY_300mL_000_TIF.WEBP",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/douches/douche-creme-framboise-et-pivoine",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 1.0,
+        "sharedTokens": [
+          "cơ",
+          "dịu",
+          "hoa",
+          "hữu",
+          "mâm",
+          "mẫu",
+          "nhẹ",
+          "sữa",
+          "tắm",
+          "xôi",
+          "đơn"
+        ]
+      },
+      "evidence": {
+        "reason": "manually verified in Phase 1 audit (§6.1); specific LPM row resolved by IDF-weighted token overlap on real name/scent fields"
+      }
+    },
+    {
+      "hhSku": "ST65434",
+      "hhId": "hh-ST65434",
+      "hhName": "Sữa Tắm Pháp Le Petit Marseillais Dịu Nhẹ Bông & Hoa Anh Túc Hữu Cơ",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-38",
+        "sourceRow": 39,
+        "nameVi": "Sữa tắm dịu nhẹ chiết xuất từ ​​bông và hoa anh túc hữu cơ.",
+        "nameOriginal": "Crème de Douche Extra Douce Coton & Coquelicot BIO",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/41dIu0JmDcrzA18j8Qk9P2/d2f757fe56977abd15a44f3812f8283b/LPM_EMEA_FR_3574661853673_90725400_528212_COT_MILK_POPP_300ML_PR_000_TIF.WEBP",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/douches/douche-creme-lait-de-coton-et-coquelicot-bio",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 1.0,
+        "sharedTokens": [
+          "anh",
+          "bông",
+          "cơ",
+          "dịu",
+          "hoa",
+          "hữu",
+          "nhẹ",
+          "sữa",
+          "túc",
+          "tắm"
+        ]
+      },
+      "evidence": {
+        "reason": "manually verified in Phase 1 audit (§6.1); specific LPM row resolved by IDF-weighted token overlap on real name/scent fields"
+      }
+    },
+    {
+      "hhSku": "ST00526",
+      "hhId": "hh-ST00526",
+      "hhName": "Sữa Tắm Pháp Le Petit Marseillais Dịu Nhẹ Sữa Vani Hữu Cơ",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "low",
+      "lpmMatch": {
+        "lpmId": "lpm-28",
+        "sourceRow": 29,
+        "nameVi": "Sữa tắm dịu nhẹ Extra Gentle hương vani hữu cơ",
+        "nameOriginal": "Recharge Douche Extra Douce Lait De Vanille BIO",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/6kxsFy2RivmObxIoNykWMw/3f23c8a0d7cff415ec445ab0bd1912f4/3574661659749_001-2_1-fr-fr",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/douches-savon/douches/eco-recharge-creme-douche-lait-de-vanille",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 1.0,
+        "sharedTokens": [
+          "cơ",
+          "dịu",
+          "hữu",
+          "nhẹ",
+          "sữa",
+          "tắm",
+          "vani"
+        ]
+      },
+      "reviewStatus": "needs_manual_review",
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.2) as approximate-match territory; candidate is a best-effort IDF-weighted token-overlap suggestion, NOT independently re-verified"
+      }
+    },
+    {
+      "hhSku": "ST00892",
+      "hhId": "hh-ST00892",
+      "hhName": "Sữa tắm Pháp Le Petit Marseillais Dịu Nhẹ Sữa Hạnh Nhân Hữu Cơ",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-27",
+        "sourceRow": 28,
+        "nameVi": "Sữa tắm dịu nhẹ bổ sung với sữa hạnh nhân hữu cơ.",
+        "nameOriginal": "Recharge Douche Extra Douce Lait d’Amande Douce BIO",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/4Y7mKkDuuERkNZ6eEAexo/0c7dc6f5f923ac6dd9b897f8ce5d2f88/3574661659732_001-2_1-fr-fr",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/douches-savon/douches/eco-recharge-creme-douche-lait-d-amande-douce",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 1.0,
+        "sharedTokens": [
+          "cơ",
+          "dịu",
+          "hạnh",
+          "hữu",
+          "nhân",
+          "nhẹ",
+          "sữa",
+          "tắm"
+        ]
+      },
+      "evidence": {
+        "reason": "manually verified in Phase 1 audit (§6.1); specific LPM row resolved by IDF-weighted token overlap on real name/scent fields"
+      }
+    },
+    {
+      "hhSku": "ST54494",
+      "hhId": "hh-ST54494",
+      "hhName": "Sữa tắm Pháp Le Petit Marseillais Dịu Nhẹ Dừa Hữu Cơ",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "medium",
+      "lpmMatch": {
+        "lpmId": "lpm-41",
+        "sourceRow": 42,
+        "nameVi": "Sữa tắm dịu nhẹ chiết xuất dừa hữu cơ",
+        "nameOriginal": "Crème de Douche Extra Douce Noix de Coco BIO",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/S0ykE5W4e5vQ7GweV71yq/5243d14fef76fb9d76f8acbef7235a02/LPM_EMEA_FR_3574661853666_90725300_530007_SHOWER_GEL_COCONUT_300ml_PR_000_TIF.WEBP",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/douches/douche-creme-noix-de-coco-bio",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 1.0,
+        "sharedTokens": [
+          "cơ",
+          "dịu",
+          "dừa",
+          "hữu",
+          "nhẹ",
+          "sữa",
+          "tắm"
+        ]
+      },
+      "reviewStatus": "needs_manual_review",
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.2) as approximate-match territory; candidate is a best-effort IDF-weighted token-overlap suggestion, NOT independently re-verified"
+      }
+    },
+    {
+      "hhSku": "ST01240",
+      "hhId": "hh-ST01240",
+      "hhName": "Sữa Tắm Pháp Le Petit Marseillais Dịu Nhẹ Đào Trắng Hữu Cơ Và Xuân Đào Hữu Cơ",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-60",
+        "sourceRow": 61,
+        "nameVi": "Sữa tắm dịu nhẹ chiết xuất đào trắng hữu cơ và xuân đào hữu cơ.",
+        "nameOriginal": "Gel Douche Extra Doux Pêche Blanche BIO & Nectarine BIO",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/15hOUwJ86nUBKCwulReBRu/ec771b2e363a9727c2c5b02bb93d0caa/LPM_EMEA_FR_3574661853741_90726100_530406_SHGEL_PEACH_NECTAR_300ml_PR_000_TIF.WEBP",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/douches/gel-douche-peche-blanche-bio-et-nectarine-bio",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 1.0,
+        "sharedTokens": [
+          "cơ",
+          "dịu",
+          "hữu",
+          "nhẹ",
+          "sữa",
+          "trắng",
+          "tắm",
+          "xuân",
+          "đào"
+        ]
+      },
+      "evidence": {
+        "reason": "manually verified in Phase 1 audit (§6.1); specific LPM row resolved by IDF-weighted token overlap on real name/scent fields"
+      }
+    },
+    {
+      "hhSku": "ST01902",
+      "hhId": "hh-ST01902",
+      "hhName": "Gel Tắm Pháp Le Petit Marseillais Dịu Nhẹ Thông Hữu Cơ Và Bạch Đàn Biển Hữu Cơ",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "medium",
+      "lpmMatch": {
+        "lpmId": "lpm-61",
+        "sourceRow": 62,
+        "nameVi": "Sữa tắm dịu nhẹ Extra Gentle với chiết xuất thông hữu cơ và thì là biển hữu cơ.",
+        "nameOriginal": "Gel Douche Extra Doux Pin BIO & Criste Marine BIO",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/1V7g2vPO7Qy2JdtDoi0JY8/68ce50c049ae3f39e8a4c2de2b7ccc56/LPM_EMEA_FR_3574661853758_90726200_530313_SHGEL_PINE_ALGAE_300ml_PR_000_TIF.WEBP",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/douches/gel-douche-pin-bio-et-criste-marine",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.591,
+        "sharedTokens": [
+          "biển",
+          "cơ",
+          "dịu",
+          "hữu",
+          "nhẹ",
+          "thông",
+          "tắm"
+        ]
+      },
+      "reviewStatus": "needs_manual_review",
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.2) as approximate-match territory; candidate is a best-effort IDF-weighted token-overlap suggestion, NOT independently re-verified"
+      }
+    },
+    {
+      "hhSku": "ST01295",
+      "hhId": "hh-ST01295",
+      "hhName": "Gel Tắm Pháp Le Petit Marseillais Dịu Nhẹ Lá Oliu Hữu Cơ Và Hoa Bồ Đề Hữu Cơ",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "low",
+      "lpmMatch": {
+        "lpmId": "lpm-46",
+        "sourceRow": 47,
+        "nameVi": "Sữa tắm dịu nhẹ với chiết xuất lá ô liu hữu cơ và hoa bồ đề hữu cơ.",
+        "nameOriginal": "Gel Douche & Bain Extra Doux Feuille D’Olivier BIO & Tilleul BIO",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/1CbNnUw7KDcAk75mM2sJWw/995bbc5803c64cc66e719a41c2dee5dc/LPM_EMEA_FR_3574661852591_90723400_587309_SHW_BTH_OLIV_LINDEN_650ml_000_TIF.WEBP",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/douches/gel-douche-et-bain-feuille-d-olivier-et-tilleul-bio",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.752,
+        "sharedTokens": [
+          "bồ",
+          "cơ",
+          "dịu",
+          "hoa",
+          "hữu",
+          "lá",
+          "nhẹ",
+          "tắm",
+          "đề"
+        ]
+      },
+      "reviewStatus": "needs_manual_review",
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.2) as approximate-match territory; candidate is a best-effort IDF-weighted token-overlap suggestion, NOT independently re-verified"
+      }
+    },
+    {
+      "hhSku": "ST01868",
+      "hhId": "hh-ST01868",
+      "hhName": "Gel Tắm Pháp Le Petit Marseillais Dịu Nhẹ Cam Hữu Cơ & Bưởi Hữu Cơ",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-47",
+        "sourceRow": 48,
+        "nameVi": "Sữa tắm dịu nhẹ với chiết xuất cam hữu cơ và bưởi hữu cơ.",
+        "nameOriginal": "Gel Douche & Bain Extra Doux Orange BIO & Pamplemousse BIO",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/7zaBHw5vKg2W7UF6nmacLq/d84d1a85ced398dfba540c4b6e3e3c1f/LPM_EMEA_FR_3574661853130_90723800_587310_SHW_BTH_GPFR_ORNG_650ml_000_TIF.WEBP",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/douches/gel-douche-et-bain-orange-bio-et-pamplemousse",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.857,
+        "sharedTokens": [
+          "bưởi",
+          "cam",
+          "cơ",
+          "dịu",
+          "hữu",
+          "nhẹ",
+          "tắm"
+        ]
+      },
+      "evidence": {
+        "reason": "manually verified in Phase 1 audit (§6.1); specific LPM row resolved by IDF-weighted token overlap on real name/scent fields"
+      }
+    },
+    {
+      "hhSku": "ST68816",
+      "hhId": "hh-ST68816",
+      "hhName": "Gel Tắm Pháp Le Petit Marseillais Dịu Nhẹ Hoa Tiaré",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "medium",
+      "lpmMatch": {
+        "lpmId": "lpm-143",
+        "sourceRow": 144,
+        "nameVi": "Sữa tắm dịu nhẹ Extra Gentle Shower Gel với chiết xuất cỏ roi ngựa hữu cơ và chanh hữu cơ, có thể dùng để đổ đầy lại.",
+        "nameOriginal": "Recharge Gel Douche Extra Doux Verveine Bio et Citron Bio",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/1QVRt7GoO9ANPQ8AqkhGgk/44afc5dd4d18e8adfbf34c17c950a817/LPM_EMEA_3574661813714_90551800_SHGEL_VERBENA_LEM_500ml_000.png",
+        "productUrl": "https://www.lepetitmarseillais.com/recharge-gel-douche-extra-doux-verveine-bio-et-citron-bio",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.517,
+        "sharedTokens": [
+          "dịu",
+          "gel",
+          "nhẹ",
+          "tắm"
+        ]
+      },
+      "reviewStatus": "needs_manual_review",
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.2) as approximate-match territory; candidate is a best-effort IDF-weighted token-overlap suggestion, NOT independently re-verified"
+      }
+    },
+    {
+      "hhSku": "ST68823",
+      "hhId": "hh-ST68823",
+      "hhName": "Gel Tắm Pháp Le Petit Marseillais Dịu Nhẹ Xoài Hữu Cơ & Chanh Dây",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-57",
+        "sourceRow": 58,
+        "nameVi": "Sữa tắm dịu nhẹ hương xoài và chanh dây hữu cơ.",
+        "nameOriginal": "Gel Douche Extra Doux Mangue BIO & Passion",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/1tjRw7iMUYpbOJ0GDzWGFE/1f3204d80aec54559cc9c6d5b8b2ba78/LPM_EMEA_FR_3574661853734_90726000_529816_SHGEL_PASSION_MANGO_300ml_PR_000_TIF.WEBP",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/douches/gel-douche-mangue-bio-et-passion",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.881,
+        "sharedTokens": [
+          "chanh",
+          "cơ",
+          "dây",
+          "dịu",
+          "hữu",
+          "nhẹ",
+          "tắm",
+          "xoài"
+        ]
+      },
+      "evidence": {
+        "reason": "manually verified in Phase 1 audit (§6.1); specific LPM row resolved by IDF-weighted token overlap on real name/scent fields"
+      }
+    },
+    {
+      "hhSku": "ST01288",
+      "hhId": "hh-ST01288",
+      "hhName": "Sữa Tắm Pháp Le Petit Marseillais Dịu Nhẹ Đào Trắng Hữu Cơ Và Xuân Đào Hữu Cơ",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-60",
+        "sourceRow": 61,
+        "nameVi": "Sữa tắm dịu nhẹ chiết xuất đào trắng hữu cơ và xuân đào hữu cơ.",
+        "nameOriginal": "Gel Douche Extra Doux Pêche Blanche BIO & Nectarine BIO",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/15hOUwJ86nUBKCwulReBRu/ec771b2e363a9727c2c5b02bb93d0caa/LPM_EMEA_FR_3574661853741_90726100_530406_SHGEL_PEACH_NECTAR_300ml_PR_000_TIF.WEBP",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/douches/gel-douche-peche-blanche-bio-et-nectarine-bio",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 1.0,
+        "sharedTokens": [
+          "cơ",
+          "dịu",
+          "hữu",
+          "nhẹ",
+          "sữa",
+          "trắng",
+          "tắm",
+          "xuân",
+          "đào"
+        ]
+      },
+      "evidence": {
+        "reason": "manually verified in Phase 1 audit (§6.1); specific LPM row resolved by IDF-weighted token overlap on real name/scent fields"
+      }
+    },
+    {
+      "hhSku": "ST00557",
+      "hhId": "hh-ST00557",
+      "hhName": "Sữa Tắm Pháp Le Petit Marseillais Dịu Nhẹ Sữa Vani Hữu Cơ",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "low",
+      "lpmMatch": {
+        "lpmId": "lpm-28",
+        "sourceRow": 29,
+        "nameVi": "Sữa tắm dịu nhẹ Extra Gentle hương vani hữu cơ",
+        "nameOriginal": "Recharge Douche Extra Douce Lait De Vanille BIO",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/6kxsFy2RivmObxIoNykWMw/3f23c8a0d7cff415ec445ab0bd1912f4/3574661659749_001-2_1-fr-fr",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/douches-savon/douches/eco-recharge-creme-douche-lait-de-vanille",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 1.0,
+        "sharedTokens": [
+          "cơ",
+          "dịu",
+          "hữu",
+          "nhẹ",
+          "sữa",
+          "tắm",
+          "vani"
+        ]
+      },
+      "reviewStatus": "needs_manual_review",
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.2) as approximate-match territory; candidate is a best-effort IDF-weighted token-overlap suggestion, NOT independently re-verified"
+      }
+    },
+    {
+      "hhSku": "ST06999",
+      "hhId": "hh-ST06999",
+      "hhName": "Sữa tắm Pháp Le Petit Marseillais Dịu Nhẹ Dừa Hữu Cơ",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "medium",
+      "lpmMatch": {
+        "lpmId": "lpm-41",
+        "sourceRow": 42,
+        "nameVi": "Sữa tắm dịu nhẹ chiết xuất dừa hữu cơ",
+        "nameOriginal": "Crème de Douche Extra Douce Noix de Coco BIO",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/S0ykE5W4e5vQ7GweV71yq/5243d14fef76fb9d76f8acbef7235a02/LPM_EMEA_FR_3574661853666_90725300_530007_SHOWER_GEL_COCONUT_300ml_PR_000_TIF.WEBP",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/douches/douche-creme-noix-de-coco-bio",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 1.0,
+        "sharedTokens": [
+          "cơ",
+          "dịu",
+          "dừa",
+          "hữu",
+          "nhẹ",
+          "sữa",
+          "tắm"
+        ]
+      },
+      "reviewStatus": "needs_manual_review",
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.2) as approximate-match territory; candidate is a best-effort IDF-weighted token-overlap suggestion, NOT independently re-verified"
+      }
+    },
+    {
+      "hhSku": "ST53594",
+      "hhId": "hh-ST53594",
+      "hhName": "Sữa tắm Pháp Le Petit Marseillais Dịu Nhẹ Sữa Hạnh Nhân Hữu Cơ",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-27",
+        "sourceRow": 28,
+        "nameVi": "Sữa tắm dịu nhẹ bổ sung với sữa hạnh nhân hữu cơ.",
+        "nameOriginal": "Recharge Douche Extra Douce Lait d’Amande Douce BIO",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/4Y7mKkDuuERkNZ6eEAexo/0c7dc6f5f923ac6dd9b897f8ce5d2f88/3574661659732_001-2_1-fr-fr",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/douches-savon/douches/eco-recharge-creme-douche-lait-d-amande-douce",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 1.0,
+        "sharedTokens": [
+          "cơ",
+          "dịu",
+          "hạnh",
+          "hữu",
+          "nhân",
+          "nhẹ",
+          "sữa",
+          "tắm"
+        ]
+      },
+      "evidence": {
+        "reason": "manually verified in Phase 1 audit (§6.1); specific LPM row resolved by IDF-weighted token overlap on real name/scent fields"
+      }
+    },
+    {
+      "hhSku": "ST39109",
+      "hhId": "hh-ST39109",
+      "hhName": "Sữa Tắm Pháp Le Petit Marseillais Dịu Nhẹ Hoa Cam Hữu Cơ",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "medium",
+      "lpmMatch": {
+        "lpmId": "lpm-34",
+        "sourceRow": 35,
+        "nameVi": "Sữa tắm dịu nhẹ chiết xuất hoa cam hữu cơ.",
+        "nameOriginal": "Crème de Douche Extra Douce Fleur d’Oranger BIO",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/7eI1vFk5W3kJlcZBdqpkHe/1bee5ef33c6e97eaba61c43386c5c73e/LPM_EMEA_FR_3574661853727_90725900_529912_SHGEL_ORANGE_BLOSS_300ml_PR_000_TIF.WEBP",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/douches/douche-creme-fleur-d-oranger-bio",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 1.0,
+        "sharedTokens": [
+          "cam",
+          "cơ",
+          "dịu",
+          "hoa",
+          "hữu",
+          "nhẹ",
+          "sữa",
+          "tắm"
+        ]
+      },
+      "reviewStatus": "needs_manual_review",
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.2) as approximate-match territory; candidate is a best-effort IDF-weighted token-overlap suggestion, NOT independently re-verified"
+      }
+    },
+    {
+      "hhSku": "ST00991",
+      "hhId": "hh-ST00991",
+      "hhName": "Sữa Tắm Pháp Le Petit Marseillais Dịu nhẹ Sữa",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "unmatched",
+      "lpmMatch": null,
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.3) — no candidate reached defensible confidence"
+      }
+    },
+    {
+      "hhSku": "ST00755",
+      "hhId": "hh-ST00755",
+      "hhName": "Sữa Tắm Pháp Le Petit Marseillais Dịu Nhẹ Hoa Anh Đào Hữu Cơ",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "medium",
+      "lpmMatch": {
+        "lpmId": "lpm-42",
+        "sourceRow": 43,
+        "nameVi": "Sữa tắm dịu nhẹ chiết xuất hoa anh đào hữu cơ",
+        "nameOriginal": "Crème de Douche & Bain Extra Douce Fleur de Cerisier BIO",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/2ZP4FLhLGhJw5D9rNj5yb/2c3e6f6f449ea2b446cb059c065be0c7/LPM_EMEA_FR_3574661852553_90716000_587702_SHW_BTH_CHRY_BLOS_650ml_000_TIF.WEBP",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/douches/douche-et-bain-creme-fleur-de-cerisier",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 1.0,
+        "sharedTokens": [
+          "anh",
+          "cơ",
+          "dịu",
+          "hoa",
+          "hữu",
+          "nhẹ",
+          "sữa",
+          "tắm",
+          "đào"
+        ]
+      },
+      "reviewStatus": "needs_manual_review",
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.2) as approximate-match territory; candidate is a best-effort IDF-weighted token-overlap suggestion, NOT independently re-verified"
+      }
+    },
+    {
+      "hhSku": "ST00809",
+      "hhId": "hh-ST00809",
+      "hhName": "Sữa Tắm Pháp Le Petit Marseillais Dịu Nhẹ Chiết Xuất Mơ Hữu Cơ Và Hạt Phỉ Hữu Cơ",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-125",
+        "sourceRow": 126,
+        "nameVi": "Sữa tắm dịu nhẹ với mơ hữu cơ và hạt phỉ hữu cơ.",
+        "nameOriginal": "Crème de Douche & Bain Extra Douce Abricot BIO & Noisette BIO",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/iGpIJ6zZrBA9Rc7aCX4Tk/1fb233a10079ccec60359854ea8a0034/LPM_EMEA_FR_3574661852560_90723100_587102_SHW_BTH_APRI_HNUT_650ml_000_TIF.WEBP",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/douches/douche-et-bain-creme-abricot-et-noisette",
+        "resolvedBy": "manual_verification_phase2"
+      },
+      "evidence": {
+        "reason": "manually verified side-by-side in Phase 2 audit (§9 demo-product table) — highest confidence tier"
+      }
+    },
+    {
+      "hhSku": "ST01318",
+      "hhId": "hh-ST01318",
+      "hhName": "Gel Tắm Pháp dành cho Nam Le Petit Marseillais 4in1 Chiết Xuất Khoáng Chất Và Gỗ Hoàng Đàn",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "medium",
+      "lpmMatch": {
+        "lpmId": "lpm-53",
+        "sourceRow": 54,
+        "nameVi": "Sữa tắm nam với khoáng chất và hương gỗ tuyết tùng",
+        "nameOriginal": "Gel Douche Homme Minéraux & Bois de Cèdre",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/3DZshCxQSUW48wbqhxpgty/e2a2bc480531ae403ce40ebaff8bad28/lpm_3574661701318_emea_shmp_shw_cedar_minl_250ml_994533623_mobile_2-fr-fr",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/douches/gel-douche-homme-mineraux-et-bois-de-cedre",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.37,
+        "sharedTokens": [
+          "chất",
+          "gỗ",
+          "khoáng",
+          "nam",
+          "tắm"
+        ]
+      },
+      "reviewStatus": "needs_manual_review",
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.2) as approximate-match territory; candidate is a best-effort IDF-weighted token-overlap suggestion, NOT independently re-verified"
+      }
+    },
+    {
+      "hhSku": "ST01431",
+      "hhId": "hh-ST01431",
+      "hhName": "Sữa Tắm Pháp dành cho Nam Le Petit Marseillais 4in1 Chiết Xuất Gỗ Cam & Argan",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-43",
+        "sourceRow": 44,
+        "nameVi": "Sữa tắm nam hương hoa cam và dầu argan",
+        "nameOriginal": "Gel Douche Homme Bois d'Oranger & Argan",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/5YON44wtmTMUG8qgD2Za3z/33299c493f50baea2e17ba664535afc1/lpm_3574661701431_emea_shmp_shw_orng_argan_250ml_994533623_mobile_2-fr-fr",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/douches/gel-douch-homme-bois-d-oranger-et-argan",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.419,
+        "sharedTokens": [
+          "argan",
+          "cam",
+          "nam",
+          "sữa",
+          "tắm"
+        ]
+      },
+      "evidence": {
+        "reason": "manually verified in Phase 1 audit (§6.1); specific LPM row resolved by IDF-weighted token overlap on real name/scent fields"
+      }
+    },
+    {
+      "hhSku": "ST01356",
+      "hhId": "hh-ST01356",
+      "hhName": "Gel Tắm Pháp dành cho Nam Le Petit Marseillais 4in1 Chiết Xuất Thông Biển & Bạch Đàn",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "medium",
+      "lpmMatch": {
+        "lpmId": "lpm-61",
+        "sourceRow": 62,
+        "nameVi": "Sữa tắm dịu nhẹ Extra Gentle với chiết xuất thông hữu cơ và thì là biển hữu cơ.",
+        "nameOriginal": "Gel Douche Extra Doux Pin BIO & Criste Marine BIO",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/1V7g2vPO7Qy2JdtDoi0JY8/68ce50c049ae3f39e8a4c2de2b7ccc56/LPM_EMEA_FR_3574661853758_90726200_530313_SHGEL_PINE_ALGAE_300ml_PR_000_TIF.WEBP",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/douches/gel-douche-pin-bio-et-criste-marine",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.387,
+        "sharedTokens": [
+          "biển",
+          "chiết",
+          "thông",
+          "tắm",
+          "xuất"
+        ]
+      },
+      "reviewStatus": "needs_manual_review",
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.2) as approximate-match territory; candidate is a best-effort IDF-weighted token-overlap suggestion, NOT independently re-verified"
+      }
+    },
+    {
+      "hhSku": "ST01172",
+      "hhId": "hh-ST01172",
+      "hhName": "Gel Tắm Tắm Pháp dành cho Nam Le Petit Marseillais 4in1 Chiết Xuất Gỗ Tuyết Tùng & Dương Xỉ",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "medium",
+      "lpmMatch": {
+        "lpmId": "lpm-50",
+        "sourceRow": 51,
+        "nameVi": "Sữa tắm nam Cade Wood & Fern",
+        "nameOriginal": "Gel Douche Homme Bois de Cade & Fougère",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/65Ez12oYDfWN3ulBeOrx1J/571b3566a1fb0c6f4f83ecc322f3055c/lpm_3574661701172_emea_showergel_men_cade_fern_250ml_994533623_mobile_2-fr-fr",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/douches/gel-douche-homme-bois-de-cade-et-fougere",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.418,
+        "sharedTokens": [
+          "dương",
+          "gỗ",
+          "nam",
+          "tắm",
+          "xỉ"
+        ]
+      },
+      "reviewStatus": "needs_manual_review",
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.2) as approximate-match territory; candidate is a best-effort IDF-weighted token-overlap suggestion, NOT independently re-verified"
+      }
+    },
+    {
+      "hhSku": "ST04371",
+      "hhId": "hh-ST04371",
+      "hhName": "Gel Tắm Pháp dành cho Nam Le Petit Marseillais 4in1 Chiết Xuất Gừng & Gỗ Bách Hương",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-51",
+        "sourceRow": 52,
+        "nameVi": "Sữa tắm nam hương gừng và gỗ bách",
+        "nameOriginal": "Gel Douche Homme Gingembre & Bois de Cyprès",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/68m0DkOx4WFtYMN5gzcEg6/066bdd4c9fe6898f3725c3d6d284ffee/lpm_3574661704371_emea_showergel_cypr_ging_250ml_994533623_mobile_2-fr-fr",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/douches/gel-douche-homme-gingembre-et-bois-de-cypres",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.552,
+        "sharedTokens": [
+          "bách",
+          "gỗ",
+          "gừng",
+          "hương",
+          "nam",
+          "tắm"
+        ]
+      },
+      "evidence": {
+        "reason": "manually verified in Phase 1 audit (§6.1); specific LPM row resolved by IDF-weighted token overlap on real name/scent fields"
+      }
+    },
+    {
+      "hhSku": "DT65312",
+      "hhId": "hh-DT65312",
+      "hhName": "Sữa Dưỡng Thể Pháp Le Petit Marseillais Phục Hồi Bơ Hạt Mỡ, Lô Hội & Sáp Ong",
+      "hhCategoryOriginal": "Sữa dưỡng thể",
+      "hhCategoryCorrected": "Sữa dưỡng thể",
+      "categoryWasCorrected": false,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-119",
+        "sourceRow": 120,
+        "nameVi": "Sữa dưỡng thể phục hồi với bơ hạt mỡ, lô hội và sáp ong.",
+        "nameOriginal": "Lait Soin Réparation Karité, Aloès & Cire d'Abeille",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/Lr9IP25pGM6NAW3lxUWX6/8db4966be81a2e7cf2d68969b8944ed9/LPM_EMEA_3574661818085_90571400_BODYCARE_LAIT_REPARATION_CIRE_ABEILLE_250ML_000__1__1.jpg",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/soins-du-corps/lait-corps-reparation-karite-aloes-et-cire-d-abeille",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 1.0,
+        "sharedTokens": [
+          "bơ",
+          "dưỡng",
+          "hạt",
+          "hồi",
+          "hội",
+          "lô",
+          "mỡ",
+          "ong",
+          "phục",
+          "sáp",
+          "sữa",
+          "thể"
+        ]
+      },
+      "evidence": {
+        "reason": "manually verified in Phase 1 audit (§6.1); specific LPM row resolved by IDF-weighted token overlap on real name/scent fields"
+      }
+    },
+    {
+      "hhSku": "DT04660",
+      "hhId": "hh-DT04660",
+      "hhName": "Sữa Dưỡng Thể Pháp Le Petit Marseillais Dưỡng Ẩm Chuyên Sâu Ca Cao & Bơ Hạt Mỡ",
+      "hhCategoryOriginal": "Sữa dưỡng thể",
+      "hhCategoryCorrected": "Sữa dưỡng thể",
+      "categoryWasCorrected": false,
+      "confidence": "medium",
+      "lpmMatch": {
+        "lpmId": "lpm-118",
+        "sourceRow": 119,
+        "nameVi": "Sữa dưỡng thể giàu dưỡng chất từ ​​bơ hạt mỡ, hạnh nhân ngọt và dầu argan.",
+        "nameOriginal": "Lait Soin Nutrition Karité, Amande Douce & Argan",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/5Irtn6PExfR8lriwQ4ci4P/c830ae0aff52a5b45b01fd961ca12f1e/LPM_EMEA_3574661818054_90571100_BODYCARE_LAIT_NUTRITION_KARITE_ARGAN_250ML_000_1.jpg",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/soins-du-corps/lait-corps-nutrition-karite-amande-douce-et-argan",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.448,
+        "sharedTokens": [
+          "bơ",
+          "dưỡng",
+          "hạt",
+          "mỡ",
+          "sữa",
+          "thể"
+        ]
+      },
+      "reviewStatus": "needs_manual_review",
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.2) as approximate-match territory; candidate is a best-effort IDF-weighted token-overlap suggestion, NOT independently re-verified"
+      }
+    },
+    {
+      "hhSku": "DT55885",
+      "hhId": "hh-DT55885",
+      "hhName": "Sữa Dưỡng Thể Pháp Le Petit Marseillais Dưỡng Ẩm Jojoba",
+      "hhCategoryOriginal": "Sữa dưỡng thể",
+      "hhCategoryCorrected": "Sữa dưỡng thể",
+      "categoryWasCorrected": false,
+      "confidence": "medium",
+      "lpmMatch": {
+        "lpmId": "lpm-26",
+        "sourceRow": 27,
+        "nameVi": "Sữa dưỡng da Jojoba",
+        "nameOriginal": "Lait Soin Nourrissant Jojoba",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/2RGXxHS2Mk5tdC6EXT66PP/ca822ca309fafb3841228d3c3b66e367/LPM_EMEA_3574661817972_90566500_BODYCARE_LAIT_NOURRISSANT_JOJOBA_BIO_250ML_000_TIF.jpg",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/corps/soins-du-corps/lait-soin-nourrissant-jojoba",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.562,
+        "sharedTokens": [
+          "dưỡng",
+          "jojoba",
+          "sữa"
+        ]
+      },
+      "reviewStatus": "needs_manual_review",
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.2) as approximate-match territory; candidate is a best-effort IDF-weighted token-overlap suggestion, NOT independently re-verified"
+      }
+    },
+    {
+      "hhSku": "DT83916",
+      "hhId": "hh-DT83916",
+      "hhName": "Sữa Dưỡng Thể Pháp Le Petit Marseillais Dưỡng Ẩm Bơ Hạt Mỡ, Hạnh Nhân & Argan 400ml",
+      "hhCategoryOriginal": "Sữa dưỡng thể",
+      "hhCategoryCorrected": "Sữa dưỡng thể",
+      "categoryWasCorrected": false,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-118",
+        "sourceRow": 119,
+        "nameVi": "Sữa dưỡng thể giàu dưỡng chất từ ​​bơ hạt mỡ, hạnh nhân ngọt và dầu argan.",
+        "nameOriginal": "Lait Soin Nutrition Karité, Amande Douce & Argan",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/5Irtn6PExfR8lriwQ4ci4P/c830ae0aff52a5b45b01fd961ca12f1e/LPM_EMEA_3574661818054_90571100_BODYCARE_LAIT_NUTRITION_KARITE_ARGAN_250ML_000_1.jpg",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/soins-du-corps/lait-corps-nutrition-karite-amande-douce-et-argan",
+        "resolvedBy": "manual_verification_phase2"
+      },
+      "evidence": {
+        "reason": "manually verified side-by-side in Phase 2 audit (§9 demo-product table) — highest confidence tier"
+      }
+    },
+    {
+      "hhSku": "DT84159",
+      "hhId": "hh-DT84159",
+      "hhName": "Sữa Dưỡng Thể Pháp Le Petit Marseillais Phục Hồi Bơ Hạt Mỡ, Lô Hội & Sáp Ong",
+      "hhCategoryOriginal": "Sữa dưỡng thể",
+      "hhCategoryCorrected": "Sữa dưỡng thể",
+      "categoryWasCorrected": false,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-119",
+        "sourceRow": 120,
+        "nameVi": "Sữa dưỡng thể phục hồi với bơ hạt mỡ, lô hội và sáp ong.",
+        "nameOriginal": "Lait Soin Réparation Karité, Aloès & Cire d'Abeille",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/Lr9IP25pGM6NAW3lxUWX6/8db4966be81a2e7cf2d68969b8944ed9/LPM_EMEA_3574661818085_90571400_BODYCARE_LAIT_REPARATION_CIRE_ABEILLE_250ML_000__1__1.jpg",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/soins-du-corps/lait-corps-reparation-karite-aloes-et-cire-d-abeille",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 1.0,
+        "sharedTokens": [
+          "bơ",
+          "dưỡng",
+          "hạt",
+          "hồi",
+          "hội",
+          "lô",
+          "mỡ",
+          "ong",
+          "phục",
+          "sáp",
+          "sữa",
+          "thể"
+        ]
+      },
+      "evidence": {
+        "reason": "manually verified in Phase 1 audit (§6.1); specific LPM row resolved by IDF-weighted token overlap on real name/scent fields"
+      }
+    },
+    {
+      "hhSku": "DT77412",
+      "hhId": "hh-DT77412",
+      "hhName": "Sữa Dưỡng Thể Pháp Le Petit Marseillais Siêu Dịu nhẹ Hoa Hạnh Nhân Hữu Cơ",
+      "hhCategoryOriginal": "Sữa dưỡng thể",
+      "hhCategoryCorrected": "Sữa dưỡng thể",
+      "categoryWasCorrected": false,
+      "confidence": "medium",
+      "lpmMatch": {
+        "lpmId": "lpm-133",
+        "sourceRow": 134,
+        "nameVi": "Sữa dưỡng thể dịu nhẹ, độ dung nạp cao với chiết xuất hoa hạnh nhân hữu cơ.",
+        "nameOriginal": "Lait Soin Apaisant Haute Tolérance Fleur d’Amandier Bio",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/3M4hY6uol9BoBU9o3T7SQ6/9fe2a2c34bb97b09fbbaee05eb984d86/LPM_EMEA_3574661777412_90381402_BODYCARE_LAIT_HAUTE_TOLERANCE_FLEUR_AMANDIER_250ML_000_TIF.jpg",
+        "productUrl": "https://www.lepetitmarseillais.com/products/produits-soins-du-corps/lait-soin-apaisant-haute-tolerance-fleur-d-amandier-bio",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.885,
+        "sharedTokens": [
+          "cơ",
+          "dưỡng",
+          "dịu",
+          "hoa",
+          "hạnh",
+          "hữu",
+          "nhân",
+          "nhẹ",
+          "sữa",
+          "thể"
+        ]
+      },
+      "reviewStatus": "needs_manual_review",
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.2) as approximate-match territory; candidate is a best-effort IDF-weighted token-overlap suggestion, NOT independently re-verified"
+      }
+    },
+    {
+      "hhSku": "DT02684",
+      "hhId": "hh-DT02684",
+      "hhName": "Sữa Dưỡng Thể Le Petit Marseillais Với Chiết Xuất Bơ Hạt Mỡ, Hạnh Nhân Ngọt & Dầu Argan",
+      "hhCategoryOriginal": "Sữa dưỡng thể",
+      "hhCategoryCorrected": "Sữa dưỡng thể",
+      "categoryWasCorrected": false,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-118",
+        "sourceRow": 119,
+        "nameVi": "Sữa dưỡng thể giàu dưỡng chất từ ​​bơ hạt mỡ, hạnh nhân ngọt và dầu argan.",
+        "nameOriginal": "Lait Soin Nutrition Karité, Amande Douce & Argan",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/5Irtn6PExfR8lriwQ4ci4P/c830ae0aff52a5b45b01fd961ca12f1e/LPM_EMEA_3574661818054_90571100_BODYCARE_LAIT_NUTRITION_KARITE_ARGAN_250ML_000_1.jpg",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/soins-du-corps/lait-corps-nutrition-karite-amande-douce-et-argan",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.855,
+        "sharedTokens": [
+          "argan",
+          "bơ",
+          "dưỡng",
+          "dầu",
+          "hạnh",
+          "hạt",
+          "mỡ",
+          "ngọt",
+          "nhân",
+          "sữa",
+          "thể"
+        ]
+      },
+      "evidence": {
+        "reason": "manually verified in Phase 1 audit (§6.1); specific LPM row resolved by IDF-weighted token overlap on real name/scent fields"
+      }
+    },
+    {
+      "hhSku": "DG90435",
+      "hhId": "hh-DG90435",
+      "hhName": "Dầu Gội Trẻ Em Le Petit Marseillais 2in1 Giúp Gỡ Rối Tóc Chiết Xuất Quả Đào & Quả Mơ",
+      "hhCategoryOriginal": "Dầu gội",
+      "hhCategoryCorrected": "Dầu gội",
+      "categoryWasCorrected": false,
+      "confidence": "unmatched",
+      "lpmMatch": null,
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.3) — no candidate reached defensible confidence"
+      }
+    },
+    {
+      "hhSku": "DG90442",
+      "hhId": "hh-DG90442",
+      "hhName": "Dầu Gội Trẻ Em Le Petit Marseillais 2in1 Giúp Gỡ Rối Tóc Chiết Xuất Quả Mâm Xôi Hữu Cơ & Bông",
+      "hhCategoryOriginal": "Dầu gội",
+      "hhCategoryCorrected": "Dầu gội",
+      "categoryWasCorrected": false,
+      "confidence": "unmatched",
+      "lpmMatch": null,
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.3) — no candidate reached defensible confidence"
+      }
+    },
+    {
+      "hhSku": "DG31372",
+      "hhId": "hh-DG31372",
+      "hhName": "Dầu Gội Pháp Le Petit Marseillais Phục Hồi Tóc Táo & Oliu Hữu Cơ",
+      "hhCategoryOriginal": "Dầu gội",
+      "hhCategoryCorrected": "Dầu gội",
+      "categoryWasCorrected": false,
+      "confidence": "medium",
+      "lpmMatch": {
+        "lpmId": "lpm-107",
+        "sourceRow": 108,
+        "nameVi": "Dầu gội - Phục hồi chuyên nghiệp với dầu jojoba hữu cơ",
+        "nameOriginal": "Shampooing Expert Réparation à l’Huile de Jojoba Bio",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/1kx5NoGHoq5dWlcHAROJpd/5c703b6fe84d6da28207a3ffb324127c/lpm_emea_3574661760650_90311801_repair_jojoba_shampoo_250ml_000-min_1.jpg",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/shampooings/shampooing-expert-r%C3%A9paration-huile-de-jojoba-bio",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.549,
+        "sharedTokens": [
+          "cơ",
+          "dầu",
+          "gội",
+          "hồi",
+          "hữu",
+          "phục"
+        ]
+      },
+      "reviewStatus": "needs_manual_review",
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.2) as approximate-match territory; candidate is a best-effort IDF-weighted token-overlap suggestion, NOT independently re-verified"
+      }
+    },
+    {
+      "hhSku": "DG74554",
+      "hhId": "hh-DG74554",
+      "hhName": "Dầu Gội Pháp Le Petit Marseillais Phục hồi tóc khô & hư tổn Mật Ong Và Bơ Hạt Mỡ Hữu Cơ",
+      "hhCategoryOriginal": "Dầu gội",
+      "hhCategoryCorrected": "Dầu gội",
+      "categoryWasCorrected": false,
+      "confidence": "medium",
+      "lpmMatch": {
+        "lpmId": "lpm-109",
+        "sourceRow": 110,
+        "nameVi": "Dầu gội - Dinh dưỡng từ mật ong hữu cơ và bơ hạt mỡ",
+        "nameOriginal": "Shampooing Nutrition au Miel et au Karité BIO",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/zfrw71aTsIZFCeiJSUlzI/2267381d79f71c201a5f1747d7415471/lpm_emea_3574661574554_2788902_nutrition_lidl_shampoo_300ml_000_1.jpg",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/shampooings/shampooing-nutrition-cheveux-secs-et-cassants",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.486,
+        "sharedTokens": [
+          "bơ",
+          "cơ",
+          "dầu",
+          "gội",
+          "hạt",
+          "hữu",
+          "mật",
+          "mỡ",
+          "ong"
+        ]
+      },
+      "reviewStatus": "needs_manual_review",
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.2) as approximate-match territory; candidate is a best-effort IDF-weighted token-overlap suggestion, NOT independently re-verified"
+      }
+    },
+    {
+      "hhSku": "DG74646",
+      "hhId": "hh-DG74646",
+      "hhName": "Dầu Gội Pháp Le Petit Marseillais Ngăn ngừa gàu Chiết Xuất Tầm Ma & Chanh Hữu Cơ",
+      "hhCategoryOriginal": "Dầu gội",
+      "hhCategoryCorrected": "Dầu gội",
+      "categoryWasCorrected": false,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-111",
+        "sourceRow": 112,
+        "nameVi": "Dầu gội - Thanh lọc cơ thể với cây tầm ma và chanh hữu cơ.",
+        "nameOriginal": "Shampooing Purifiant à l’Ortie et au Citron BIO",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/6tyF8lgtoiA3Qi8BAXIeet/4846f43de70c1de9486335d992c1bdc7/lpm_emea_3574661574646_2791102_purifying_lidl_shampoo_300ml_0001.jpg",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/shampooings/shampooing-purifiant-cheveux-normaux-regraissant-vite",
+        "resolvedBy": "manual_verification_phase2"
+      },
+      "evidence": {
+        "reason": "manually verified side-by-side in Phase 2 audit (§9 demo-product table) — highest confidence tier"
+      }
+    },
+    {
+      "hhSku": "DG01841",
+      "hhId": "hh-DG01841",
+      "hhName": "Dầu Gội Pháp Le Petit Marseillais Vào Nếp Suôn Mượt Chiết Xuất Hạnh Nhân và Hạt Lanh Hữu Cơ",
+      "hhCategoryOriginal": "Dầu gội",
+      "hhCategoryCorrected": "Dầu gội",
+      "categoryWasCorrected": false,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-105",
+        "sourceRow": 106,
+        "nameVi": "Dầu gội - Mềm mại & rạng rỡ với hạnh nhân và hạt lanh hữu cơ.",
+        "nameOriginal": "Shampooing Douceur & Éclat à l‘Amande et aux graines de lin BIO",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/3evRDNq5S7BAO5pTJF10ch/63e8d3643bd71e9a6e28c947eea7ff8c/lpm_emea_fr_3574661801841_90491400_shmp_softness_shine_300ml_000_2.jpg",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/shampooings/shampooing-douceur-et-eclat-cheveux-normaux-longs-et-delicats",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.441,
+        "sharedTokens": [
+          "cơ",
+          "dầu",
+          "gội",
+          "hạnh",
+          "hạt",
+          "hữu",
+          "lanh",
+          "nhân"
+        ]
+      },
+      "evidence": {
+        "reason": "manually verified in Phase 1 audit (§6.1); specific LPM row resolved by IDF-weighted token overlap on real name/scent fields"
+      }
+    },
+    {
+      "hhSku": "DG37429",
+      "hhId": "hh-DG37429",
+      "hhName": "Dầu Gội Pháp Le Petit Marseillais Cấp Ẩm chuyên sâu Dừa Hữu Cơ",
+      "hhCategoryOriginal": "Dầu gội",
+      "hhCategoryCorrected": "Dầu gội",
+      "categoryWasCorrected": false,
+      "confidence": "medium",
+      "lpmMatch": {
+        "lpmId": "lpm-66",
+        "sourceRow": 67,
+        "nameVi": "Mặt nạ dưỡng ẩm chuyên sâu 4 trong 1 với dầu argan hữu cơ",
+        "nameOriginal": "Masque 4 en 1 Nutrition Intense Huile d’Argan BIO",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/50zpovn3qthwQURKOkTh4n/42e5aecb2b7bb67f9b5ea2b953bfec46/image.png",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/masques/masque-nutrition-intense-huile-d-argan-bio",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.61,
+        "sharedTokens": [
+          "chuyên",
+          "cơ",
+          "dầu",
+          "hữu",
+          "sâu",
+          "ẩm"
+        ]
+      },
+      "reviewStatus": "needs_manual_review",
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.2) as approximate-match territory; candidate is a best-effort IDF-weighted token-overlap suggestion, NOT independently re-verified"
+      }
+    },
+    {
+      "hhSku": "DG74042",
+      "hhId": "hh-DG74042",
+      "hhName": "Dầu Gội Pháp Le Petit Marseillais Trị Gàu Bạc Hà Hữu Cơ Và Tinh Dầu Thiên Nhiên",
+      "hhCategoryOriginal": "Dầu gội",
+      "hhCategoryCorrected": "Dầu gội",
+      "categoryWasCorrected": false,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-100",
+        "sourceRow": 101,
+        "nameVi": "Dầu gội - Trị gàu với bạc hà hữu cơ và tinh dầu.",
+        "nameOriginal": "Shampooing Anti-Pelliculaire à la Menthe bio et aux Huiles Essentielles",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/1qqEHmBcjbWiJn5r3NX6eb/2cc096e9e2ad25234b1164341ffd1ba4/lpm_emea_3574661574042_2779703_men_anti_dandruff_mint_shampoo_250ml_000-min_4_0-fr-fr",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/shampooings/shampooing-anti-pelliculaire-cheveux-normaux-cuir-chevelu-avec-pellicules",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.721,
+        "sharedTokens": [
+          "bạc",
+          "cơ",
+          "dầu",
+          "gàu",
+          "gội",
+          "hà",
+          "hữu",
+          "tinh",
+          "trị"
+        ]
+      },
+      "evidence": {
+        "reason": "manually verified in Phase 1 audit (§6.1); specific LPM row resolved by IDF-weighted token overlap on real name/scent fields"
+      }
+    },
+    {
+      "hhSku": "DG60650",
+      "hhId": "hh-DG60650",
+      "hhName": "Dầu Gội Pháp Le Petit Marseillais Phục Hồi Hư tổn Chuyên Sâu Dầu Jojoba Hữu Cơ",
+      "hhCategoryOriginal": "Dầu gội",
+      "hhCategoryCorrected": "Dầu gội",
+      "categoryWasCorrected": false,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-107",
+        "sourceRow": 108,
+        "nameVi": "Dầu gội - Phục hồi chuyên nghiệp với dầu jojoba hữu cơ",
+        "nameOriginal": "Shampooing Expert Réparation à l’Huile de Jojoba Bio",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/1kx5NoGHoq5dWlcHAROJpd/5c703b6fe84d6da28207a3ffb324127c/lpm_emea_3574661760650_90311801_repair_jojoba_shampoo_250ml_000-min_1.jpg",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/shampooings/shampooing-expert-r%C3%A9paration-huile-de-jojoba-bio",
+        "resolvedBy": "manual_verification_phase2"
+      },
+      "evidence": {
+        "reason": "manually verified side-by-side in Phase 2 audit (§9 demo-product table) — highest confidence tier"
+      }
+    },
+    {
+      "hhSku": "DX74752",
+      "hhId": "hh-DX74752",
+      "hhName": "Dầu Xả Pháp Le Petit Marseillais Dưỡng Ẩm Dừa Hữu Cơ",
+      "hhCategoryOriginal": "Dầu xả",
+      "hhCategoryCorrected": "Dầu xả",
+      "categoryWasCorrected": false,
+      "confidence": "medium",
+      "lpmMatch": {
+        "lpmId": "lpm-2",
+        "sourceRow": 3,
+        "nameVi": "Dầu xả chăm sóc nhanh - Dưỡng ẩm & nhẹ tóc với nước dừa hữu cơ.",
+        "nameOriginal": "Soin Express Hydratation Légèreté à l’Eau de Coco BIO",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/1CHGkbaoz4l6cWTpG2YMtj/2181a6c8e377a980bf2dadc973214f73/lpm_emea_3574661761923_90318700_conditioner_org_hydra_coco_200ml_000-min_1-fr-fr",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/apres-shampooings/apres-shampooing-hydratation-legerete-eau-coco-bio",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 1.0,
+        "sharedTokens": [
+          "cơ",
+          "dưỡng",
+          "dầu",
+          "dừa",
+          "hữu",
+          "xả",
+          "ẩm"
+        ]
+      },
+      "reviewStatus": "needs_manual_review",
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.2) as approximate-match territory; candidate is a best-effort IDF-weighted token-overlap suggestion, NOT independently re-verified"
+      }
+    },
+    {
+      "hhSku": "MN75209",
+      "hhId": "hh-MN75209",
+      "hhName": "Mặt Nạ Dưỡng Tóc Pháp Le Petit Marseillais 4in1 Dừa Hữu Cơ",
+      "hhCategoryOriginal": "Dầu xả",
+      "hhCategoryCorrected": "Dầu xả",
+      "categoryWasCorrected": false,
+      "confidence": "medium",
+      "lpmMatch": {
+        "lpmId": "lpm-65",
+        "sourceRow": 66,
+        "nameVi": "Mặt nạ 4 trong 1: Dưỡng ẩm, nhẹ tóc, nước dừa hữu cơ",
+        "nameOriginal": "Masque 4 en 1 Hydratation Légèreté Eau de Coco BIO",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/57jbfFWrpTcX70xcYTYZjs/7b4b966272eb6d23ffe33423cf2798d2/image.png",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/masques/masque-hydratation-legerete-eau-coco-bio",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.782,
+        "sharedTokens": [
+          "cơ",
+          "dưỡng",
+          "dừa",
+          "hữu",
+          "mặt",
+          "nạ",
+          "tóc"
+        ]
+      },
+      "reviewStatus": "needs_manual_review",
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.2) as approximate-match territory; candidate is a best-effort IDF-weighted token-overlap suggestion, NOT independently re-verified"
+      }
+    },
+    {
+      "hhSku": "KT18485",
+      "hhId": "hh-KT18485",
+      "hhName": "Kem Dưỡng Tay Pháp Le Petit Marseillais Bơ Hạt Mỡ, Hạnh Nhân & Dầu Argan",
+      "hhCategoryOriginal": "Kem dưỡng tay",
+      "hhCategoryCorrected": "Kem dưỡng tay",
+      "categoryWasCorrected": false,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-71",
+        "sourceRow": 72,
+        "nameVi": "Kem dưỡng da tay giàu dưỡng chất với bơ hạt mỡ, dầu hạnh nhân ngọt và dầu argan.",
+        "nameOriginal": "Crème Mains Nutrition Karité, Amande Douce & Argan",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/KWt3e2mJO0wNGfpNGKnnc/4c32fa9ae33e9dbfdecb755b2180fe1e/LPM_EMEA_3251241018485_90456501_CREME_MAINS_NUTRITION_75ML_000.jpg",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/savons-des-mains/creme-mains-nutrition-karite-amande-douce-et-argan",
+        "resolvedBy": "manual_verification_phase2"
+      },
+      "evidence": {
+        "reason": "manually verified side-by-side in Phase 2 audit (§9 demo-product table) — highest confidence tier"
+      }
+    },
+    {
+      "hhSku": "KT34768",
+      "hhId": "hh-KT34768",
+      "hhName": "Kem Dưỡng Tay Pháp Le Petit Marseillais Bơ Hạt Mỡ, Lô Hội, Sáp Ong",
+      "hhCategoryOriginal": "Kem dưỡng tay",
+      "hhCategoryCorrected": "Kem dưỡng tay",
+      "categoryWasCorrected": false,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-72",
+        "sourceRow": 73,
+        "nameVi": "Kem dưỡng da tay phục hồi với bơ hạt mỡ, lô hội và sáp ong.",
+        "nameOriginal": "Crème Mains Réparation Karité, Aloès & Cire d'Abeille",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/7FDc5fufyhhMJdZsoq3i8t/bb853a5b51f3d663d340d4f00c1b5b60/LPM_EMEA_3251241034768_5882209_CREME_MAINS_REPARATION_75ML_000.jpg",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/savons-des-mains/creme-mains-reparation-karite-aloes-et-cire-d-abeille",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 1.0,
+        "sharedTokens": [
+          "bơ",
+          "dưỡng",
+          "hạt",
+          "hội",
+          "kem",
+          "lô",
+          "mỡ",
+          "ong",
+          "sáp",
+          "tay"
+        ]
+      },
+      "evidence": {
+        "reason": "manually verified in Phase 1 audit (§6.1); specific LPM row resolved by IDF-weighted token overlap on real name/scent fields"
+      }
+    },
+    {
+      "hhSku": "DG74035",
+      "hhId": "hh-DG74035",
+      "hhName": "Dầu Gội Cho Nam Hữu Cơ Le Petit Marseillais Chiết Xuất Tinh Dầu Chanh Vàng",
+      "hhCategoryOriginal": "Dầu gội",
+      "hhCategoryCorrected": "Dầu gội",
+      "categoryWasCorrected": false,
+      "confidence": "medium",
+      "lpmMatch": {
+        "lpmId": "lpm-99",
+        "sourceRow": 100,
+        "nameVi": "Dầu gội - Kem trị gàu dành cho nam giới với chiết xuất chanh hữu cơ và tinh dầu.",
+        "nameOriginal": "Shampooing Anti-Pelliculaire Homme au Cédrat BIO et aux huiles essentielles",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/LV6UJadCumqbZ1H2rwggI/879dd20da0ff3f7062a695506002c3fa/lpm_emea_3574661574035_2779603_men_anti_dandruff_citron_shampoo_250ml_000-min_1_0-fr-fr",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/shampooings/shampooing-anti-pelliculaire-cheveux-gras-cuir-chevelu-avec-pellicules",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.825,
+        "sharedTokens": [
+          "chanh",
+          "chiết",
+          "cơ",
+          "dầu",
+          "gội",
+          "hữu",
+          "nam",
+          "tinh",
+          "xuất"
+        ]
+      },
+      "reviewStatus": "needs_manual_review",
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.2) as approximate-match territory; candidate is a best-effort IDF-weighted token-overlap suggestion, NOT independently re-verified"
+      }
+    },
+    {
+      "hhSku": "DG37467",
+      "hhId": "hh-DG37467",
+      "hhName": "Dầu Gội Pháp Le Petit Marseillais Ngăn ngừa gàu Trà Xanh Hữu Cơ",
+      "hhCategoryOriginal": "Dầu gội",
+      "hhCategoryCorrected": "Dầu gội",
+      "categoryWasCorrected": false,
+      "confidence": "medium",
+      "lpmMatch": {
+        "lpmId": "lpm-104",
+        "sourceRow": 105,
+        "nameVi": "Dầu gội - Thức uống thanh lọc cơ thể tươi mát với trà xanh hữu cơ",
+        "nameOriginal": "Shampooing Détox Fraicheur à l’Infusion de Thé Vert BIO",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/6n5mhNpLM8RizjlMoP2ZsE/38080f388bc0214b62c49686927e519f/lpm_emea_3574661537467_1933303_org_detox_grn_tea_shampoo_250ml_000-min_1_0.jpg",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/shampooings/shampooing-detox-fraicheur-infusion-the-vert-bio",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.529,
+        "sharedTokens": [
+          "cơ",
+          "dầu",
+          "gội",
+          "hữu",
+          "trà",
+          "xanh"
+        ]
+      },
+      "reviewStatus": "needs_manual_review",
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.2) as approximate-match territory; candidate is a best-effort IDF-weighted token-overlap suggestion, NOT independently re-verified"
+      }
+    },
+    {
+      "hhSku": null,
+      "hhId": "hh-stt61",
+      "hhName": "[QUÀ TẶNG KHÔNG BÁN] Bông Tạo Bọt Kì Cọ Tẩy Da Chết Màu Ngẫu Nhiên",
+      "hhCategoryOriginal": "Quà tặng/POSM",
+      "hhCategoryCorrected": "Quà tặng/POSM",
+      "categoryWasCorrected": false,
+      "confidence": "not_applicable",
+      "lpmMatch": null,
+      "evidence": {
+        "reason": "no SKU — gift/bundle/combo row, not a distinct sellable product to match"
+      }
+    },
+    {
+      "hhSku": null,
+      "hhId": "hh-stt62",
+      "hhName": "Mua 2 chai Sữa tắm nữ 250ml + Tặng 1 Bánh xà phòng thiên nhiên 100g",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Xà phòng bánh",
+      "categoryWasCorrected": true,
+      "confidence": "not_applicable",
+      "lpmMatch": null,
+      "evidence": {
+        "reason": "no SKU — gift/bundle/combo row, not a distinct sellable product to match"
+      }
+    },
+    {
+      "hhSku": null,
+      "hhId": "hh-stt63",
+      "hhName": "Combo 3 sản phẩm: 1 Sữa tắm hoa anh đào 650ml + 1 Dầu gội 250ml hoặc 1 dầu xả dừa + 1 Sữa tắm 92% 250ml (Tự chọn mùi)",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Dầu xả",
+      "categoryWasCorrected": true,
+      "confidence": "not_applicable",
+      "lpmMatch": null,
+      "evidence": {
+        "reason": "no SKU — gift/bundle/combo row, not a distinct sellable product to match"
+      }
+    },
+    {
+      "hhSku": "ST00823",
+      "hhId": "hh-ST00823",
+      "hhName": "Sữa Tắm Dạng Kem Le Petit Marseillais Với Chiết Xuất Hoa Cam Hữu Cơ Dịu Nhẹ",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "medium",
+      "lpmMatch": {
+        "lpmId": "lpm-34",
+        "sourceRow": 35,
+        "nameVi": "Sữa tắm dịu nhẹ chiết xuất hoa cam hữu cơ.",
+        "nameOriginal": "Crème de Douche Extra Douce Fleur d’Oranger BIO",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/7eI1vFk5W3kJlcZBdqpkHe/1bee5ef33c6e97eaba61c43386c5c73e/LPM_EMEA_FR_3574661853727_90725900_529912_SHGEL_ORANGE_BLOSS_300ml_PR_000_TIF.WEBP",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/douches/douche-creme-fleur-d-oranger-bio",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.782,
+        "sharedTokens": [
+          "cam",
+          "chiết",
+          "cơ",
+          "dịu",
+          "hoa",
+          "hữu",
+          "nhẹ",
+          "sữa",
+          "tắm",
+          "xuất"
+        ]
+      },
+      "reviewStatus": "needs_manual_review",
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.2) as approximate-match territory; candidate is a best-effort IDF-weighted token-overlap suggestion, NOT independently re-verified"
+      }
+    },
+    {
+      "hhSku": "DG37450",
+      "hhId": "hh-DG37450",
+      "hhName": "Dầu Gội Le Petit Marseillais Bảo Vệ Màu Tóc Chiết Xuất Lựu Hữu Cơ",
+      "hhCategoryOriginal": "Dầu gội",
+      "hhCategoryCorrected": "Dầu gội",
+      "categoryWasCorrected": false,
+      "confidence": "medium",
+      "lpmMatch": {
+        "lpmId": "lpm-103",
+        "sourceRow": 104,
+        "nameVi": "Dầu gội - Màu sắc tuyệt hảo với bột quả lựu hữu cơ",
+        "nameOriginal": "Shampooing Couleur Sublime à la Pulpe de Grenade BIO",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/5cBikJEv4mQ5AK3pYxGwdy/e11f760fb5e20da67be29a6bd249624e/lpm_emea_3574661537450_1933203_shmp_organic_color_infusion_250ml_000-min_1_0.jpg",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/shampooings/shampooing-couleur-sublime-pulpe-grenade-bio",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.474,
+        "sharedTokens": [
+          "cơ",
+          "dầu",
+          "gội",
+          "hữu",
+          "lựu",
+          "màu"
+        ]
+      },
+      "reviewStatus": "needs_manual_review",
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.2) as approximate-match territory; candidate is a best-effort IDF-weighted token-overlap suggestion, NOT independently re-verified"
+      }
+    },
+    {
+      "hhSku": "DG74608",
+      "hhId": "hh-DG74608",
+      "hhName": "Dầu Gội Le Petit Marseillais Làm Sạch Sâu, Giảm Nhờn Với Bột Đất Sét Trắng",
+      "hhCategoryOriginal": "Dầu gội",
+      "hhCategoryCorrected": "Dầu gội",
+      "categoryWasCorrected": false,
+      "confidence": "medium",
+      "lpmMatch": {
+        "lpmId": "lpm-106",
+        "sourceRow": 107,
+        "nameVi": "Dầu gội - Cân bằng và thanh lọc với bột đất sét trắng.",
+        "nameOriginal": "Shampooing Équilibrant Purifiant à la poudre d’Argile Blanche",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/4iyrJlUlvtC2k06jGZtsOT/5990715fe6ef8c2c5e4ff555ece7600c/lpm_emea_3574661574608_2790602_org_purify_white_clay_shampoo_250ml_000-min_2_0-fr-fr",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/shampooings/shampooing-equilibrant-purifiant-poudre-argile-blanche",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.49,
+        "sharedTokens": [
+          "bột",
+          "dầu",
+          "gội",
+          "sét",
+          "trắng",
+          "đất"
+        ]
+      },
+      "reviewStatus": "needs_manual_review",
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.2) as approximate-match territory; candidate is a best-effort IDF-weighted token-overlap suggestion, NOT independently re-verified"
+      }
+    },
+    {
+      "hhSku": "DX61909",
+      "hhId": "hh-DX61909",
+      "hhName": "Dầu Xả Dưỡng Tóc Le Petit Marseillais Mật Ong & Bơ Hạt Mỡ",
+      "hhCategoryOriginal": "Dầu xả",
+      "hhCategoryCorrected": "Dầu xả",
+      "categoryWasCorrected": false,
+      "confidence": "medium",
+      "lpmMatch": {
+        "lpmId": "lpm-3",
+        "sourceRow": 4,
+        "nameVi": "Dầu xả chăm sóc nhanh - Dinh dưỡng từ mật ong hữu cơ và bơ hạt mỡ",
+        "nameOriginal": "Soin Express Nutrition au Miel et au Karité BIO",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/3NfFV78kuMRy9v2rIKz339/41584372308e8b5981d981c7e53e8240/lpm_emea_3574661761909_90318500_conditioner_nutrition_200ml_000-min_0_0-fr-fr",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/apres-shampooings/apres-shampooing-nutrition-cheveux-secs-et-cassants",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.886,
+        "sharedTokens": [
+          "bơ",
+          "dưỡng",
+          "dầu",
+          "hạt",
+          "mật",
+          "mỡ",
+          "ong",
+          "xả"
+        ]
+      },
+      "reviewStatus": "needs_manual_review",
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.2) as approximate-match territory; candidate is a best-effort IDF-weighted token-overlap suggestion, NOT independently re-verified"
+      }
+    },
+    {
+      "hhSku": "DX61916",
+      "hhId": "hh-DX61916",
+      "hhName": "Dầu Xả Dưỡng Tóc Le Petit Marseillais Làm Mềm Mượt, Bóng Khỏe Nhanh Từ Hạnh Nhân Và Hạt Lanh Hữu Cơ",
+      "hhCategoryOriginal": "Dầu xả",
+      "hhCategoryCorrected": "Dầu xả",
+      "categoryWasCorrected": false,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-1",
+        "sourceRow": 2,
+        "nameVi": "Dầu xả chăm sóc nhanh - Mềm mại & rạng rỡ với hạnh nhân và hạt lanh hữu cơ.",
+        "nameOriginal": "Soin Express Douceur & Éclat à l’Amande et aux Graines de lin Bio",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/55aU6ENWe7PiAkVttOTRfN/032b5e7aaeeaafa62f1d8b43ba4c895e/lpm_emea_3574661761916_90318600_conditioner_soft_shine_200ml_000_0-fr-fr",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/apres-shampooings/apres-shampooing-douceur-et-eclat-cheveux-normaux-longs-et-delicats",
+        "resolvedBy": "manual_verification_phase2"
+      },
+      "evidence": {
+        "reason": "manually verified side-by-side in Phase 2 audit (§9 demo-product table) — highest confidence tier"
+      }
+    },
+    {
+      "hhSku": "DX78785",
+      "hhId": "hh-DX78785",
+      "hhName": "Dầu Xả Dưỡng Tóc Le Petit Marseillais Dưỡng Ẩm Sâu Dầu Argan Hữu Cơ",
+      "hhCategoryOriginal": "Dầu gội",
+      "hhCategoryCorrected": "Dầu xả",
+      "categoryWasCorrected": true,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-4",
+        "sourceRow": 5,
+        "nameVi": "Dầu xả chăm sóc nhanh - Dinh dưỡng chuyên sâu với dầu argan hữu cơ",
+        "nameOriginal": "Soin Express Nutrition Intense à l’Huile d’Argan BIO",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/1Ei6XDCyuWWO4LiVZDUvcM/5aeb161d09f565130fe9364c4b009541/lpm_emea_3574661778785_90392200_conditioner_org_nutrition_200ml_000-min_1-fr-fr",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/apres-shampooings/apres-shampooing-nutrition-intense-huile-d-argan-bio",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.74,
+        "sharedTokens": [
+          "argan",
+          "cơ",
+          "dưỡng",
+          "dầu",
+          "hữu",
+          "sâu",
+          "xả"
+        ]
+      },
+      "evidence": {
+        "reason": "manually verified in Phase 1 audit (§6.1); specific LPM row resolved by IDF-weighted token overlap on real name/scent fields"
+      }
+    },
+    {
+      "hhSku": "NR50729",
+      "hhId": "hh-NR50729",
+      "hhName": "Gel Rửa Tay Le Petit Marseillais Với Chiết Xuất Đào Trắng Và Xuân Đào",
+      "hhCategoryOriginal": "Son dưỡng môi",
+      "hhCategoryCorrected": "Rửa tay",
+      "categoryWasCorrected": true,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-126",
+        "sourceRow": 127,
+        "nameVi": "Gel rửa tay đào trắng và xuân đào",
+        "nameOriginal": "Gel Lavant Mains Pêche Blanche & Nectarine",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/41BjzMe7pDPIN0evI7MS2w/252cd9d79465b7258968f60bc9e69169/lpm_3574661750729_liquid_soap_exdoux_peach_nectarine_500ml_994597640_000-fr-fr",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/savons-mains-liquides/creme-mousse-peche-de-vigne",
+        "resolvedBy": "manual_verification_phase2"
+      },
+      "evidence": {
+        "reason": "manually verified side-by-side in Phase 2 audit (§9 demo-product table) — highest confidence tier"
+      }
+    },
+    {
+      "hhSku": "NR50699",
+      "hhId": "hh-NR50699",
+      "hhName": "Gel Rửa Tay Le Petit Marseillais Với Xà Phòng Nguyên Chất",
+      "hhCategoryOriginal": "Son dưỡng môi",
+      "hhCategoryCorrected": "Rửa tay",
+      "categoryWasCorrected": true,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-85",
+        "sourceRow": 86,
+        "nameVi": "Gel rửa tay Pure Soap 500ml",
+        "nameOriginal": "Gel Lavant mains au Pur Savon 500ml",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/4Gtj3KAPSIuMxGpymCIWJD/946ac34e694228ce924fd6bf27685553/lpm_3574661750699_pm_liquid_soap_pure_500ml_994597640_000_1-fr-fr",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/savons-mains-liquides/pur-savon-liquide-500ml",
+        "resolvedBy": "manual_verification_phase2"
+      },
+      "evidence": {
+        "reason": "manually verified side-by-side in Phase 2 audit (§9 demo-product table) — highest confidence tier"
+      }
+    },
+    {
+      "hhSku": "NR73618",
+      "hhId": "hh-NR73618",
+      "hhName": "Gel Rửa Tay Hữu Cơ Le Petit Marseillais Chiết Xuất Lá Ô Liu",
+      "hhCategoryOriginal": "Rửa tay",
+      "hhCategoryCorrected": "Rửa tay",
+      "categoryWasCorrected": false,
+      "confidence": "medium",
+      "lpmMatch": {
+        "lpmId": "lpm-46",
+        "sourceRow": 47,
+        "nameVi": "Sữa tắm dịu nhẹ với chiết xuất lá ô liu hữu cơ và hoa bồ đề hữu cơ.",
+        "nameOriginal": "Gel Douche & Bain Extra Doux Feuille D’Olivier BIO & Tilleul BIO",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/1CbNnUw7KDcAk75mM2sJWw/995bbc5803c64cc66e719a41c2dee5dc/LPM_EMEA_FR_3574661852591_90723400_587309_SHW_BTH_OLIV_LINDEN_650ml_000_TIF.WEBP",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/douches/gel-douche-et-bain-feuille-d-olivier-et-tilleul-bio",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.676,
+        "sharedTokens": [
+          "chiết",
+          "cơ",
+          "hữu",
+          "liu",
+          "lá",
+          "xuất"
+        ]
+      },
+      "reviewStatus": "needs_manual_review",
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.2) as approximate-match territory; candidate is a best-effort IDF-weighted token-overlap suggestion, NOT independently re-verified"
+      }
+    },
+    {
+      "hhSku": "NR73601",
+      "hhId": "hh-NR73601",
+      "hhName": "Gel Rửa Tay Hữu Cơ Le Petit Marseillais Chiết Xuất Hoa Hồng Dại",
+      "hhCategoryOriginal": "Son dưỡng môi",
+      "hhCategoryCorrected": "Rửa tay",
+      "categoryWasCorrected": true,
+      "confidence": "unmatched",
+      "lpmMatch": null,
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.3) — no candidate reached defensible confidence"
+      }
+    },
+    {
+      "hhSku": "NR50675",
+      "hhId": "hh-NR50675",
+      "hhName": "Sữa Rửa Tay Le Petit Marseillais Từ Sữa Thực Vật",
+      "hhCategoryOriginal": "Son dưỡng môi",
+      "hhCategoryCorrected": "Rửa tay",
+      "categoryWasCorrected": true,
+      "confidence": "unmatched",
+      "lpmMatch": null,
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.3) — no candidate reached defensible confidence"
+      }
+    },
+    {
+      "hhSku": "NR50613",
+      "hhId": "hh-NR50613",
+      "hhName": "Gel Rửa Tay Le Petit Marseillais Có Tác Dụng Kháng Khuẩn Với Tinh Dầu Xô Thơm",
+      "hhCategoryOriginal": "Son dưỡng môi",
+      "hhCategoryCorrected": "Rửa tay",
+      "categoryWasCorrected": true,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-83",
+        "sourceRow": 84,
+        "nameVi": "Gel rửa tay kháng khuẩn Maxi Refill",
+        "nameOriginal": "Maxi Recharge Gel Lavant mains à l’Action Antibactérienne",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/59B3WCMkqaXqPjXEY0U7rA/aebb8d0838144a6225af0098e45b6cf2/lpm_3574661659770_emea_fr_anti_bacterial_carton_750ml_mobile-min-fr-fr",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/savons-mains-liquides/maxi-recharge-antibacterien",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.628,
+        "sharedTokens": [
+          "có",
+          "dụng",
+          "gel",
+          "khuẩn",
+          "kháng",
+          "rửa",
+          "tay",
+          "tác"
+        ]
+      },
+      "evidence": {
+        "reason": "manually verified in Phase 1 audit (§6.1); specific LPM row resolved by IDF-weighted token overlap on real name/scent fields"
+      }
+    },
+    {
+      "hhSku": "NR50620",
+      "hhId": "hh-NR50620",
+      "hhName": "Gel Rửa Tay Le Petit Marseillais Dành Cho Đầu Bếp, Khử Mùi Hôi Cứng Đầu Với Tinh Dầu Chanh",
+      "hhCategoryOriginal": "Son dưỡng môi",
+      "hhCategoryCorrected": "Rửa tay",
+      "categoryWasCorrected": true,
+      "confidence": "medium",
+      "lpmMatch": {
+        "lpmId": "lpm-89",
+        "sourceRow": 90,
+        "nameVi": "Gel rửa tay Cook's",
+        "nameOriginal": "Gel Lavant Mains Le Cuisinier",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/1KOACZFsWOamd0AaesUUYC/bc00078778931b7ead2bcbd5276ea3c0/lpm_3574661750620_liquid_soap_cook_300ml_994597640_000_0-fr-fr",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/savons-mains-liquides/savon-liquide-du-cuisinier",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.34,
+        "sharedTokens": [
+          "bếp",
+          "gel",
+          "rửa",
+          "tay",
+          "đầu"
+        ]
+      },
+      "reviewStatus": "needs_manual_review",
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.2) as approximate-match territory; candidate is a best-effort IDF-weighted token-overlap suggestion, NOT independently re-verified"
+      }
+    },
+    {
+      "hhSku": "NR50644",
+      "hhId": "hh-NR50644",
+      "hhName": "Gel Rửa Tay Le Petit Marseillais Với Xà Phòng Nguyên Chất & Oải Hương",
+      "hhCategoryOriginal": "Son dưỡng môi",
+      "hhCategoryCorrected": "Rửa tay",
+      "categoryWasCorrected": true,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-79",
+        "sourceRow": 80,
+        "nameVi": "Gel rửa tay dạng lỏng có thể tái sử dụng với xà phòng lỏng nguyên chất và tinh dầu oải hương",
+        "nameOriginal": "Recharge Gel Lavant mains au Pur Savon Liquide & Lavande",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/M1NkDsNwBeQDt3DtqfiHy/bb9a6860ab2153b3cddb6abde270623e/lpm_3574661750767_liquid_soap_lavender_250ml-fr-fr",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/savons-mains-liquides/eco-recharge-pur-savon-liquide-a-l-huile-essentielle-de-lavande",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 1.0,
+        "sharedTokens": [
+          "chất",
+          "gel",
+          "hương",
+          "nguyên",
+          "oải",
+          "phòng",
+          "rửa",
+          "tay",
+          "xà"
+        ]
+      },
+      "evidence": {
+        "reason": "manually verified in Phase 1 audit (§6.1); specific LPM row resolved by IDF-weighted token overlap on real name/scent fields"
+      }
+    },
+    {
+      "hhSku": null,
+      "hhId": "hh-stt78",
+      "hhName": "Gel Rửa Tay Le Petit Marseillais Với Xà Phòng Nguyên Chất Và Dầu Ô Liu",
+      "hhCategoryOriginal": "Xà phòng",
+      "hhCategoryCorrected": "Rửa tay",
+      "categoryWasCorrected": true,
+      "confidence": "not_applicable",
+      "lpmMatch": null,
+      "evidence": {
+        "reason": "no SKU — gift/bundle/combo row, not a distinct sellable product to match"
+      }
+    },
+    {
+      "hhSku": "XP80699",
+      "hhId": "hh-XP80699",
+      "hhName": "Hộp 4 Bánh Xà Phòng Le Petit Marseillais Với Chiết Xuất Hoa Kim Ngân 4x100G",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Xà phòng bánh",
+      "categoryWasCorrected": true,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-92",
+        "sourceRow": 93,
+        "nameVi": "Xà phòng hoa kim ngân cực dịu nhẹ",
+        "nameOriginal": "Savon Extra Doux au Chèvrefeuille",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/4HkePL3wBQw1fz4IwHU2Cz/e4c9d2c0c1c10fe018d8c7ae182307ce/lpm_3574661680699_emea_bar_saop_honeysuckle_4x100g_000_0-fr-fr",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/savons-solides/savon-extra-doux-au-chevrefeuille",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.525,
+        "sharedTokens": [
+          "hoa",
+          "kim",
+          "ngân",
+          "phòng",
+          "xà"
+        ]
+      },
+      "evidence": {
+        "reason": "manually verified in Phase 1 audit (§6.1); specific LPM row resolved by IDF-weighted token overlap on real name/scent fields"
+      }
+    },
+    {
+      "hhSku": "XP80965",
+      "hhId": "hh-XP80965",
+      "hhName": "Hộp 4 Bánh Xà Phòng Tắm Le Petit Marseillais Hoa Cam 4x100G",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Xà phòng bánh",
+      "categoryWasCorrected": true,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-91",
+        "sourceRow": 92,
+        "nameVi": "Xà phòng hoa cam dịu nhẹ",
+        "nameOriginal": "Savon Extra Doux à la Fleur d'Oranger",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/RCtFwb2hPDEVCUfdL7wAG/1e0fc28f0ffbca1f02be396ee3b66e55/lpm_3574661680965_emea_bar_saop_orange_blossom_4x100g_000_0-fr-fr",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/savons-solides/savon-extra-doux-a-la-fleur-d-oranger",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.475,
+        "sharedTokens": [
+          "cam",
+          "hoa",
+          "phòng",
+          "xà"
+        ]
+      },
+      "evidence": {
+        "reason": "manually verified in Phase 1 audit (§6.1); specific LPM row resolved by IDF-weighted token overlap on real name/scent fields"
+      }
+    },
+    {
+      "hhSku": "XP78368",
+      "hhId": "hh-XP78368",
+      "hhName": "Hộp 4 Bánh Xà Phòng Tắm Le Petit Marseillais Chiết Xuất Vani 4x100G",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Xà phòng bánh",
+      "categoryWasCorrected": true,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-94",
+        "sourceRow": 95,
+        "nameVi": "Xà phòng vani siêu dịu nhẹ",
+        "nameOriginal": "Savon Extra-Doux Vanille",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/4uv9Uz8oduDaYv6ECpcaqG/0961b0c44d505eca17df10b5d1bc97ac/lpm_3574661678368_emea_bar_soap_vanilla_4x100g_000_0-fr-fr",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/savons-solides/savon-extra-doux-la-vanille",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.355,
+        "sharedTokens": [
+          "phòng",
+          "vani",
+          "xà"
+        ]
+      },
+      "evidence": {
+        "reason": "manually verified in Phase 1 audit (§6.1); specific LPM row resolved by IDF-weighted token overlap on real name/scent fields"
+      }
+    },
+    {
+      "hhSku": "XP80996",
+      "hhId": "hh-XP80996",
+      "hhName": "Hộp 2 Bánh Xà Phòng Tắm Le Petit Marseillais Dầu Hạnh Nhân Ngọt 2x100G",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Xà phòng bánh",
+      "categoryWasCorrected": true,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-95",
+        "sourceRow": 96,
+        "nameVi": "Xà phòng dưỡng da cao cấp với dầu hạnh nhân ngọt",
+        "nameOriginal": "Savon Soin Surgras à l'Huile d'Amande Douce",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/YXoHF01AuRqNCsM3ybCSy/cd74ae405f77ed293b8ab81622fd8378/lpm_3574661680996_emea_bar_soap_sweet_almond_oil_2x100g_000_1_0-fr-fr",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/savons-solides/savon-soin-surgras-a-l-huile-d-amande-douce",
+        "resolvedBy": "manual_verification_phase2"
+      },
+      "evidence": {
+        "reason": "manually verified side-by-side in Phase 2 audit (§9 demo-product table) — highest confidence tier"
+      }
+    },
+    {
+      "hhSku": "XP81108",
+      "hhId": "hh-XP81108",
+      "hhName": "Hộp 2 Bánh Xà Phòng Tắm Le Petit Marseillais Bơ Hạt Mỡ 2x100G",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Xà phòng bánh",
+      "categoryWasCorrected": true,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-96",
+        "sourceRow": 97,
+        "nameVi": "Xà phòng dưỡng da siêu giàu dưỡng chất với bơ hạt mỡ",
+        "nameOriginal": "Savon Soin Surgras au Beurre de Karité",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/6ViwtJIR7aHz4bZccBr8yY/bda2897c4ef29f525a8b6ffe7438985c/lpm_3574661681108_emea_bar_soap_shea_butter_2x100g_000_0-fr-fr",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/savons-solides/savon-soin-surgras-au-beurre-de-karite",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.548,
+        "sharedTokens": [
+          "bơ",
+          "hạt",
+          "mỡ",
+          "phòng",
+          "xà"
+        ]
+      },
+      "evidence": {
+        "reason": "manually verified in Phase 1 audit (§6.1); specific LPM row resolved by IDF-weighted token overlap on real name/scent fields"
+      }
+    },
+    {
+      "hhSku": "XP80651",
+      "hhId": "hh-XP80651",
+      "hhName": "Xà Phòng Tắm Truyền Thống Le Petit Marseillais Nguyên Chất Không Mùi 300G",
+      "hhCategoryOriginal": "Sữa tắm/Gel tắm",
+      "hhCategoryCorrected": "Sữa tắm/Gel tắm",
+      "categoryWasCorrected": false,
+      "confidence": "medium",
+      "lpmMatch": {
+        "lpmId": "lpm-78",
+        "sourceRow": 79,
+        "nameVi": "Chai dung dịch rửa tay Pure Soap & Olive Oil dạng refill",
+        "nameOriginal": "Recharge Gel Lavant mains au Pur Savon & Huile d’Olive",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/5TfJOqFgr602MPA6wD6f3B/58608dc7daa1f513c5656cdcf5a73508/lpm_3574661750736_liquid_soap_olive_oil_250ml-min-fr-fr",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/savons-mains-liquides/eco-recharge-pur-savon-liquide-a-l-huile-d-olive",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.284,
+        "sharedTokens": [
+          "chất",
+          "nguyên",
+          "phòng",
+          "xà"
+        ]
+      },
+      "reviewStatus": "needs_manual_review",
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.2) as approximate-match territory; candidate is a best-effort IDF-weighted token-overlap suggestion, NOT independently re-verified"
+      }
+    },
+    {
+      "hhSku": null,
+      "hhId": "hh-stt85",
+      "hhName": "Son Dưỡng Môi Le Petit Marseillais Bơ Hạt Mỡ, Hạnh Nhân Ngọt & Dầu Argan 2X4.9G",
+      "hhCategoryOriginal": "Son dưỡng môi",
+      "hhCategoryCorrected": "Son dưỡng môi",
+      "categoryWasCorrected": false,
+      "confidence": "not_applicable",
+      "lpmMatch": null,
+      "evidence": {
+        "reason": "no SKU — gift/bundle/combo row, not a distinct sellable product to match"
+      }
+    },
+    {
+      "hhSku": null,
+      "hhId": "hh-stt86",
+      "hhName": "Son Dưỡng Môi 3 Trong 1 Le Petit Marseillais Với Bơ Hạt Mỡ Và Dầu Bơ 4.9G",
+      "hhCategoryOriginal": "Son dưỡng môi",
+      "hhCategoryCorrected": "Son dưỡng môi",
+      "categoryWasCorrected": false,
+      "confidence": "not_applicable",
+      "lpmMatch": null,
+      "evidence": {
+        "reason": "no SKU — gift/bundle/combo row, not a distinct sellable product to match"
+      }
+    },
+    {
+      "hhSku": "NR50491",
+      "hhId": "hh-NR50491",
+      "hhName": "Gel Rửa Tay Le Petit Marseillais Với Xà Phòng Nguyên Chất Và Dầu Ô Liu",
+      "hhCategoryOriginal": "Xà phòng",
+      "hhCategoryCorrected": "Rửa tay",
+      "categoryWasCorrected": true,
+      "confidence": "medium",
+      "lpmMatch": {
+        "lpmId": "lpm-86",
+        "sourceRow": 87,
+        "nameVi": "Gel rửa tay với xà phòng nguyên chất và dầu ô liu",
+        "nameOriginal": "Gel Lavant mains au Pur Savon & Huile d’Olive",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/6cGwgev2Q5OKjQtBmKENmx/ab727bcff91f86827448cd2f3ca9967c/lpm_3574661750491_liquid_soap_olive_oil_300ml_994597640_000-fr-fr",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/savons-mains-liquides/pur-savon-liquide-a-l-huile-d-olive",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 1.0,
+        "sharedTokens": [
+          "chất",
+          "dầu",
+          "gel",
+          "liu",
+          "nguyên",
+          "phòng",
+          "rửa",
+          "tay",
+          "xà"
+        ]
+      },
+      "reviewStatus": "needs_manual_review",
+      "evidence": {
+        "reason": "manually reviewed in Phase 1 audit (§6.2) as approximate-match territory; candidate is a best-effort IDF-weighted token-overlap suggestion, NOT independently re-verified"
+      }
+    },
+    {
+      "hhSku": "SD39787",
+      "hhId": "hh-SD39787",
+      "hhName": "Son Dưỡng Môi Le Petit Marseillais Bơ Hạt Mỡ, Hạnh Nhân Ngọt & Dầu Argan 2X4.9G",
+      "hhCategoryOriginal": "Son dưỡng môi",
+      "hhCategoryCorrected": "Son dưỡng môi",
+      "categoryWasCorrected": false,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-71",
+        "sourceRow": 72,
+        "nameVi": "Kem dưỡng da tay giàu dưỡng chất với bơ hạt mỡ, dầu hạnh nhân ngọt và dầu argan.",
+        "nameOriginal": "Crème Mains Nutrition Karité, Amande Douce & Argan",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/KWt3e2mJO0wNGfpNGKnnc/4c32fa9ae33e9dbfdecb755b2180fe1e/LPM_EMEA_3251241018485_90456501_CREME_MAINS_NUTRITION_75ML_000.jpg",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/savons-des-mains/creme-mains-nutrition-karite-amande-douce-et-argan",
+        "resolvedBy": "algorithm",
+        "idfWeightedScore": 0.554,
+        "sharedTokens": [
+          "argan",
+          "bơ",
+          "dưỡng",
+          "dầu",
+          "hạnh",
+          "hạt",
+          "mỡ",
+          "ngọt",
+          "nhân"
+        ]
+      },
+      "evidence": {
+        "reason": "manually verified in Phase 1 audit (§6.1); specific LPM row resolved by IDF-weighted token overlap on real name/scent fields. CAVEAT: Nguồn LPM cho SKU này thực chất là kem dưỡng tay (Crème Mains), không phải son dưỡng môi cùng công thức — ghi nhận rõ trong Phase 1 audit §6.1. Vẫn dùng làm ảnh tham khảo vì cùng dòng nguyên liệu (bơ hạt mỡ/hạnh nhân/argan), nhưng không phải ảnh sản phẩm đúng loại."
+      }
+    },
+    {
+      "hhSku": "SD72373",
+      "hhId": "hh-SD72373",
+      "hhName": "Son Dưỡng Môi 3 Trong 1 Le Petit Marseillais Với Bơ Hạt Mỡ Và Dầu Bơ 4.9G",
+      "hhCategoryOriginal": "Son dưỡng môi",
+      "hhCategoryCorrected": "Son dưỡng môi",
+      "categoryWasCorrected": false,
+      "confidence": "exact",
+      "lpmMatch": {
+        "lpmId": "lpm-112",
+        "sourceRow": 113,
+        "nameVi": "Sản phẩm dưỡng môi 3 trong 1 với bơ hạt mỡ và dầu bơ",
+        "nameOriginal": "Soin Lèvres 3 en 1 Beurre de Karité et Huile d’Avocat",
+        "mainImageUrl": "https://images.ctfassets.net/jncafthqaw2i/17crqMEuddpDgMkaCtTMQj/9b3c749dafa22148afd047d4ffe2bd7d/LPM_EMEA_FR_3574661672373_8548104_LE_PETIT_MARSEILLAIS_Lip_care_3_in_1_4P9G_000_TIF.jpg",
+        "productUrl": "https://www.lepetitmarseillais.com/par-ici-les-produits/soins-des-levres/soin-lèvres-beurre-de-karité-et-huile-davocat",
+        "resolvedBy": "manual_verification_phase2"
+      },
+      "evidence": {
+        "reason": "manually verified side-by-side in Phase 2 audit (§9 demo-product table) — highest confidence tier"
+      }
+    }
+  ]
+}
