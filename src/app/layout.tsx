@@ -38,6 +38,18 @@ export const metadata: Metadata = {
     apple: "/seo/apple-touch-icon.png",
     other: [{ rel: "mask-icon", url: "/seo/safari-pinned-tab.svg" }],
   },
+  // Staging-wide noindex: this is an internal demo build (HH/LPM UI +
+  // /reference), not a production site — no route should be crawled or
+  // cached by search engines. Set once here, at the root layout, since
+  // Next.js metadata.robots on a page/layout fully REPLACES (not merges
+  // with) an ancestor's robots object; no page in this app currently sets
+  // its own `robots`, so this one root-level value governs every route,
+  // including /reference/*, without needing to touch each page individually.
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+  },
 };
 
 export default function RootLayout({
