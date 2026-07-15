@@ -21,6 +21,7 @@ interface SiteUIContextValue {
   addToCart: (slug: string, quantity?: number) => void;
   updateCartQuantity: (slug: string, delta: number) => void;
   removeFromCart: (slug: string) => void;
+  clearCart: () => void;
 }
 
 const SiteUIContext = createContext<SiteUIContextValue | null>(null);
@@ -63,6 +64,10 @@ export function SiteUIProvider({ children }: { children: ReactNode }) {
     setCartLines((prev) => prev.filter((line) => line.slug !== slug));
   }
 
+  function clearCart() {
+    setCartLines([]);
+  }
+
   const value: SiteUIContextValue = {
     active,
     openCart: () => setActive("cart"),
@@ -74,6 +79,7 @@ export function SiteUIProvider({ children }: { children: ReactNode }) {
     addToCart,
     updateCartQuantity,
     removeFromCart,
+    clearCart,
   };
 
   return <SiteUIContext.Provider value={value}>{children}</SiteUIContext.Provider>;

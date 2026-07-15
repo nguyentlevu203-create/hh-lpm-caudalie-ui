@@ -4,11 +4,13 @@ import type { ReactNode } from "react";
 import { beVietnamPro } from "@/lib/hh-fonts";
 import { cn } from "@/lib/utils";
 import { SiteUIProvider } from "@/components/hh/SiteUIContext";
+import { AccountProvider } from "@/components/hh/AccountContext";
 import { CartDrawer } from "@/components/hh/cart/CartDrawer";
 import { SearchOverlay } from "@/components/hh/search/SearchOverlay";
 import { AuthOverlay } from "@/components/hh/auth/AuthOverlay";
 import { MobileDrawer } from "@/components/hh/layout/MobileDrawer";
 import { StickyMobileCta } from "@/components/hh/layout/StickyMobileCta";
+import { DemoBanner } from "@/components/hh/layout/DemoBanner";
 
 /**
  * Root wrapper for every Hoàng Hà / Le Petit Marseillais production page.
@@ -23,20 +25,23 @@ import { StickyMobileCta } from "@/components/hh/layout/StickyMobileCta";
 export function HHShell({ children, className }: { children: ReactNode; className?: string }) {
   return (
     <SiteUIProvider>
-      <div
-        className={cn(
-          beVietnamPro.variable,
-          "font-hh flex min-h-screen flex-col bg-hh-cream pb-20 text-hh-ink lg:pb-0",
-          className
-        )}
-      >
-        {children}
-        <StickyMobileCta />
-        <CartDrawer />
-        <SearchOverlay />
-        <AuthOverlay />
-        <MobileDrawer />
-      </div>
+      <AccountProvider>
+        <div
+          className={cn(
+            beVietnamPro.variable,
+            "font-hh flex min-h-screen flex-col bg-hh-cream pb-20 text-hh-ink lg:pb-0",
+            className
+          )}
+        >
+          <DemoBanner />
+          {children}
+          <StickyMobileCta />
+          <CartDrawer />
+          <SearchOverlay />
+          <AuthOverlay />
+          <MobileDrawer />
+        </div>
+      </AccountProvider>
     </SiteUIProvider>
   );
 }

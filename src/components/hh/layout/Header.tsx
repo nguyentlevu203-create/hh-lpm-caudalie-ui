@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Search, User, ShoppingBag, Menu, ChevronDown, MapPin, Mic } from "lucide-react";
 import { useSiteUI } from "@/components/hh/SiteUIContext";
+import { useAccount } from "@/components/hh/AccountContext";
 import { MegaMenu } from "@/components/hh/layout/MegaMenu";
 import { BRAND_NAME, NAV_ITEMS } from "@/data/site-content";
 import { cn } from "@/lib/utils";
@@ -23,6 +24,7 @@ const CONTAINER = "mx-auto w-full max-w-[1280px] px-4 md:px-8";
  */
 export function Header() {
   const { openSearch, openAuth, openCart, openMenu, cartLines } = useSiteUI();
+  const { user } = useAccount();
   const [megaOpen, setMegaOpen] = useState(false);
   const cartCount = cartLines.reduce((n, line) => n + line.quantity, 0);
 
@@ -48,9 +50,15 @@ export function Header() {
           <button type="button" aria-label="Tìm cửa hàng" className="hidden text-hh-ink lg:block">
             <MapPin className="size-6" />
           </button>
-          <button type="button" onClick={openAuth} aria-label="Tài khoản" className="text-hh-ink">
-            <User className="size-6" />
-          </button>
+          {user ? (
+            <Link href="/tai-khoan" aria-label="Tài khoản của tôi" className="text-hh-ink">
+              <User className="size-6" />
+            </Link>
+          ) : (
+            <button type="button" onClick={openAuth} aria-label="Tài khoản" className="text-hh-ink">
+              <User className="size-6" />
+            </button>
+          )}
           <button type="button" onClick={openCart} aria-label="Giỏ hàng" className="relative text-hh-ink">
             <ShoppingBag className="size-6" />
             {cartCount > 0 && (

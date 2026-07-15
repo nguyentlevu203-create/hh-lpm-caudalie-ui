@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 };
 
 interface SanPhamPageProps {
-  searchParams: Promise<{ category?: string; scent?: string }>;
+  searchParams: Promise<{ category?: string; scent?: string; line?: string; volume?: string }>;
 }
 
 /** Category/listing page — structure cloned 1:1 from /reference/category
@@ -25,7 +25,7 @@ interface SanPhamPageProps {
  * trigger, responsive product grid), wired to real `?category=`/`?scent=`
  * filtering over the static catalog. */
 export default async function SanPhamPage({ searchParams }: SanPhamPageProps) {
-  const { category, scent } = await searchParams;
+  const { category, scent, line, volume } = await searchParams;
   const activeCategory = HH_CATEGORIES.find((c) => c.slug === category)?.slug as
     | HHCategorySlug
     | undefined;
@@ -33,27 +33,32 @@ export default async function SanPhamPage({ searchParams }: SanPhamPageProps) {
   const products = HH_PRODUCTS.filter((product) => {
     if (activeCategory && product.category !== activeCategory) return false;
     if (scent && product.scent.toLowerCase() !== scent.toLowerCase()) return false;
+    if (line && product.productLine?.toLowerCase() !== line.toLowerCase()) return false;
+    if (volume && product.volume?.toLowerCase() !== volume.toLowerCase()) return false;
     return true;
   });
 
   const activeCategoryInfo = HH_CATEGORIES.find((c) => c.slug === activeCategory);
+  const hasAnyFilter = Boolean(activeCategoryInfo || scent || line || volume);
   const heading = activeCategoryInfo
     ? activeCategoryInfo.name
     : scent
       ? `Mùi hương ${scent}`
-      : "Tất cả sản phẩm";
+      : line
+        ? `Dòng ${line}`
+        : volume
+          ? `Dung tích ${volume}`
+          : "Tất cả sản phẩm";
   const description = activeCategoryInfo
     ? activeCategoryInfo.description
     : "Sản phẩm chăm sóc cá nhân nhập khẩu từ Pháp, chiết xuất thiên nhiên.";
 
   const breadcrumbItems: ProductBreadcrumbItem[] = [
     { label: "Trang chủ", href: "/" },
-    { label: "Sản phẩm", href: activeCategoryInfo || scent ? "/san-pham" : undefined },
+    { label: "Sản phẩm", href: hasAnyFilter ? "/san-pham" : undefined },
   ];
-  if (activeCategoryInfo) {
-    breadcrumbItems.push({ label: activeCategoryInfo.name });
-  } else if (scent) {
-    breadcrumbItems.push({ label: `Mùi hương ${scent}` });
+  if (hasAnyFilter) {
+    breadcrumbItems.push({ label: heading });
   }
 
   return (
@@ -69,7 +74,7 @@ export default async function SanPhamPage({ searchParams }: SanPhamPageProps) {
         </div>
 
         <div className="mt-8 flex justify-end">
-          <ProductFilterDrawer activeCategory={activeCategory} activeScent={scent} />
+          <ProductFilterDrawer activeCategory={activeCategory} activeScent={scent} activeLine={line} activeVolume={volume} />
         </div>
 
         <div className="mt-6 pb-16">

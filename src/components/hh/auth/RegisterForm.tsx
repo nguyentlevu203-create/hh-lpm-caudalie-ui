@@ -2,11 +2,13 @@
 
 import { useState, type FormEvent } from "react";
 import { cn } from "@/lib/utils";
+import type { DemoUser } from "@/components/hh/AccountContext";
 
 interface RegisterFormProps {
   email: string;
   onEmailChange: (value: string) => void;
   onSwitchToSignIn: () => void;
+  onRegister: (user: DemoUser) => void;
   onSuccess: () => void;
 }
 
@@ -40,7 +42,7 @@ function Field({ label, value, onChange, error, type = "text" }: FieldProps) {
  * required-terms checkbox, client-only validation, static "success" swap)
  * but simplified to a leaner mobile-first field set (no country/DOB
  * widgets) matching the "bán hàng nhanh" goal — see production report. */
-export function RegisterForm({ email, onEmailChange, onSwitchToSignIn, onSuccess }: RegisterFormProps) {
+export function RegisterForm({ email, onEmailChange, onSwitchToSignIn, onRegister, onSuccess }: RegisterFormProps) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [password, setPassword] = useState("");
@@ -61,7 +63,10 @@ export function RegisterForm({ email, onEmailChange, onSwitchToSignIn, onSuccess
     if (confirmPassword !== password) nextErrors.confirmPassword = "Mật khẩu xác nhận không khớp";
     if (!agree) nextErrors.agree = "Vui lòng đồng ý điều khoản để tiếp tục";
     setErrors(nextErrors);
-    if (Object.keys(nextErrors).length === 0) setSubmitted(true);
+    if (Object.keys(nextErrors).length === 0) {
+      onRegister({ name, email, phone });
+      setSubmitted(true);
+    }
   }
 
   if (submitted) {

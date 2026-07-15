@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { X } from "lucide-react";
 import { useSiteUI } from "@/components/hh/SiteUIContext";
+import { useAccount } from "@/components/hh/AccountContext";
 import { SignInForm } from "@/components/hh/auth/SignInForm";
 import { RegisterForm } from "@/components/hh/auth/RegisterForm";
 import { cn } from "@/lib/utils";
@@ -13,6 +14,7 @@ import { cn } from "@/lib/utils";
  * overlay component reachable from the header account icon on every page. */
 export function AuthOverlay() {
   const { active, close } = useSiteUI();
+  const { signIn, register } = useAccount();
   const isOpen = active === "auth";
   const [view, setView] = useState<"sign-in" | "register">("sign-in");
   const [email, setEmail] = useState("");
@@ -49,13 +51,17 @@ export function AuthOverlay() {
             email={email}
             onEmailChange={setEmail}
             onSwitchToRegister={() => setView("register")}
-            onSuccess={close}
+            onSuccess={() => {
+              signIn(email);
+              close();
+            }}
           />
         ) : (
           <RegisterForm
             email={email}
             onEmailChange={setEmail}
             onSwitchToSignIn={() => setView("sign-in")}
+            onRegister={register}
             onSuccess={close}
           />
         )}

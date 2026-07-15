@@ -388,6 +388,11 @@ export const FOOTER_LINKS = {
     { label: "Câu chuyện thương hiệu", href: "/cau-chuyen-thuong-hieu" },
     { label: "Ưu đãi", href: "/uu-dai" },
     { label: "Tư vấn chọn mùi", href: "/tu-van-chon-san-pham" },
+    { label: "Thương hiệu Le Petit Marseillais", href: "/thuong-hieu" },
+    { label: "Cam kết", href: "/cam-ket" },
+    { label: "Công thức minh bạch", href: "/cong-thuc-minh-bach" },
+    { label: "Nguyên liệu", href: "/nguyen-lieu" },
+    { label: "Bài viết", href: "/bai-viet" },
   ],
   "Hỗ trợ khách hàng": [
     { label: "Câu hỏi thường gặp", href: "#" },
@@ -409,7 +414,7 @@ export const CONTACT_INFO = {
 };
 
 export const CART_SEED_ITEM = {
-  slug: "gel-tam-cam-huu-co-buoi-huu-co",
+  slug: "gel-tam-phap-le-petit-marseillais-diu-nhe-cam-huu-co-buoi-huu-co",
   quantity: 1,
 };
 

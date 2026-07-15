@@ -9,11 +9,33 @@ import { HH_CATEGORIES, HH_PRODUCTS, type HHCategorySlug } from "@/data/products
 interface ProductFilterDrawerProps {
   activeCategory?: HHCategorySlug;
   activeScent?: string;
+  activeLine?: string;
+  activeVolume?: string;
 }
 
 const SCENTS = Array.from(new Set(HH_PRODUCTS.map((p) => p.scent))).sort((a, b) =>
   a.localeCompare(b, "vi")
 );
+
+const LINES = Array.from(new Set(HH_PRODUCTS.map((p) => p.productLine).filter((l): l is string => Boolean(l)))).sort(
+  (a, b) => a.localeCompare(b, "vi")
+);
+
+const VOLUMES = Array.from(new Set(HH_PRODUCTS.map((p) => p.volume).filter((v): v is string => Boolean(v)))).sort(
+  (a, b) => a.localeCompare(b, "vi", { numeric: true })
+);
+
+function buildFilterHref(
+  params: { category?: string; scent?: string; line?: string; volume?: string }
+) {
+  const search = new URLSearchParams();
+  if (params.category) search.set("category", params.category);
+  if (params.scent) search.set("scent", params.scent);
+  if (params.line) search.set("line", params.line);
+  if (params.volume) search.set("volume", params.volume);
+  const qs = search.toString();
+  return qs ? `/san-pham?${qs}` : "/san-pham";
+}
 
 /** Filter trigger + slide-in panel — pattern cloned from /reference/category's
  * ProductFilterDrawer (pill trigger, right-side drawer, backdrop, collapsed
@@ -25,11 +47,11 @@ const SCENTS = Array.from(new Set(HH_PRODUCTS.map((p) => p.scent))).sort((a, b) 
  * swapped for the two dimensions this catalog actually supports rather than
  * ported verbatim. This keeps the real filtering behavior intact while
  * matching the reference's trigger + slide-in drawer shape. */
-export function ProductFilterDrawer({ activeCategory, activeScent }: ProductFilterDrawerProps) {
+export function ProductFilterDrawer({ activeCategory, activeScent, activeLine, activeVolume }: ProductFilterDrawerProps) {
   const [open, setOpen] = useState(false);
   const [expanded, setExpanded] = useState<string[]>(["Danh mục"]);
 
-  const hasActiveFilter = Boolean(activeCategory || activeScent);
+  const hasActiveFilter = Boolean(activeCategory || activeScent || activeLine || activeVolume);
 
   const toggleGroup = (label: string) => {
     setExpanded((prev) => (prev.includes(label) ? prev.filter((l) => l !== label) : [...prev, label]));
@@ -99,7 +121,7 @@ export function ProductFilterDrawer({ activeCategory, activeScent }: ProductFilt
             {expanded.includes("Danh mục") && (
               <div className="mt-3 flex flex-wrap gap-2">
                 <Link
-                  href="/san-pham"
+                  href={buildFilterHref({ scent: activeScent, line: activeLine, volume: activeVolume })}
                   onClick={() => setOpen(false)}
                   className={cn(
                     "rounded-full border px-3 py-1.5 text-sm transition-colors",
@@ -113,7 +135,7 @@ export function ProductFilterDrawer({ activeCategory, activeScent }: ProductFilt
                 {HH_CATEGORIES.map((cat) => (
                   <Link
                     key={cat.slug}
-                    href={`/san-pham?category=${cat.slug}`}
+                    href={buildFilterHref({ category: cat.slug, scent: activeScent, line: activeLine, volume: activeVolume })}
                     onClick={() => setOpen(false)}
                     className={cn(
                       "rounded-full border px-3 py-1.5 text-sm transition-colors",
@@ -123,6 +145,78 @@ export function ProductFilterDrawer({ activeCategory, activeScent }: ProductFilt
                     )}
                   >
                     {cat.shortName}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div className="py-5">
+            <button
+              type="button"
+              onClick={() => toggleGroup("Dòng sản phẩm")}
+              aria-expanded={expanded.includes("Dòng sản phẩm")}
+              className="flex w-full items-center justify-between text-left"
+            >
+              <span className="text-base text-hh-ink">Dòng sản phẩm</span>
+              <ChevronDown
+                className={cn(
+                  "size-5 text-hh-ink transition-transform",
+                  expanded.includes("Dòng sản phẩm") && "rotate-180"
+                )}
+              />
+            </button>
+            {expanded.includes("Dòng sản phẩm") && (
+              <div className="mt-3 flex flex-wrap gap-2">
+                {LINES.map((line) => (
+                  <Link
+                    key={line}
+                    href={buildFilterHref({ category: activeCategory, scent: activeScent, line, volume: activeVolume })}
+                    onClick={() => setOpen(false)}
+                    className={cn(
+                      "rounded-full border px-3 py-1.5 text-sm transition-colors",
+                      activeLine?.toLowerCase() === line.toLowerCase()
+                        ? "border-hh-primary bg-hh-primary text-white"
+                        : "border-hh-border text-hh-ink"
+                    )}
+                  >
+                    {line}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div className="py-5">
+            <button
+              type="button"
+              onClick={() => toggleGroup("Dung tích")}
+              aria-expanded={expanded.includes("Dung tích")}
+              className="flex w-full items-center justify-between text-left"
+            >
+              <span className="text-base text-hh-ink">Dung tích</span>
+              <ChevronDown
+                className={cn(
+                  "size-5 text-hh-ink transition-transform",
+                  expanded.includes("Dung tích") && "rotate-180"
+                )}
+              />
+            </button>
+            {expanded.includes("Dung tích") && (
+              <div className="mt-3 flex flex-wrap gap-2">
+                {VOLUMES.map((volume) => (
+                  <Link
+                    key={volume}
+                    href={buildFilterHref({ category: activeCategory, scent: activeScent, line: activeLine, volume })}
+                    onClick={() => setOpen(false)}
+                    className={cn(
+                      "rounded-full border px-3 py-1.5 text-sm transition-colors",
+                      activeVolume?.toLowerCase() === volume.toLowerCase()
+                        ? "border-hh-primary bg-hh-primary text-white"
+                        : "border-hh-border text-hh-ink"
+                    )}
+                  >
+                    {volume}
                   </Link>
                 ))}
               </div>
@@ -149,7 +243,7 @@ export function ProductFilterDrawer({ activeCategory, activeScent }: ProductFilt
                 {SCENTS.map((scent) => (
                   <Link
                     key={scent}
-                    href={`/san-pham?scent=${encodeURIComponent(scent)}`}
+                    href={buildFilterHref({ category: activeCategory, scent, line: activeLine, volume: activeVolume })}
                     onClick={() => setOpen(false)}
                     className={cn(
                       "rounded-full border px-3 py-1.5 text-sm transition-colors",

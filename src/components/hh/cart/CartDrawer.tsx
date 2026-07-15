@@ -5,7 +5,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { X, ChevronLeft, ChevronDown, Minus, Plus, ShoppingBag, Lock } from "lucide-react";
 import { useSiteUI, type CartLine } from "@/components/hh/SiteUIContext";
-import { getProductBySlug, PRICE_DISCLAIMER, type HHProduct } from "@/data/products";
+import { ProductPlaceholderArt } from "@/components/hh/ProductPlaceholderArt";
+import {
+  getProductBySlug,
+  getEffectivePrice,
+  PRICE_DISCLAIMER,
+  INQUIRY_PRICE_LABEL,
+  type HHProduct,
+} from "@/data/products";
 import { cn } from "@/lib/utils";
 
 const FREE_SHIP_THRESHOLD = 399000;
@@ -35,7 +42,11 @@ export function CartDrawer() {
   });
 
   const itemCount = items.reduce((n, i) => n + i.quantity, 0);
-  const subtotal = items.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
+  const subtotal = items.reduce((sum, item) => {
+    const price = getEffectivePrice(item.product);
+    return price !== null ? sum + price * item.quantity : sum;
+  }, 0);
+  const inquiryItemCount = items.filter((item) => getEffectivePrice(item.product) === null).length;
   const remainingForFreeShip = Math.max(0, FREE_SHIP_THRESHOLD - subtotal);
 
   return (
@@ -111,7 +122,16 @@ export function CartDrawer() {
                 {items.map(({ product, quantity }) => (
                   <div key={product.slug} className="flex gap-3 px-4 py-4">
                     <div className="relative size-20 shrink-0 overflow-hidden rounded-sm bg-hh-cream">
-                      <Image src={product.image} alt={product.name} fill sizes="80px" className="object-contain p-1.5" />
+                      {product.image ? (
+                        <Image src={product.image} alt={product.name} fill sizes="80px" className="object-contain p-1.5" />
+                      ) : (
+                        <ProductPlaceholderArt
+                          colorFrom="#c7ab7a"
+                          colorTo="#e8d5ac"
+                          shape={product.category === "xa-phong-banh" ? "soap" : product.category === "cham-soc-tay" ? "tube" : "bottle"}
+                          className="size-20"
+                        />
+                      )}
                     </div>
                     <div className="flex-1">
                       <div className="flex items-start justify-between gap-2">
@@ -149,7 +169,12 @@ export function CartDrawer() {
                           </button>
                         </div>
                         <span className="text-base text-hh-ink">
-                          {formatVnd(product.price * quantity)}
+                          {(() => {
+                            const price = getEffectivePrice(product);
+                            return price !== null ? formatVnd(price * quantity) : (
+                              <span className="text-sm text-hh-primary">{INQUIRY_PRICE_LABEL}</span>
+                            );
+                          })()}
                         </span>
                       </div>
                     </div>
@@ -180,9 +205,14 @@ export function CartDrawer() {
                       <span>{remainingForFreeShip > 0 ? "Tính khi thanh toán" : "Miễn phí"}</span>
                     </div>
                     <div className="mt-1 flex items-center justify-between text-lg font-medium text-hh-ink">
-                      <span>Tổng cộng</span>
+                      <span>Tổng cộng (chưa gồm sản phẩm cần liên hệ)</span>
                       <span>{formatVnd(subtotal)}</span>
                     </div>
+                    {inquiryItemCount > 0 && (
+                      <p className="mt-1 text-sm text-hh-primary">
+                        {inquiryItemCount} sản phẩm trong giỏ chưa có giá — nhân viên Hoàng Hà sẽ liên hệ xác nhận sau khi gửi đơn.
+                      </p>
+                    )}
                     <div className="mt-3 flex items-center justify-center gap-2 text-sm text-hh-muted-foreground">
                       <Lock className="size-4" />
                       Thanh toán an toàn, bảo mật
@@ -195,7 +225,8 @@ export function CartDrawer() {
 
             <div className="shrink-0 space-y-2 border-t border-hh-border p-4">
               <Link
-                href="#"
+                href="/thanh-toan"
+                onClick={close}
                 className="flex w-full items-center justify-center rounded-md bg-hh-primary px-6 py-4 text-base font-semibold text-white"
               >
                 Đến trang thanh toán | {formatVnd(subtotal)}

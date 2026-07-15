@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Star, Gift } from "lucide-react";
 import { useSiteUI } from "@/components/hh/SiteUIContext";
 import { formatVnd } from "@/components/hh/product/ProductCard";
-import { PRICE_DISCLAIMER, type HHProduct } from "@/data/products";
+import { getEffectivePrice, INQUIRY_PRICE_LABEL, PRICE_DISCLAIMER, type HHProduct } from "@/data/products";
 
 /** 10.000₫ = 1 điểm — same membership ratio published on the homepage's
  * Câu Lạc Bộ Hoàng Hà section (see MEMBERSHIP.perks[0] in site-content.ts). */
@@ -22,7 +22,8 @@ export function ProductBuyBox({ product }: { product: HHProduct }) {
   const { addToCart } = useSiteUI();
   const [quantity, setQuantity] = useState(1);
 
-  const loyaltyPoints = Math.round((product.price * quantity) / VND_PER_LOYALTY_POINT);
+  const price = getEffectivePrice(product);
+  const loyaltyPoints = price !== null ? Math.round((price * quantity) / VND_PER_LOYALTY_POINT) : 0;
 
   return (
     <div className="flex flex-col gap-4">
@@ -42,18 +43,24 @@ export function ProductBuyBox({ product }: { product: HHProduct }) {
       </div>
 
       <div>
-        <div className="flex items-center gap-3">
-          <span className="text-2xl font-semibold text-hh-ink">{formatVnd(product.price)}</span>
-          {product.compareAtPrice && (
-            <span className="text-base text-hh-muted-foreground line-through">
-              {formatVnd(product.compareAtPrice)}
-            </span>
-          )}
-        </div>
-        <p className="mt-2 inline-block rounded-full bg-hh-accent/20 px-3 py-1 text-sm text-hh-ink">
-          Tích {loyaltyPoints} điểm thành viên
-        </p>
-        <p className="mt-2 text-xs text-hh-muted-foreground">{PRICE_DISCLAIMER}</p>
+        {price !== null ? (
+          <>
+            <div className="flex items-center gap-3">
+              <span className="text-2xl font-semibold text-hh-ink">{formatVnd(price)}</span>
+              {product.compareAtPrice && (
+                <span className="text-base text-hh-muted-foreground line-through">
+                  {formatVnd(product.compareAtPrice)}
+                </span>
+              )}
+            </div>
+            <p className="mt-2 inline-block rounded-full bg-hh-accent/20 px-3 py-1 text-sm text-hh-ink">
+              Tích {loyaltyPoints} điểm thành viên
+            </p>
+            <p className="mt-2 text-xs text-hh-muted-foreground">{PRICE_DISCLAIMER}</p>
+          </>
+        ) : (
+          <p className="text-xl font-semibold text-hh-primary">{INQUIRY_PRICE_LABEL}</p>
+        )}
       </div>
 
       <div className="flex items-center gap-3">
@@ -81,7 +88,13 @@ export function ProductBuyBox({ product }: { product: HHProduct }) {
           onClick={() => addToCart(product.slug, quantity)}
           className="h-12 flex-1 rounded-md bg-hh-primary text-sm font-semibold text-white"
         >
-          Mua ngay <span className="opacity-60">|</span> {formatVnd(product.price * quantity)}
+          {price !== null ? (
+            <>
+              Mua ngay <span className="opacity-60">|</span> {formatVnd(price * quantity)}
+            </>
+          ) : (
+            "Gửi yêu cầu mua hàng"
+          )}
         </button>
       </div>
 

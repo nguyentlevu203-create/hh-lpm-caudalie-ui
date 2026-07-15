@@ -1,10 +1,14 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { Search, X } from "lucide-react";
 import { useSiteUI } from "@/components/hh/SiteUIContext";
 import { ProductCard } from "@/components/hh/product/ProductCard";
+import { ProductPlaceholderArt } from "@/components/hh/ProductPlaceholderArt";
 import { HH_PRODUCTS, HH_CATEGORIES, getBestSellers } from "@/data/products";
+import { HH_ARTICLES } from "@/data/articles";
 import { cn } from "@/lib/utils";
 
 /** Full-screen search overlay — internal content structure aligned with
@@ -38,6 +42,14 @@ export function SearchOverlay() {
       (product) => HH_CATEGORIES.find((c) => c.slug === product.category)?.name ?? ""
     );
   }, [results]);
+
+  const articleResults = useMemo(() => {
+    const q = query.trim().toLowerCase();
+    if (!q) return [];
+    return HH_ARTICLES.filter((article) =>
+      [article.title, article.topic, article.intro].some((field) => field?.toLowerCase().includes(q))
+    ).slice(0, 6);
+  }, [query]);
 
   const bestSellers = useMemo(() => getBestSellers(), []);
   const hasQuery = query.trim() !== "";
@@ -89,9 +101,9 @@ export function SearchOverlay() {
           <div className="lg:grid lg:grid-cols-3 lg:gap-4">
             <div>
               <p className="mb-4 text-center text-base font-medium text-hh-ink lg:text-left">
-                {results.length > 0
-                  ? `(${results.length} kết quả)`
-                  : `Không tìm thấy sản phẩm cho “${query}”`}
+                {results.length + articleResults.length > 0
+                  ? `(${results.length} sản phẩm, ${articleResults.length} bài viết)`
+                  : `Không tìm thấy kết quả cho “${query}”`}
               </p>
               {matchedCategories.length > 0 && (
                 <div className="mb-6">
@@ -114,14 +126,42 @@ export function SearchOverlay() {
             </div>
 
             <div className="lg:col-span-2">
-              {results.length > 0 ? (
-                <ul className="grid grid-cols-2 gap-4 md:grid-cols-3">
-                  {results.map((product) => (
-                    <li key={product.id}>
-                      <ProductCard product={product} />
-                    </li>
-                  ))}
-                </ul>
+              {results.length > 0 || articleResults.length > 0 ? (
+                <>
+                  {results.length > 0 && (
+                    <ul className="grid grid-cols-2 gap-4 md:grid-cols-3">
+                      {results.map((product) => (
+                        <li key={product.id}>
+                          <ProductCard product={product} />
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {articleResults.length > 0 && (
+                    <div className={results.length > 0 ? "mt-8" : undefined}>
+                      <p className="mb-4 text-base font-medium text-hh-ink">Bài viết</p>
+                      <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                        {articleResults.map((article) => (
+                          <li key={article.id}>
+                            <Link href={`/bai-viet/${article.slug}`} onClick={close} className="flex gap-3">
+                              <div className="relative size-16 shrink-0 overflow-hidden rounded-sm bg-hh-cream">
+                                {article.image ? (
+                                  <Image src={article.image} alt={article.title} fill sizes="64px" className="object-cover" />
+                                ) : (
+                                  <ProductPlaceholderArt colorFrom="#e08a3e" colorTo="#204a37" className="size-16" />
+                                )}
+                              </div>
+                              <div>
+                                <p className="line-clamp-2 text-sm font-medium text-hh-ink">{article.title}</p>
+                                {article.topic && <p className="text-xs text-hh-muted-foreground">{article.topic}</p>}
+                              </div>
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </>
               ) : (
                 <>
                   <p className="mb-4 text-base font-medium text-hh-ink">Sản phẩm bán chạy</p>

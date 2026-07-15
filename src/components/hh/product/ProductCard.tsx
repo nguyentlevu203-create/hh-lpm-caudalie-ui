@@ -4,7 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { Heart, Star } from "lucide-react";
 import { useSiteUI } from "@/components/hh/SiteUIContext";
-import type { HHProduct } from "@/data/products";
+import { useAccount } from "@/components/hh/AccountContext";
+import { ProductPlaceholderArt } from "@/components/hh/ProductPlaceholderArt";
+import { cn } from "@/lib/utils";
+import { getEffectivePrice, INQUIRY_PRICE_LABEL, type HHProduct } from "@/data/products";
 
 export function formatVnd(value: number) {
   return value.toLocaleString("vi-VN") + "₫";
@@ -13,12 +16,14 @@ export function formatVnd(value: number) {
 /** Grid product card — pattern cloned from /reference/category's
  * ProductGridCard (badge top-left, wishlist heart top-right, image, title +
  * meta line, 5-star rating row, price + optional compare-at, full-width
- * CTA) with HH tokens/copy; "Thêm vào giỏ" stays wired to the real cart
- * context (the wishlist heart is presentational-only, matching the
- * reference's own un-wired heart button). */
+ * CTA) with HH tokens/copy; "Thêm vào giỏ" and the wishlist heart are both
+ * wired to real state (cart context / AccountContext demo wishlist). */
 export function ProductCard({ product }: { product: HHProduct }) {
   const { addToCart } = useSiteUI();
+  const { isWishlisted, toggleWishlist } = useAccount();
   const filledStars = Math.round(product.rating);
+  const price = getEffectivePrice(product);
+  const wishlisted = isWishlisted(product.slug);
 
   return (
     <div className="flex flex-col">
@@ -31,20 +36,31 @@ export function ProductCard({ product }: { product: HHProduct }) {
 
         <button
           type="button"
-          aria-label="Thêm vào yêu thích"
+          onClick={() => toggleWishlist(product.slug)}
+          aria-label={wishlisted ? "Bỏ khỏi yêu thích" : "Thêm vào yêu thích"}
+          aria-pressed={wishlisted}
           className="absolute right-2 top-2 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white/80 backdrop-blur-sm"
         >
-          <Heart className="h-4 w-4 text-hh-primary" strokeWidth={1.5} />
+          <Heart className={cn("h-4 w-4 text-hh-primary", wishlisted && "fill-hh-primary")} strokeWidth={1.5} />
         </button>
 
         <Link href={`/san-pham/${product.slug}`} className="relative block h-full w-full">
-          <Image
-            src={product.image}
-            alt={product.name}
-            fill
-            sizes="(min-width: 1024px) 25vw, 50vw"
-            className="object-contain p-4"
-          />
+          {product.image ? (
+            <Image
+              src={product.image}
+              alt={product.name}
+              fill
+              sizes="(min-width: 1024px) 25vw, 50vw"
+              className="object-contain p-4"
+            />
+          ) : (
+            <ProductPlaceholderArt
+              colorFrom="#c7ab7a"
+              colorTo="#e8d5ac"
+              shape={product.category === "xa-phong-banh" ? "soap" : product.category === "cham-soc-tay" ? "tube" : "bottle"}
+              className="h-full w-full rounded-sm"
+            />
+          )}
         </Link>
       </div>
 
@@ -66,11 +82,17 @@ export function ProductCard({ product }: { product: HHProduct }) {
       </div>
 
       <div className="mt-1 flex items-center gap-2">
-        <span className="text-base text-hh-ink">{formatVnd(product.price)}</span>
-        {product.compareAtPrice && (
-          <span className="text-base text-hh-muted-foreground line-through">
-            {formatVnd(product.compareAtPrice)}
-          </span>
+        {price !== null ? (
+          <>
+            <span className="text-base text-hh-ink">{formatVnd(price)}</span>
+            {product.compareAtPrice && (
+              <span className="text-base text-hh-muted-foreground line-through">
+                {formatVnd(product.compareAtPrice)}
+              </span>
+            )}
+          </>
+        ) : (
+          <span className="text-base text-hh-primary">{INQUIRY_PRICE_LABEL}</span>
         )}
       </div>
 
