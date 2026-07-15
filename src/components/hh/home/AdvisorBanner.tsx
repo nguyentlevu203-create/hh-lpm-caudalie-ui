@@ -1,12 +1,23 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { SCENT_ADVISOR_BANNER } from "@/data/site-content";
+import { HH_INGREDIENTS } from "@/data/ingredients";
+
+const bannerImage = HH_INGREDIENTS.find((i) => i.slug === "lavande")?.image ?? null;
 
 /** Full-bleed callout banner — structural analog of the shared Caudalie
  * homepage's SkinAnalysisBanner.tsx: full-bleed image, bottom-left white
  * copy card, static dot-indicator row below. Repointed at the HH
- * scent-advisor route; the "image" is a structured gradient + geometry
- * placeholder (no real HH photography exists yet, no Caudalie asset reused). */
+ * scent-advisor route; uses the real "Oải hương" (lavender) ingredient
+ * photo — thematically the closest real asset to a scent-advisor banner —
+ * falling back to the gradient placeholder on load error or if missing. */
 export function AdvisorBanner() {
+  const [imageFailed, setImageFailed] = useState(false);
+  const showImage = bannerImage && !imageFailed;
+
   return (
     <section>
       <div className="relative min-h-[500px] w-full overflow-hidden md:min-h-[600px]">
@@ -14,15 +25,27 @@ export function AdvisorBanner() {
           className="absolute inset-0"
           style={{ background: "linear-gradient(135deg, #2f6b4f, #5c9b7c 60%, #e08a3e)" }}
         />
-        <svg
-          className="absolute inset-0 h-full w-full opacity-30"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="xMidYMid slice"
-          aria-hidden="true"
-        >
-          <circle cx="78" cy="24" r="20" fill="#ffffff" fillOpacity="0.25" />
-          <circle cx="20" cy="80" r="30" fill="#204a37" fillOpacity="0.35" />
-        </svg>
+        {showImage ? (
+          <Image
+            src={bannerImage as string}
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover opacity-85"
+            onError={() => setImageFailed(true)}
+          />
+        ) : (
+          <svg
+            className="absolute inset-0 h-full w-full opacity-30"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="xMidYMid slice"
+            aria-hidden="true"
+          >
+            <circle cx="78" cy="24" r="20" fill="#ffffff" fillOpacity="0.25" />
+            <circle cx="20" cy="80" r="30" fill="#204a37" fillOpacity="0.35" />
+          </svg>
+        )}
+        <div className="absolute inset-0 bg-black/10" />
 
         <div className="absolute bottom-8 left-8 max-w-[400px] bg-white px-8 py-6">
           <h2 className="text-2xl font-normal text-hh-ink">{SCENT_ADVISOR_BANNER.heading}</h2>

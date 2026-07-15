@@ -393,6 +393,10 @@ export const FOOTER_LINKS = {
     { label: "Công thức minh bạch", href: "/cong-thuc-minh-bach" },
     { label: "Nguyên liệu", href: "/nguyen-lieu" },
     { label: "Bài viết", href: "/bai-viet" },
+    { label: "Thư viện sản phẩm hãng", href: "/thu-vien-san-pham-hang" },
+    { label: "Nội dung thương hiệu", href: "/noi-dung-thuong-hieu" },
+    { label: "Thư viện nội dung", href: "/thu-vien-noi-dung" },
+    { label: "Thư viện hình ảnh", href: "/thu-vien-hinh-anh" },
   ],
   "Hỗ trợ khách hàng": [
     { label: "Câu hỏi thường gặp", href: "#" },

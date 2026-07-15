@@ -1,6 +1,11 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
 import { Users } from "lucide-react";
 import { ProductPlaceholderArt } from "@/components/hh/ProductPlaceholderArt";
 import { SOCIAL_PROOF } from "@/data/site-content";
+import { HH_ARTICLES } from "@/data/articles";
 
 const TILE_COLORS: [string, string][] = [
   ["#2f6b4f", "#5c9b7c"],
@@ -11,11 +16,36 @@ const TILE_COLORS: [string, string][] = [
   ["#cd6a3c", "#e8ab84"],
 ];
 
+const tileArticles = HH_ARTICLES.filter((a) => a.image).slice(0, 6);
+
+function Tile({ image, colorFrom, colorTo }: { image: string | null; colorFrom: string; colorTo: string }) {
+  const [failed, setFailed] = useState(false);
+  const showImage = image && !failed;
+
+  return (
+    <div className="relative aspect-square w-[200px] flex-shrink-0 overflow-hidden md:w-[264px]">
+      {showImage ? (
+        <Image
+          src={image}
+          alt=""
+          fill
+          sizes="264px"
+          className="object-cover"
+          onError={() => setFailed(true)}
+        />
+      ) : (
+        <ProductPlaceholderArt colorFrom={colorFrom} colorTo={colorTo} className="h-full w-full rounded-none" />
+      )}
+    </div>
+  );
+}
+
 /** Header + horizontal-scroll tile row — structural analog of the shared
- * Caudalie homepage's InstagramFeed.tsx. No real social embed/API and no
- * Caudalie Instagram assets — tiles are the site's standard gradient
- * placeholder art, and the CTA uses a plain lucide icon instead of a
- * platform logo image. */
+ * Caudalie homepage's InstagramFeed.tsx. No real social embed/API exists,
+ * so the tiles show real article hero photos (Phase 3 download) as a
+ * stand-in "community content" rail instead of a fake social embed —
+ * falling back to the gradient placeholder tile on load error or if fewer
+ * than 6 articles have images. */
 export function SocialFeed() {
   return (
     <section className="mx-auto w-full max-w-[1440px] px-4 py-12 md:px-8">
@@ -32,12 +62,7 @@ export function SocialFeed() {
 
       <div className="flex gap-2 overflow-x-auto pb-2">
         {TILE_COLORS.map(([colorFrom, colorTo], index) => (
-          <ProductPlaceholderArt
-            key={`${colorFrom}-${index}`}
-            colorFrom={colorFrom}
-            colorTo={colorTo}
-            className="aspect-square w-[200px] flex-shrink-0 rounded-none md:w-[264px]"
-          />
+          <Tile key={`${colorFrom}-${index}`} image={tileArticles[index]?.image ?? null} colorFrom={colorFrom} colorTo={colorTo} />
         ))}
       </div>
     </section>

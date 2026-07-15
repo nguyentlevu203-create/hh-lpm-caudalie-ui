@@ -1,8 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { HERO_CAMPAIGN, HERO_SECONDARY_SLIDE } from "@/data/site-content";
+import { getBrandPageBySlug, THUONG_HIEU_SLUG } from "@/data/brand-pages";
+import { HH_INGREDIENTS } from "@/data/ingredients";
 import { cn } from "@/lib/utils";
 
 const CONTAINER = "mx-auto w-full max-w-[1440px] px-4 md:px-8";
@@ -15,7 +18,11 @@ interface Slide {
   cta: { label: string; href: string };
   colorFrom: string;
   colorTo: string;
+  image: string | null;
 }
+
+const heroBrandImage = getBrandPageBySlug(THUONG_HIEU_SLUG)?.image ?? null;
+const heroIngredientImage = HH_INGREDIENTS.find((i) => i.slug === "fleur-d-oranger")?.image ?? null;
 
 const SLIDES: Slide[] = [
   {
@@ -26,6 +33,7 @@ const SLIDES: Slide[] = [
     cta: HERO_CAMPAIGN.primaryCta,
     colorFrom: "#2f6b4f",
     colorTo: "#204a37",
+    image: heroBrandImage,
   },
   {
     id: "tu-van",
@@ -35,25 +43,42 @@ const SLIDES: Slide[] = [
     cta: HERO_SECONDARY_SLIDE.cta,
     colorFrom: "#e08a3e",
     colorTo: "#b8672a",
+    image: heroIngredientImage,
   },
 ];
 
-/** Structured "photo" placeholder — a gradient base plus plain geometric
- * accent shapes, standing in for a real campaign photo (no HH campaign
- * photography exists yet, no Caudalie imagery may be reused). Reads as an
- * abstract placeholder with background-image-like depth rather than a flat
- * empty gradient fill. */
+/** Real photo (thương hiệu / nguyên liệu, from Phase 3's downloaded
+ * catalogue) with a gradient + dark-overlay wash for text legibility, and
+ * an `onError` fallback to the plain gradient placeholder if the local file
+ * ever fails to load — no Caudalie imagery, no unrelated filler photo. */
 function SlideBackground({ slide }: { slide: Slide }) {
+  const [imageFailed, setImageFailed] = useState(false);
+  const showImage = slide.image && !imageFailed;
+
   return (
     <div
       className="absolute inset-0"
       style={{ background: `linear-gradient(135deg, ${slide.colorFrom}, ${slide.colorTo})` }}
     >
-      <svg className="absolute inset-0 h-full w-full opacity-25" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-        <circle cx="82" cy="20" r="26" fill="#ffffff" fillOpacity="0.3" />
-        <circle cx="10" cy="90" r="34" fill="#000000" fillOpacity="0.15" />
-      </svg>
-      <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/35 to-transparent" />
+      {showImage && (
+        <Image
+          src={slide.image as string}
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover opacity-80"
+          onError={() => setImageFailed(true)}
+          priority
+        />
+      )}
+      {!showImage && (
+        <svg className="absolute inset-0 h-full w-full opacity-25" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <circle cx="82" cy="20" r="26" fill="#ffffff" fillOpacity="0.3" />
+          <circle cx="10" cy="90" r="34" fill="#000000" fillOpacity="0.15" />
+        </svg>
+      )}
+      <div className="absolute inset-0 bg-black/25" />
+      <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/50 to-transparent" />
     </div>
   );
 }

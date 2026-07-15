@@ -1,6 +1,10 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ProductPlaceholderArt } from "@/components/hh/ProductPlaceholderArt";
-import { HH_CATEGORIES } from "@/data/products";
+import { HH_CATEGORIES, getProductsByCategory } from "@/data/products";
 import { FEATURED_COLLECTION } from "@/data/site-content";
 
 const TILE_COLORS: [string, string][] = [
@@ -12,12 +16,47 @@ const TILE_COLORS: [string, string][] = [
   ["#cd6a3c", "#e8ab84"],
 ];
 
+function CategoryTile({
+  image,
+  colorFrom,
+  colorTo,
+  shape,
+}: {
+  image: string | null;
+  colorFrom: string;
+  colorTo: string;
+  shape: "bottle" | "soap" | "tube";
+}) {
+  const [failed, setFailed] = useState(false);
+  const showImage = image && !failed;
+
+  return (
+    <div className="relative aspect-[3/4] w-[220px] flex-shrink-0 overflow-hidden rounded-md bg-hh-cream">
+      {showImage ? (
+        <Image
+          src={image}
+          alt=""
+          fill
+          sizes="220px"
+          className="object-contain p-4"
+          onError={() => setFailed(true)}
+        />
+      ) : (
+        <ProductPlaceholderArt colorFrom={colorFrom} colorTo={colorTo} shape={shape} className="h-full w-full" />
+      )}
+    </div>
+  );
+}
+
 /** Two-column brand-promise section — structure ported from the shared
  * Caudalie homepage's DiscoverCults.tsx: a static text/CTA block on one
  * side, a horizontally scrollable strip of product art on the other. Not a
  * genuine structural analog of ComboOffers.tsx (which is a header + product
  * grid, kept as its own legitimate section), so ported separately with HH
- * category art instead of Caudalie cult-product photography. */
+ * category art instead of Caudalie cult-product photography. Each tile now
+ * shows a real product photo from that category (first sellable product
+ * with a downloaded image) when one exists, falling back to the gradient
+ * placeholder otherwise or on load error. */
 export function FeaturedCollection() {
   return (
     <section className="flex flex-col md:flex-row">
@@ -37,15 +76,18 @@ export function FeaturedCollection() {
       </div>
 
       <div className="flex w-full gap-4 overflow-x-auto bg-hh-muted px-6 py-16 md:w-1/2 md:px-16 md:py-24">
-        {HH_CATEGORIES.map((cat, index) => (
-          <ProductPlaceholderArt
-            key={cat.slug}
-            colorFrom={TILE_COLORS[index % TILE_COLORS.length][0]}
-            colorTo={TILE_COLORS[index % TILE_COLORS.length][1]}
-            shape={cat.slug === "xa-phong-banh" ? "soap" : cat.slug === "cham-soc-tay" ? "tube" : "bottle"}
-            className="aspect-[3/4] w-[220px] flex-shrink-0 rounded-md"
-          />
-        ))}
+        {HH_CATEGORIES.map((cat, index) => {
+          const product = getProductsByCategory(cat.slug).find((p) => p.image);
+          return (
+            <CategoryTile
+              key={cat.slug}
+              image={product?.image ?? null}
+              colorFrom={TILE_COLORS[index % TILE_COLORS.length][0]}
+              colorTo={TILE_COLORS[index % TILE_COLORS.length][1]}
+              shape={cat.slug === "xa-phong-banh" ? "soap" : cat.slug === "cham-soc-tay" ? "tube" : "bottle"}
+            />
+          );
+        })}
       </div>
     </section>
   );
