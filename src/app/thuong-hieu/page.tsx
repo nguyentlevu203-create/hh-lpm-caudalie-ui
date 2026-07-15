@@ -8,6 +8,8 @@ import { Header } from "@/components/hh/layout/Header";
 import { Footer } from "@/components/hh/layout/Footer";
 import { ProductBreadcrumb } from "@/components/hh/product/ProductBreadcrumb";
 import { ProductPlaceholderArt } from "@/components/hh/ProductPlaceholderArt";
+import { ContentCardCarousel } from "@/components/hh/content/ContentCardCarousel";
+import { getCardsForRoute } from "@/data/cards";
 import { getBrandPageBySlug, THUONG_HIEU_SLUG } from "@/data/brand-pages";
 
 export const metadata: Metadata = { ...HH_BASE_METADATA, title: "Thương hiệu" };
@@ -34,6 +36,8 @@ export default function ThuongHieuPage() {
         <h1 className="mt-6 text-3xl font-normal text-hh-ink md:text-4xl">{page.h1 || page.pageName}</h1>
         {page.intro && <p className="mt-3 text-base text-hh-muted-foreground">{page.intro}</p>}
         {page.sections && <div className="mt-8 whitespace-pre-line text-base text-hh-ink">{page.sections}</div>}
+
+        <ContentCardCarousel cards={getCardsForRoute("/thuong-hieu")} heading="Nội dung liên quan" />
       </main>
       <Footer />
     </HHShell>

@@ -8,6 +8,8 @@ import { Header } from "@/components/hh/layout/Header";
 import { Footer } from "@/components/hh/layout/Footer";
 import { ProductBreadcrumb } from "@/components/hh/product/ProductBreadcrumb";
 import { ProductPlaceholderArt } from "@/components/hh/ProductPlaceholderArt";
+import { ContentCardCarousel } from "@/components/hh/content/ContentCardCarousel";
+import { getCardsForRoute } from "@/data/cards";
 import { HH_ARTICLES, getArticleBySlug } from "@/data/articles";
 
 interface Props {
@@ -54,6 +56,8 @@ export default async function BaiVietDetailPage({ params }: Props) {
         {art.mainContent && (
           <div className="mt-8 whitespace-pre-line text-base text-hh-ink">{art.mainContent}</div>
         )}
+
+        <ContentCardCarousel cards={getCardsForRoute(`/bai-viet/${slug}`)} heading="Nội dung liên quan" />
       </main>
       <Footer />
     </HHShell>

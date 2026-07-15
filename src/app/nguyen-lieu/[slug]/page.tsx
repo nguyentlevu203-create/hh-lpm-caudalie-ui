@@ -8,6 +8,8 @@ import { Header } from "@/components/hh/layout/Header";
 import { Footer } from "@/components/hh/layout/Footer";
 import { ProductBreadcrumb } from "@/components/hh/product/ProductBreadcrumb";
 import { ProductPlaceholderArt } from "@/components/hh/ProductPlaceholderArt";
+import { ContentCardCarousel } from "@/components/hh/content/ContentCardCarousel";
+import { getCardsForRoute } from "@/data/cards";
 import { HH_INGREDIENTS, getIngredientBySlug } from "@/data/ingredients";
 
 interface Props {
@@ -76,6 +78,8 @@ export default async function NguyenLieuDetailPage({ params }: Props) {
             </section>
           )}
         </div>
+
+        <ContentCardCarousel cards={getCardsForRoute(`/nguyen-lieu/${slug}`)} heading="Nội dung liên quan" />
       </main>
       <Footer />
     </HHShell>
