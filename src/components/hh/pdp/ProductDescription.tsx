@@ -28,7 +28,10 @@ export function ProductDescription({ product }: { product: HHProduct }) {
         </div>
         <div className="flex gap-1">
           <dt className="font-medium">Dung tích :</dt>
-          <dd className="text-hh-muted-foreground">{product.volume}</dd>
+          <dd className="text-hh-muted-foreground">
+            {product.volume}
+            {product.volumeIsReference && " (tham khảo từ sản phẩm Pháp)"}
+          </dd>
         </div>
         {firstHighlight && (
           <div className="flex gap-1">
@@ -53,11 +56,6 @@ export function ProductDescription({ product }: { product: HHProduct }) {
               <li key={highlight}>{highlight}</li>
             ))}
           </ul>
-          {product.isCombo && product.comboIncludes && (
-            <p className="mt-2 text-xs text-hh-muted-foreground">
-              *Combo gồm {product.comboIncludes.length} sản phẩm, xem chi tiết ở phần mua hàng phía trên.
-            </p>
-          )}
         </div>
       )}
 

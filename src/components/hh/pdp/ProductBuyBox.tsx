@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Star, Gift } from "lucide-react";
 import { useSiteUI } from "@/components/hh/SiteUIContext";
 import { formatVnd } from "@/components/hh/product/ProductCard";
-import type { HHProduct } from "@/data/products";
+import { PRICE_DISCLAIMER, type HHProduct } from "@/data/products";
 
 /** 10.000₫ = 1 điểm — same membership ratio published on the homepage's
  * Câu Lạc Bộ Hoàng Hà section (see MEMBERSHIP.perks[0] in site-content.ts). */
@@ -53,18 +53,8 @@ export function ProductBuyBox({ product }: { product: HHProduct }) {
         <p className="mt-2 inline-block rounded-full bg-hh-accent/20 px-3 py-1 text-sm text-hh-ink">
           Tích {loyaltyPoints} điểm thành viên
         </p>
+        <p className="mt-2 text-xs text-hh-muted-foreground">{PRICE_DISCLAIMER}</p>
       </div>
-
-      {product.isCombo && product.comboIncludes && (
-        <div className="rounded-lg bg-hh-muted p-4">
-          <p className="text-sm font-medium text-hh-ink">Combo gồm:</p>
-          <ul className="mt-2 space-y-1 text-sm text-hh-muted-foreground">
-            {product.comboIncludes.map((item) => (
-              <li key={item}>• {item}</li>
-            ))}
-          </ul>
-        </div>
-      )}
 
       <div className="flex items-center gap-3">
         <div className="flex items-center gap-3 rounded-full border border-hh-border px-3 py-2">

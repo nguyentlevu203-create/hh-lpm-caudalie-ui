@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { X, ChevronLeft, ChevronDown, Minus, Plus, ShoppingBag, Lock } from "lucide-react";
 import { useSiteUI, type CartLine } from "@/components/hh/SiteUIContext";
-import { ProductPlaceholderArt } from "@/components/hh/ProductPlaceholderArt";
-import { getProductBySlug, type HHProduct } from "@/data/products";
+import { getProductBySlug, PRICE_DISCLAIMER, type HHProduct } from "@/data/products";
 import { cn } from "@/lib/utils";
 
 const FREE_SHIP_THRESHOLD = 399000;
@@ -16,12 +16,6 @@ interface CartLineWithProduct extends CartLine {
 
 function formatVnd(value: number) {
   return value.toLocaleString("vi-VN") + "₫";
-}
-
-function placeholderShape(category: HHProduct["category"]) {
-  if (category === "xa-phong-banh") return "soap" as const;
-  if (category === "cham-soc-tay") return "tube" as const;
-  return "bottle" as const;
 }
 
 /** Right-side slide-in cart, structure aligned 1:1 with /reference/cart's
@@ -117,12 +111,7 @@ export function CartDrawer() {
                 {items.map(({ product, quantity }) => (
                   <div key={product.slug} className="flex gap-3 px-4 py-4">
                     <div className="relative size-20 shrink-0 overflow-hidden rounded-sm bg-hh-cream">
-                      <ProductPlaceholderArt
-                        colorFrom={product.colorFrom}
-                        colorTo={product.colorTo}
-                        shape={placeholderShape(product.category)}
-                        className="size-20"
-                      />
+                      <Image src={product.image} alt={product.name} fill sizes="80px" className="object-contain p-1.5" />
                     </div>
                     <div className="flex-1">
                       <div className="flex items-start justify-between gap-2">
@@ -198,6 +187,7 @@ export function CartDrawer() {
                       <Lock className="size-4" />
                       Thanh toán an toàn, bảo mật
                     </div>
+                    <p className="mt-2 text-center text-xs text-hh-muted-foreground">{PRICE_DISCLAIMER}</p>
                   </div>
                 )}
               </div>

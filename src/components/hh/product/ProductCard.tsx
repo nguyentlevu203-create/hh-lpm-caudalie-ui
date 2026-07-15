@@ -1,19 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { Heart, Star } from "lucide-react";
-import { ProductPlaceholderArt } from "@/components/hh/ProductPlaceholderArt";
 import { useSiteUI } from "@/components/hh/SiteUIContext";
 import type { HHProduct } from "@/data/products";
 
 export function formatVnd(value: number) {
   return value.toLocaleString("vi-VN") + "₫";
-}
-
-export function placeholderShape(category: HHProduct["category"]) {
-  if (category === "xa-phong-banh") return "soap" as const;
-  if (category === "cham-soc-tay") return "tube" as const;
-  return "bottle" as const;
 }
 
 /** Grid product card — pattern cloned from /reference/category's
@@ -43,12 +37,13 @@ export function ProductCard({ product }: { product: HHProduct }) {
           <Heart className="h-4 w-4 text-hh-primary" strokeWidth={1.5} />
         </button>
 
-        <Link href={`/san-pham/${product.slug}`} className="block h-full w-full">
-          <ProductPlaceholderArt
-            colorFrom={product.colorFrom}
-            colorTo={product.colorTo}
-            shape={placeholderShape(product.category)}
-            className="h-full w-full rounded-sm"
+        <Link href={`/san-pham/${product.slug}`} className="relative block h-full w-full">
+          <Image
+            src={product.image}
+            alt={product.name}
+            fill
+            sizes="(min-width: 1024px) 25vw, 50vw"
+            className="object-contain p-4"
           />
         </Link>
       </div>
