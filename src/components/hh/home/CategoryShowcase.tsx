@@ -8,7 +8,8 @@ const CATEGORY_COLORS: Record<HHCategorySlug, [string, string]> = {
   "duong-the": ["#d98fa0", "#f3c9d3"],
   "cham-soc-tay": ["#e2a33a", "#f3cf87"],
   "cham-soc-toc": ["#c7ab7a", "#e8d5ac"],
-  "combo-qua-tang": ["#cd6a3c", "#e8ab84"],
+  "son-duong-moi": ["#cd6a3c", "#e8ab84"],
+  "rua-tay": ["#5a9bb0", "#a9d4e0"],
 };
 
 /** Category tile row — pattern cloned from the shared Caudalie homepage's
@@ -17,7 +18,7 @@ export function CategoryShowcase() {
   return (
     <section className="mx-auto w-full max-w-[1280px] px-4 py-12 md:px-8">
       <h2 className="text-2xl font-semibold text-hh-ink sm:text-3xl">Danh mục sản phẩm</h2>
-      <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+      <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-7">
         {HH_CATEGORIES.map((cat) => {
           const [colorFrom, colorTo] = CATEGORY_COLORS[cat.slug];
           return (

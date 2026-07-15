@@ -409,7 +409,7 @@ export const CONTACT_INFO = {
 };
 
 export const CART_SEED_ITEM = {
-  slug: "sua-tam-hoa-oai-huong-bo-hat-mo",
+  slug: "gel-tam-cam-huu-co-buoi-huu-co",
   quantity: 1,
 };
 
