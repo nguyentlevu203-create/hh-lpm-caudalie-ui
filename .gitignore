@@ -47,3 +47,6 @@ next-env.d.ts
 
 # Local temp files
 temp/
+
+# Local source workbooks - do not commit
+data-source/*.xlsx
