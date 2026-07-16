@@ -18,17 +18,31 @@ export function GiftDiscoveryTiles() {
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
-        {HH_GIFT_DISCOVERY_TILES.map((tile) => (
-          <Link key={tile.id} href={tile.href} className="text-center">
-            <ProductPlaceholderArt
-              colorFrom={tile.colorFrom}
-              colorTo={tile.colorTo}
-              shape={tile.shape}
-              className="aspect-video w-full rounded-none"
-            />
-            <p className="mt-3 text-base text-hh-ink">{tile.caption}</p>
-          </Link>
-        ))}
+        {HH_GIFT_DISCOVERY_TILES.map((tile) =>
+          tile.href === "#" ? (
+            <div key={tile.id} className="cursor-default text-center">
+              <ProductPlaceholderArt
+                colorFrom={tile.colorFrom}
+                colorTo={tile.colorTo}
+                shape={tile.shape}
+                className="aspect-video w-full rounded-none opacity-60"
+              />
+              <p className="mt-3 text-base text-hh-muted-foreground">
+                {tile.caption} <span className="italic">(Đang cập nhật)</span>
+              </p>
+            </div>
+          ) : (
+            <Link key={tile.id} href={tile.href} className="text-center">
+              <ProductPlaceholderArt
+                colorFrom={tile.colorFrom}
+                colorTo={tile.colorTo}
+                shape={tile.shape}
+                className="aspect-video w-full rounded-none"
+              />
+              <p className="mt-3 text-base text-hh-ink">{tile.caption}</p>
+            </Link>
+          )
+        )}
       </div>
     </div>
   );

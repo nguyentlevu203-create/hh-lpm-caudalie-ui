@@ -11,7 +11,7 @@ export function BrandLibraryCard({ product }: { product: HHBrandLibraryProduct }
   return (
     <Link href={`/thu-vien-san-pham-hang/${product.slug}`} className="flex flex-col gap-2">
       <div className="relative aspect-square w-full overflow-hidden rounded-sm bg-hh-cream">
-        <span className="absolute left-2 top-2 z-10 rounded bg-hh-ink/70 px-[10px] py-1 text-xs font-normal text-white">
+        <span className="absolute left-2 top-2 z-10 rounded bg-slate-600 px-[10px] py-1 text-xs font-normal text-white">
           Tham khảo
         </span>
         {product.image ? (

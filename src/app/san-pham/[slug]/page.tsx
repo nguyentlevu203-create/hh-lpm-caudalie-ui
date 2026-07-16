@@ -83,7 +83,7 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
         <TrustBadges />
         <ProductDescription product={product} />
         <ProductAccordions product={product} />
-        <ProductReviews product={product} />
+        <ProductReviews />
         <RelatedProducts products={related} />
       </main>
       <Footer />

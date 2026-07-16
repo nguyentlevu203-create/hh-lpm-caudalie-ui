@@ -2,12 +2,14 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Heart, Star } from "lucide-react";
+import { Heart } from "lucide-react";
 import { useSiteUI } from "@/components/hh/SiteUIContext";
 import { useAccount } from "@/components/hh/AccountContext";
 import { ProductPlaceholderArt } from "@/components/hh/ProductPlaceholderArt";
 import { cn } from "@/lib/utils";
 import { getEffectivePrice, INQUIRY_PRICE_LABEL, type HHProduct } from "@/data/products";
+
+const INQUIRY_BADGE_LABEL = "Liên hệ báo giá";
 
 export function formatVnd(value: number) {
   return value.toLocaleString("vi-VN") + "₫";
@@ -21,18 +23,24 @@ export function formatVnd(value: number) {
 export function ProductCard({ product }: { product: HHProduct }) {
   const { addToCart } = useSiteUI();
   const { isWishlisted, toggleWishlist } = useAccount();
-  const filledStars = Math.round(product.rating);
   const price = getEffectivePrice(product);
   const wishlisted = isWishlisted(product.slug);
 
   return (
     <div className="flex flex-col">
       <div className="relative aspect-square w-full overflow-hidden rounded-sm bg-hh-cream">
-        {product.badge && (
-          <span className="absolute left-2 top-2 z-10 rounded bg-hh-primary px-[10px] py-1 text-xs font-normal text-white">
-            {product.badge}
-          </span>
-        )}
+        <div className="absolute left-2 top-2 z-10 flex flex-col items-start gap-1">
+          {product.badge && (
+            <span className="rounded bg-hh-primary px-[10px] py-1 text-xs font-normal text-white">
+              {product.badge}
+            </span>
+          )}
+          {product.priceMode === "inquiry" && (
+            <span className="rounded bg-hh-accent px-[10px] py-1 text-xs font-normal text-hh-accent-foreground">
+              {INQUIRY_BADGE_LABEL}
+            </span>
+          )}
+        </div>
 
         <button
           type="button"
@@ -69,17 +77,7 @@ export function ProductCard({ product }: { product: HHProduct }) {
         <p className="text-sm text-hh-muted-foreground">{product.volume}</p>
       </Link>
 
-      <div className="mt-1 flex items-center gap-1">
-        <div className="flex items-center gap-0.5">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <Star
-              key={i}
-              className={i < filledStars ? "h-4 w-4 fill-hh-accent text-hh-accent" : "h-4 w-4 fill-hh-muted text-hh-border"}
-            />
-          ))}
-        </div>
-        <span className="text-sm text-hh-muted-foreground">({product.reviewCount})</span>
-      </div>
+      <p className="mt-1 text-sm text-hh-muted-foreground">Chưa có đánh giá</p>
 
       <div className="mt-1 flex items-center gap-2">
         {price !== null ? (
@@ -96,13 +94,22 @@ export function ProductCard({ product }: { product: HHProduct }) {
         )}
       </div>
 
-      <button
-        type="button"
-        onClick={() => addToCart(product.slug)}
-        className="mt-3 w-full rounded-md border border-hh-primary/40 bg-white px-[15px] py-3 text-base text-hh-primary transition-colors hover:bg-hh-primary hover:text-white"
-      >
-        Thêm vào giỏ
-      </button>
+      {price !== null ? (
+        <button
+          type="button"
+          onClick={() => addToCart(product.slug)}
+          className="mt-3 w-full rounded-md border border-hh-primary/40 bg-white px-[15px] py-3 text-base text-hh-primary transition-colors hover:bg-hh-primary hover:text-white"
+        >
+          Thêm vào giỏ
+        </button>
+      ) : (
+        <Link
+          href={`/san-pham/${product.slug}`}
+          className="mt-3 block w-full rounded-md border border-hh-primary/40 bg-white px-[15px] py-3 text-center text-base text-hh-primary transition-colors hover:bg-hh-primary hover:text-white"
+        >
+          Xem sản phẩm
+        </Link>
+      )}
     </div>
   );
 }

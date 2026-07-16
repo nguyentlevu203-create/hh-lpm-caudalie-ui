@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Star, Gift } from "lucide-react";
+import { Gift } from "lucide-react";
 import { useSiteUI } from "@/components/hh/SiteUIContext";
 import { formatVnd } from "@/components/hh/product/ProductCard";
 import { getEffectivePrice, INQUIRY_PRICE_LABEL, PRICE_DISCLAIMER, type HHProduct } from "@/data/products";
@@ -34,11 +34,9 @@ export function ProductBuyBox({ product }: { product: HHProduct }) {
         </p>
       </div>
 
-      <div className="flex items-center gap-2 text-sm text-hh-muted-foreground">
-        <Star className="size-4 fill-hh-accent text-hh-accent" />
-        <span>{product.rating}</span>
+      <div className="text-sm text-hh-muted-foreground">
         <Link href="#danh-gia" className="underline underline-offset-2">
-          ({product.reviewCount} đánh giá)
+          Chưa có đánh giá — hãy là người đầu tiên
         </Link>
       </div>
 

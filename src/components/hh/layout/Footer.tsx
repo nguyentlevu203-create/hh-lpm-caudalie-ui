@@ -62,6 +62,10 @@ function FooterLinkColumn({
               >
                 {link.label}
               </button>
+            ) : link.href === "#" ? (
+              <span className="cursor-default text-sm text-hh-muted-foreground/60">
+                {link.label} <span className="italic">(Đang cập nhật)</span>
+              </span>
             ) : (
               <Link href={link.href} className="text-sm text-hh-muted-foreground hover:text-hh-ink">
                 {link.label}
@@ -119,7 +123,8 @@ export function Footer() {
           <div className="mt-6 flex gap-3">
             {SOCIAL_LINKS.map((social) => {
               const Icon = SOCIAL_ICONS[social.label] ?? Globe;
-              return (
+              const isLive = social.href !== "#";
+              return isLive ? (
                 <a
                   key={social.label}
                   href={social.href}
@@ -128,6 +133,14 @@ export function Footer() {
                 >
                   <Icon className="size-4" strokeWidth={1.75} />
                 </a>
+              ) : (
+                <span
+                  key={social.label}
+                  aria-label={`${social.label} — đang cập nhật`}
+                  className="flex size-9 cursor-default items-center justify-center rounded-full bg-white text-hh-primary/40"
+                >
+                  <Icon className="size-4" strokeWidth={1.75} />
+                </span>
               );
             })}
           </div>
@@ -167,11 +180,17 @@ export function Footer() {
           )}
         </div>
 
-        {LEGAL_LINKS.map((link) => (
-          <Link key={link.label} href={link.href} className="text-hh-muted-foreground hover:text-hh-ink">
-            {link.label}
-          </Link>
-        ))}
+        {LEGAL_LINKS.map((link) =>
+          link.href === "#" ? (
+            <span key={link.label} className="cursor-default text-hh-muted-foreground/60">
+              {link.label} <span className="italic">(Đang cập nhật)</span>
+            </span>
+          ) : (
+            <Link key={link.label} href={link.href} className="text-hh-muted-foreground hover:text-hh-ink">
+              {link.label}
+            </Link>
+          )
+        )}
         <span className="text-hh-muted-foreground">
           © {new Date().getFullYear()} {BRAND_NAME}. Sản phẩm nhập khẩu chính hãng từ Pháp.
         </span>

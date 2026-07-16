@@ -51,13 +51,13 @@ export function SocialFeed() {
     <section className="mx-auto w-full max-w-[1440px] px-4 py-12 md:px-8">
       <div className="mb-6 flex items-center justify-between gap-4">
         <h2 className="text-2xl font-normal text-hh-ink">{SOCIAL_PROOF.heading}</h2>
-        <a
-          href="#"
-          className="flex items-center gap-2 rounded-md border border-hh-border bg-white px-6 py-3 text-hh-primary"
+        <span
+          aria-label={`${SOCIAL_PROOF.cta} — đang cập nhật`}
+          className="flex cursor-default items-center gap-2 rounded-md border border-hh-border bg-white px-6 py-3 text-hh-muted-foreground"
         >
           <Users className="size-5" strokeWidth={1.5} />
           <span>{SOCIAL_PROOF.cta}</span>
-        </a>
+        </span>
       </div>
 
       <div className="flex gap-2 overflow-x-auto pb-2">
