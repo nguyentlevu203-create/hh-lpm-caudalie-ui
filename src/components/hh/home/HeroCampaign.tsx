@@ -89,7 +89,7 @@ function SlidePanel({ slide }: { slide: Slide }) {
       <SlideBackground slide={slide} />
       <div className="relative z-10 flex h-full flex-col items-start justify-end gap-3 p-8 text-white sm:p-10 lg:p-12">
         <p className="text-sm font-medium uppercase tracking-widest text-white/80">{slide.eyebrow}</p>
-        <h2 className="max-w-md text-3xl font-semibold leading-tight sm:text-4xl">{slide.heading}</h2>
+        <h2 className="hh-display max-w-md text-3xl font-medium leading-[1.1] sm:text-4xl">{slide.heading}</h2>
         <p className="max-w-sm text-sm text-white/85 sm:text-base">{slide.body}</p>
         <Link
           href={slide.cta.href}

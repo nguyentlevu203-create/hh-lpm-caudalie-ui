@@ -33,7 +33,7 @@ export default function CamKetPage() {
           )}
         </div>
 
-        <h1 className="mt-6 text-3xl font-normal text-hh-ink md:text-4xl">{page.h1 || page.pageName}</h1>
+        <h1 className="mt-6 hh-heading-page text-hh-ink">{page.h1 || page.pageName}</h1>
         {page.intro && <p className="mt-3 text-base text-hh-muted-foreground">{page.intro}</p>}
         {page.sections && <div className="mt-8 whitespace-pre-line text-base text-hh-ink">{page.sections}</div>}
 

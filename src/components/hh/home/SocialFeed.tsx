@@ -50,7 +50,7 @@ export function SocialFeed() {
   return (
     <section className="mx-auto w-full max-w-[1440px] px-4 py-12 md:px-8">
       <div className="mb-6 flex items-center justify-between gap-4">
-        <h2 className="text-2xl font-normal text-hh-ink">{SOCIAL_PROOF.heading}</h2>
+        <h2 className="hh-heading-section text-hh-ink">{SOCIAL_PROOF.heading}</h2>
         <span
           aria-label={`${SOCIAL_PROOF.cta} — đang cập nhật`}
           className="flex cursor-default items-center gap-2 rounded-md border border-hh-border bg-white px-6 py-3 text-hh-muted-foreground"

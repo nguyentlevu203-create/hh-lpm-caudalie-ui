@@ -26,7 +26,7 @@ export function BrandLibraryCard({ product }: { product: HHBrandLibraryProduct }
           <ProductPlaceholderArt colorFrom="#8a8f98" colorTo="#c4c8ce" className="h-full w-full rounded-sm" />
         )}
       </div>
-      <p className="line-clamp-2 text-base font-light text-hh-ink">{product.nameVi}</p>
+      <p className="line-clamp-2 text-base font-normal text-hh-ink">{product.nameVi}</p>
       <p className="text-sm text-hh-muted-foreground">
         {[product.volume, product.productLine].filter(Boolean).join(" · ")}
       </p>

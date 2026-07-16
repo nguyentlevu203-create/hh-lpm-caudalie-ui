@@ -49,7 +49,7 @@ export default async function NguyenLieuDetailPage({ params }: Props) {
           )}
         </div>
 
-        <h1 className="mt-6 text-3xl font-normal text-hh-ink md:text-4xl">{ing.h1 || ing.name}</h1>
+        <h1 className="mt-6 hh-heading-page text-hh-ink">{ing.h1 || ing.name}</h1>
         {ing.intro && <p className="mt-3 text-base text-hh-muted-foreground">{ing.intro}</p>}
 
         <div className="mt-8 space-y-6 text-base text-hh-ink">

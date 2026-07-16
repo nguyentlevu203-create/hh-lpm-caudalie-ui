@@ -73,7 +73,7 @@ export function ProductCard({ product }: { product: HHProduct }) {
       </div>
 
       <Link href={`/san-pham/${product.slug}`} className="mt-3 block">
-        <p className="line-clamp-2 text-base font-light text-hh-ink">{product.name}</p>
+        <p className="line-clamp-2 text-base font-normal text-hh-ink">{product.name}</p>
         <p className="text-sm text-hh-muted-foreground">{product.volume}</p>
       </Link>
 

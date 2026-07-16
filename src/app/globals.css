@@ -113,6 +113,7 @@
 
   /* Hoàng Hà / Le Petit Marseillais Việt Nam brand tokens (production UI
      only — an independent palette, not derived from any Caudalie color). */
+
   --hh-primary: #2f6b4f; /* deep herb green — Provence / savon de Marseille */
   --hh-primary-dark: #204a37;
   --hh-primary-foreground: #ffffff;
@@ -168,5 +169,104 @@
   }
   html {
     @apply font-sans;
+  }
+}
+
+/**
+ * Hoàng Hà / Le Petit Marseillais Việt Nam typography scale — premium
+ * typography pass. Scoped entirely to `.hh-*` classes consumed inside
+ * `HHShell` (see src/components/hh/HHShell.tsx); this has no effect on
+ * `/reference/*`. Editorial display headings use `--hh-font-display`
+ * (Cormorant Garamond); everything UI/functional (nav, buttons, prices,
+ * badges, forms, breadcrumbs, footer) stays on `--hh-font-sans` (Be Vietnam
+ * Pro) — see HH_LPM_PREMIUM_TYPOGRAPHY_REPORT.md for which components use
+ * which and why.
+ *
+ * `--hh-font-display`/`--hh-font-sans` are declared on `.font-hh` (the same
+ * class HHShell applies alongside next/font's `.variable` classNames), not
+ * on `:root` — CSS custom-property inheritance resolves `var()` references
+ * at the element where the property is *declared*, not at each inheriting
+ * descendant, so a `:root`-level declaration referencing
+ * `var(--font-hh-cormorant)` would permanently resolve to nothing (that
+ * variable only exists on `.font-hh` itself, never on `:root`/`<html>`).
+ * Declaring them on `.font-hh` puts them in the same cascade as the real
+ * next/font variables so the `var()` reference resolves correctly, and the
+ * fully-resolved value is what then inherits down to every `.hh-*` element.
+ */
+.font-hh {
+  --hh-font-sans: var(--font-hh-vietnam-pro), "Be Vietnam Pro", ui-sans-serif,
+    system-ui, Arial, sans-serif;
+  --hh-font-display: var(--font-hh-cormorant), Georgia, "Times New Roman",
+    serif;
+  --hh-font-display-italic: var(--font-hh-cormorant-italic), Georgia,
+    "Times New Roman", serif;
+}
+
+@layer components {
+  .hh-display {
+    font-family: var(--hh-font-display);
+  }
+
+  .hh-heading-hero {
+    font-family: var(--hh-font-display);
+    font-weight: 500;
+    font-size: clamp(2.4rem, 6vw, 4.5rem);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+  }
+
+  .hh-heading-page {
+    font-family: var(--hh-font-display);
+    font-weight: 500;
+    font-size: clamp(2.1rem, 3.5vw, 3rem);
+    line-height: 1.1;
+  }
+
+  .hh-heading-section {
+    font-family: var(--hh-font-display);
+    font-weight: 500;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    line-height: 1.15;
+  }
+
+  .hh-heading-card {
+    font-family: var(--hh-font-display);
+    font-weight: 500;
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    line-height: 1.25;
+  }
+
+  .hh-quote {
+    font-family: var(--hh-font-display-italic);
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(1.6rem, 3.5vw, 2.75rem);
+    line-height: 1.25;
+  }
+
+  .hh-body-lg {
+    font-family: var(--hh-font-sans);
+    font-size: 1.0625rem; /* 17px */
+    line-height: 1.7;
+  }
+
+  .hh-body {
+    font-family: var(--hh-font-sans);
+    font-size: 0.9375rem; /* 15px */
+    line-height: 1.65;
+  }
+
+  .hh-caption {
+    font-family: var(--hh-font-sans);
+    font-size: 0.8125rem; /* 13px */
+    line-height: 1.5;
+  }
+
+  .hh-label {
+    font-family: var(--hh-font-sans);
+    font-size: 0.75rem; /* 12px */
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 }

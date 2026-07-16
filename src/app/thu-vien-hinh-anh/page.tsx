@@ -45,7 +45,7 @@ export default async function ThuVienHinhAnhPage({ searchParams }: Props) {
         <ProductBreadcrumb items={[{ label: "Trang chủ", href: "/" }, { label: "Thư viện hình ảnh" }]} />
 
         <div className="mt-6 text-center">
-          <h1 className="text-3xl font-normal text-hh-ink md:text-4xl">Thư viện hình ảnh</h1>
+          <h1 className="hh-heading-page text-hh-ink">Thư viện hình ảnh</h1>
           <p className="mx-auto mt-4 max-w-2xl text-base text-hh-muted-foreground">
             Metadata của toàn bộ {HH_MEDIA_LIBRARY.length} ảnh nhập từ thư viện ảnh hãng — {downloadedCount} ảnh đã
             được tải và host cục bộ (trùng URL với ảnh đang dùng thật trong sản phẩm/nguyên liệu/bài viết/nội dung

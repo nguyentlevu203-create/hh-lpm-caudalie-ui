@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { beVietnamPro } from "@/lib/hh-fonts";
+import { beVietnamPro, cormorantGaramond, cormorantGaramondItalic } from "@/lib/hh-fonts";
 import { cn } from "@/lib/utils";
 import { SiteUIProvider } from "@/components/hh/SiteUIContext";
 import { AccountProvider } from "@/components/hh/AccountContext";
@@ -29,6 +29,8 @@ export function HHShell({ children, className }: { children: ReactNode; classNam
         <div
           className={cn(
             beVietnamPro.variable,
+            cormorantGaramond.variable,
+            cormorantGaramondItalic.variable,
             "font-hh flex min-h-screen flex-col bg-hh-cream pb-20 text-hh-ink lg:pb-0",
             className
           )}

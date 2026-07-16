@@ -12,7 +12,7 @@ import { EXPERIENCE_HIGHLIGHTS } from "@/data/site-content";
 export function ExperienceCards() {
   return (
     <section className="mx-auto w-full max-w-[1280px] px-4 py-12 md:px-8 md:py-16">
-      <h2 className="mb-6 text-left text-2xl font-semibold text-hh-ink sm:text-3xl md:mb-8">
+      <h2 className="hh-heading-section mb-6 text-left text-hh-ink md:mb-8">
         Trải nghiệm mua sắm cùng Hoàng Hà
       </h2>
 

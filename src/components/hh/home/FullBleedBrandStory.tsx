@@ -38,7 +38,7 @@ export function FullBleedBrandStory() {
       )}
       <div className="absolute inset-0 bg-black/35" />
       <div className="relative z-10 mx-auto max-w-[600px] px-4 text-center">
-        <h2 className="text-4xl font-light text-white">{BRAND_STORY.heading}</h2>
+        <h2 className="hh-heading-section text-white">{BRAND_STORY.heading}</h2>
         <p className="mt-4 text-center text-base text-white">{BRAND_STORY.intro}</p>
         <Link
           href="/cau-chuyen-thuong-hieu"

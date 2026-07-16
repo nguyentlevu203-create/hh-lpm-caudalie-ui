@@ -73,7 +73,7 @@ export default async function ThuVienSanPhamHangDetailPage({ params }: Props) {
           )}
         </div>
 
-        <h1 className="mt-6 text-3xl font-normal text-hh-ink md:text-4xl">{product.nameVi}</h1>
+        <h1 className="mt-6 hh-heading-page text-hh-ink">{product.nameVi}</h1>
         {product.nameOriginal && (
           <p className="mt-1 text-sm italic text-hh-muted-foreground">{product.nameOriginal}</p>
         )}

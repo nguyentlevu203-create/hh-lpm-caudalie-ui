@@ -9,7 +9,7 @@ import { BRAND_STORY } from "@/data/site-content";
 export function BrandStoryTermBlock() {
   return (
     <div className="bg-hh-muted px-4 py-14 text-center md:py-20">
-      <p className="text-5xl text-hh-primary md:text-[80px]">{BRAND_STORY.termCallout.term}</p>
+      <p className="hh-display text-5xl text-hh-primary md:text-[80px]">{BRAND_STORY.termCallout.term}</p>
       <div className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-hh-muted-foreground">
         {BRAND_STORY.termCallout.lines.map((line) => (
           <p key={line}>{line}</p>

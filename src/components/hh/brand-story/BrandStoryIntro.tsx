@@ -7,7 +7,7 @@ import { BRAND_STORY } from "@/data/site-content";
 export function BrandStoryIntro() {
   return (
     <div className="mx-auto max-w-2xl px-4 py-10 text-center md:py-16">
-      <h1 className="text-2xl font-semibold text-hh-ink md:text-[38px]">{BRAND_STORY.heading}</h1>
+      <h1 className="hh-heading-page text-hh-ink">{BRAND_STORY.heading}</h1>
       <p className="mt-4 text-base leading-relaxed text-hh-muted-foreground">{BRAND_STORY.intro}</p>
     </div>
   );

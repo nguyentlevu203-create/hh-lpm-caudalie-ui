@@ -9,7 +9,7 @@ export function ScentAdvisorView() {
   return (
     <div className="mx-auto w-full max-w-[1280px] px-4 py-10 md:px-8">
       <div className="mx-auto max-w-2xl text-center">
-        <h1 className="text-3xl font-semibold text-hh-ink sm:text-4xl">Tư vấn chọn mùi hương</h1>
+        <h1 className="hh-heading-page text-hh-ink">Tư vấn chọn mùi hương</h1>
         <p className="mt-3 text-sm text-hh-muted-foreground sm:text-base">
           Chọn cảm giác bạn đang tìm kiếm, chúng tôi sẽ gợi ý mùi hương Le Petit Marseillais phù hợp với bạn.
         </p>

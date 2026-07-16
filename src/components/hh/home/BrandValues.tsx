@@ -14,7 +14,7 @@ export function BrandValues() {
   return (
     <section className="w-full">
       <div className="flex items-center justify-between px-6 py-8 lg:px-12">
-        <h2 className="text-2xl font-normal text-hh-ink">Giá trị thương hiệu</h2>
+        <h2 className="hh-heading-section text-hh-ink">Giá trị thương hiệu</h2>
         <Link
           href="/cau-chuyen-thuong-hieu"
           className="rounded-md border border-hh-border bg-white px-6 py-3 text-hh-primary"

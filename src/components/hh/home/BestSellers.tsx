@@ -25,7 +25,7 @@ export function BestSellers() {
 
   return (
     <section className="mx-auto w-full max-w-[1280px] px-4 py-12 md:px-8">
-      <h2 className="text-2xl font-semibold text-hh-ink sm:text-3xl">Sản phẩm bán chạy</h2>
+      <h2 className="hh-heading-section text-hh-ink">Sản phẩm bán chạy</h2>
 
       <div className="mt-4 flex flex-wrap gap-2">
         {filters.map((filter) => {

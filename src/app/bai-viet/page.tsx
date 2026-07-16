@@ -25,7 +25,7 @@ export default function BaiVietPage() {
         <ProductBreadcrumb items={[{ label: "Trang chủ", href: "/" }, { label: "Bài viết" }]} />
 
         <div className="mt-6 text-center">
-          <h1 className="text-3xl font-normal text-hh-ink md:text-4xl">Bài viết</h1>
+          <h1 className="hh-heading-page text-hh-ink">Bài viết</h1>
           <p className="mx-auto mt-4 max-w-2xl text-base text-hh-muted-foreground">
             {HH_ARTICLES.length} bài viết mẹo chăm sóc da, tóc và làm đẹp.
           </p>

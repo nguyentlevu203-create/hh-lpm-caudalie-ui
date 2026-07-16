@@ -45,8 +45,8 @@ export function TimelineEntry({ milestone, align, colorFrom, colorTo }: Timeline
           align === "left" ? "justify-self-start" : "justify-self-end"
         )}
       >
-        <p className="text-2xl font-semibold text-hh-primary md:text-[38px]">{year}</p>
-        <p className="text-xl text-hh-ink md:text-[28px]">{heading}</p>
+        <p className="hh-display text-2xl font-medium text-hh-primary md:text-[38px]">{year}</p>
+        <p className="hh-heading-card text-hh-ink">{heading}</p>
         <p className="text-sm leading-relaxed text-hh-muted-foreground">{body}</p>
         {cta && (
           <a

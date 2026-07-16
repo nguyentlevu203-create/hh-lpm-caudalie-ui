@@ -65,7 +65,7 @@ export function FeaturedCollection() {
           <span className="text-sm text-hh-primary">{FEATURED_COLLECTION.eyebrow}</span>
         </div>
 
-        <p className="text-3xl font-semibold text-hh-ink md:text-4xl">{FEATURED_COLLECTION.heading}</p>
+        <p className="hh-heading-section text-hh-ink">{FEATURED_COLLECTION.heading}</p>
 
         <Link
           href={FEATURED_COLLECTION.cta.href}

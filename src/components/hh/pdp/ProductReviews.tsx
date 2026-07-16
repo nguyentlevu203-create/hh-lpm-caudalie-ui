@@ -40,7 +40,7 @@ export function ProductReviews() {
       </div>
 
       <div>
-        <h2 className="text-2xl text-hh-ink">Khách hàng nói gì</h2>
+        <h2 className="hh-heading-card text-hh-ink">Khách hàng nói gì</h2>
         <p className="mt-6 text-base text-hh-muted-foreground">
           Chưa có đánh giá nào từ khách hàng. Hãy là người đầu tiên chia sẻ trải nghiệm của bạn.
         </p>

@@ -48,7 +48,7 @@ export function AdvisorBanner() {
         <div className="absolute inset-0 bg-black/10" />
 
         <div className="absolute bottom-8 left-8 max-w-[400px] bg-white px-8 py-6">
-          <h2 className="text-2xl font-normal text-hh-ink">{SCENT_ADVISOR_BANNER.heading}</h2>
+          <h2 className="hh-heading-section text-hh-ink">{SCENT_ADVISOR_BANNER.heading}</h2>
           <p className="mt-2 text-base text-hh-ink">{SCENT_ADVISOR_BANNER.body}</p>
           <Link
             href={SCENT_ADVISOR_BANNER.cta.href}

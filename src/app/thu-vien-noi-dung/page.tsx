@@ -33,7 +33,7 @@ export default function ThuVienNoiDungPage() {
         <ProductBreadcrumb items={[{ label: "Trang chủ", href: "/" }, { label: "Thư viện nội dung" }]} />
 
         <div className="mt-6 text-center">
-          <h1 className="text-3xl font-normal text-hh-ink md:text-4xl">Thư viện nội dung</h1>
+          <h1 className="hh-heading-page text-hh-ink">Thư viện nội dung</h1>
           <p className="mx-auto mt-4 max-w-2xl text-base text-hh-muted-foreground">
             Toàn bộ {HH_CARDS.length} card/CTA nhập từ sheet <code>07_Cards_CTA</code> của website hãng, phân nhóm
             theo loại nội dung. Card có đích rõ ràng dẫn thẳng tới trang tương ứng; card chưa xác định được vị trí

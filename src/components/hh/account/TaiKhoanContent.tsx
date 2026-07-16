@@ -39,7 +39,7 @@ export function TaiKhoanContent() {
       <Header />
       <main className="mx-auto w-full max-w-[900px] flex-1 px-4 py-6 md:px-8">
         <ProductBreadcrumb items={[{ label: "Trang chủ", href: "/" }, { label: "Tài khoản" }]} />
-        <h1 className="mt-6 text-3xl font-normal text-hh-ink md:text-4xl">Tài khoản của tôi</h1>
+        <h1 className="mt-6 hh-heading-page text-hh-ink">Tài khoản của tôi</h1>
 
         {!user ? (
           <div className="mt-8 rounded-md border border-hh-border p-8 text-center">

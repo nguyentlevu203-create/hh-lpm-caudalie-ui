@@ -50,7 +50,7 @@ export default async function BaiVietDetailPage({ params }: Props) {
         </div>
 
         {art.topic && <p className="mt-6 text-xs uppercase tracking-wide text-hh-primary">{art.topic}</p>}
-        <h1 className="mt-2 text-3xl font-normal text-hh-ink md:text-4xl">{art.title}</h1>
+        <h1 className="mt-2 hh-heading-page text-hh-ink">{art.title}</h1>
         {art.intro && <p className="mt-3 text-base text-hh-muted-foreground">{art.intro}</p>}
 
         {art.mainContent && (

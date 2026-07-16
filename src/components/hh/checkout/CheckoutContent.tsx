@@ -106,7 +106,7 @@ export function CheckoutContent() {
       <Header />
       <main className="mx-auto w-full max-w-[1000px] flex-1 px-4 py-6 md:px-8">
         <ProductBreadcrumb items={[{ label: "Trang chủ", href: "/" }, { label: "Thanh toán" }]} />
-        <h1 className="mt-6 text-3xl font-normal text-hh-ink md:text-4xl">Thanh toán</h1>
+        <h1 className="mt-6 hh-heading-page text-hh-ink">Thanh toán</h1>
 
         {items.length === 0 ? (
           <div className="mt-8 text-center">

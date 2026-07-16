@@ -25,7 +25,7 @@ export default function NguyenLieuPage() {
         <ProductBreadcrumb items={[{ label: "Trang chủ", href: "/" }, { label: "Nguyên liệu" }]} />
 
         <div className="mt-6 text-center">
-          <h1 className="text-3xl font-normal text-hh-ink md:text-4xl">Nguyên liệu</h1>
+          <h1 className="hh-heading-page text-hh-ink">Nguyên liệu</h1>
           <p className="mx-auto mt-4 max-w-2xl text-base text-hh-muted-foreground">
             Câu chuyện đằng sau {HH_INGREDIENTS.length} nguyên liệu thiên nhiên được Le Petit Marseillais tuyển chọn.
           </p>
