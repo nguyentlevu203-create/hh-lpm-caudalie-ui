@@ -22,13 +22,72 @@ export const HH_BASE_METADATA: Metadata = {
   },
 };
 
-export const NAV_ITEMS = [
-  { label: "Trang chủ", href: "/" },
-  { label: "Sản phẩm", href: "/san-pham" },
-  { label: "Ưu đãi", href: "/uu-dai" },
-  { label: "Tư vấn chọn mùi", href: "/tu-van-chon-san-pham" },
-  { label: "Câu chuyện thương hiệu", href: "/cau-chuyen-thuong-hieu" },
+export interface NavLink {
+  label: string;
+  href: string;
+}
+
+interface NavLinkEntry extends NavLink {
+  type: "link";
+  /** Path prefixes that mark this item active; defaults to `[href]` when omitted. */
+  activeMatch?: string[];
+}
+
+interface NavMegaEntry {
+  type: "mega";
+  id: "san-pham" | "thuong-hieu";
+  label: string;
+  activeMatch: string[];
+}
+
+export type NavEntry = NavLinkEntry | NavMegaEntry;
+
+/** Single source of truth for hrefs shared between the primary nav (mega
+ * menus), the mobile drawer, and the footer — so all three surfaces always
+ * point at the same routes instead of duplicating literal strings. */
+export const NGUYEN_LIEU_LINK: NavLink = { label: "Nguyên liệu", href: "/nguyen-lieu" };
+export const BAI_VIET_LINK: NavLink = { label: "Bài viết", href: "/bai-viet" };
+export const BRAND_LIBRARY_LINK: NavLink = { label: "Thư viện sản phẩm hãng", href: "/thu-vien-san-pham-hang" };
+export const BRAND_STORY_LINK: NavLink = { label: "Câu chuyện thương hiệu", href: "/cau-chuyen-thuong-hieu" };
+export const BRAND_COMMITMENT_LINK: NavLink = { label: "Cam kết", href: "/cam-ket" };
+export const BRAND_FORMULA_LINK: NavLink = { label: "Công thức minh bạch", href: "/cong-thuc-minh-bach" };
+export const BRAND_CONTENT_LINK: NavLink = { label: "Nội dung thương hiệu", href: "/noi-dung-thuong-hieu" };
+export const CONTENT_LIBRARY_LINK: NavLink = { label: "Thư viện nội dung", href: "/thu-vien-noi-dung" };
+export const IMAGE_LIBRARY_LINK: NavLink = { label: "Thư viện hình ảnh", href: "/thu-vien-hinh-anh" };
+
+/** Links rendered inside the "Thương hiệu" mega menu — same routes/labels
+ * reused in FOOTER_LINKS below, not re-guessed. */
+export const BRAND_MEGA_MENU_LINKS: NavLink[] = [
+  BRAND_STORY_LINK,
+  BRAND_COMMITMENT_LINK,
+  BRAND_FORMULA_LINK,
+  BRAND_CONTENT_LINK,
+  CONTENT_LIBRARY_LINK,
+  IMAGE_LIBRARY_LINK,
 ];
+
+export const NAV_ITEMS: NavEntry[] = [
+  { type: "link", label: "Trang chủ", href: "/", activeMatch: ["/"] },
+  { type: "mega", id: "san-pham", label: "Sản phẩm", activeMatch: ["/san-pham", BRAND_LIBRARY_LINK.href] },
+  { type: "link", ...NGUYEN_LIEU_LINK },
+  { type: "link", ...BAI_VIET_LINK },
+  { type: "link", label: "Ưu đãi", href: "/uu-dai" },
+  { type: "link", label: "Tư vấn chọn mùi", href: "/tu-van-chon-san-pham" },
+  {
+    type: "mega",
+    id: "thuong-hieu",
+    label: "Thương hiệu",
+    activeMatch: BRAND_MEGA_MENU_LINKS.map((link) => link.href),
+  },
+];
+
+/** Shared active-state matcher for the primary nav — exact match for "/",
+ * prefix match (route or any of its subroutes) for everything else. */
+export function isNavPathActive(pathname: string, prefixes: string[]): boolean {
+  return prefixes.some((prefix) =>
+    prefix === "/" ? pathname === "/" : pathname === prefix || pathname.startsWith(`${prefix}/`)
+  );
+}
 
 export const PROMO_MESSAGES = [
   "Miễn phí vận chuyển cho đơn từ 399.000₫",
@@ -385,18 +444,18 @@ export const BRAND_STORY = {
 
 export const FOOTER_LINKS = {
   "Về Hoàng Hà": [
-    { label: "Câu chuyện thương hiệu", href: "/cau-chuyen-thuong-hieu" },
+    BRAND_STORY_LINK,
     { label: "Ưu đãi", href: "/uu-dai" },
     { label: "Tư vấn chọn mùi", href: "/tu-van-chon-san-pham" },
     { label: "Thương hiệu Le Petit Marseillais", href: "/thuong-hieu" },
-    { label: "Cam kết", href: "/cam-ket" },
-    { label: "Công thức minh bạch", href: "/cong-thuc-minh-bach" },
-    { label: "Nguyên liệu", href: "/nguyen-lieu" },
-    { label: "Bài viết", href: "/bai-viet" },
-    { label: "Thư viện sản phẩm hãng", href: "/thu-vien-san-pham-hang" },
-    { label: "Nội dung thương hiệu", href: "/noi-dung-thuong-hieu" },
-    { label: "Thư viện nội dung", href: "/thu-vien-noi-dung" },
-    { label: "Thư viện hình ảnh", href: "/thu-vien-hinh-anh" },
+    BRAND_COMMITMENT_LINK,
+    BRAND_FORMULA_LINK,
+    NGUYEN_LIEU_LINK,
+    BAI_VIET_LINK,
+    BRAND_LIBRARY_LINK,
+    BRAND_CONTENT_LINK,
+    CONTENT_LIBRARY_LINK,
+    IMAGE_LIBRARY_LINK,
   ],
   "Hỗ trợ khách hàng": [
     { label: "Câu hỏi thường gặp", href: "#" },

@@ -2,25 +2,27 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ChevronDown, ChevronLeft, Gift, User } from "lucide-react";
 import { useSiteUI } from "@/components/hh/SiteUIContext";
 import { HH_CATEGORIES } from "@/data/products";
-import { BRAND_NAME, NAV_ITEMS } from "@/data/site-content";
+import { BRAND_NAME, NAV_ITEMS, BRAND_MEGA_MENU_LINKS, BRAND_LIBRARY_LINK, isNavPathActive } from "@/data/site-content";
 import { cn } from "@/lib/utils";
 
 /** Left slide-in mobile nav drawer — structure cloned from the shared
  * Caudalie Header's mobile drawer: a centered-brand row with a left close
- * button, an accordion nav list (the "Sản phẩm" item expands its categories
- * inline instead of a separate categories block), and a bottom utility
- * panel rendered in the brand primary color with divided rows — rebuilt
- * with HH nav/categories, no Caudalie logo asset. */
+ * button, an accordion nav list ("Sản phẩm" and "Thương hiệu" expand their
+ * sub-links inline instead of a separate categories block), and a bottom
+ * utility panel rendered in the brand primary color with divided rows —
+ * rebuilt with HH nav/categories, no Caudalie logo asset. */
 export function MobileDrawer() {
   const { active, close, openAuth } = useSiteUI();
+  const pathname = usePathname();
   const isOpen = active === "menu";
   const [expanded, setExpanded] = useState<string[]>([]);
 
-  const toggle = (href: string) =>
-    setExpanded((prev) => (prev.includes(href) ? prev.filter((h) => h !== href) : [...prev, href]));
+  const toggle = (id: string) =>
+    setExpanded((prev) => (prev.includes(id) ? prev.filter((h) => h !== id) : [...prev, id]));
 
   return (
     <>
@@ -53,47 +55,59 @@ export function MobileDrawer() {
           <span className="text-sm font-semibold text-hh-ink">{BRAND_NAME}</span>
         </div>
 
-        <nav className="flex-1 px-4 py-2">
+        <nav className="flex-1 px-4 py-2" aria-label="Điều hướng chính (di động)">
           <ul>
             {NAV_ITEMS.map((item) => {
-              const hasChildren = item.href === "/san-pham";
-              const isExpanded = expanded.includes(item.href);
+              if (item.type === "mega") {
+                const isExpanded = expanded.includes(item.id);
+                const isActive = isNavPathActive(pathname, item.activeMatch);
+                const subLinks =
+                  item.id === "san-pham"
+                    ? [...HH_CATEGORIES.map((cat) => ({ label: cat.name, href: `/san-pham?category=${cat.slug}` })), BRAND_LIBRARY_LINK]
+                    : BRAND_MEGA_MENU_LINKS;
+                return (
+                  <li key={item.id} className="border-b border-hh-border py-3">
+                    <button
+                      type="button"
+                      onClick={() => toggle(item.id)}
+                      className={cn(
+                        "flex w-full items-center justify-between text-left text-sm text-hh-ink",
+                        isActive && "font-semibold text-hh-primary"
+                      )}
+                      aria-expanded={isExpanded}
+                      aria-controls={`mobile-mega-${item.id}`}
+                    >
+                      {item.label}
+                      <ChevronDown
+                        className={cn("size-4 text-hh-ink transition-transform", isExpanded && "rotate-180")}
+                      />
+                    </button>
+                    {isExpanded && (
+                      <ul id={`mobile-mega-${item.id}`} className="mt-3 pl-3">
+                        {subLinks.map((link) => (
+                          <li key={link.href} className="mb-3">
+                            <Link href={link.href} onClick={close} className="text-sm text-hh-ink">
+                              {link.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                );
+              }
+
+              const isActive = isNavPathActive(pathname, item.activeMatch ?? [item.href]);
               return (
                 <li key={item.href} className="border-b border-hh-border py-3">
-                  {hasChildren ? (
-                    <>
-                      <button
-                        type="button"
-                        onClick={() => toggle(item.href)}
-                        className="flex w-full items-center justify-between text-left text-sm text-hh-ink"
-                        aria-expanded={isExpanded}
-                      >
-                        {item.label}
-                        <ChevronDown
-                          className={cn("size-4 text-hh-ink transition-transform", isExpanded && "rotate-180")}
-                        />
-                      </button>
-                      {isExpanded && (
-                        <ul className="mt-3 pl-3">
-                          {HH_CATEGORIES.map((cat) => (
-                            <li key={cat.slug} className="mb-3">
-                              <Link
-                                href={`/san-pham?category=${cat.slug}`}
-                                onClick={close}
-                                className="text-sm text-hh-ink"
-                              >
-                                {cat.name}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </>
-                  ) : (
-                    <Link href={item.href} onClick={close} className="block text-sm text-hh-ink">
-                      {item.label}
-                    </Link>
-                  )}
+                  <Link
+                    href={item.href}
+                    onClick={close}
+                    className={cn("block text-sm text-hh-ink", isActive && "font-semibold text-hh-primary")}
+                    aria-current={isActive ? "page" : undefined}
+                  >
+                    {item.label}
+                  </Link>
                 </li>
               );
             })}
