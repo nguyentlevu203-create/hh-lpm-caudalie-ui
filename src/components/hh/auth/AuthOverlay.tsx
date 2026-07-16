@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { X } from "lucide-react";
 import { useSiteUI } from "@/components/hh/SiteUIContext";
 import { useAccount } from "@/components/hh/AccountContext";
 import { SignInForm } from "@/components/hh/auth/SignInForm";
 import { RegisterForm } from "@/components/hh/auth/RegisterForm";
 import { cn } from "@/lib/utils";
+import { useFocusTrap } from "@/lib/use-focus-trap";
 
 /** Centered modal that swaps between sign-in and register in place —
  * pattern cloned from /reference/login + /reference/register's shared
@@ -18,6 +19,8 @@ export function AuthOverlay() {
   const isOpen = active === "auth";
   const [view, setView] = useState<"sign-in" | "register">("sign-in");
   const [email, setEmail] = useState("");
+  const panelRef = useRef<HTMLDivElement>(null);
+  useFocusTrap(panelRef, isOpen);
 
   return (
     <>
@@ -30,6 +33,7 @@ export function AuthOverlay() {
         aria-hidden="true"
       />
       <div
+        ref={panelRef}
         role="dialog"
         aria-label={view === "sign-in" ? "Đăng nhập" : "Đăng ký thành viên"}
         aria-hidden={!isOpen}

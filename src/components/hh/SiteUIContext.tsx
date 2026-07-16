@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 import { CART_SEED_ITEM } from "@/data/site-content";
 
 type OverlayKind = "cart" | "search" | "auth" | "menu" | null;
@@ -38,6 +38,24 @@ const SiteUIContext = createContext<SiteUIContextValue | null>(null);
 export function SiteUIProvider({ children }: { children: ReactNode }) {
   const [active, setActive] = useState<OverlayKind>(null);
   const [cartLines, setCartLines] = useState<CartLine[]>([CART_SEED_ITEM]);
+
+  // Escape-to-close + background-scroll lock for every overlay this
+  // provider drives (cart, search, auth, mobile nav) — centralized here
+  // since they all key off the same `active` state, instead of duplicating
+  // a keydown listener + body-overflow toggle in each of the 4 components.
+  useEffect(() => {
+    if (!active) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") setActive(null);
+    }
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [active]);
 
   function addToCart(slug: string, quantity = 1) {
     setCartLines((prev) => {

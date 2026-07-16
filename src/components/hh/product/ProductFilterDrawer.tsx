@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ChevronDown, SlidersHorizontal, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { HH_CATEGORIES, HH_PRODUCTS, type HHCategorySlug } from "@/data/products";
+import { useFocusTrap } from "@/lib/use-focus-trap";
 
 interface ProductFilterDrawerProps {
   activeCategory?: HHCategorySlug;
@@ -50,6 +51,25 @@ function buildFilterHref(
 export function ProductFilterDrawer({ activeCategory, activeScent, activeLine, activeVolume }: ProductFilterDrawerProps) {
   const [open, setOpen] = useState(false);
   const [expanded, setExpanded] = useState<string[]>(["Danh mục"]);
+  const panelRef = useRef<HTMLDivElement>(null);
+  useFocusTrap(panelRef, open);
+
+  // Escape-to-close + background-scroll lock — this drawer manages its own
+  // local `open` state instead of SiteUIContext's shared `active`, so it
+  // needs its own copy of the same behavior added there.
+  useEffect(() => {
+    if (!open) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") setOpen(false);
+    }
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [open]);
 
   const hasActiveFilter = Boolean(activeCategory || activeScent || activeLine || activeVolume);
 
@@ -81,6 +101,7 @@ export function ProductFilterDrawer({ activeCategory, activeScent, activeLine, a
       />
 
       <div
+        ref={panelRef}
         className={cn(
           "fixed inset-y-0 right-0 z-50 flex w-[88%] max-w-sm flex-col overflow-y-auto bg-white transition-transform duration-300",
           open ? "translate-x-0" : "translate-x-full"

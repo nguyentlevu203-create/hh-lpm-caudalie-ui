@@ -41,7 +41,7 @@ export function SignInForm({ email, onEmailChange, onSwitchToRegister, onSuccess
           value={email}
           onChange={(e) => onEmailChange(e.target.value)}
           className={cn(
-            "mt-1 w-full border-b bg-transparent py-2 text-sm text-hh-ink outline-none",
+            "mt-1 w-full border-b bg-transparent py-2 text-sm text-hh-ink outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hh-primary",
             errors.email ? "border-red-500" : "border-hh-border"
           )}
         />
@@ -55,7 +55,7 @@ export function SignInForm({ email, onEmailChange, onSwitchToRegister, onSuccess
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className={cn(
-            "mt-1 w-full border-b bg-transparent py-2 pr-8 text-sm text-hh-ink outline-none",
+            "mt-1 w-full border-b bg-transparent py-2 pr-8 text-sm text-hh-ink outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hh-primary",
             errors.password ? "border-red-500" : "border-hh-border"
           )}
         />

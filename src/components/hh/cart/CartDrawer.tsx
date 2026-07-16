@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { X, ChevronLeft, ChevronDown, Minus, Plus, ShoppingBag, Lock } from "lucide-react";
@@ -14,6 +14,7 @@ import {
   type HHProduct,
 } from "@/data/products";
 import { cn } from "@/lib/utils";
+import { useFocusTrap } from "@/lib/use-focus-trap";
 
 const FREE_SHIP_THRESHOLD = 399000;
 
@@ -35,6 +36,8 @@ export function CartDrawer() {
   const { active, close, cartLines, updateCartQuantity, removeFromCart } = useSiteUI();
   const isOpen = active === "cart";
   const [summaryOpen, setSummaryOpen] = useState(false);
+  const panelRef = useRef<HTMLDivElement>(null);
+  useFocusTrap(panelRef, isOpen);
 
   const items: CartLineWithProduct[] = cartLines.flatMap((line) => {
     const product = getProductBySlug(line.slug);
@@ -60,6 +63,7 @@ export function CartDrawer() {
         aria-hidden="true"
       />
       <div
+        ref={panelRef}
         role="dialog"
         aria-label="Giỏ hàng"
         aria-hidden={!isOpen}

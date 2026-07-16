@@ -125,7 +125,7 @@ export function CheckoutContent() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   className={cn(
-                    "mt-1 w-full border-b bg-transparent py-2 text-sm text-hh-ink outline-none",
+                    "mt-1 w-full border-b bg-transparent py-2 text-sm text-hh-ink outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hh-primary",
                     errors.name ? "border-red-500" : "border-hh-border"
                   )}
                 />
@@ -137,7 +137,7 @@ export function CheckoutContent() {
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   className={cn(
-                    "mt-1 w-full border-b bg-transparent py-2 text-sm text-hh-ink outline-none",
+                    "mt-1 w-full border-b bg-transparent py-2 text-sm text-hh-ink outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hh-primary",
                     errors.phone ? "border-red-500" : "border-hh-border"
                   )}
                 />
@@ -149,7 +149,7 @@ export function CheckoutContent() {
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
                   className={cn(
-                    "mt-1 w-full border-b bg-transparent py-2 text-sm text-hh-ink outline-none",
+                    "mt-1 w-full border-b bg-transparent py-2 text-sm text-hh-ink outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hh-primary",
                     errors.address ? "border-red-500" : "border-hh-border"
                   )}
                 />
@@ -161,7 +161,7 @@ export function CheckoutContent() {
                   value={note}
                   onChange={(e) => setNote(e.target.value)}
                   rows={3}
-                  className="mt-1 w-full rounded-md border border-hh-border bg-transparent p-2 text-sm text-hh-ink outline-none"
+                  className="mt-1 w-full rounded-md border border-hh-border bg-transparent p-2 text-sm text-hh-ink outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hh-primary"
                 />
               </div>
 

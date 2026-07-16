@@ -39,7 +39,7 @@ export function BrandLibraryFilterBar({
           value={q}
           onChange={(e) => setQ(e.target.value)}
           placeholder="Tìm trong danh mục tham khảo hãng..."
-          className="flex-1 bg-transparent text-sm text-hh-ink outline-none placeholder:text-hh-muted-foreground"
+          className="flex-1 bg-transparent text-sm text-hh-ink outline-none placeholder:text-hh-muted-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hh-primary"
         />
         <button type="submit" className="text-sm font-medium text-hh-primary">
           Tìm

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, ChevronLeft, Gift, User } from "lucide-react";
@@ -8,6 +8,7 @@ import { useSiteUI } from "@/components/hh/SiteUIContext";
 import { HH_CATEGORIES } from "@/data/products";
 import { BRAND_NAME, NAV_ITEMS, BRAND_MEGA_MENU_LINKS, BRAND_LIBRARY_LINK, isNavPathActive } from "@/data/site-content";
 import { cn } from "@/lib/utils";
+import { useFocusTrap } from "@/lib/use-focus-trap";
 
 /** Left slide-in mobile nav drawer — structure cloned from the shared
  * Caudalie Header's mobile drawer: a centered-brand row with a left close
@@ -20,6 +21,8 @@ export function MobileDrawer() {
   const pathname = usePathname();
   const isOpen = active === "menu";
   const [expanded, setExpanded] = useState<string[]>([]);
+  const panelRef = useRef<HTMLDivElement>(null);
+  useFocusTrap(panelRef, isOpen);
 
   const toggle = (id: string) =>
     setExpanded((prev) => (prev.includes(id) ? prev.filter((h) => h !== id) : [...prev, id]));
@@ -35,6 +38,7 @@ export function MobileDrawer() {
         aria-hidden="true"
       />
       <div
+        ref={panelRef}
         role="dialog"
         aria-label="Menu"
         aria-hidden={!isOpen}

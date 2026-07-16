@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Search, X } from "lucide-react";
@@ -13,6 +13,10 @@ import { HH_CATEGORIES, getBestSellers } from "@/data/products";
 import { contentPageRoute } from "@/data/content-library";
 import { searchSite } from "@/lib/search";
 import { cn } from "@/lib/utils";
+import { useFocusTrap } from "@/lib/use-focus-trap";
+
+const FOCUS_RING =
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hh-primary";
 
 /** Full-screen search overlay — internal content structure aligned with
  * /reference/search's SearchResultsView + its 4 sub-components: a
@@ -32,6 +36,8 @@ export function SearchOverlay() {
   const { active, close } = useSiteUI();
   const isOpen = active === "search";
   const [query, setQuery] = useState("");
+  const panelRef = useRef<HTMLDivElement>(null);
+  useFocusTrap(panelRef, isOpen);
 
   const results = useMemo(() => searchSite(query), [query]);
   const bestSellers = useMemo(() => getBestSellers(), []);
@@ -39,6 +45,7 @@ export function SearchOverlay() {
 
   return (
     <div
+      ref={panelRef}
       role="dialog"
       aria-label="Tìm kiếm sản phẩm"
       aria-hidden={!isOpen}
@@ -54,7 +61,10 @@ export function SearchOverlay() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Tìm sản phẩm, nguyên liệu, bài viết..."
-            className="flex-1 bg-transparent text-sm text-hh-ink outline-none placeholder:text-hh-muted-foreground"
+            className={cn(
+              "flex-1 bg-transparent text-sm text-hh-ink outline-none placeholder:text-hh-muted-foreground",
+              FOCUS_RING
+            )}
           />
         </div>
         <button type="button" onClick={close} aria-label="Đóng tìm kiếm" className="text-hh-ink">

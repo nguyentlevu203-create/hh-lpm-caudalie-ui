@@ -7,7 +7,7 @@ import { Footer } from "@/components/hh/layout/Footer";
 import { ProductBreadcrumb, type ProductBreadcrumbItem } from "@/components/hh/product/ProductBreadcrumb";
 import { ProductFilterDrawer } from "@/components/hh/product/ProductFilterDrawer";
 import { ProductGrid } from "@/components/hh/product/ProductGrid";
-import { HH_PRODUCTS, HH_CATEGORIES, type HHCategorySlug } from "@/data/products";
+import { HH_PRODUCTS, HH_CATEGORIES, scentMatches, type HHCategorySlug } from "@/data/products";
 
 export const metadata: Metadata = {
   ...HH_BASE_METADATA,
@@ -32,7 +32,7 @@ export default async function SanPhamPage({ searchParams }: SanPhamPageProps) {
 
   const products = HH_PRODUCTS.filter((product) => {
     if (activeCategory && product.category !== activeCategory) return false;
-    if (scent && product.scent.toLowerCase() !== scent.toLowerCase()) return false;
+    if (scent && !scentMatches(product.scent, scent)) return false;
     if (line && product.productLine?.toLowerCase() !== line.toLowerCase()) return false;
     if (volume && product.volume?.toLowerCase() !== volume.toLowerCase()) return false;
     return true;

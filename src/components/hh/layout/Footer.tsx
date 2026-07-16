@@ -110,7 +110,7 @@ export function Footer() {
             <input
               type="email"
               placeholder={NEWSLETTER.placeholder}
-              className="w-full min-w-0 flex-1 border-0 bg-transparent text-sm text-hh-ink focus:outline-none"
+              className="w-full min-w-0 flex-1 border-0 bg-transparent text-sm text-hh-ink outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hh-primary"
             />
             <button type="submit" className="text-sm font-medium text-hh-primary">
               {NEWSLETTER.cta}

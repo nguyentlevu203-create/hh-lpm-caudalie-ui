@@ -156,6 +156,27 @@ export function getProductsByCategory(category: HHCategorySlug): HHProduct[] {
   return HH_PRODUCTS.filter((p) => p.category === category);
 }
 
+/**
+ * Matches a `?scent=` query value against a product's descriptive scent
+ * string. Product scents are always long free-text phrases (e.g. "Dịu Nhẹ
+ * Hoa Cam Hữu Cơ"), never a literal match for the short mood/scent-family
+ * labels used by the scent advisor (SCENT_ADVISOR_QUESTIONS, e.g. "Hoa
+ * cam", "Mật ong & sữa") or for compound filter-chip strings that contain
+ * "&". Splitting the query on "&" and checking substring containment
+ * against each part — instead of strict equality — lets both the advisor's
+ * short labels and the filter drawer's full-string chips resolve to real
+ * products (a chip's own value always contains itself as a substring, so
+ * exact-match behavior for chips is preserved, just widened).
+ */
+export function scentMatches(productScent: string, queryScent: string): boolean {
+  const haystack = productScent.toLowerCase();
+  return queryScent
+    .split("&")
+    .map((part) => part.trim().toLowerCase())
+    .filter(Boolean)
+    .some((part) => haystack.includes(part));
+}
+
 export function getRelatedProducts(product: HHProduct, limit = 4): HHProduct[] {
   return HH_PRODUCTS.filter(
     (p) => p.id !== product.id && (p.category === product.category || p.scent === product.scent)
