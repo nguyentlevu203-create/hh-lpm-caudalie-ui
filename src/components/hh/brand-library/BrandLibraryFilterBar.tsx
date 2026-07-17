@@ -32,7 +32,7 @@ export function BrandLibraryFilterBar({
           e.preventDefault();
           router.push(buildHref({ category: activeCategory, q }));
         }}
-        className="flex items-center gap-2 rounded-md bg-hh-muted px-4 py-2.5"
+        className="flex items-center gap-2 rounded-md bg-hh-surface-soft px-4 py-2.5"
       >
         <Search className="size-4 shrink-0 text-hh-muted-foreground" />
         <input
@@ -51,7 +51,7 @@ export function BrandLibraryFilterBar({
           href={buildHref({ q: activeQuery })}
           className={cn(
             "rounded-full border px-3 py-1.5 text-sm transition-colors",
-            !activeCategory ? "border-hh-primary bg-hh-primary text-white" : "border-hh-border text-hh-ink"
+            !activeCategory ? "border-hh-primary bg-hh-primary-soft text-hh-primary" : "border-hh-border text-hh-ink"
           )}
         >
           Tất cả
@@ -62,7 +62,7 @@ export function BrandLibraryFilterBar({
             href={buildHref({ category: cat, q: activeQuery })}
             className={cn(
               "rounded-full border px-3 py-1.5 text-sm transition-colors",
-              activeCategory === cat ? "border-hh-primary bg-hh-primary text-white" : "border-hh-border text-hh-ink"
+              activeCategory === cat ? "border-hh-primary bg-hh-primary-soft text-hh-primary" : "border-hh-border text-hh-ink"
             )}
           >
             {cat}

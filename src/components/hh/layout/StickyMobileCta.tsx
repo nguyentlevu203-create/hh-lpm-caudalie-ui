@@ -12,7 +12,7 @@ export function StickyMobileCta() {
   const { openCart } = useSiteUI();
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-20 flex gap-2 border-t border-hh-border bg-white p-3 lg:hidden">
+    <div className="hh-shadow-md fixed inset-x-0 bottom-0 z-20 flex gap-2 border-t border-hh-border bg-hh-surface p-3 lg:hidden">
       <Link
         href="/tu-van-chon-san-pham"
         className="flex h-12 flex-1 items-center justify-center rounded-md border-2 border-hh-primary text-sm font-medium text-hh-primary"

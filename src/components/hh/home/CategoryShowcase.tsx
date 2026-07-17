@@ -7,7 +7,7 @@ const CATEGORY_COLORS: Record<HHCategorySlug, [string, string]> = {
   "xa-phong-banh": ["#8fa06a", "#c7d3a8"],
   "duong-the": ["#d98fa0", "#f3c9d3"],
   "cham-soc-tay": ["#e2a33a", "#f3cf87"],
-  "cham-soc-toc": ["#c7ab7a", "#e8d5ac"],
+  "cham-soc-toc": ["#d9bd87", "#f5e7c9"],
   "son-duong-moi": ["#cd6a3c", "#e8ab84"],
   "rua-tay": ["#5a9bb0", "#a9d4e0"],
 };

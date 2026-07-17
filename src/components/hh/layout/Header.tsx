@@ -60,7 +60,7 @@ export function Header() {
   }, [megaOpenId]);
 
   return (
-    <header className="relative z-30 w-full bg-white">
+    <header className="relative z-30 w-full bg-hh-surface">
       {/* Main header row: logo + account/cart icons */}
       <div className={cn(CONTAINER, "flex items-center gap-4 py-3")}>
         <Link href="/" className="flex shrink-0 items-center gap-2" aria-label="Trang chủ Hoàng Hà">
@@ -109,7 +109,7 @@ export function Header() {
       {/* Primary nav row (desktop only) */}
       <div
         ref={navRef}
-        className="relative hidden bg-white lg:block"
+        className="relative hidden bg-hh-surface lg:block"
         onMouseLeave={() => setMegaOpenId(null)}
       >
         <nav
@@ -163,7 +163,7 @@ export function Header() {
         {megaOpenId && (
           <div
             id={`mega-panel-${megaOpenId}`}
-            className="absolute top-full left-0 z-20 w-full border-t border-hh-border bg-white shadow-lg"
+            className="hh-shadow-md absolute top-full left-0 z-20 w-full border-t border-hh-border bg-hh-surface"
             onMouseEnter={() => setMegaOpenId(megaOpenId)}
           >
             {megaOpenId === "san-pham" ? (
@@ -176,7 +176,7 @@ export function Header() {
       </div>
 
       {/* Search trigger row */}
-      <div className="sticky top-0 z-10 w-full border-b border-hh-border bg-white lg:relative lg:border-b-0">
+      <div className="sticky top-0 z-10 w-full border-b border-hh-border bg-hh-surface lg:relative lg:border-b-0">
         <div className={cn(CONTAINER, "flex items-center gap-3 py-2")}>
           <button
             type="button"

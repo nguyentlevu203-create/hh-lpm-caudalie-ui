@@ -26,17 +26,24 @@ export function ProductCard({ product }: { product: HHProduct }) {
   const price = getEffectivePrice(product);
   const wishlisted = isWishlisted(product.slug);
 
+  const isOrganicBadge = product.badge === "Hữu cơ";
+
   return (
-    <div className="flex flex-col">
-      <div className="relative aspect-square w-full overflow-hidden rounded-sm bg-hh-cream">
+    <div className="flex flex-col transition-transform duration-200 hover:-translate-y-0.5">
+      <div className="hh-shadow-sm relative aspect-square w-full overflow-hidden rounded-sm border border-hh-border bg-hh-surface transition-shadow duration-200 hover:hh-shadow-md">
         <div className="absolute left-2 top-2 z-10 flex flex-col items-start gap-1">
           {product.badge && (
-            <span className="rounded bg-hh-primary px-[10px] py-1 text-xs font-normal text-white">
+            <span
+              className={cn(
+                "rounded px-[10px] py-1 text-xs font-normal",
+                isOrganicBadge ? "bg-[#dceee1] text-[#1f5c3d]" : "bg-hh-primary text-white"
+              )}
+            >
               {product.badge}
             </span>
           )}
           {product.priceMode === "inquiry" && (
-            <span className="rounded bg-hh-accent px-[10px] py-1 text-xs font-normal text-hh-accent-foreground">
+            <span className="rounded bg-hh-accent-gold-soft px-[10px] py-1 text-xs font-normal text-hh-accent-foreground">
               {INQUIRY_BADGE_LABEL}
             </span>
           )}
@@ -47,7 +54,7 @@ export function ProductCard({ product }: { product: HHProduct }) {
           onClick={() => toggleWishlist(product.slug)}
           aria-label={wishlisted ? "Bỏ khỏi yêu thích" : "Thêm vào yêu thích"}
           aria-pressed={wishlisted}
-          className="absolute right-2 top-2 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-white/80 backdrop-blur-sm"
+          className="absolute right-2 top-2 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-hh-surface/80 backdrop-blur-sm"
         >
           <Heart className={cn("h-4 w-4 text-hh-primary", wishlisted && "fill-hh-primary")} strokeWidth={1.5} />
         </button>
@@ -63,8 +70,8 @@ export function ProductCard({ product }: { product: HHProduct }) {
             />
           ) : (
             <ProductPlaceholderArt
-              colorFrom="#c7ab7a"
-              colorTo="#e8d5ac"
+              colorFrom="#d9bd87"
+              colorTo="#f5e7c9"
               shape={product.category === "xa-phong-banh" ? "soap" : product.category === "cham-soc-tay" ? "tube" : "bottle"}
               className="h-full w-full rounded-sm"
             />
@@ -82,7 +89,7 @@ export function ProductCard({ product }: { product: HHProduct }) {
       <div className="mt-1 flex items-center gap-2">
         {price !== null ? (
           <>
-            <span className="text-base text-hh-ink">{formatVnd(price)}</span>
+            <span className="text-base font-semibold text-hh-ink">{formatVnd(price)}</span>
             {product.compareAtPrice && (
               <span className="text-base text-hh-muted-foreground line-through">
                 {formatVnd(product.compareAtPrice)}
@@ -90,7 +97,7 @@ export function ProductCard({ product }: { product: HHProduct }) {
             )}
           </>
         ) : (
-          <span className="text-base text-hh-primary">{INQUIRY_PRICE_LABEL}</span>
+          <span className="text-base font-semibold text-hh-primary">{INQUIRY_PRICE_LABEL}</span>
         )}
       </div>
 
@@ -98,14 +105,14 @@ export function ProductCard({ product }: { product: HHProduct }) {
         <button
           type="button"
           onClick={() => addToCart(product.slug)}
-          className="mt-3 w-full rounded-md border border-hh-primary/40 bg-white px-[15px] py-3 text-base text-hh-primary transition-colors hover:bg-hh-primary hover:text-white"
+          className="mt-3 w-full rounded-md border border-hh-primary/40 bg-hh-surface px-[15px] py-3 text-base text-hh-primary transition-colors hover:bg-hh-primary hover:text-white"
         >
           Thêm vào giỏ
         </button>
       ) : (
         <Link
           href={`/san-pham/${product.slug}`}
-          className="mt-3 block w-full rounded-md border border-hh-primary/40 bg-white px-[15px] py-3 text-center text-base text-hh-primary transition-colors hover:bg-hh-primary hover:text-white"
+          className="mt-3 block w-full rounded-md border border-hh-accent bg-hh-accent-gold-soft px-[15px] py-3 text-center text-base text-hh-accent-foreground transition-colors hover:bg-hh-accent hover:text-white"
         >
           Xem sản phẩm
         </Link>

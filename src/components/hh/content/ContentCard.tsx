@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils";
 export function ContentCard({ card, className }: { card: HHCard; className?: string }) {
   const body = (
     <>
-      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm bg-hh-cream">
+      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm border border-hh-border bg-hh-surface">
         <span className="absolute left-2 top-2 z-10 rounded bg-hh-ink/70 px-[10px] py-1 text-xs font-normal text-white">
           {CARD_CATEGORY_LABEL[card.category]}
         </span>

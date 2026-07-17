@@ -51,7 +51,7 @@ export function ProductBuyBox({ product }: { product: HHProduct }) {
                 </span>
               )}
             </div>
-            <p className="mt-2 inline-block rounded-full bg-hh-accent/20 px-3 py-1 text-sm text-hh-ink">
+            <p className="mt-2 inline-block rounded-full bg-hh-accent-gold-soft px-3 py-1 text-sm text-hh-accent-foreground">
               Tích {loyaltyPoints} điểm thành viên
             </p>
             <p className="mt-2 text-xs text-hh-muted-foreground">{PRICE_DISCLAIMER}</p>
@@ -104,7 +104,7 @@ export function ProductBuyBox({ product }: { product: HHProduct }) {
         Thêm vào giỏ
       </button>
 
-      <div className="rounded-md border border-hh-border px-4 py-3 text-center text-base text-hh-ink">
+      <div className="rounded-md border border-hh-border bg-hh-surface-soft px-4 py-3 text-center text-base text-hh-ink">
         Giao hàng dự kiến: 2-5 ngày làm việc
       </div>
 

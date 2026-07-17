@@ -26,7 +26,7 @@ export function AuthOverlay() {
     <>
       <div
         className={cn(
-          "fixed inset-0 z-40 bg-black/30 transition-opacity",
+          "fixed inset-0 z-40 bg-hh-primary/30 transition-opacity",
           isOpen ? "opacity-100" : "pointer-events-none opacity-0"
         )}
         onClick={close}
@@ -38,7 +38,7 @@ export function AuthOverlay() {
         aria-label={view === "sign-in" ? "Đăng nhập" : "Đăng ký thành viên"}
         aria-hidden={!isOpen}
         className={cn(
-          "fixed inset-x-4 top-1/2 z-50 max-w-md -translate-y-1/2 rounded-2xl bg-white p-6 shadow-xl transition-all sm:inset-x-auto sm:left-1/2 sm:-translate-x-1/2 sm:p-8",
+          "hh-shadow-md fixed inset-x-4 top-1/2 z-50 max-w-md -translate-y-1/2 rounded-2xl bg-hh-surface p-6 transition-all sm:inset-x-auto sm:left-1/2 sm:-translate-x-1/2 sm:p-8",
           isOpen ? "scale-100 opacity-100" : "pointer-events-none scale-95 opacity-0"
         )}
       >

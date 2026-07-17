@@ -91,7 +91,7 @@ export function Footer() {
   const [region, setRegion] = useState(REGIONS[0]);
 
   return (
-    <footer className="mt-16 border-t border-hh-border bg-white">
+    <footer className="mt-16 border-t border-hh-border bg-hh-surface">
       <div className="mx-auto grid w-full max-w-[1280px] gap-8 px-4 py-12 sm:grid-cols-2 md:px-8 lg:grid-cols-5">
         <div>
           <span className="flex size-9 items-center justify-center rounded-full bg-hh-primary text-sm font-bold text-white">
@@ -108,7 +108,7 @@ export function Footer() {
           <FooterLinkColumn key={heading} heading={heading} links={links} onAuthClick={openAuth} />
         ))}
 
-        <div className="bg-hh-muted p-6 sm:col-span-2 lg:col-span-1">
+        <div className="bg-hh-surface-blue p-6 sm:col-span-2 lg:col-span-1">
           <h3 className="text-base font-semibold text-hh-ink">{NEWSLETTER.heading}</h3>
           <form className="mt-4 flex items-center gap-3 border-b-2 border-hh-border pb-2">
             <input
@@ -129,7 +129,7 @@ export function Footer() {
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
-                  className="flex size-9 items-center justify-center rounded-full bg-white text-hh-primary"
+                  className="flex size-9 items-center justify-center rounded-full bg-hh-surface text-hh-primary"
                 >
                   <Icon className="size-4" strokeWidth={1.75} />
                 </a>
@@ -137,7 +137,7 @@ export function Footer() {
                 <span
                   key={social.label}
                   aria-label={`${social.label} — đang cập nhật`}
-                  className="flex size-9 cursor-default items-center justify-center rounded-full bg-white text-hh-primary/40"
+                  className="flex size-9 cursor-default items-center justify-center rounded-full bg-hh-surface text-hh-primary/40"
                 >
                   <Icon className="size-4" strokeWidth={1.75} />
                 </span>
@@ -161,7 +161,7 @@ export function Footer() {
             <ChevronDown className={cn("size-4 transition-transform", regionOpen && "rotate-180")} />
           </button>
           {regionOpen && (
-            <ul className="absolute bottom-full left-0 z-10 mb-2 min-w-[160px] rounded-md border border-hh-border bg-white py-1 shadow-lg">
+            <ul className="hh-shadow-sm absolute bottom-full left-0 z-10 mb-2 min-w-[160px] rounded-md border border-hh-border bg-hh-surface py-1">
               {REGIONS.map((r) => (
                 <li key={r}>
                   <button
@@ -170,7 +170,7 @@ export function Footer() {
                       setRegion(r);
                       setRegionOpen(false);
                     }}
-                    className="block w-full px-3 py-2 text-left text-hh-ink hover:bg-hh-muted"
+                    className="block w-full px-3 py-2 text-left text-hh-ink hover:bg-hh-surface-blue"
                   >
                     {r}
                   </button>

@@ -56,7 +56,7 @@ export function CartDrawer() {
     <>
       <div
         className={cn(
-          "fixed inset-0 z-40 bg-black/30 transition-opacity",
+          "fixed inset-0 z-40 bg-hh-primary/30 transition-opacity",
           isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         )}
         onClick={close}
@@ -68,7 +68,7 @@ export function CartDrawer() {
         aria-label="Giỏ hàng"
         aria-hidden={!isOpen}
         className={cn(
-          "fixed inset-y-0 right-0 z-50 flex w-[92%] max-w-md flex-col bg-white transition-transform duration-300",
+          "fixed inset-y-0 right-0 z-50 flex w-[92%] max-w-md flex-col bg-hh-surface transition-transform duration-300",
           isOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
@@ -130,8 +130,8 @@ export function CartDrawer() {
                         <Image src={product.image} alt={product.name} fill sizes="80px" className="object-contain p-1.5" />
                       ) : (
                         <ProductPlaceholderArt
-                          colorFrom="#c7ab7a"
-                          colorTo="#e8d5ac"
+                          colorFrom="#d9bd87"
+                          colorTo="#f5e7c9"
                           shape={product.category === "xa-phong-banh" ? "soap" : product.category === "cham-soc-tay" ? "tube" : "bottle"}
                           className="size-20"
                         />

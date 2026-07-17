@@ -34,7 +34,7 @@ export function ProductAccordions({ product }: { product: HHProduct }) {
               type="button"
               onClick={() => toggle(label)}
               aria-expanded={isExpanded}
-              className="flex w-full items-center justify-between bg-hh-muted px-4 py-4 text-left"
+              className="flex w-full items-center justify-between bg-hh-surface-soft px-4 py-4 text-left"
             >
               <span className="text-base text-hh-ink">{label}</span>
               <Plus className={cn("size-5 text-hh-ink transition-transform", isExpanded && "rotate-45")} />

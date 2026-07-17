@@ -31,7 +31,7 @@ export function MobileDrawer() {
     <>
       <div
         className={cn(
-          "fixed inset-0 z-40 bg-black/30 transition-opacity",
+          "fixed inset-0 z-40 bg-hh-primary/35 transition-opacity",
           isOpen ? "opacity-100" : "pointer-events-none opacity-0"
         )}
         onClick={close}
@@ -43,7 +43,7 @@ export function MobileDrawer() {
         aria-label="Menu"
         aria-hidden={!isOpen}
         className={cn(
-          "fixed inset-y-0 left-0 z-50 flex w-[85%] max-w-xs flex-col overflow-y-auto bg-white transition-transform duration-300",
+          "fixed inset-y-0 left-0 z-50 flex w-[85%] max-w-xs flex-col overflow-y-auto bg-hh-surface transition-transform duration-300",
           isOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >

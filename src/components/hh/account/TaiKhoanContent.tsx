@@ -121,7 +121,7 @@ export function TaiKhoanContent() {
                         {product.image ? (
                           <Image src={product.image} alt={product.name} fill sizes="150px" className="object-contain p-3" />
                         ) : (
-                          <ProductPlaceholderArt colorFrom="#c7ab7a" colorTo="#e8d5ac" className="h-full w-full" />
+                          <ProductPlaceholderArt colorFrom="#d9bd87" colorTo="#f5e7c9" className="h-full w-full" />
                         )}
                       </div>
                       <p className="line-clamp-2 text-sm text-hh-ink">{product.name}</p>

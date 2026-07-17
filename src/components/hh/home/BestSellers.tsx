@@ -37,7 +37,7 @@ export function BestSellers() {
               onClick={() => setActiveFilter(filter.key)}
               className={
                 isActive
-                  ? "rounded-2xl border border-hh-primary bg-hh-primary px-[10px] py-[3px] text-sm text-white"
+                  ? "rounded-2xl border border-hh-primary bg-hh-primary-soft px-[10px] py-[3px] text-sm text-hh-primary"
                   : "rounded-2xl border border-hh-primary bg-transparent px-[10px] py-[3px] text-sm text-hh-primary"
               }
             >

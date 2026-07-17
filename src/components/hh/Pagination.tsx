@@ -51,7 +51,7 @@ export function Pagination({
           aria-current={p === page ? "page" : undefined}
           className={cn(
             "rounded-md border px-3 py-2 text-sm",
-            p === page ? "border-hh-primary bg-hh-primary text-white" : "border-hh-border text-hh-ink"
+            p === page ? "border-hh-primary bg-hh-primary-soft text-hh-primary" : "border-hh-border text-hh-ink"
           )}
         >
           {p}

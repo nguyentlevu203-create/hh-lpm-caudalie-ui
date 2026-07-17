@@ -75,7 +75,7 @@ export function FeaturedCollection() {
         </Link>
       </div>
 
-      <div className="flex w-full gap-4 overflow-x-auto bg-hh-muted px-6 py-16 md:w-1/2 md:px-16 md:py-24">
+      <div className="flex w-full gap-4 overflow-x-auto bg-hh-surface-blue px-6 py-16 md:w-1/2 md:px-16 md:py-24">
         {HH_CATEGORIES.map((cat, index) => {
           const product = getProductsByCategory(cat.slug).find((p) => p.image);
           return (

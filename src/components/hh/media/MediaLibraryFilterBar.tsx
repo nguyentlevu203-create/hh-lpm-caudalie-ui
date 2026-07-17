@@ -24,7 +24,7 @@ export function MediaLibraryFilterBar({
   const router = useRouter();
 
   const selectClass =
-    "rounded-md border border-hh-border bg-white px-3 py-2 text-sm text-hh-ink outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hh-primary";
+    "rounded-md border border-hh-border bg-hh-surface px-3 py-2 text-sm text-hh-ink outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hh-primary";
 
   return (
     <div className="flex flex-wrap gap-3">

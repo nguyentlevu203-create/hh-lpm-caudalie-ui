@@ -16,7 +16,7 @@ export function BrandMegaMenu({ onNavigate }: { onNavigate: () => void }) {
             key={link.href}
             href={link.href}
             onClick={onNavigate}
-            className="block rounded-lg border-b border-hh-border pb-3 text-base font-medium text-hh-ink transition-colors hover:bg-hh-muted"
+            className="block rounded-lg border-b border-hh-border pb-3 text-base font-medium text-hh-ink transition-colors hover:bg-hh-surface-blue"
           >
             {link.label}
           </Link>

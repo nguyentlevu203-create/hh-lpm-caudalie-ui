@@ -28,7 +28,7 @@ export function ProductReviews() {
             ))}
           </div>
           <p className="mt-3 text-sm text-hh-ink">
-            1 đánh giá = <span className="rounded-full bg-hh-accent/20 px-2 py-0.5">+5 điểm thành viên</span>
+            1 đánh giá = <span className="rounded-full bg-hh-accent-gold-soft px-2 py-0.5 text-hh-accent-foreground">+5 điểm thành viên</span>
           </p>
           <button
             type="button"

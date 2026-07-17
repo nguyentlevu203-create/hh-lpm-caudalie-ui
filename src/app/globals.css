@@ -62,13 +62,23 @@
   --color-hh-primary: var(--hh-primary);
   --color-hh-primary-foreground: var(--hh-primary-foreground);
   --color-hh-primary-dark: var(--hh-primary-dark);
+  --color-hh-primary-soft: var(--hh-primary-soft);
   --color-hh-accent: var(--hh-accent);
   --color-hh-accent-foreground: var(--hh-accent-foreground);
+  --color-hh-accent-blue: var(--hh-accent-blue);
+  --color-hh-accent-gold-soft: var(--hh-accent-gold-soft);
   --color-hh-cream: var(--hh-cream);
   --color-hh-ink: var(--hh-ink);
   --color-hh-muted: var(--hh-muted);
   --color-hh-muted-foreground: var(--hh-muted-foreground);
+  --color-hh-text-muted: var(--hh-text-muted);
   --color-hh-border: var(--hh-border);
+  --color-hh-border-soft: var(--hh-border-soft);
+  --color-hh-canvas: var(--hh-canvas);
+  --color-hh-surface: var(--hh-surface);
+  --color-hh-surface-soft: var(--hh-surface-soft);
+  --color-hh-surface-warm: var(--hh-surface-warm);
+  --color-hh-surface-blue: var(--hh-surface-blue);
 }
 
 :root {
@@ -112,18 +122,43 @@
   --brand-terracotta: #cd3c1f;
 
   /* Hoàng Hà / Le Petit Marseillais Việt Nam brand tokens (production UI
-     only — an independent palette, not derived from any Caudalie color). */
+     only — an independent palette, not derived from any Caudalie color).
+     Premium Color System pass — "French Mediterranean Beauty": warm cream
+     canvas, mineral Provence blue-teal primary, restrained sun-gold accent.
+     Existing token *names* are kept (avoids a mechanical rename across
+     ~550 call sites) but every value below was replaced; a handful of new
+     tokens were added for roles the old single-tier system didn't
+     distinguish (canvas vs. card surface, a second cooler accent, soft
+     tinted variants for badges/selected states). See
+     HH_LPM_PREMIUM_COLOR_SYSTEM_REPORT.md for the full before/after table
+     and rationale per token. */
 
-  --hh-primary: #2f6b4f; /* deep herb green — Provence / savon de Marseille */
-  --hh-primary-dark: #204a37;
+  /* New tokens — canvas/surface layering (§4 of the report: canvas → soft
+     section surface → white card surface → accent section → CTA surface). */
+  --hh-canvas: #fcfaf6; /* page background — replaces pure white/old cream on HHShell root */
+  --hh-surface: #ffffff; /* cards, modals, dropdowns, product surfaces */
+  --hh-surface-soft: #f4f7f4; /* neutral secondary surface — same value as --hh-muted below */
+  --hh-surface-warm: #f8f1e8; /* be champagne — same value as --hh-cream below */
+  --hh-surface-blue: #eaf4f5; /* Provence mineral-blue accent section */
+
+  --hh-primary: #244a57; /* deep Provence blue-teal ("xanh than") */
+  --hh-primary-dark: #193a45; /* hover/pressed state, gradient shading */
   --hh-primary-foreground: #ffffff;
-  --hh-accent: #e08a3e; /* warm terracotta / Provence sun */
-  --hh-accent-foreground: #2a1a08;
-  --hh-cream: #fbf6ec;
-  --hh-ink: #20241f;
-  --hh-muted: #eef1e8;
-  --hh-muted-foreground: #5b6459;
-  --hh-border: #dfe4d8;
+  --hh-primary-soft: #dce8e9; /* tinted primary bg — selected filters, focus chips */
+
+  --hh-accent: #c99a4a; /* restrained sun gold — badges, eyebrows, small accents only */
+  --hh-accent-foreground: #243338; /* dark ink text on gold, never white-on-gold */
+  --hh-accent-gold-soft: #f5e7c9; /* very soft gold tint for gentle badges/highlights */
+  --hh-accent-blue: #5f8e91; /* cooler secondary accent — in-content links */
+
+  --hh-cream: var(--hh-surface-warm); /* legacy name, now aliased to surface-warm */
+  --hh-ink: #243338; /* primary text */
+  --hh-muted: var(--hh-surface-soft); /* legacy name, now aliased to surface-soft */
+  --hh-muted-foreground: #667579; /* secondary text */
+  --hh-text-muted: #879397; /* third text tier — placeholders, deep de-emphasis only, never body copy */
+  --hh-border: #e2e7e4;
+  --hh-border-soft: #edf0ee;
+  --hh-shadow-color: rgba(32, 55, 62, 0.08);
 }
 
 .dark {
@@ -268,5 +303,18 @@
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+  }
+
+  /* Premium Color System — shared soft-shadow utilities. Both intentionally
+     restrained (small blur/offset, low opacity, tinted with --hh-shadow-color
+     instead of pure black) per "không dùng shadow đậm". `.hh-shadow-sm` is
+     the default resting elevation (cards, dropdowns); `.hh-shadow-md` is the
+     hover/raised state (product card hover, mega menu). */
+  .hh-shadow-sm {
+    box-shadow: 0 1px 3px var(--hh-shadow-color);
+  }
+
+  .hh-shadow-md {
+    box-shadow: 0 6px 20px var(--hh-shadow-color);
   }
 }

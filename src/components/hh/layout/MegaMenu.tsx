@@ -19,7 +19,7 @@ export function MegaMenu({ onNavigate }: { onNavigate: () => void }) {
             key={cat.slug}
             href={`/san-pham?category=${cat.slug}`}
             onClick={onNavigate}
-            className="block rounded-lg border-b border-hh-border pb-3 transition-colors hover:bg-hh-muted"
+            className="block rounded-lg border-b border-hh-border pb-3 transition-colors hover:bg-hh-surface-blue"
           >
             <p className="text-base font-medium text-hh-ink">{cat.name}</p>
             <p className="mt-1 text-sm text-hh-muted-foreground">{cat.description}</p>
@@ -28,7 +28,7 @@ export function MegaMenu({ onNavigate }: { onNavigate: () => void }) {
         <Link
           href={BRAND_LIBRARY_LINK.href}
           onClick={onNavigate}
-          className="block rounded-lg border-b border-hh-border pb-3 transition-colors hover:bg-hh-muted"
+          className="block rounded-lg border-b border-hh-border pb-3 transition-colors hover:bg-hh-surface-blue"
         >
           <p className="text-base font-medium text-hh-ink">{BRAND_LIBRARY_LINK.label}</p>
           <p className="mt-1 text-sm text-hh-muted-foreground">

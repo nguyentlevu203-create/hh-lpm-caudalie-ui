@@ -7,7 +7,7 @@ import { BRAND_STORY } from "@/data/site-content";
  * real signature asset exists and no Caudalie asset may be substituted. */
 export function BrandStoryQuoteBlock() {
   return (
-    <div className="bg-hh-muted px-4 py-10 text-center md:py-14">
+    <div className="bg-hh-cream px-4 py-10 text-center md:py-14">
       <p className="hh-quote mx-auto max-w-2xl text-hh-ink">
         &ldquo;{BRAND_STORY.quote.text}&rdquo;
       </p>

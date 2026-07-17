@@ -17,7 +17,7 @@ export function BrandValues() {
         <h2 className="hh-heading-section text-hh-ink">Giá trị thương hiệu</h2>
         <Link
           href="/cau-chuyen-thuong-hieu"
-          className="rounded-md border border-hh-border bg-white px-6 py-3 text-hh-primary"
+          className="rounded-md border border-hh-border bg-hh-surface px-6 py-3 text-hh-primary"
         >
           Khám phá
         </Link>
@@ -29,7 +29,7 @@ export function BrandValues() {
             <div
               key={value.id}
               className={`flex min-h-[400px] flex-col items-center justify-center gap-4 p-8 text-center lg:p-12 ${
-                index % 2 === 0 ? "bg-white" : "bg-hh-muted"
+                index % 2 === 0 ? "bg-hh-surface" : "bg-hh-surface-warm"
               }`}
             >
               <Icon size={48} className="text-hh-primary" strokeWidth={1.5} />

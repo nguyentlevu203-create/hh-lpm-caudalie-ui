@@ -84,7 +84,7 @@ export function CheckoutContent() {
             liên hệ với bạn qua số {confirmedOrder.customerPhone} để xác nhận
             {confirmedOrder.hasInquiryItems ? " đơn hàng và báo giá các sản phẩm cần liên hệ" : " đơn hàng"}.
           </p>
-          <p className="mt-4 text-lg font-medium text-hh-ink">Tạm tính: {formatVnd(confirmedOrder.subtotal)}</p>
+          <p className="mt-4 text-lg font-semibold text-hh-ink">Tạm tính: {formatVnd(confirmedOrder.subtotal)}</p>
           <p className="mt-1 text-xs text-hh-muted-foreground">{PRICE_DISCLAIMER}</p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
             <Link href="/tai-khoan" className="rounded-md border-2 border-hh-primary px-6 py-3 text-sm font-medium text-hh-primary">
@@ -199,7 +199,7 @@ export function CheckoutContent() {
 
             <div>
               <h2 className="text-lg font-medium text-hh-ink">Đơn hàng của bạn</h2>
-              <div className="mt-4 divide-y divide-hh-border rounded-md border border-hh-border">
+              <div className="mt-4 divide-y divide-hh-border rounded-md border border-hh-border bg-hh-surface">
                 {items.map(({ product, quantity }) => {
                   const price = getEffectivePrice(product);
                   return (
@@ -219,7 +219,7 @@ export function CheckoutContent() {
                   );
                 })}
               </div>
-              <div className="mt-4 flex items-center justify-between text-lg font-medium text-hh-ink">
+              <div className="mt-4 flex items-center justify-between text-lg font-semibold text-hh-ink">
                 <span>Tạm tính</span>
                 <span>{formatVnd(subtotal)}</span>
               </div>

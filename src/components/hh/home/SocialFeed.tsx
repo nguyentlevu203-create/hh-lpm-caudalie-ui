@@ -8,9 +8,9 @@ import { SOCIAL_PROOF } from "@/data/site-content";
 import { HH_ARTICLES } from "@/data/articles";
 
 const TILE_COLORS: [string, string][] = [
-  ["#2f6b4f", "#5c9b7c"],
+  ["#244a57", "#5f8e91"],
   ["#7c6fb0", "#b8aede"],
-  ["#e08a3e", "#f3cf87"],
+  ["#c99a4a", "#f3cf87"],
   ["#d98fa0", "#f3c9d3"],
   ["#8fa06a", "#c7d3a8"],
   ["#cd6a3c", "#e8ab84"],
@@ -53,7 +53,7 @@ export function SocialFeed() {
         <h2 className="hh-heading-section text-hh-ink">{SOCIAL_PROOF.heading}</h2>
         <span
           aria-label={`${SOCIAL_PROOF.cta} — đang cập nhật`}
-          className="flex cursor-default items-center gap-2 rounded-md border border-hh-border bg-white px-6 py-3 text-hh-muted-foreground"
+          className="flex cursor-default items-center gap-2 rounded-md border border-hh-border bg-hh-surface px-6 py-3 text-hh-muted-foreground"
         >
           <Users className="size-5" strokeWidth={1.5} />
           <span>{SOCIAL_PROOF.cta}</span>

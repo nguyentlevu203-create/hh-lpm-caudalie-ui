@@ -19,7 +19,7 @@ export function OfferCard({ offer }: { offer: HHOffer }) {
 
   return (
     <div>
-      <div className="flex bg-hh-muted">
+      <div className="flex bg-hh-surface-blue">
         <div className="relative w-1/2 shrink-0 sm:w-2/5">
           <ProductPlaceholderArt
             colorFrom={colorFrom}
@@ -36,7 +36,7 @@ export function OfferCard({ offer }: { offer: HHOffer }) {
           <p className="text-lg font-medium leading-snug text-hh-ink">{heading}</p>
           <p className="whitespace-pre-line text-sm leading-relaxed text-hh-muted-foreground">{body}</p>
           {code && (
-            <p className="inline-block rounded bg-white px-3 py-1 text-sm font-medium text-hh-primary">
+            <p className="inline-block rounded bg-hh-surface px-3 py-1 text-sm font-semibold text-hh-primary">
               Mã: {code}
             </p>
           )}

@@ -50,12 +50,12 @@ export function SearchOverlay() {
       aria-label="Tìm kiếm sản phẩm"
       aria-hidden={!isOpen}
       className={cn(
-        "fixed inset-0 z-50 flex flex-col bg-white transition-transform duration-300",
+        "fixed inset-0 z-50 flex flex-col bg-hh-surface transition-transform duration-300",
         isOpen ? "translate-y-0" : "pointer-events-none -translate-y-full"
       )}
     >
       <div className="flex items-center gap-3 border-b border-hh-border px-4 py-4">
-        <div className="flex flex-1 items-center gap-2 rounded-full bg-hh-muted px-4 py-2.5">
+        <div className="flex flex-1 items-center gap-2 rounded-full bg-hh-surface-soft px-4 py-2.5">
           <Search className="size-4 text-hh-muted-foreground" />
           <input
             value={query}
@@ -131,11 +131,11 @@ export function SearchOverlay() {
                       {results.ingredients.map((ing) => (
                         <li key={ing.id}>
                           <Link href={`/nguyen-lieu/${ing.slug}`} onClick={close} className="flex flex-col gap-2">
-                            <div className="relative aspect-square w-full overflow-hidden rounded-sm bg-hh-cream">
+                            <div className="relative aspect-square w-full overflow-hidden rounded-sm border border-hh-border bg-hh-cream">
                               {ing.image ? (
                                 <Image src={ing.image} alt={ing.name} fill sizes="150px" className="object-cover" />
                               ) : (
-                                <ProductPlaceholderArt colorFrom="#7fb79c" colorTo="#2f6b4f" className="h-full w-full" />
+                                <ProductPlaceholderArt colorFrom="#d9bd87" colorTo="#f5e7c9" className="h-full w-full" />
                               )}
                             </div>
                             <p className="text-sm text-hh-ink">{ing.name}</p>
@@ -153,11 +153,11 @@ export function SearchOverlay() {
                       {results.articles.map((article) => (
                         <li key={article.id}>
                           <Link href={`/bai-viet/${article.slug}`} onClick={close} className="flex gap-3">
-                            <div className="relative size-16 shrink-0 overflow-hidden rounded-sm bg-hh-cream">
+                            <div className="relative size-16 shrink-0 overflow-hidden rounded-sm border border-hh-border bg-hh-cream">
                               {article.image ? (
                                 <Image src={article.image} alt={article.title} fill sizes="64px" className="object-cover" />
                               ) : (
-                                <ProductPlaceholderArt colorFrom="#e08a3e" colorTo="#204a37" className="size-16" />
+                                <ProductPlaceholderArt colorFrom="#d9bd87" colorTo="#f5e7c9" className="size-16" />
                               )}
                             </div>
                             <div>
@@ -178,11 +178,11 @@ export function SearchOverlay() {
                       {results.contentPages.map((page) => (
                         <li key={page.id}>
                           <Link href={contentPageRoute(page)} onClick={close} className="flex gap-3">
-                            <div className="relative size-16 shrink-0 overflow-hidden rounded-sm bg-hh-cream">
+                            <div className="relative size-16 shrink-0 overflow-hidden rounded-sm border border-hh-border bg-hh-cream">
                               {page.image ? (
                                 <Image src={page.image} alt={page.pageName} fill sizes="64px" className="object-cover" />
                               ) : (
-                                <ProductPlaceholderArt colorFrom="#204a37" colorTo="#123023" className="size-16" />
+                                <ProductPlaceholderArt colorFrom="#d9bd87" colorTo="#f5e7c9" className="size-16" />
                               )}
                             </div>
                             <p className="line-clamp-2 text-sm font-medium text-hh-ink">{page.pageName}</p>
@@ -212,7 +212,7 @@ export function SearchOverlay() {
                     <ul className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-6">
                       {results.media.map((m) => (
                         <li key={m.id} className="flex flex-col gap-1">
-                          <div className="relative aspect-square w-full overflow-hidden rounded-sm bg-hh-muted">
+                          <div className="relative aspect-square w-full overflow-hidden rounded-sm border border-hh-border bg-hh-cream">
                             {m.localPath ? (
                               <Image src={m.localPath} alt={m.altTextVi ?? ""} fill sizes="120px" className="object-cover" />
                             ) : null}

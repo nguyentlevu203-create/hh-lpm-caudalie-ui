@@ -31,8 +31,8 @@ const SLIDES: Slide[] = [
     heading: HERO_CAMPAIGN.heading,
     body: HERO_CAMPAIGN.body,
     cta: HERO_CAMPAIGN.primaryCta,
-    colorFrom: "#2f6b4f",
-    colorTo: "#204a37",
+    colorFrom: "#244a57",
+    colorTo: "#193a45",
     image: heroBrandImage,
   },
   {
@@ -41,8 +41,8 @@ const SLIDES: Slide[] = [
     heading: HERO_SECONDARY_SLIDE.heading,
     body: HERO_SECONDARY_SLIDE.body,
     cta: HERO_SECONDARY_SLIDE.cta,
-    colorFrom: "#e08a3e",
-    colorTo: "#b8672a",
+    colorFrom: "#c99a4a",
+    colorTo: "#a67d3d",
     image: heroIngredientImage,
   },
 ];
@@ -77,8 +77,8 @@ function SlideBackground({ slide }: { slide: Slide }) {
           <circle cx="10" cy="90" r="34" fill="#000000" fillOpacity="0.15" />
         </svg>
       )}
-      <div className="absolute inset-0 bg-black/25" />
-      <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/50 to-transparent" />
+      <div className="absolute inset-0 bg-hh-primary-dark/20" />
+      <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-hh-primary-dark/60 to-transparent" />
     </div>
   );
 }

@@ -41,7 +41,7 @@ export function TimelineEntry({ milestone, align, colorFrom, colorTo }: Timeline
 
       <div
         className={cn(
-          "relative col-start-1 row-start-1 flex w-[85%] flex-col gap-3 self-end bg-white/80 p-6 sm:w-[45%] sm:p-8",
+          "relative col-start-1 row-start-1 flex w-[85%] flex-col gap-3 self-end bg-hh-surface/85 p-6 sm:w-[45%] sm:p-8",
           align === "left" ? "justify-self-start" : "justify-self-end"
         )}
       >
