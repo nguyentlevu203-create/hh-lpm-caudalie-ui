@@ -38,7 +38,7 @@ export function AuthOverlay() {
         aria-label={view === "sign-in" ? "Đăng nhập" : "Đăng ký thành viên"}
         aria-hidden={!isOpen}
         className={cn(
-          "hh-shadow-md fixed inset-x-4 top-1/2 z-50 max-w-md -translate-y-1/2 rounded-2xl bg-hh-surface p-6 transition-all sm:inset-x-auto sm:left-1/2 sm:-translate-x-1/2 sm:p-8",
+          "hh-shadow-md fixed inset-x-4 top-1/2 z-50 max-w-md -translate-y-1/2 rounded-xl bg-hh-surface p-6 transition-all sm:inset-x-auto sm:left-1/2 sm:-translate-x-1/2 sm:p-8",
           isOpen ? "scale-100 opacity-100" : "pointer-events-none scale-95 opacity-0"
         )}
       >

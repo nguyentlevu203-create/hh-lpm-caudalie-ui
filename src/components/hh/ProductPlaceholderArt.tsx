@@ -23,7 +23,7 @@ export function ProductPlaceholderArt({
 }: ProductPlaceholderArtProps) {
   return (
     <div
-      className={cn("relative flex items-center justify-center overflow-hidden rounded-2xl", className)}
+      className={cn("relative flex items-center justify-center overflow-hidden rounded-xl", className)}
       style={{ background: `linear-gradient(135deg, ${colorFrom}, ${colorTo})` }}
     >
       <svg viewBox="0 0 100 100" className="h-2/3 w-2/3" aria-hidden="true">

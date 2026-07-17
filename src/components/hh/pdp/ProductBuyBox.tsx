@@ -99,7 +99,7 @@ export function ProductBuyBox({ product }: { product: HHProduct }) {
       <button
         type="button"
         onClick={() => addToCart(product.slug, quantity)}
-        className="h-11 w-full rounded-md border-2 border-hh-primary text-sm font-medium text-hh-primary"
+        className="h-11 w-full rounded-md border border-hh-primary text-sm font-medium text-hh-primary transition-colors hover:bg-hh-primary-soft"
       >
         Thêm vào giỏ
       </button>

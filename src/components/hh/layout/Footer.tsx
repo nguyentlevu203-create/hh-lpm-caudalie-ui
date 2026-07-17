@@ -63,7 +63,7 @@ function FooterLinkColumn({
                 {link.label}
               </button>
             ) : link.href === "#" ? (
-              <span className="cursor-default text-sm text-hh-muted-foreground/60">
+              <span className="cursor-default text-sm text-hh-muted-foreground/80">
                 {link.label} <span className="italic">(Đang cập nhật)</span>
               </span>
             ) : (
@@ -182,7 +182,7 @@ export function Footer() {
 
         {LEGAL_LINKS.map((link) =>
           link.href === "#" ? (
-            <span key={link.label} className="cursor-default text-hh-muted-foreground/60">
+            <span key={link.label} className="cursor-default text-hh-muted-foreground/80">
               {link.label} <span className="italic">(Đang cập nhật)</span>
             </span>
           ) : (

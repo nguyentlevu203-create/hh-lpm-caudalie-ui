@@ -46,7 +46,7 @@ export function TimelineEntry({ milestone, align, colorFrom, colorTo }: Timeline
         )}
       >
         <p className="hh-label text-hh-muted-foreground">{year}</p>
-        <p className="hh-heading-card text-hh-ink">{heading}</p>
+        <p className="hh-heading-card-serif text-hh-ink">{heading}</p>
         <p className="text-sm leading-relaxed text-hh-muted-foreground">{body}</p>
         {cta && (
           <a

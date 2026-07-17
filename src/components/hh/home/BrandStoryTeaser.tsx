@@ -7,7 +7,7 @@ import { BRAND_STORY } from "@/data/site-content";
 export function BrandStoryTeaser() {
   return (
     <section className="mx-auto w-full max-w-[1280px] px-4 py-12 md:px-8">
-      <div className="grid gap-6 rounded-2xl bg-hh-surface-blue p-6 sm:grid-cols-2 sm:p-10">
+      <div className="grid gap-6 rounded-xl bg-hh-surface-blue p-6 sm:grid-cols-2 sm:p-10">
         <div>
           <p className="text-xs font-medium uppercase tracking-widest text-hh-primary">Câu chuyện thương hiệu</p>
           <h2 className="mt-2 text-2xl font-semibold text-hh-ink sm:text-3xl">{BRAND_STORY.heading}</h2>

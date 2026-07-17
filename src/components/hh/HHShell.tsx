@@ -1,6 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
+import { usePathname } from "next/navigation";
 import { beVietnamPro, cormorantGaramond, cormorantGaramondItalic } from "@/lib/hh-fonts";
 import { cn } from "@/lib/utils";
 import { SiteUIProvider } from "@/components/hh/SiteUIContext";
@@ -23,6 +24,9 @@ import { DemoBanner } from "@/components/hh/layout/DemoBanner";
  * them without prop drilling.
  */
 export function HHShell({ children, className }: { children: ReactNode; className?: string }) {
+  const pathname = usePathname();
+  const isPdp = pathname?.startsWith("/san-pham/") ?? false;
+
   return (
     <SiteUIProvider>
       <AccountProvider>
@@ -31,7 +35,8 @@ export function HHShell({ children, className }: { children: ReactNode; classNam
             beVietnamPro.variable,
             cormorantGaramond.variable,
             cormorantGaramondItalic.variable,
-            "font-hh flex min-h-screen flex-col bg-hh-canvas pb-20 text-hh-ink lg:pb-0",
+            "font-hh flex min-h-screen flex-col bg-hh-canvas text-hh-ink lg:pb-0",
+            isPdp ? "pb-0" : "pb-20",
             className
           )}
         >

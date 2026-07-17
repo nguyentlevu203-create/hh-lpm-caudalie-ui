@@ -65,7 +65,6 @@
   --color-hh-primary-soft: var(--hh-primary-soft);
   --color-hh-accent: var(--hh-accent);
   --color-hh-accent-foreground: var(--hh-accent-foreground);
-  --color-hh-accent-blue: var(--hh-accent-blue);
   --color-hh-accent-gold-soft: var(--hh-accent-gold-soft);
   --color-hh-cream: var(--hh-cream);
   --color-hh-ink: var(--hh-ink);
@@ -123,42 +122,50 @@
 
   /* Hoàng Hà / Le Petit Marseillais Việt Nam brand tokens (production UI
      only — an independent palette, not derived from any Caudalie color).
-     Premium Color System pass — "French Mediterranean Beauty": warm cream
-     canvas, mineral Provence blue-teal primary, restrained sun-gold accent.
-     Existing token *names* are kept (avoids a mechanical rename across
-     ~550 call sites) but every value below was replaced; a handful of new
-     tokens were added for roles the old single-tier system didn't
-     distinguish (canvas vs. card surface, a second cooler accent, soft
-     tinted variants for badges/selected states). See
-     HH_LPM_PREMIUM_COLOR_SYSTEM_REPORT.md for the full before/after table
-     and rationale per token. */
+     Premium V3 pass — "Quiet Provence Luxury / French apothecary
+     editorial": brighter, more restrained canvas, deeper quieter primary
+     teal, champagne (not gold) accent used only in small details. This is
+     the *third* color pass on these tokens (V1 "French Mediterranean
+     Beauty" → V2 micro polish → V3 world-class). Token *names* are kept
+     unchanged from V1/V2 (avoids a mechanical rename across ~550 call
+     sites); every value below was replaced with the V3 target palette. A
+     handful of V1/V2-era tokens confirmed to have **zero call sites**
+     anywhere in `src/` were dropped outright rather than kept as dead
+     weight: `--hh-accent-blue` (a second accent hue V3 explicitly doesn't
+     want — "không phô trương" now applies to keeping the palette to one
+     accent, not just to gold usage). See
+     HH_LPM_WORLD_CLASS_PREMIUM_V3_REPORT.md §3 for the full V1→V2→V3
+     before/after table, the V3-spec-name → kept-token-name mapping, and
+     rationale. */
 
-  /* New tokens — canvas/surface layering (§4 of the report: canvas → soft
-     section surface → white card surface → accent section → CTA surface). */
-  --hh-canvas: #fcfaf6; /* page background — replaces pure white/old cream on HHShell root */
-  --hh-surface: #ffffff; /* cards, modals, dropdowns, product surfaces */
-  --hh-surface-soft: #f4f7f4; /* neutral secondary surface — same value as --hh-muted below */
-  --hh-surface-warm: #f8f1e8; /* be champagne — same value as --hh-cream below */
-  --hh-surface-blue: #eaf4f5; /* Provence mineral-blue accent section */
+  --hh-canvas: #f8f6f1; /* page background — brighter, less yellow than V2's #fcfaf6 */
+  --hh-surface: #fffefc; /* cards, modals, dropdowns, product surfaces — near-white, not stark #fff */
+  --hh-surface-soft: #f3f5f2; /* neutral secondary surface — same value as --hh-muted below */
+  --hh-surface-warm: #f3ede3; /* warm parchment tint — quote/editorial blocks only (V3 spec's "warm") */
+  --hh-surface-blue: #edf3f1; /* V3 spec calls this role "surface-mineral"; kept the existing
+    `--hh-surface-blue`/`bg-hh-surface-blue` name (7 call sites) rather than a mechanical rename —
+    value is now a pale mineral green-teal, not a blue, so read this token as "mineral surface" */
 
-  --hh-primary: #244a57; /* deep Provence blue-teal ("xanh than") */
-  --hh-primary-dark: #193a45; /* hover/pressed state, gradient shading */
-  --hh-primary-foreground: #ffffff;
-  --hh-primary-soft: #dce8e9; /* tinted primary bg — selected filters, focus chips */
+  --hh-primary: #1e4b4f; /* deep, quiet Provence teal — less saturated/lighter than V2's #244a57 */
+  --hh-primary-dark: #153a3d; /* V3 spec's "primary-hover" — hover/pressed state */
+  --hh-primary-foreground: #fffefc; /* V3 spec's "text-inverse" */
+  --hh-primary-soft: #dde9e7; /* tinted primary bg — selected filters, focus chips */
 
-  --hh-accent: #c99a4a; /* restrained sun gold — badges, eyebrows, small accents only */
-  --hh-accent-foreground: #243338; /* dark ink text on gold, never white-on-gold */
-  --hh-accent-gold-soft: #f5e7c9; /* very soft gold tint for gentle badges/highlights */
-  --hh-accent-blue: #5f8e91; /* cooler secondary accent — in-content links */
+  --hh-accent: #a77b43; /* muted champagne bronze — deliberately less yellow/saturated than V2's #c99a4a gold */
+  --hh-accent-foreground: #182a2d; /* dark ink text on accent surfaces — same value as --hh-ink, never white-on-accent */
+  --hh-accent-gold-soft: #efe2cd; /* V3 spec's "accent-soft" — very soft champagne tint for badges/highlights */
 
   --hh-cream: var(--hh-surface-warm); /* legacy name, now aliased to surface-warm */
-  --hh-ink: #243338; /* primary text */
+  --hh-ink: #182a2d; /* V3 spec's "text" — primary text, deeper/cooler than V2's #243338 */
   --hh-muted: var(--hh-surface-soft); /* legacy name, now aliased to surface-soft */
-  --hh-muted-foreground: #667579; /* secondary text */
-  --hh-text-muted: #879397; /* third text tier — placeholders, deep de-emphasis only, never body copy */
-  --hh-border: #e2e7e4;
-  --hh-border-soft: #edf0ee;
-  --hh-shadow-color: rgba(32, 55, 62, 0.08);
+  --hh-muted-foreground: #5c696b; /* V3 spec's "text-secondary" */
+  --hh-text-muted: #7a8586; /* V3 spec's "text-muted" — third text tier, placeholders/deep de-emphasis only */
+  --hh-border: #c6bcaa; /* V3 spec value #DEDAD2 measured only 1.29:1 against --hh-canvas — cards/
+    inputs would visually vanish into the page. Deepened within the same warm-taupe family to
+    ~1.74–1.86:1 against canvas/surface (see V3 report §7) — still quiet, not a hard dark line. */
+  --hh-border-soft: #ddd6c8; /* same fix, lighter tier for internal dividers — spec's #ECE8E1 was
+    ~1.2:1; now ~1.34–1.43:1 */
+  --hh-shadow-color: rgba(24, 42, 45, 0.07);
 }
 
 .dark {
@@ -242,29 +249,68 @@
     font-family: var(--hh-font-display);
   }
 
+  /* Defined per the V3 spec (line-height: 1, larger clamp) but — discovered
+     during the V3 pass — **no component in src/ actually applies this
+     class**; `HeroCampaign`'s split-panel slides use their own ad-hoc
+     Tailwind sizing (now updated separately, see HeroCampaign.tsx) because
+     a full hero-scale heading doesn't fit a half-viewport-width panel. Kept
+     defined here as available infrastructure for any future full-bleed
+     single-hero component. The heading class actually carrying
+     "hero-weight" visual duty sitewide is `.hh-heading-page` (18 call
+     sites, incl. every page H1) — see that class below for a real
+     diacritic-clipping bug found and fixed on it.
+
+     `letter-spacing` deliberately dropped from both this class and
+     `.hh-heading-page` even though the V3 spec calls for -0.025em/-0.02em:
+     live-tested against `.hh-heading-page` with real 3-line Vietnamese H1
+     copy (thu-vien-san-pham-hang product title, "...hạt lanh hữu cơ.") at
+     the spec's negative tracking and found the dấu nặng (dot-below) on "ạ"
+     rendered completely missing — Cormorant Garamond composes that glyph
+     via mark-to-base GPOS positioning, which negative `letter-spacing`
+     visibly breaks in this browser. Confirmed the fix by toggling
+     `letter-spacing: normal` on the live element — dot returned. This is a
+     direct case of the brief's own explicit, higher-priority rule ("không
+     cắt dấu tiếng Việt") overriding the numeric spec value. See V3 report
+     §7 for the before/after screenshots. */
   .hh-heading-hero {
     font-family: var(--hh-font-display);
     font-weight: 500;
-    font-size: clamp(2.4rem, 6vw, 4.5rem);
-    line-height: 1.08;
-    letter-spacing: -0.01em;
+    font-size: clamp(3rem, 5.4vw, 5.25rem);
+    line-height: 1;
+    text-wrap: balance;
   }
 
   .hh-heading-page {
     font-family: var(--hh-font-display);
     font-weight: 500;
-    font-size: clamp(2.1rem, 3.5vw, 3rem);
-    line-height: 1.1;
+    font-size: clamp(2.6rem, 4.2vw, 4.25rem);
+    line-height: 1.04;
+    text-wrap: balance;
   }
 
   .hh-heading-section {
     font-family: var(--hh-font-display);
     font-weight: 500;
-    font-size: clamp(1.75rem, 3vw, 2.5rem);
-    line-height: 1.15;
+    font-size: clamp(2.1rem, 3.2vw, 3.3rem);
+    line-height: 1.08;
+    text-wrap: balance;
   }
 
+  /* Utility/product/commerce card heading — sans by default per V3 §4
+     ("ưu tiên Be Vietnam Pro cho product/utility card"). Used by
+     GiftDiscoveryTiles, SeoTextBlock, ProductReviews. */
   .hh-heading-card {
+    font-family: var(--hh-font-sans);
+    font-weight: 600;
+    font-size: clamp(1.15rem, 1.6vw, 1.375rem);
+    line-height: 1.3;
+  }
+
+  /* Editorial-card heading — the old (V1/V2) `.hh-heading-card` serif
+     definition, kept under its own name for the one genuinely editorial
+     card context (TimelineEntry milestone titles) per V3 §4 ("chỉ dùng
+     Cormorant trong editorial card"). */
+  .hh-heading-card-serif {
     font-family: var(--hh-font-display);
     font-weight: 500;
     font-size: clamp(1.25rem, 2vw, 1.5rem);
@@ -281,14 +327,14 @@
 
   .hh-body-lg {
     font-family: var(--hh-font-sans);
-    font-size: 1.0625rem; /* 17px */
+    font-size: 1.125rem; /* 18px */
     line-height: 1.7;
   }
 
   .hh-body {
     font-family: var(--hh-font-sans);
-    font-size: 0.9375rem; /* 15px */
-    line-height: 1.65;
+    font-size: 1rem; /* 16px */
+    line-height: 1.7;
   }
 
   .hh-caption {

@@ -37,7 +37,7 @@ export function ScentAdvisorView() {
               key={question.id}
               href={`/san-pham?scent=${encodeURIComponent(question.scent)}`}
               className={cn(
-                "flex flex-col gap-3 rounded-2xl border border-hh-border p-6 text-hh-ink transition-all hover:-translate-y-1 hover:border-hh-primary/50 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hh-primary focus-visible:ring-offset-2 focus-visible:ring-offset-hh-canvas",
+                "flex flex-col gap-3 rounded-xl border border-hh-border p-6 text-hh-ink transition-all hover:-translate-y-1 hover:border-hh-primary/50 hover:hh-shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-hh-primary focus-visible:ring-offset-2 focus-visible:ring-offset-hh-canvas",
                 question.cardBg
               )}
             >

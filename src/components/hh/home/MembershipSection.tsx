@@ -14,7 +14,7 @@ export function MembershipSection() {
 
   return (
     <section id="hoi-vien" className="mx-auto w-full max-w-[1280px] px-4 py-12 md:px-8">
-      <div className="rounded-2xl bg-hh-primary px-6 py-10 text-white sm:px-12">
+      <div className="rounded-xl bg-hh-primary px-6 py-10 text-white sm:px-12">
         <h2 className="hh-heading-section">{MEMBERSHIP.heading}</h2>
         <p className="mt-3 max-w-xl text-sm text-white/85 sm:text-base">{MEMBERSHIP.body}</p>
         <div className="mt-8 grid gap-6 sm:grid-cols-3">

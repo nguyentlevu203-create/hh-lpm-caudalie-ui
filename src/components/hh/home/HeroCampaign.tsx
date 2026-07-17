@@ -31,8 +31,8 @@ const SLIDES: Slide[] = [
     heading: HERO_CAMPAIGN.heading,
     body: HERO_CAMPAIGN.body,
     cta: HERO_CAMPAIGN.primaryCta,
-    colorFrom: "#244a57",
-    colorTo: "#193a45",
+    colorFrom: "#1e4b4f",
+    colorTo: "#153a3d",
     image: heroBrandImage,
   },
   {
@@ -41,8 +41,8 @@ const SLIDES: Slide[] = [
     heading: HERO_SECONDARY_SLIDE.heading,
     body: HERO_SECONDARY_SLIDE.body,
     cta: HERO_SECONDARY_SLIDE.cta,
-    colorFrom: "#c99a4a",
-    colorTo: "#a67d3d",
+    colorFrom: "#a77b43",
+    colorTo: "#8a6535",
     image: heroIngredientImage,
   },
 ];
@@ -89,7 +89,9 @@ function SlidePanel({ slide }: { slide: Slide }) {
       <SlideBackground slide={slide} />
       <div className="relative z-10 flex h-full flex-col items-start justify-end gap-3 p-8 text-white sm:p-10 lg:p-12">
         <p className="text-sm font-medium uppercase tracking-widest text-white/80">{slide.eyebrow}</p>
-        <h2 className="hh-display max-w-md text-3xl font-medium leading-[1.1] sm:text-4xl">{slide.heading}</h2>
+        <h2 className="hh-display max-w-md text-balance text-3xl font-medium leading-[1.05] sm:text-4xl lg:text-[2.75rem]">
+          {slide.heading}
+        </h2>
         <p className="max-w-sm text-sm text-white/85 sm:text-base">{slide.body}</p>
         <Link
           href={slide.cta.href}
