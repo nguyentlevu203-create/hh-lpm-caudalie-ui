@@ -28,7 +28,7 @@ export function MembershipSection() {
         <button
           type="button"
           onClick={openAuth}
-          className="mt-8 inline-flex h-12 items-center justify-center rounded-md bg-hh-surface px-8 text-sm font-semibold text-hh-primary"
+          className="hh-cta-primary mt-8 h-12 px-8 text-sm"
         >
           {MEMBERSHIP.cta.label}
         </button>

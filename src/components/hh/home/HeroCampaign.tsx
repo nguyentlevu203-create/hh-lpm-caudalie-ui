@@ -95,7 +95,7 @@ function SlidePanel({ slide }: { slide: Slide }) {
         <p className="max-w-sm text-sm text-white/85 sm:text-base">{slide.body}</p>
         <Link
           href={slide.cta.href}
-          className="mt-2 rounded-md bg-white px-8 py-3 text-sm font-semibold text-hh-primary transition-colors hover:bg-white/90"
+          className="hh-cta-primary mt-2 px-8 py-3 text-sm"
         >
           {slide.cta.label}
         </Link>

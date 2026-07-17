@@ -66,6 +66,15 @@
   --color-hh-accent: var(--hh-accent);
   --color-hh-accent-foreground: var(--hh-accent-foreground);
   --color-hh-accent-gold-soft: var(--hh-accent-gold-soft);
+  --color-hh-accent-champagne: var(--hh-accent-champagne);
+  --color-hh-accent-champagne-strong: var(--hh-accent-champagne-strong);
+  --color-hh-accent-mineral: var(--hh-accent-mineral);
+  --color-hh-cta-primary: var(--hh-cta-primary);
+  --color-hh-cta-primary-hover: var(--hh-cta-primary-hover);
+  --color-hh-cta-primary-active: var(--hh-cta-primary-active);
+  --color-hh-cta-primary-text: var(--hh-cta-primary-text);
+  --color-hh-cta-primary-border: var(--hh-cta-primary-border);
+  --color-hh-cta-primary-focus: var(--hh-cta-primary-focus);
   --color-hh-cream: var(--hh-cream);
   --color-hh-ink: var(--hh-ink);
   --color-hh-muted: var(--hh-muted);
@@ -122,50 +131,71 @@
 
   /* Hoàng Hà / Le Petit Marseillais Việt Nam brand tokens (production UI
      only — an independent palette, not derived from any Caudalie color).
-     Premium V3 pass — "Quiet Provence Luxury / French apothecary
-     editorial": brighter, more restrained canvas, deeper quieter primary
-     teal, champagne (not gold) accent used only in small details. This is
-     the *third* color pass on these tokens (V1 "French Mediterranean
-     Beauty" → V2 micro polish → V3 world-class). Token *names* are kept
-     unchanged from V1/V2 (avoids a mechanical rename across ~550 call
-     sites); every value below was replaced with the V3 target palette. A
-     handful of V1/V2-era tokens confirmed to have **zero call sites**
-     anywhere in `src/` were dropped outright rather than kept as dead
-     weight: `--hh-accent-blue` (a second accent hue V3 explicitly doesn't
-     want — "không phô trương" now applies to keeping the palette to one
-     accent, not just to gold usage). See
-     HH_LPM_WORLD_CLASS_PREMIUM_V3_REPORT.md §3 for the full V1→V2→V3
-     before/after table, the V3-spec-name → kept-token-name mapping, and
-     rationale. */
+     Luminous Champagne pass — "Bright French beauty editorial": ivory
+     canvas, controlled/lighter teal (kept for secondary CTA, links, focus —
+     no longer the primary CTA fill), a dedicated champagne CTA-primary
+     system (§ below), and 3 named accent swatches (champagne / champagne-
+     strong / mineral). This is the *fourth* color pass on these tokens (V1
+     French Mediterranean Beauty → V2 micro polish → V3 world-class → V4
+     Luminous Champagne). Token *names* are kept unchanged from V1–V3
+     (avoids a mechanical rename across ~550 call sites); every value below
+     was replaced with the V4 target palette. Old V3-only accent tokens
+     (`--hh-accent`, `--hh-accent-gold-soft`) are now aliased to the new
+     canonical champagne tokens instead of holding their own hex — a single
+     source of truth, no parallel palette. See
+     HH_LPM_LUMINOUS_CHAMPAGNE_COLOR_REPORT.md §3 for the full before/after
+     table and contrast measurements. */
 
-  --hh-canvas: #f8f6f1; /* page background — brighter, less yellow than V2's #fcfaf6 */
-  --hh-surface: #fffefc; /* cards, modals, dropdowns, product surfaces — near-white, not stark #fff */
-  --hh-surface-soft: #f3f5f2; /* neutral secondary surface — same value as --hh-muted below */
-  --hh-surface-warm: #f3ede3; /* warm parchment tint — quote/editorial blocks only (V3 spec's "warm") */
-  --hh-surface-blue: #edf3f1; /* V3 spec calls this role "surface-mineral"; kept the existing
-    `--hh-surface-blue`/`bg-hh-surface-blue` name (7 call sites) rather than a mechanical rename —
-    value is now a pale mineral green-teal, not a blue, so read this token as "mineral surface" */
+  --hh-canvas: #faf8f3; /* page background — warmer/brighter ivory than V3's #f8f6f1 */
+  --hh-surface: #fffefc; /* cards, modals, dropdowns, product surfaces (unchanged from V3) */
+  --hh-surface-soft: #f5f0e7; /* neutral secondary surface — warmer than V3, own value now (see § legacy alias below) */
+  --hh-surface-warm: #f3e8d8; /* warm parchment tint — quote/editorial blocks only */
+  --hh-surface-blue: #edf4f1; /* "surface-mineral" role — see V3 note, name kept for the 7 existing call sites */
 
-  --hh-primary: #1e4b4f; /* deep, quiet Provence teal — less saturated/lighter than V2's #244a57 */
-  --hh-primary-dark: #153a3d; /* V3 spec's "primary-hover" — hover/pressed state */
-  --hh-primary-foreground: #fffefc; /* V3 spec's "text-inverse" */
-  --hh-primary-soft: #dde9e7; /* tinted primary bg — selected filters, focus chips */
+  --hh-primary: #315f5c; /* controlled teal — lighter/warmer than V3's #1e4b4f. No longer the primary
+    CTA fill (see --hh-cta-primary-* below); still used for secondary/outline CTA, links, focus ring,
+    and any solid-teal band (e.g. footer "Quyền lợi") that wants dark-surface treatment. */
+  --hh-primary-dark: #274d4b; /* hover/pressed for teal secondary CTA and any solid-teal surface */
+  --hh-primary-foreground: #fffefc; /* text-inverse — white-ish text for use ONLY on solid teal, never on champagne */
+  --hh-primary-soft: #dfebe8; /* tinted primary bg — selected filters, focus chips */
 
-  --hh-accent: #a77b43; /* muted champagne bronze — deliberately less yellow/saturated than V2's #c99a4a gold */
-  --hh-accent-foreground: #182a2d; /* dark ink text on accent surfaces — same value as --hh-ink, never white-on-accent */
-  --hh-accent-gold-soft: #efe2cd; /* V3 spec's "accent-soft" — very soft champagne tint for badges/highlights */
+  /* Champagne accent system — 3 canonical swatches, spec §3. `--hh-accent`/
+     `--hh-accent-gold-soft` (pre-existing token names, ~10 call sites
+     combined) now alias into this system instead of holding independent
+     hex, so there is exactly one champagne family in the codebase. */
+  --hh-accent-champagne: #e8d7b8; /* base champagne — also the CTA-primary fill, see below */
+  --hh-accent-champagne-strong: #cdaa70; /* stronger champagne-brown — CTA border, emphasis accents */
+  --hh-accent-mineral: #72918c; /* cool mineral-teal accent — decorative/icon use, large-scale only (3.39:1 on surface) */
+  --hh-accent: var(--hh-accent-champagne-strong); /* legacy name alias */
+  --hh-accent-foreground: #1b3033; /* dark ink text on accent surfaces — same value as --hh-ink, never white-on-accent */
+  --hh-accent-gold-soft: var(--hh-accent-champagne); /* legacy name alias (was the "soft tint" role) */
+
+  /* CTA-primary system — new in this pass. Replaces solid `bg-hh-primary` +
+     white text as the *primary* button treatment sitewide (teal remains
+     for secondary/outline CTAs). `--hh-cta-primary-text` is a distinct
+     token from `--hh-ink` (#17383B vs #1B3033) — visually close but kept
+     separate per spec since it's scoped to CTA text specifically. Contrast
+     verified: text on primary/hover/active = 8.91 / 7.33 / 6.32 : 1 (all
+     AA). Fill-vs-canvas contrast is intentionally low (~1.33:1, a
+     "luminous ivory-on-ivory" look) — definition comes from the 1px
+     champagne-strong border (~2.1:1) plus a very light shadow; verified
+     live in browser this doesn't read as disabled (see report §9). */
+  --hh-cta-primary: var(--hh-accent-champagne);
+  --hh-cta-primary-hover: #dcc297;
+  --hh-cta-primary-active: #d2b384;
+  --hh-cta-primary-text: #17383b;
+  --hh-cta-primary-border: var(--hh-accent-champagne-strong);
+  --hh-cta-primary-focus: #8c6a3e;
 
   --hh-cream: var(--hh-surface-warm); /* legacy name, now aliased to surface-warm */
-  --hh-ink: #182a2d; /* V3 spec's "text" — primary text, deeper/cooler than V2's #243338 */
+  --hh-ink: #1b3033; /* primary text */
   --hh-muted: var(--hh-surface-soft); /* legacy name, now aliased to surface-soft */
-  --hh-muted-foreground: #5c696b; /* V3 spec's "text-secondary" */
-  --hh-text-muted: #7a8586; /* V3 spec's "text-muted" — third text tier, placeholders/deep de-emphasis only */
-  --hh-border: #c6bcaa; /* V3 spec value #DEDAD2 measured only 1.29:1 against --hh-canvas — cards/
-    inputs would visually vanish into the page. Deepened within the same warm-taupe family to
-    ~1.74–1.86:1 against canvas/surface (see V3 report §7) — still quiet, not a hard dark line. */
-  --hh-border-soft: #ddd6c8; /* same fix, lighter tier for internal dividers — spec's #ECE8E1 was
-    ~1.2:1; now ~1.34–1.43:1 */
-  --hh-shadow-color: rgba(24, 42, 45, 0.07);
+  --hh-muted-foreground: #647174; /* secondary text */
+  --hh-text-muted: #7d8788; /* third text tier — placeholders/deep de-emphasis only, never body copy */
+  --hh-border: #c9c0ac; /* spec value #DDD8CE measured only 1.34:1 against --hh-canvas (same recurring
+    issue as V3's border token) — deepened within the same warm-taupe family to ~1.70–1.79:1. */
+  --hh-border-soft: #d8cfba; /* same fix, lighter tier — spec's #ECE7DE was ~1.2:1; now ~1.46–1.54:1 */
+  --hh-shadow-color: rgba(39, 63, 62, 0.07);
 }
 
 .dark {
@@ -362,5 +392,67 @@
 
   .hh-shadow-md {
     box-shadow: 0 6px 20px var(--hh-shadow-color);
+  }
+
+  /* Luminous Champagne pass — the single primary-CTA treatment, reused
+     across every "main action" button/link sitewide (§4 rollout list in
+     the report) instead of re-declaring the same 6 properties per
+     component. Callers still add their own sizing utilities (h-12, px-8,
+     w-full, flex-1...) — this class owns color/border/radius/elevation/
+     state only, never layout/size. Radius 14px = this project's existing
+     `rounded-xl` custom scale value, reused for consistency with cards
+     rather than inventing a new radius number. Hover lifts 1px + shows a
+     very light shadow (spec: "shadow mặc định rất nhẹ hoặc không có...
+     hover nâng tối đa 1–2px"); active drops back down. Disabled gets its
+     own muted/neutral styling (never just a dimmed champagne, which would
+     read as broken rather than intentionally disabled). Never apply this
+     class to destructive/error actions — those keep whatever
+     destructive/error treatment they already use. */
+  .hh-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 0.875rem;
+    border: 1px solid var(--hh-cta-primary-border);
+    background-color: var(--hh-cta-primary);
+    color: var(--hh-cta-primary-text);
+    font-family: var(--hh-font-sans);
+    font-weight: 600;
+    box-shadow: 0 1px 2px var(--hh-shadow-color);
+    transition:
+      background-color 150ms ease,
+      border-color 150ms ease,
+      box-shadow 150ms ease,
+      transform 150ms ease;
+  }
+
+  .hh-cta-primary:hover {
+    background-color: var(--hh-cta-primary-hover);
+    box-shadow: 0 4px 10px var(--hh-shadow-color);
+    transform: translateY(-1px);
+  }
+
+  .hh-cta-primary:active {
+    background-color: var(--hh-cta-primary-active);
+    transform: translateY(0);
+    box-shadow: 0 1px 2px var(--hh-shadow-color);
+  }
+
+  .hh-cta-primary:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px var(--hh-surface),
+      0 0 0 4px var(--hh-cta-primary-focus);
+  }
+
+  .hh-cta-primary:disabled,
+  .hh-cta-primary[aria-disabled="true"] {
+    background-color: var(--hh-surface-soft);
+    border-color: var(--hh-border);
+    color: var(--hh-text-muted);
+    box-shadow: none;
+    transform: none;
+    cursor: not-allowed;
   }
 }

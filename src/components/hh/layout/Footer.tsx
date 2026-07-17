@@ -110,13 +110,13 @@ export function Footer() {
 
         <div className="bg-hh-surface-blue p-6 sm:col-span-2 lg:col-span-1">
           <h3 className="text-base font-semibold text-hh-ink">{NEWSLETTER.heading}</h3>
-          <form className="mt-4 flex items-center gap-3 border-b-2 border-hh-border pb-2">
+          <form className="mt-4 flex flex-col gap-2">
             <input
               type="email"
               placeholder={NEWSLETTER.placeholder}
-              className="w-full min-w-0 flex-1 border-0 bg-transparent text-sm text-hh-ink outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hh-primary"
+              className="w-full min-w-0 rounded-md border border-hh-border bg-hh-surface px-3 py-2 text-sm text-hh-ink outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hh-primary"
             />
-            <button type="submit" className="text-sm font-medium text-hh-primary">
+            <button type="submit" className="hh-cta-primary px-6 py-2 text-sm">
               {NEWSLETTER.cta}
             </button>
           </form>

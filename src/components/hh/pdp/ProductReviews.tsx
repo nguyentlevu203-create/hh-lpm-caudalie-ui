@@ -32,7 +32,7 @@ export function ProductReviews() {
           </p>
           <button
             type="button"
-            className="mt-4 w-full rounded-md bg-hh-primary px-6 py-3 text-base text-white"
+            className="hh-cta-primary mt-4 w-full px-6 py-3 text-base"
           >
             Gửi đánh giá
           </button>

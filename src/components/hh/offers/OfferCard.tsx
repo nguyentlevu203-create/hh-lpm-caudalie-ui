@@ -42,7 +42,7 @@ export function OfferCard({ offer }: { offer: HHOffer }) {
           )}
           <Link
             href="/san-pham"
-            className="mt-2 inline-flex h-11 items-center justify-center rounded-md bg-hh-primary px-5 text-base text-white transition-opacity hover:opacity-90"
+            className="hh-cta-primary mt-2 h-11 px-5 text-base"
           >
             {cta}
           </Link>

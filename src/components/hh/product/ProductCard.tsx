@@ -105,15 +105,12 @@ export function ProductCard({ product }: { product: HHProduct }) {
         <button
           type="button"
           onClick={() => addToCart(product.slug)}
-          className="mt-3 w-full rounded-md border border-hh-primary/40 bg-hh-surface px-[15px] py-3 text-base text-hh-primary transition-colors hover:bg-hh-primary hover:text-white"
+          className="hh-cta-primary mt-3 w-full px-[15px] py-3 text-base"
         >
           Thêm vào giỏ
         </button>
       ) : (
-        <Link
-          href={`/san-pham/${product.slug}`}
-          className="mt-3 block w-full rounded-md border border-hh-accent bg-hh-accent-gold-soft px-[15px] py-3 text-center text-base text-hh-accent-foreground transition-colors hover:bg-hh-accent hover:text-white"
-        >
+        <Link href={`/san-pham/${product.slug}`} className="hh-cta-primary mt-3 w-full px-[15px] py-3 text-base">
           Xem sản phẩm
         </Link>
       )}

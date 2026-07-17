@@ -71,7 +71,7 @@ export function SignInForm({ email, onEmailChange, onSwitchToRegister, onSuccess
         {errors.password && <p className="mt-1 text-xs text-red-500">{errors.password}</p>}
       </div>
 
-      <button type="submit" className="h-11 w-full rounded-md bg-hh-primary text-sm font-semibold text-white">
+      <button type="submit" className="hh-cta-primary h-11 w-full text-sm">
         Đăng nhập
       </button>
 

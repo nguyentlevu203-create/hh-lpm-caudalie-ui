@@ -52,7 +52,7 @@ export function AdvisorBanner() {
           <p className="mt-2 text-base text-hh-ink">{SCENT_ADVISOR_BANNER.body}</p>
           <Link
             href={SCENT_ADVISOR_BANNER.cta.href}
-            className="mt-4 inline-block rounded-md border border-hh-primary/30 bg-hh-surface text-hh-primary"
+            className="hh-cta-primary mt-4 px-6 py-3 text-sm"
           >
             {SCENT_ADVISOR_BANNER.cta.label}
           </Link>

@@ -42,7 +42,7 @@ export function FullBleedBrandStory() {
         <p className="mt-4 text-center text-base text-white">{BRAND_STORY.intro}</p>
         <Link
           href="/cau-chuyen-thuong-hieu"
-          className="mt-6 inline-block rounded-md bg-hh-surface px-6 py-3 text-hh-primary"
+          className="hh-cta-primary mt-6 px-6 py-3"
         >
           Khám phá câu chuyện
         </Link>

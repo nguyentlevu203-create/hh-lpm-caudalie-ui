@@ -27,15 +27,11 @@ export function StickyMobileCta() {
     <div className="hh-shadow-md fixed inset-x-0 bottom-0 z-20 flex gap-2 border-t border-hh-border bg-hh-surface p-3 lg:hidden">
       <Link
         href="/tu-van-chon-san-pham"
-        className="flex h-12 flex-1 items-center justify-center rounded-md border-2 border-hh-primary text-sm font-medium text-hh-primary"
+        className="flex h-12 flex-1 items-center justify-center rounded-md border border-hh-primary text-sm font-medium text-hh-primary"
       >
         {STICKY_MOBILE_CTA.secondaryLabel}
       </Link>
-      <button
-        type="button"
-        onClick={openCart}
-        className="flex h-12 flex-1 items-center justify-center rounded-md bg-hh-primary text-sm font-semibold text-white"
-      >
+      <button type="button" onClick={openCart} className="hh-cta-primary h-12 flex-1 text-sm">
         {STICKY_MOBILE_CTA.label}
       </button>
     </div>
