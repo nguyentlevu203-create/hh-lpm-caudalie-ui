@@ -264,7 +264,10 @@ export interface HHScentAdvisorQuestion {
    * `--hh-primary`/`--hh-accent` per the color-block-per-card pattern
    * cloned from /reference/diagnosis's `ConcernCard`. */
   color: string;
-  /** Card background color (hex) — tint/shade of an `--hh-*` token. */
+  /** Card background — Tailwind class name for one of the existing
+   * `--hh-surface-*` tokens (warm/blue/soft), reused across cards rather
+   * than a distinct hex per card. Cards are told apart by icon + scent
+   * name, not by background hue. */
   cardBg: string;
   /** Heading + eyebrow text color when the card sits on a dark background. */
   onDark?: boolean;
@@ -295,7 +298,7 @@ export const SCENT_ADVISOR_QUESTIONS: HHScentAdvisorQuestion[] = [
     title: "Muốn thư giãn cuối ngày",
     body: "Hương oải hương dịu nhẹ, phù hợp dùng buổi tối trước khi ngủ.",
     color: "#7c6fb0",
-    cardBg: "#e3ecee",
+    cardBg: "bg-hh-surface-blue",
     headingColor: "#243338",
     buttonBg: "#244a57",
     buttonTextColor: "#FFFFFF",
@@ -309,7 +312,7 @@ export const SCENT_ADVISOR_QUESTIONS: HHScentAdvisorQuestion[] = [
     title: "Thích cảm giác tươi mới",
     body: "Hương hoa cam tươi mát, lý tưởng để bắt đầu ngày mới.",
     color: "#e2a33a",
-    cardBg: "#eaf2e9",
+    cardBg: "bg-hh-surface-warm",
     headingColor: "#243338",
     buttonBg: "#244a57",
     buttonTextColor: "#FFFFFF",
@@ -323,7 +326,7 @@ export const SCENT_ADVISOR_QUESTIONS: HHScentAdvisorQuestion[] = [
     title: "Yêu thích hương ấm áp, ngọt dịu",
     body: "Mật ong và sữa mang lại cảm giác ấm áp, nhẹ nhàng.",
     color: "#e2a33a",
-    cardBg: "#f5e9d9",
+    cardBg: "bg-hh-surface-soft",
     headingColor: "#243338",
     buttonBg: "#244a57",
     buttonTextColor: "#FFFFFF",
@@ -337,7 +340,7 @@ export const SCENT_ADVISOR_QUESTIONS: HHScentAdvisorQuestion[] = [
     title: "Yêu sự lãng mạn, nữ tính",
     body: "Hương hoa hồng nhẹ nhàng, tinh tế cho mọi khoảnh khắc.",
     color: "#d98fa0",
-    cardBg: "#f3e3e2",
+    cardBg: "bg-hh-surface-soft",
     headingColor: "#243338",
     buttonBg: "#244a57",
     buttonTextColor: "#FFFFFF",
@@ -351,7 +354,7 @@ export const SCENT_ADVISOR_QUESTIONS: HHScentAdvisorQuestion[] = [
     title: "Ưa chuộng công thức truyền thống",
     body: "Dầu ô liu nguyên chất theo công thức Marseille lâu đời.",
     color: "#8fa06a",
-    cardBg: "#f4f0e6",
+    cardBg: "bg-hh-surface-blue",
     headingColor: "#243338",
     buttonBg: "#244a57",
     buttonTextColor: "#FFFFFF",
@@ -366,7 +369,7 @@ export const SCENT_ADVISOR_QUESTIONS: HHScentAdvisorQuestion[] = [
     title: "Cần chăm sóc dịu nhẹ cho da khô",
     body: "Sữa hạnh nhân giàu dưỡng chất, làm mềm da tức thì.",
     color: "#d9c39b",
-    cardBg: "#f8f1e8",
+    cardBg: "bg-hh-surface-warm",
     headingColor: "#243338",
     buttonBg: "#244a57",
     buttonTextColor: "#FFFFFF",
