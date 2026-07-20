@@ -69,7 +69,7 @@ export function FeaturedCollection() {
 
         <Link
           href={FEATURED_COLLECTION.cta.href}
-          className="hh-cta-primary w-fit px-6 py-3 text-sm"
+          className="hh-cta-transactional w-fit px-6 py-3 text-sm"
         >
           {FEATURED_COLLECTION.cta.label}
         </Link>

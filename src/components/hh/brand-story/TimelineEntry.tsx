@@ -51,7 +51,7 @@ export function TimelineEntry({ milestone, align, colorFrom, colorTo }: Timeline
         {cta && (
           <a
             href={cta.href}
-            className="hh-cta-primary mt-2 h-11 w-fit px-5 text-base"
+            className="hh-cta-editorial mt-2 h-11 w-fit px-5 text-base"
           >
             {cta.label}
           </a>

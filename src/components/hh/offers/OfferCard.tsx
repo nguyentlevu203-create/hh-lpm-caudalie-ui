@@ -13,9 +13,17 @@ import type { HHOffer } from "@/data/site-content";
  * beneath the card). Uses `ProductPlaceholderArt` in place of the
  * reference's real campaign photography, since no real HH campaign
  * photography exists yet. */
+/** `cta` is a free-text label from data (not a typed variant), so the
+ * transactional/editorial split is inferred from the label itself — offers
+ * whose CTA reads as a purchase action ("Mua ngay"/"Đặt hàng") get the
+ * transactional teal treatment, discovery/signup-framed labels ("Tìm hiểu
+ * thêm"/"Đăng ký") get editorial champagne. V4 CTA hierarchy, Phase 5. */
+const TRANSACTIONAL_OFFER_CTA_LABELS = new Set(["Mua ngay", "Đặt hàng"]);
+
 export function OfferCard({ offer }: { offer: HHOffer }) {
   const [termsOpen, setTermsOpen] = useState(false);
   const { heading, body, code, cta, colorFrom, colorTo, shape, hasGiftBadge, terms } = offer;
+  const isTransactional = TRANSACTIONAL_OFFER_CTA_LABELS.has(cta);
 
   return (
     <div>
@@ -42,7 +50,7 @@ export function OfferCard({ offer }: { offer: HHOffer }) {
           )}
           <Link
             href="/san-pham"
-            className="hh-cta-primary mt-2 h-11 px-5 text-base"
+            className={cn("mt-2 h-11 px-5 text-base", isTransactional ? "hh-cta-transactional" : "hh-cta-editorial")}
           >
             {cta}
           </Link>

@@ -14,7 +14,7 @@ export function BrandStoryTeaser() {
           <p className="mt-3 text-sm text-hh-muted-foreground sm:text-base">{BRAND_STORY.intro}</p>
           <Link
             href="/cau-chuyen-thuong-hieu"
-            className="hh-cta-primary mt-6 h-11 px-6 text-sm"
+            className="hh-cta-editorial mt-6 h-11 px-6 text-sm"
           >
             Khám phá câu chuyện
           </Link>

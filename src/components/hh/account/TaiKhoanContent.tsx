@@ -47,7 +47,7 @@ export function TaiKhoanContent() {
             <button
               type="button"
               onClick={openAuth}
-              className="hh-cta-primary mt-4 px-6 py-3 text-sm"
+              className="hh-cta-transactional mt-4 px-6 py-3 text-sm"
             >
               Đăng nhập / Đăng ký
             </button>

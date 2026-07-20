@@ -84,7 +84,7 @@ export function ProductBuyBox({ product }: { product: HHProduct }) {
         <button
           type="button"
           onClick={() => addToCart(product.slug, quantity)}
-          className="hh-cta-primary h-12 flex-1 text-sm"
+          className="hh-cta-transactional h-12 flex-1 text-sm"
         >
           {price !== null ? (
             <>

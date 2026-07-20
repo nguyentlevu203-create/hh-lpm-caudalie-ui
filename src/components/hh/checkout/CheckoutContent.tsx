@@ -90,7 +90,7 @@ export function CheckoutContent() {
             <Link href="/tai-khoan" className="rounded-md border border-hh-primary px-6 py-3 text-sm font-medium text-hh-primary">
               Xem lịch sử đơn hàng
             </Link>
-            <Link href="/san-pham" className="hh-cta-primary px-6 py-3 text-sm">
+            <Link href="/san-pham" className="hh-cta-editorial px-6 py-3 text-sm">
               Tiếp tục mua sắm
             </Link>
           </div>
@@ -111,7 +111,7 @@ export function CheckoutContent() {
         {items.length === 0 ? (
           <div className="mt-8 text-center">
             <p className="text-base text-hh-muted-foreground">Giỏ hàng của bạn đang trống.</p>
-            <Link href="/san-pham" className="hh-cta-primary mt-4 px-6 py-3 text-sm">
+            <Link href="/san-pham" className="hh-cta-editorial mt-4 px-6 py-3 text-sm">
               Tiếp tục mua sắm
             </Link>
           </div>
@@ -189,7 +189,7 @@ export function CheckoutContent() {
                 </div>
               </div>
 
-              <button type="submit" className="hh-cta-primary mt-4 h-12 w-full text-sm">
+              <button type="submit" className="hh-cta-transactional mt-4 h-12 w-full text-sm">
                 Đặt hàng
               </button>
               <p className="text-center text-xs text-hh-muted-foreground">

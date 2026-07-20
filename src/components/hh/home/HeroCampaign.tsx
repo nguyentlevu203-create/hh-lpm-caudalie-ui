@@ -16,6 +16,10 @@ interface Slide {
   heading: string;
   body: string;
   cta: { label: string; href: string };
+  /** Slide 1 "Mua ngay" is a real purchase entry point (transactional);
+   * slide 2 "Tư vấn ngay" opens the scent-advisor quiz, a discovery/content
+   * flow with no purchase (editorial) — V4 CTA hierarchy, Phase 5. */
+  ctaVariant: "transactional" | "editorial";
   colorFrom: string;
   colorTo: string;
   image: string | null;
@@ -31,8 +35,9 @@ const SLIDES: Slide[] = [
     heading: HERO_CAMPAIGN.heading,
     body: HERO_CAMPAIGN.body,
     cta: HERO_CAMPAIGN.primaryCta,
-    colorFrom: "#1e4b4f",
-    colorTo: "#153a3d",
+    ctaVariant: "transactional",
+    colorFrom: "#1c4548",
+    colorTo: "#13363a",
     image: heroBrandImage,
   },
   {
@@ -41,8 +46,9 @@ const SLIDES: Slide[] = [
     heading: HERO_SECONDARY_SLIDE.heading,
     body: HERO_SECONDARY_SLIDE.body,
     cta: HERO_SECONDARY_SLIDE.cta,
-    colorFrom: "#a77b43",
-    colorTo: "#8a6535",
+    ctaVariant: "editorial",
+    colorFrom: "#9e7c52",
+    colorTo: "#7d6140",
     image: heroIngredientImage,
   },
 ];
@@ -65,7 +71,7 @@ function SlideBackground({ slide }: { slide: Slide }) {
           src={slide.image as string}
           alt=""
           fill
-          sizes="100vw"
+          sizes="(min-width: 1024px) 50vw, 100vw"
           className="object-cover opacity-80"
           onError={() => setImageFailed(true)}
           priority
@@ -95,7 +101,10 @@ function SlidePanel({ slide }: { slide: Slide }) {
         <p className="max-w-sm text-sm text-white/85 sm:text-base">{slide.body}</p>
         <Link
           href={slide.cta.href}
-          className="hh-cta-primary mt-2 px-8 py-3 text-sm"
+          className={cn(
+            "mt-2 px-8 py-3 text-sm",
+            slide.ctaVariant === "transactional" ? "hh-cta-transactional" : "hh-cta-editorial"
+          )}
         >
           {slide.cta.label}
         </Link>

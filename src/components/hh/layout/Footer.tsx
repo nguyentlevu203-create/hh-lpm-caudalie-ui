@@ -116,7 +116,7 @@ export function Footer() {
               placeholder={NEWSLETTER.placeholder}
               className="w-full min-w-0 rounded-md border border-hh-border bg-hh-surface px-3 py-2 text-sm text-hh-ink outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hh-primary"
             />
-            <button type="submit" className="hh-cta-primary px-6 py-2 text-sm">
+            <button type="submit" className="hh-cta-editorial px-6 py-2 text-sm">
               {NEWSLETTER.cta}
             </button>
           </form>

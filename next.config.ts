@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
   // requests (HMR, RSC) by default, which breaks client-side hydration
   // for any device accessing via the machine's LAN IP instead of
   // localhost. Update this IP if it changes (e.g. switching networks).
-  allowedDevOrigins: ["192.168.1.35"],
+  allowedDevOrigins: ["192.168.1.23"],
 };
 
 export default nextConfig;

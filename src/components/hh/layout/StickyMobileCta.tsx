@@ -31,7 +31,7 @@ export function StickyMobileCta() {
       >
         {STICKY_MOBILE_CTA.secondaryLabel}
       </Link>
-      <button type="button" onClick={openCart} className="hh-cta-primary h-12 flex-1 text-sm">
+      <button type="button" onClick={openCart} className="hh-cta-transactional h-12 flex-1 text-sm">
         {STICKY_MOBILE_CTA.label}
       </button>
     </div>

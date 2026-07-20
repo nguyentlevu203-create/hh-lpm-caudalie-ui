@@ -77,7 +77,7 @@ export function RegisterForm({ email, onEmailChange, onSwitchToSignIn, onRegiste
         <button
           type="button"
           onClick={onSuccess}
-          className="hh-cta-primary mt-2 h-11 px-6 text-sm"
+          className="hh-cta-editorial mt-2 h-11 px-6 text-sm"
         >
           Bắt đầu mua sắm
         </button>
@@ -110,7 +110,7 @@ export function RegisterForm({ email, onEmailChange, onSwitchToSignIn, onRegiste
       </label>
       {errors.agree && <p className="text-xs text-red-500">{errors.agree}</p>}
 
-      <button type="submit" className="hh-cta-primary h-11 w-full text-sm">
+      <button type="submit" className="hh-cta-transactional h-11 w-full text-sm">
         Tạo tài khoản
       </button>
 

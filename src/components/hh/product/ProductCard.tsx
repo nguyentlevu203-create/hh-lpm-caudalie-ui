@@ -105,12 +105,15 @@ export function ProductCard({ product }: { product: HHProduct }) {
         <button
           type="button"
           onClick={() => addToCart(product.slug)}
-          className="hh-cta-primary mt-3 w-full px-[15px] py-3 text-base"
+          className="hh-cta-transactional mt-3 w-full px-[15px] py-3 text-base"
         >
           Thêm vào giỏ
         </button>
       ) : (
-        <Link href={`/san-pham/${product.slug}`} className="hh-cta-primary mt-3 w-full px-[15px] py-3 text-base">
+        <Link
+          href={`/san-pham/${product.slug}`}
+          className="hh-cta-editorial mt-3 w-full px-[15px] py-3 text-base"
+        >
           Xem sản phẩm
         </Link>
       )}

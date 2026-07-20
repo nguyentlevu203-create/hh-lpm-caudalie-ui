@@ -104,7 +104,7 @@ export function CartDrawer() {
             <Link
               href="/san-pham"
               onClick={close}
-              className="hh-cta-primary mt-6 w-full px-6 py-3 text-base"
+              className="hh-cta-editorial mt-6 w-full px-6 py-3 text-base"
             >
               Tiếp tục mua sắm
             </Link>
@@ -231,7 +231,7 @@ export function CartDrawer() {
               <Link
                 href="/thanh-toan"
                 onClick={close}
-                className="hh-cta-primary w-full px-6 py-4 text-base"
+                className="hh-cta-transactional w-full px-6 py-4 text-base"
               >
                 Đến trang thanh toán | {formatVnd(subtotal)}
               </Link>
