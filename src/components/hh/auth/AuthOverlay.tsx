@@ -46,7 +46,7 @@ export function AuthOverlay() {
           type="button"
           onClick={close}
           aria-label="Đóng"
-          className="absolute right-4 top-4 text-hh-muted-foreground"
+          className="absolute right-4 top-4 flex size-8 items-center justify-center text-hh-muted-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hh-primary"
         >
           <X className="size-5" />
         </button>

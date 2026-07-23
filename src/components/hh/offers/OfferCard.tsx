@@ -13,17 +13,18 @@ import type { HHOffer } from "@/data/site-content";
  * beneath the card). Uses `ProductPlaceholderArt` in place of the
  * reference's real campaign photography, since no real HH campaign
  * photography exists yet. */
-/** `cta` is a free-text label from data (not a typed variant), so the
- * transactional/editorial split is inferred from the label itself — offers
- * whose CTA reads as a purchase action ("Mua ngay"/"Đặt hàng") get the
- * transactional teal treatment, discovery/signup-framed labels ("Tìm hiểu
- * thêm"/"Đăng ký") get editorial champagne. V4 CTA hierarchy, Phase 5. */
+/** P2.4: every offer now sets an explicit `ctaVariant` — the
+ * transactional/editorial split is a semantic field on the data, not
+ * inferred from the CTA label text. This fallback set only covers offers
+ * that omit `ctaVariant` (backward compatibility for any caller outside
+ * this file's own `OFFERS` array), matching the same "Mua ngay"/"Đặt hàng"
+ * labels used before this field existed (V4 CTA hierarchy, Phase 5). */
 const TRANSACTIONAL_OFFER_CTA_LABELS = new Set(["Mua ngay", "Đặt hàng"]);
 
 export function OfferCard({ offer }: { offer: HHOffer }) {
   const [termsOpen, setTermsOpen] = useState(false);
-  const { heading, body, code, cta, colorFrom, colorTo, shape, hasGiftBadge, terms } = offer;
-  const isTransactional = TRANSACTIONAL_OFFER_CTA_LABELS.has(cta);
+  const { heading, body, code, cta, ctaVariant, colorFrom, colorTo, shape, hasGiftBadge, terms } = offer;
+  const isTransactional = ctaVariant ? ctaVariant === "transactional" : TRANSACTIONAL_OFFER_CTA_LABELS.has(cta);
 
   return (
     <div>

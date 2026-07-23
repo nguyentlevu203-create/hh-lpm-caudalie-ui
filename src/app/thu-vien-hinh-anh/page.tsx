@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { HH_BASE_METADATA } from "@/data/site-content";
+import { ALWAYS_NOINDEX_ROBOTS } from "@/lib/seo";
 import { HHShell } from "@/components/hh/HHShell";
 import { PromoBar } from "@/components/hh/layout/PromoBar";
 import { Header } from "@/components/hh/layout/Header";
@@ -10,10 +11,13 @@ import { MediaLibraryFilterBar } from "@/components/hh/media/MediaLibraryFilterB
 import { MediaRecordCard } from "@/components/hh/media/MediaRecordCard";
 import { HH_MEDIA_LIBRARY } from "@/data/media-library";
 
+// P2.9: internal data-library/QA route, stays noindex regardless of
+// NEXT_PUBLIC_SITE_ENV — not meant for public search results.
 export const metadata: Metadata = {
   ...HH_BASE_METADATA,
   title: "Thư viện hình ảnh",
   description: "Metadata của toàn bộ 1.161 ảnh nhập từ website hãng Le Petit Marseillais.",
+  robots: ALWAYS_NOINDEX_ROBOTS,
 };
 
 const PAGE_SIZE = 60;

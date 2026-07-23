@@ -37,6 +37,7 @@ export function Header() {
   const pathname = usePathname();
   const [megaOpenId, setMegaOpenId] = useState<"san-pham" | "thuong-hieu" | null>(null);
   const navRef = useRef<HTMLDivElement>(null);
+  const megaTriggerRefs = useRef<Partial<Record<"san-pham" | "thuong-hieu", HTMLButtonElement>>>({});
   const cartCount = cartLines.reduce((n, line) => n + line.quantity, 0);
 
   useEffect(() => {
@@ -47,8 +48,15 @@ export function Header() {
         setMegaOpenId(null);
       }
     }
+    // P1.4 — Escape restores focus to whichever mega-menu trigger opened
+    // the panel (keyboard users lose their place otherwise); a plain
+    // outside-click doesn't force focus, since the user already moved
+    // their attention elsewhere on purpose.
     function onKeyDown(event: KeyboardEvent) {
-      if (event.key === "Escape") setMegaOpenId(null);
+      if (event.key === "Escape" && megaOpenId) {
+        megaTriggerRefs.current[megaOpenId]?.focus();
+        setMegaOpenId(null);
+      }
     }
 
     document.addEventListener("pointerdown", onPointerDown);
@@ -125,6 +133,9 @@ export function Header() {
                 <button
                   key={item.id}
                   type="button"
+                  ref={(el) => {
+                    if (el) megaTriggerRefs.current[item.id] = el;
+                  }}
                   onMouseEnter={() => setMegaOpenId(item.id)}
                   onClick={() => setMegaOpenId(item.id)}
                   className={cn(

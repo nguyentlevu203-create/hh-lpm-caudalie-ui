@@ -40,18 +40,21 @@ function FooterLinkColumn({
   onAuthClick: () => void;
 }) {
   const [open, setOpen] = useState(false);
+  const panelId = `footer-panel-${heading.toLowerCase().replace(/[^a-z0-9]+/gi, "-")}`;
 
   return (
     <div className="border-b border-hh-border py-4 md:border-0 md:py-0">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        aria-controls={panelId}
         className="flex w-full items-center justify-between text-left md:pointer-events-none"
       >
         <span className="text-sm font-semibold text-hh-ink">{heading}</span>
         <ChevronDown className={cn("size-4 text-hh-ink transition-transform md:hidden", open && "rotate-180")} />
       </button>
-      <ul className={cn("mt-3 space-y-2", open ? "block" : "hidden", "md:block")}>
+      <ul id={panelId} className={cn("mt-3 space-y-2", open ? "block" : "hidden", "md:block")}>
         {links.map((link) => (
           <li key={link.label}>
             {"action" in link && link.action ? (
@@ -79,12 +82,19 @@ function FooterLinkColumn({
 }
 
 /** Footer pattern cloned from the shared Caudalie Footer (src/components/Footer.tsx):
- * a row of link-group columns plus a highlighted newsletter/social column,
- * then a bottom legal-links bar with a country/region selector — rebuilt
- * with HH copy/links. No Caudalie assets: social entries use plain lucide
- * icons, not brand logo images. "Đăng nhập"/"Đăng ký thành viên" open the
+ * a newsletter panel, a row of link-group columns, then a bottom
+ * legal-links bar with a country/region selector — rebuilt with HH
+ * copy/links. No Caudalie assets: social entries use plain lucide icons,
+ * not brand logo images. "Đăng nhập"/"Đăng ký thành viên" open the
  * AuthOverlay instead of navigating, since auth here is an overlay, not a
- * dedicated route. */
+ * dedicated route.
+ *
+ * Phase 8A P0.4 — restructured from a single 5-column grid (brand info +
+ * 3 link groups + newsletter squeezed in as the 5th column) into 3
+ * sections matching reference's shape: newsletter panel (own surface/
+ * border, own full-width row — not a card, not a new gradient, reuses
+ * `--hh-surface-soft`) → main nav grid (now exactly 4 columns: brand info
+ * + the 3 existing `FOOTER_LINKS` groups) → legal row (unchanged). */
 export function Footer() {
   const { openAuth } = useSiteUI();
   const [regionOpen, setRegionOpen] = useState(false);
@@ -92,7 +102,56 @@ export function Footer() {
 
   return (
     <footer className="mt-16 border-t border-hh-border bg-hh-surface">
-      <div className="mx-auto grid w-full max-w-[1280px] gap-8 px-4 py-12 sm:grid-cols-2 md:px-8 lg:grid-cols-5">
+      <div className="border-b border-hh-border bg-hh-surface-soft">
+        <div className="mx-auto w-full max-w-[1280px] px-4 py-10 md:px-8">
+          <div className="mx-auto max-w-xl text-center">
+            <h3 className="hh-heading-card text-hh-ink">{NEWSLETTER.heading}</h3>
+            <form className="mt-4 flex flex-col gap-2 sm:flex-row sm:items-end">
+              <div className="flex-1 text-left">
+                <label htmlFor="footer-newsletter-email" className="mb-1 block text-xs font-medium text-hh-muted-foreground">
+                  Email
+                </label>
+                <input
+                  id="footer-newsletter-email"
+                  type="email"
+                  placeholder={NEWSLETTER.placeholder}
+                  className="w-full min-w-0 rounded-md border border-hh-border bg-hh-surface px-3 py-2 text-sm text-hh-ink outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hh-primary"
+                />
+              </div>
+              <button type="submit" className="hh-cta-editorial px-6 py-2 text-sm sm:h-[42px]">
+                {NEWSLETTER.cta}
+              </button>
+            </form>
+            <div className="mt-6 flex justify-center gap-3">
+              {SOCIAL_LINKS.map((social) => {
+                const Icon = SOCIAL_ICONS[social.label] ?? Globe;
+                const isLive = social.href !== "#";
+                return isLive ? (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    aria-label={social.label}
+                    className="flex size-9 items-center justify-center rounded-full bg-hh-surface text-hh-primary"
+                  >
+                    <Icon className="size-4" strokeWidth={1.75} />
+                  </a>
+                ) : (
+                  <span
+                    key={social.label}
+                    aria-label={`${social.label} — đang cập nhật`}
+                    className="flex size-9 cursor-default items-center justify-center rounded-full bg-hh-surface text-hh-primary/40"
+                  >
+                    <Icon className="size-4" strokeWidth={1.75} />
+                  </span>
+                );
+              })}
+            </div>
+            <p className="mt-4 text-xs text-hh-muted-foreground">{NEWSLETTER.disclaimer}</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="mx-auto grid w-full max-w-[1280px] gap-8 px-4 py-12 sm:grid-cols-2 md:px-8 lg:grid-cols-4">
         <div>
           <span className="flex size-9 items-center justify-center rounded-full bg-hh-primary text-sm font-bold text-white">
             HH
@@ -107,45 +166,6 @@ export function Footer() {
         {Object.entries(FOOTER_LINKS).map(([heading, links]) => (
           <FooterLinkColumn key={heading} heading={heading} links={links} onAuthClick={openAuth} />
         ))}
-
-        <div className="bg-hh-surface-blue p-6 sm:col-span-2 lg:col-span-1">
-          <h3 className="text-base font-semibold text-hh-ink">{NEWSLETTER.heading}</h3>
-          <form className="mt-4 flex flex-col gap-2">
-            <input
-              type="email"
-              placeholder={NEWSLETTER.placeholder}
-              className="w-full min-w-0 rounded-md border border-hh-border bg-hh-surface px-3 py-2 text-sm text-hh-ink outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hh-primary"
-            />
-            <button type="submit" className="hh-cta-editorial px-6 py-2 text-sm">
-              {NEWSLETTER.cta}
-            </button>
-          </form>
-          <div className="mt-6 flex gap-3">
-            {SOCIAL_LINKS.map((social) => {
-              const Icon = SOCIAL_ICONS[social.label] ?? Globe;
-              const isLive = social.href !== "#";
-              return isLive ? (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  aria-label={social.label}
-                  className="flex size-9 items-center justify-center rounded-full bg-hh-surface text-hh-primary"
-                >
-                  <Icon className="size-4" strokeWidth={1.75} />
-                </a>
-              ) : (
-                <span
-                  key={social.label}
-                  aria-label={`${social.label} — đang cập nhật`}
-                  className="flex size-9 cursor-default items-center justify-center rounded-full bg-hh-surface text-hh-primary/40"
-                >
-                  <Icon className="size-4" strokeWidth={1.75} />
-                </span>
-              );
-            })}
-          </div>
-          <p className="mt-4 text-xs text-hh-muted-foreground">{NEWSLETTER.disclaimer}</p>
-        </div>
       </div>
 
       <div className="flex flex-wrap items-center gap-6 border-t border-hh-border px-4 py-6 text-sm md:px-8">

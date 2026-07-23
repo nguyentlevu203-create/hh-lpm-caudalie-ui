@@ -77,7 +77,7 @@ export function CartDrawer() {
             type="button"
             onClick={close}
             aria-label="Đóng giỏ hàng"
-            className="absolute left-4 flex h-8 w-8 items-center justify-center text-hh-ink"
+            className="absolute left-4 flex h-8 w-8 items-center justify-center text-hh-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hh-primary"
           >
             <ChevronLeft className="size-6" />
           </button>

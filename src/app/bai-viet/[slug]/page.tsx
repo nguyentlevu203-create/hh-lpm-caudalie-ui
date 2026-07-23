@@ -9,53 +9,12 @@ import { Footer } from "@/components/hh/layout/Footer";
 import { ProductBreadcrumb } from "@/components/hh/product/ProductBreadcrumb";
 import { ProductPlaceholderArt } from "@/components/hh/ProductPlaceholderArt";
 import { ContentCardCarousel } from "@/components/hh/content/ContentCardCarousel";
+import { ContentBody } from "@/components/hh/content/ContentBody";
 import { getCardsForRoute } from "@/data/cards";
 import { HH_ARTICLES, getArticleBySlug } from "@/data/articles";
 
 interface Props {
   params: Promise<{ slug: string }>;
-}
-
-/**
- * `mainContent` is stored as a single string with real `\n` line breaks,
- * most lines prefixed "• " (see `src/data/content/articles-derived.json`).
- * Rendering it as one `whitespace-pre-line` blob (the old behaviour) drew
- * "•" as plain text inside a paragraph rather than a real list — reads as
- * unedited scraped copy. This groups consecutive "• "-prefixed lines into a
- * real `<ul><li>`, and renders anything else as a normal paragraph. Pure
- * render-time parsing — the underlying data string is untouched.
- */
-function ArticleBody({ text }: { text: string }) {
-  const lines = text.split("\n").filter((line) => line.trim().length > 0);
-  const blocks: { type: "list" | "p"; lines: string[] }[] = [];
-
-  for (const line of lines) {
-    const isBullet = line.trimStart().startsWith("• ");
-    const content = isBullet ? line.trimStart().slice(2) : line;
-    const last = blocks[blocks.length - 1];
-    const type = isBullet ? "list" : "p";
-    if (last && last.type === type) {
-      last.lines.push(content);
-    } else {
-      blocks.push({ type, lines: [content] });
-    }
-  }
-
-  return (
-    <div className="mt-8 space-y-4 hh-body text-hh-ink">
-      {blocks.map((block, i) =>
-        block.type === "list" ? (
-          <ul key={i} className="list-disc space-y-2 pl-5">
-            {block.lines.map((line, j) => (
-              <li key={j}>{line}</li>
-            ))}
-          </ul>
-        ) : (
-          block.lines.map((line, j) => <p key={`${i}-${j}`}>{line}</p>)
-        )
-      )}
-    </div>
-  );
 }
 
 export function generateStaticParams() {
@@ -96,7 +55,7 @@ export default async function BaiVietDetailPage({ params }: Props) {
           <h1 className="mt-2 hh-heading-page text-hh-ink">{art.title}</h1>
           {art.intro && <p className="mt-3 hh-body-lg text-hh-muted-foreground">{art.intro}</p>}
 
-          {art.mainContent && <ArticleBody text={art.mainContent} />}
+          {art.mainContent && <ContentBody text={art.mainContent} className="mt-8 space-y-4 hh-body text-hh-ink" />}
         </div>
 
         <ContentCardCarousel cards={getCardsForRoute(`/bai-viet/${slug}`)} heading="Nội dung liên quan" />

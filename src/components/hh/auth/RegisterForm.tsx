@@ -21,19 +21,30 @@ interface FieldProps {
 }
 
 function Field({ label, value, onChange, error, type = "text" }: FieldProps) {
+  const id = `register-${label.toLowerCase().replace(/[^a-zđ]+/gi, "-")}`;
+  const errorId = `${id}-error`;
   return (
     <div>
-      <label className="text-sm text-hh-ink">{label}</label>
+      <label htmlFor={id} className="text-sm text-hh-ink">
+        {label}
+      </label>
       <input
+        id={id}
         type={type}
         value={value}
         onChange={(e) => onChange(e.target.value)}
+        aria-invalid={Boolean(error)}
+        aria-describedby={error ? errorId : undefined}
         className={cn(
           "mt-1 w-full border-b bg-transparent py-2 text-sm text-hh-ink outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hh-primary",
           error ? "border-red-500" : "border-hh-border"
         )}
       />
-      {error && <p className="mt-1 text-xs text-red-500">{error}</p>}
+      {error && (
+        <p id={errorId} className="mt-1 text-xs text-red-500">
+          {error}
+        </p>
+      )}
     </div>
   );
 }

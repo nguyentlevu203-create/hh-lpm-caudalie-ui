@@ -59,7 +59,10 @@ export function ProductCard({ product }: { product: HHProduct }) {
           <Heart className={cn("h-4 w-4 text-hh-primary", wishlisted && "fill-hh-primary")} strokeWidth={1.5} />
         </button>
 
-        <Link href={`/san-pham/${product.slug}`} className="relative block h-full w-full">
+        <Link
+          href={`/san-pham/${product.slug}`}
+          className="relative block h-full w-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hh-primary"
+        >
           {product.image ? (
             <Image
               src={product.image}
@@ -79,14 +82,24 @@ export function ProductCard({ product }: { product: HHProduct }) {
         </Link>
       </div>
 
-      <Link href={`/san-pham/${product.slug}`} className="mt-3 block">
-        <p className="line-clamp-2 text-base font-normal text-hh-ink">{product.name}</p>
+      <Link
+        href={`/san-pham/${product.slug}`}
+        className="mt-3 block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hh-primary"
+      >
+        {/* min-h reserves 2 full lines regardless of actual title length —
+         * P1.1: keeps card height consistent across a row instead of
+         * shorter titles (which line-clamp-2 doesn't pad) making that
+         * card noticeably shorter than its neighbors. */}
+        <p className="line-clamp-2 min-h-10 text-base font-normal text-hh-ink">{product.name}</p>
         <p className="text-sm text-hh-muted-foreground">{product.volume}</p>
       </Link>
 
-      <p className="mt-1 text-sm text-hh-muted-foreground">Chưa có đánh giá</p>
-
-      <div className="mt-1 flex items-center gap-2">
+      {/* No rating line here — P1.1: don't show a rating placeholder
+       * ("Chưa có đánh giá") on every grid card when no product has real
+       * review data; that disclosure already lives on the PDP itself
+       * (ProductReviews), where it's actionable ("hãy là người đầu tiên"),
+       * not just repeated clutter across dozens of cards. */}
+      <div className="mt-2 flex items-center gap-2">
         {price !== null ? (
           <>
             <span className="text-base font-semibold text-hh-ink">{formatVnd(price)}</span>

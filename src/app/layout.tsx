@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { DEFAULT_ROBOTS } from "@/lib/seo";
 import "./globals.css";
 
 const caudalieRegular = localFont({
@@ -38,18 +39,15 @@ export const metadata: Metadata = {
     apple: "/seo/apple-touch-icon.png",
     other: [{ rel: "mask-icon", url: "/seo/safari-pinned-tab.svg" }],
   },
-  // Staging-wide noindex: this is an internal demo build (HH/LPM UI +
-  // /reference), not a production site — no route should be crawled or
-  // cached by search engines. Set once here, at the root layout, since
-  // Next.js metadata.robots on a page/layout fully REPLACES (not merges
-  // with) an ancestor's robots object; no page in this app currently sets
-  // its own `robots`, so this one root-level value governs every route,
-  // including /reference/*, without needing to touch each page individually.
-  robots: {
-    index: false,
-    follow: false,
-    nocache: true,
-  },
+  // P2.9: was a hardcoded staging-wide noindex; now reads `DEFAULT_ROBOTS`
+  // from `@/lib/seo`, which stays noindex unless `NEXT_PUBLIC_SITE_ENV`
+  // is explicitly set to "production" (not done in this branch — see
+  // HH_LPM_CAUDALIE_PARITY_P2_REPORT.md §P2.9). Next.js metadata.robots on a
+  // page/layout fully REPLACES (not merges with) an ancestor's robots
+  // object — /reference/*, /tai-khoan, /thanh-toan, /thu-vien-hinh-anh, and
+  // /thu-vien-noi-dung each set their own `ALWAYS_NOINDEX_ROBOTS` so they
+  // stay noindex even if this root value ever opens up.
+  robots: DEFAULT_ROBOTS,
 };
 
 export default function RootLayout({
@@ -59,7 +57,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="vi"
       className={`${caudalieRegular.variable} ${caudalieLight.variable} ${caudalieBold.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>

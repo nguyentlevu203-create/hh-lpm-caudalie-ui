@@ -130,6 +130,14 @@ export interface HHOffer {
   body: string;
   code?: string;
   cta: string;
+  /** P2.4: explicit transactional/editorial intent for this offer's CTA —
+   * "transactional" for a direct purchase action, "editorial" for a
+   * discovery/signup action with no immediate purchase. Optional so
+   * `OfferCard` can fall back to its previous text-based inference for any
+   * offer that omits it (backward compatible), but every offer below sets
+   * it explicitly so the design decision no longer depends on matching the
+   * `cta` label string. */
+  ctaVariant?: "transactional" | "editorial";
   /** Fine-print paragraphs shown under a "Điều kiện áp dụng" accordion toggle. Omitted on cards with no terms, matching the reference's mixed pattern. */
   terms?: string[];
   /** Small gift-box badge overlaid top-right of the image — reference's per-card flag, not a systemic treatment. */
@@ -145,6 +153,7 @@ export const OFFERS: HHOffer[] = [
     heading: "Nhân đôi điểm thành viên",
     body: "Nhân đôi điểm tích lũy Câu Lạc Bộ Hoàng Hà cho mọi đơn hàng từ nay đến hết 31/07.",
     cta: "Mua ngay",
+    ctaVariant: "transactional",
     terms: [
       "*Áp dụng cho đơn hàng đặt từ 01/07 đến 31/07/2026 (không áp dụng cho phiếu quà tặng):",
       "1) Trên hoangha.example.vn cho mọi đơn đặt hàng trực tuyến. Điểm thưởng được cộng vào tài khoản trong vòng 48 giờ kể từ khi đơn hàng được bàn giao cho đơn vị vận chuyển.",
@@ -160,6 +169,7 @@ export const OFFERS: HHOffer[] = [
     body: "Tặng ngay 1 xà phòng bánh 100g khi mua 2 sản phẩm bất kỳ trong dòng xà phòng bánh Le Petit Marseillais*.",
     code: "XAPHONG21",
     cta: "Mua ngay",
+    ctaVariant: "transactional",
     terms: [
       "*Quà tặng: 1 xà phòng bánh 100g khi mua 2 sản phẩm bất kỳ trong dòng xà phòng bánh Le Petit Marseillais. Áp dụng trên hoangha.example.vn (nhập mã tại bước thanh toán) và tại hệ thống cửa hàng Hoàng Hà. Không áp dụng đồng thời với chương trình khuyến mãi khác. Số lượng có hạn.",
     ],
@@ -173,6 +183,7 @@ export const OFFERS: HHOffer[] = [
     body: "Nhận ngay 1 chai dưỡng thể 200ml khi đơn hàng đạt từ 499.000₫*.",
     code: "HHQUATANG49",
     cta: "Mua ngay",
+    ctaVariant: "transactional",
     hasGiftBadge: true,
     terms: [
       "*Quà tặng: 1 dưỡng thể chiết xuất hạnh nhân 200ml. Áp dụng khi đơn hàng đạt từ 499.000₫ trên hoangha.example.vn (nhập mã tại bước thanh toán) và tại các điểm bán tham gia chương trình. Không áp dụng đồng thời với chương trình khuyến mãi khác. Số lượng có hạn đến hết 31/08/2026.",
@@ -186,6 +197,7 @@ export const OFFERS: HHOffer[] = [
     heading: "Miễn phí vận chuyển toàn quốc",
     body: "Áp dụng cho đơn hàng từ 399.000₫, giao hàng toàn quốc trong 2-5 ngày.",
     cta: "Đặt hàng",
+    ctaVariant: "transactional",
     colorFrom: "#d9c39b",
     colorTo: "#b8935c",
     shape: "bottle",
@@ -195,6 +207,7 @@ export const OFFERS: HHOffer[] = [
     heading: "Ưu đãi Câu Lạc Bộ Hoàng Hà",
     body: "Đăng ký đơn hàng\nTích điểm mỗi lần mua\nChọn quà yêu thích!\n100 điểm = 1 sản phẩm full-size miễn phí",
     cta: "Tìm hiểu thêm",
+    ctaVariant: "editorial",
     colorFrom: "#204a37",
     colorTo: "#123023",
     shape: "bottle",
@@ -204,6 +217,7 @@ export const OFFERS: HHOffer[] = [
     heading: "Ưu đãi chào mừng thành viên mới",
     body: "Giảm 10% cho đơn hàng đầu tiên khi đăng ký nhận email từ Hoàng Hà!*\n\nLà người đầu tiên biết đến ưu đãi độc quyền, sản phẩm mới và nhiều điều thú vị khác.",
     cta: "Đăng ký",
+    ctaVariant: "editorial",
     terms: [
       "*Giảm 10% cho đơn hàng trực tuyến đầu tiên khi đăng ký nhận email từ Hoàng Hà. Mã giảm giá được gửi qua email sau khi đăng ký, áp dụng tại bước thanh toán trên hoangha.example.vn. Chỉ áp dụng 1 mã cho mỗi đơn hàng, không áp dụng cho phiếu quà tặng và sản phẩm đã giảm giá.",
     ],
@@ -597,11 +611,16 @@ export const BRAND_VALUES = [
   },
 ];
 
-/** Structural analog of the reference InstagramFeed.tsx — static
- * placeholder tiles only, no real social embed/API. */
+/** P2.1: originally a structural analog of the reference InstagramFeed.tsx
+ * (static placeholder tiles, no real social embed/API, disabled "đang cập
+ * nhật" CTA). Repointed at the site's real article library instead — the
+ * tiles already used real `HH_ARTICLES` photography, so this now reads as
+ * an honest "featured articles" rail with a working CTA rather than a fake
+ * social-feed placeholder with an inert button. */
 export const SOCIAL_PROOF = {
-  heading: "Cộng đồng Hoàng Hà",
-  cta: "Theo dõi cộng đồng",
+  heading: "Bài viết nổi bật từ Hoàng Hà",
+  cta: "Xem tất cả bài viết",
+  ctaHref: "/bai-viet",
 };
 
 /** Structural analog of the reference SeoTextBlock.tsx. */

@@ -317,11 +317,21 @@
     text-wrap: balance;
   }
 
+  /* Page H1 scale — Phase 8A P0.1 (Caudalie parity pass). Was
+     clamp(2.7rem,4vw,4.3rem) — measured 57.6px/weight 500 at 1440px vs
+     reference's 36px/weight 400 at the same viewport (60% larger). Not a
+     mechanical copy of reference's 36px — a deliberately tempered scale
+     that keeps this token's own identity (weight 500, display serif)
+     while pulling the size down toward reference's restraint. Does NOT
+     touch `.hh-heading-hero` (hero stays full-size, unaffected by this
+     pass) and keeps letter-spacing unset — negative letter-spacing on
+     Cormorant Garamond previously dropped the dấu nặng on "ạ" (see V3
+     report §4.2), so this pass never re-introduces it. */
   .hh-heading-page {
     font-family: var(--hh-font-display);
     font-weight: 500;
-    font-size: clamp(2.7rem, 4vw, 4.3rem);
-    line-height: 1.06;
+    font-size: clamp(2rem, 2.8vw, 2.625rem);
+    line-height: 1.1;
     text-wrap: balance;
   }
 
@@ -512,5 +522,22 @@
     box-shadow: none;
     transform: none;
     cursor: not-allowed;
+  }
+}
+
+/* P1.8 — global prefers-reduced-motion. Every micro-interaction added
+   across this site (card hover-lift, CTA hover-lift, drawer/overlay
+   slide, chevron rotate, image scale) is a `transition`/`transform`, never
+   a `@keyframes` animation loop — so a single blanket rule collapsing all
+   transition/animation durations to near-zero for motion-sensitive users
+   is enough; no per-component opt-out logic needed. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

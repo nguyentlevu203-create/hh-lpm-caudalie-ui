@@ -57,7 +57,7 @@ const SLIDES: Slide[] = [
  * catalogue) with a gradient + dark-overlay wash for text legibility, and
  * an `onError` fallback to the plain gradient placeholder if the local file
  * ever fails to load — no Caudalie imagery, no unrelated filler photo. */
-function SlideBackground({ slide }: { slide: Slide }) {
+function SlideBackground({ slide, priority }: { slide: Slide; priority: boolean }) {
   const [imageFailed, setImageFailed] = useState(false);
   const showImage = slide.image && !imageFailed;
 
@@ -74,7 +74,7 @@ function SlideBackground({ slide }: { slide: Slide }) {
           sizes="(min-width: 1024px) 50vw, 100vw"
           className="object-cover opacity-80"
           onError={() => setImageFailed(true)}
-          priority
+          priority={priority}
         />
       )}
       {!showImage && (
@@ -89,16 +89,34 @@ function SlideBackground({ slide }: { slide: Slide }) {
   );
 }
 
-function SlidePanel({ slide }: { slide: Slide }) {
+function SlidePanel({
+  slide,
+  headingAs: Heading = "h2",
+  priority = true,
+}: {
+  slide: Slide;
+  headingAs?: "h1" | "h2";
+  /** P2.8: defaults true (desktop tree — both slides sit side-by-side and
+      visible on load, so both are real LCP candidates). The mobile/tablet
+      carousel tree passes this explicitly per-slide: only the slide visible
+      at mount needs eager loading — inactive carousel slides were
+      previously preloaded with the same priority even though hidden
+      (`opacity-0`/`pointer-events-none`) until the user manually navigates. */
+  priority?: boolean;
+}) {
   return (
     <div className="relative h-full w-full overflow-hidden">
-      <SlideBackground slide={slide} />
+      <SlideBackground slide={slide} priority={priority} />
       <div className="relative z-10 flex h-full flex-col items-start justify-end gap-3 p-8 text-white sm:p-10 lg:p-12">
         <p className="text-sm font-medium uppercase tracking-widest text-white/80">{slide.eyebrow}</p>
-        <h2 className="hh-display max-w-md text-balance text-3xl font-medium leading-[1.05] sm:text-4xl lg:text-[2.75rem]">
+        <Heading className="hh-display max-w-md text-balance text-3xl font-medium leading-[1.05] sm:text-4xl lg:text-[2.75rem]">
           {slide.heading}
-        </h2>
-        <p className="max-w-sm text-sm text-white/85 sm:text-base">{slide.body}</p>
+        </Heading>
+        {/* P2.2: widened from max-w-sm — slide 1's longer body copy was
+            wrapping to 4 lines at max-w-sm, past the ~2-3 line desktop
+            target; max-w-md keeps both slides' copy unchanged but fits
+            slide 1 in 3 lines. */}
+        <p className="max-w-md text-sm text-white/85 sm:text-base">{slide.body}</p>
         <Link
           href={slide.cta.href}
           className={cn(
@@ -117,8 +135,39 @@ function SlidePanel({ slide }: { slide: Slide }) {
  * (src/components/HeroBanner.tsx): two full-bleed campaign slides shown
  * side-by-side on desktop, and a single-slide carousel with dot indicators
  * on mobile/tablet — rebuilt with HH color gradients (no Caudalie
- * photography) and LPM-Vietnam campaign copy. */
-export function HeroCampaign() {
+ * photography) and LPM-Vietnam campaign copy.
+ *
+ * `isPageHeading` (default `false`) controls whether slide 1's heading
+ * renders as the page's `<h1>` — only the homepage should pass `true`.
+ * Threading this through an explicit prop (rather than checking the route
+ * via `usePathname`) keeps the component safe to reuse elsewhere later
+ * without silently producing a duplicate H1 — any future caller that
+ * doesn't pass `isPageHeading` gets the safe H2-only default.
+ *
+ * IMPORTANT: the component renders TWO parallel DOM trees for the same
+ * slide data — a desktop tree (`hidden lg:flex`, both slides side by side,
+ * visible ≥1024px) and a mobile/tablet tree (`flex lg:hidden`, one slide at
+ * a time via opacity + `aria-hidden`, visible <1024px) — CSS `hidden` only
+ * toggles visibility, it does NOT remove the element from the DOM. Marking
+ * slide 1's heading `<h1>` in BOTH trees would put two real `<h1>` elements
+ * in the document at once regardless of which is visible at the current
+ * viewport. To keep exactly one `<h1>` in the DOM at all times, only the
+ * MOBILE/TABLET tree's slide-1 heading ever becomes `<h1>`; the desktop
+ * tree's slide-1 heading always stays `<h2>`, even when `isPageHeading` is
+ * true. Chose the mobile/tablet tree as the canonical h1 (over the desktop
+ * tree) because it's the one visible across the wider practical viewport
+ * range (<1024px covers phones, tablets, and any unmaximized/narrower
+ * laptop window — not just phones) and matches Google's mobile-first
+ * indexing default plus this project's stated "mobile-first" convention
+ * (AGENTS.md). Trade-off this accepts: on desktop viewports (≥1024px) the
+ * visually-primary hero heading is marked `<h2>` (visual style unchanged —
+ * only the tag differs), while an identical-text `<h1>` sits inert
+ * (`display:none`) in the mobile/tablet tree. This was chosen over a
+ * client-side matchMedia approach (adds hydration-mismatch risk) and over
+ * restructuring the two trees into one shared render (a real layout
+ * change, out of scope for the "semantic H1 only" constraint of this
+ * pass). */
+export function HeroCampaign({ isPageHeading = false }: { isPageHeading?: boolean }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
@@ -128,7 +177,10 @@ export function HeroCampaign() {
         <div className="hidden w-full flex-1 gap-4 lg:flex">
           {SLIDES.map((slide) => (
             <div key={slide.id} className="min-h-[70vh] flex-1 overflow-hidden">
-              <SlidePanel slide={slide} />
+              {/* Always h2 here — see the "IMPORTANT" note above the
+                  component: the mobile/tablet tree below owns the single
+                  real h1 for this slide. */}
+              <SlidePanel slide={slide} headingAs="h2" />
             </div>
           ))}
         </div>
@@ -145,7 +197,11 @@ export function HeroCampaign() {
                 )}
                 aria-hidden={index !== activeIndex}
               >
-                <SlidePanel slide={slide} />
+                <SlidePanel
+                  slide={slide}
+                  headingAs={isPageHeading && index === 0 ? "h1" : "h2"}
+                  priority={index === activeIndex}
+                />
               </div>
             ))}
           </div>
