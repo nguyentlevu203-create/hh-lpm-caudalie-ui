@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, ChevronLeft, Gift, User } from "lucide-react";
+import { ChevronDown, ChevronLeft, Gift, MapPin, User } from "lucide-react";
 import { useSiteUI } from "@/components/hh/SiteUIContext";
 import { HH_CATEGORIES } from "@/data/products";
 import { BRAND_NAME, NAV_ITEMS, BRAND_MEGA_MENU_LINKS, BRAND_LIBRARY_LINK, isNavPathActive } from "@/data/site-content";
@@ -134,6 +134,10 @@ export function MobileDrawer() {
             <Gift className="size-5" />
             <span className="text-sm">Câu Lạc Bộ Hoàng Hà</span>
           </Link>
+          <div className="flex cursor-not-allowed items-center gap-3 px-4 py-4 opacity-60" title="Đang cập nhật">
+            <MapPin className="size-5" />
+            <span className="text-sm">Tìm cửa hàng — đang cập nhật</span>
+          </div>
         </div>
       </div>
     </>
