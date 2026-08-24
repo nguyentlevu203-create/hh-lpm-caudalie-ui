@@ -420,4 +420,87 @@ Không dùng bất kỳ asset/logo/font/copy/màu hex độc quyền nào từ C
 
 ---
 
+---
+
+## P3 — Hero full-bleed redesign + Final Hero QA
+
+**Ngày:** 2026-08-24. Yêu cầu người dùng: Hero đầu trang phải là 1 banner full-bleed dài, sát 2 mép viewport, giống bản live `en.caudalie.com`, thay vì layout 2 cột song song trước đó.
+
+### Thay đổi
+
+`src/components/hh/home/HeroCampaign.tsx` viết lại hoàn toàn:
+
+- Bỏ cấu trúc **2 cây DOM song song** (desktop side-by-side `hidden lg:flex` + mobile/tablet carousel `flex lg:hidden`) — nguồn gốc rủi ro duplicate-H1 đã phải xử lý bằng logic riêng ở bản cũ.
+- Thay bằng **1 cây DOM duy nhất**: mỗi slide là 1 `<div className="absolute inset-0">` chồng lên nhau, chuyển đổi bằng `opacity` + `aria-hidden`, chạy giống nhau ở mọi breakpoint.
+- Section không còn bọc trong container `max-w-[1440px] px-4 md:px-8` — giờ `w-full` thật sự, ảnh chạm 2 mép viewport (`heroRect.left === 0`, `heroRect.right === docClientWidth` xác nhận bằng JS ở mọi breakpoint đã đo).
+- Thêm autoplay `setInterval` 6s (`useEffect` deps `[]`, functional `setActiveIndex`, cleanup `clearInterval` khi unmount) + dot điều hướng thủ công ở góc dưới-phải (giống vị trí dot của Caudalie).
+- Chỉ slide đầu (`index === 0`) nhận `priority=true`; slide còn lại dùng `loading="lazy"` mặc định của `next/image` — không ép preload cả 2 ảnh.
+
+### Lệnh đã chạy
+
+```
+npm run lint        → pass, 0 lỗi
+npm run typecheck    → pass, 0 lỗi
+npm run check        → pass (lint + typecheck + build, 362 trang)
+git diff --check     → sạch, không whitespace error
+```
+
+### Breakpoint thực đo (window.innerWidth)
+
+Môi trường automation phiên này gán kích thước cửa sổ theo 1 tập preset cố định bất kể giá trị `resize_window` yêu cầu — **cùng hiện tượng đã ghi nhận ở P2.0** ("resize không ổn định... một số resize không áp dụng"). Đã xác nhận bằng cách tạo tab mới cho mỗi lần đo và đọc `window.innerWidth` thật qua JS, không suy đoán:
+
+| Yêu cầu | Thực đo | Tầng Tailwind tương ứng |
+|---|---|---|
+| 1440px | **1920px** (không ép được đúng 1440, nhưng component chỉ dùng `sm:`/`lg:`, không có `xl:`/`2xl:` — 1920 và 1440 render y hệt nhau ở mọi class trong file) | `lg:` |
+| 1280px | **1280px** (khớp chính xác) | `lg:` |
+| 1024px | không đạt được (không có preset nào ở đúng 1024) | — |
+| 834px | **834px** (khớp chính xác) | `sm:` (640–1023) |
+| 500px | **500px** (khớp chính xác) | base (<640) |
+| 390px | không đạt được | — |
+
+3/6 mốc khớp chính xác tuyệt đối (1280, 834, 500); mốc 1440 được suy ra an toàn từ 1920 vì component không có breakpoint nào giữa 1024 và vô cực; 1024 và 390 không đo được trực tiếp nhưng 1280 (≥1024) và 500 (<640) đã phủ đủ 3 tầng CSS thực sự tồn tại trong file (base / `sm:` / `lg:`).
+
+### Kết quả checklist
+
+| Mục | Kết quả |
+|---|---|
+| Đúng 1 H1 trên trang chủ | ✅ Pass ở cả 4 width đo được (`document.querySelectorAll('h1').length === 1`) |
+| Hero full-bleed sát viewport, không horizontal overflow | ✅ Pass — `heroRect.left=0`, `right=clientWidth` và `scrollWidth − clientWidth = 0` ở cả 4 width |
+| Text ≤ 3 dòng desktop | ✅ Pass — 3 dòng (H1) / 2 dòng (H2) ở 1920 & 1280; giảm còn 2/1 dòng ở 834 & 500 |
+| Mobile CTA nằm trong vùng nhìn đầu trang | ✅ Pass — CTA `bottom` (446–532px) luôn nhỏ hơn `innerHeight` (813–874px) ở 834/500, không cần cuộn |
+| Dot navigation click được | ✅ Pass — click đổi `aria-current` và nội dung slide ngay lập tức |
+| Auto-slide 6s hoạt động | ✅ Pass — quan sát `aria-current` tự chuyển banner 1→2 qua nhiều screenshot cách nhau ngoài chủ ý |
+| Không double timer / không double-clear | ✅ Pass by construction — `useEffect` deps `[]`, `setActiveIndex` dạng functional update, dot click không đụng tới interval |
+| Interval cleanup khi unmount | ✅ Pass — `return () => clearInterval(id)` |
+| `prefers-reduced-motion` được tôn trọng | ✅ Pass (gián tiếp) — rule toàn cục có sẵn ở `globals.css:534` (`@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 0.01ms !important; ... } }`) đã override `transition-opacity duration-700` của Hero về gần-tức-thời; không tắt autoplay nhưng thỏa điều kiện "hoặc" (bỏ fade mạnh) |
+| Ảnh không flash trắng khi chuyển | ✅ Pass — crossfade qua gradient nền + `opacity`, không quan sát flash |
+| Ảnh không méo | ✅ Pass — `object-fit: cover` ở cả 2 ảnh, không distort |
+| `object-position` hợp lý mobile | ✅ Pass — mặc định `50% 50%`, chủ thể (đá xà phòng, hoa cam) vẫn rõ trong khung ở 834/500 |
+| Không preload cả 2 ảnh không cần thiết | ✅ Pass — chỉ ảnh slide 1 không có `loading` attr (eager, do `priority`), ảnh slide 2 có `loading="lazy"` |
+| Không CLS rõ rệt | ✅ Pass — section có `h-[440px] sm:h-[500px] lg:h-[600px]` cố định, ảnh không đổi kích thước layout khi tải |
+| Không console error (app) | ⚠️ **Có 1 cảnh báo hydration mismatch ở cả 4 tab, nhưng đã xác nhận không phải lỗi app** — xem "Ghi chú kỹ thuật" bên dưới |
+| Dot dùng button thật | ✅ Pass — `<button type="button">` |
+| aria-label kiểu "Xem slide N" | ✅ Pass (định dạng khác chữ nhưng đúng ý nghĩa) — thực tế là `Xem banner {n}: {heading}`, mô tả rõ hơn bản mẫu "Xem slide 1" |
+| aria-current / trạng thái active accessible | ✅ Pass — `aria-current={index === activeIndex}` |
+| Keyboard Tab tới dot được | ✅ Pass — xác nhận bằng Tab thật (không phải `.focus()` JS), `document.activeElement.matches(':focus-visible') === true` sau khi Tab |
+| Focus-visible rõ | ✅ Pass — `outlineStyle: "auto"` (viền mặc định trình duyệt) xuất hiện đúng lúc `:focus-visible` khớp; không bị site override `outline: none` (khác CTA `.hh-cta-*` vốn có ring riêng) |
+| Ảnh decorative `alt=""` | ✅ Pass — cả 2 ảnh nền Hero đều `alt=""` (trang trí, có lớp text riêng biệt truyền tải nội dung) |
+| Ảnh mang thông tin `alt` đúng nội dung | N/A — không có ảnh mang thông tin trong Hero (chỉ ảnh nền trang trí) |
+
+### Ghi chú kỹ thuật: cảnh báo hydration mismatch
+
+Cả 4 tab đều log đúng 1 lỗi console giống hệt nhau: React hydration-mismatch do các thuộc tính lạ `bis_skin_checked`, `bis_register`, `__processed_<uuid-khác-nhau-mỗi-tab>__` bị chèn vào **toàn bộ** cây DOM (Header, Footer, ProductCard, mọi section — không riêng Hero) trước khi React hydrate. Đây là dấu hiệu đặc trưng của một tiện ích mở rộng trình duyệt (nhóm Bitdefender TrafficLight/Anti-tracker dùng tiền tố `bis_`) sửa DOM trước khi React kịp hydrate — UUID khác nhau mỗi tab xác nhận nguồn gốc runtime/extension, không phải SSR/CSR mismatch từ code. Không phải regression của Hero, không actionable từ phía app.
+
+### Cập nhật điểm Hero (bảng điểm P2 → P3)
+
+| # | Hạng mục | Sau P2 | Sau P3 | Thay đổi |
+|---|---|---|---|---|
+| 3 | Hero | 7 | **8** | +1 — đạt mục tiêu ≥8: full-bleed thật sự sát viewport (đúng yêu cầu ban đầu, khớp bố cục Caudalie live), carousel hoạt động đồng nhất mọi breakpoint thay vì chỉ mobile, kiến trúc DOM đơn giản hơn (hết rủi ro duplicate-H1 by design thay vì phải né bằng quy tắc riêng), a11y dot đầy đủ (button thật, aria-label, aria-current, focus-visible xác nhận bằng keyboard thật). Giới hạn còn lại giữ nguyên từ trước: ảnh nền vẫn là ảnh thương hiệu/nguyên liệu có sẵn, không phải ảnh hero chuyên biệt — không phải phạm vi P3. |
+
+### Không commit riêng cho P3
+
+Thay đổi Hero (`HeroCampaign.tsx`) nằm trong cùng working tree đang có các thay đổi liên quan khác thuộc phiên trước đó chưa commit — theo đúng yêu cầu, không tách commit riêng ở bước này.
+
+---
+
 ## Không commit. Không push. Dừng lại để review.
