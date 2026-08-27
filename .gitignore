@@ -50,3 +50,7 @@ temp/
 
 # Local source workbooks - do not commit
 data-source/*.xlsx
+
+# Staging area for product image downloads - never a production asset path,
+# see docs/production/HH_LPM_PRODUCT_IMAGE_DOWNLOAD_MAPPING_REPORT.md
+public/images/products/_incoming/
