@@ -6,7 +6,6 @@ import { Header } from "@/components/hh/layout/Header";
 import { Footer } from "@/components/hh/layout/Footer";
 import { HeroCampaign } from "@/components/hh/home/HeroCampaign";
 import { BestSellers } from "@/components/hh/home/BestSellers";
-import { ExperienceCards } from "@/components/hh/home/ExperienceCards";
 import { FeaturedCollection } from "@/components/hh/home/FeaturedCollection";
 import { AdvisorBanner } from "@/components/hh/home/AdvisorBanner";
 import { BrandValues } from "@/components/hh/home/BrandValues";
@@ -23,17 +22,31 @@ export const metadata: Metadata = HH_BASE_METADATA;
  * path (still recoverable via git history) — the Caudalie UI reference
  * itself is unaffected and lives on at `/reference/*`.
  *
- * Section order matches the shared Caudalie homepage clone's own order
- * (src/app/page.tsx at commit 44b21bd — Header, HeroBanner, YourSelection,
+ * Section order (Phase 8C / P2 homepage IA pass — see
+ * HH_LPM_CAUDALIE_PARITY_P2_REPORT.md §P2.1): commerce (Hero → BestSellers →
+ * FeaturedCollection) → trust (PermanentBenefits) → brand values → discovery
+ * (AdvisorBanner) → editorial (SocialFeed, real article tiles) → brand story
+ * close (FullBleedBrandStory) → SEO copy. Chosen over the shared Caudalie
+ * clone's original section order (Header, HeroBanner, YourSelection,
  * ExperienceCards, DiscoverCults, SkinAnalysisBanner, BrandValues,
- * BeautyFromVine, InstagramFeed, SeoTextBlock, PermanentBenefits, Footer).
- * CategoryShowcase.tsx and ComboOffers.tsx have no structural analog in
- * that reference order and are intentionally not rendered here (see
- * HH_LPM_UI_ALIGNMENT_PASS_2_REPORT.md) — the files are kept, unused, for
- * potential reuse on /san-pham or /uu-dai. Same for BrandStoryTeaser.tsx
- * (superseded on the homepage by FullBleedBrandStory.tsx, the reference's
- * own full-bleed treatment) and MembershipSection.tsx (the loyalty CTA
- * lives on via the footer/header entry points instead of a homepage band).
+ * BeautyFromVine, InstagramFeed, SeoTextBlock, PermanentBenefits) because
+ * that order put two deep-teal full-bleed bands back-to-back
+ * (SkinAnalysisBanner/AdvisorBanner directly followed by BeautyFromVine/
+ * FullBleedBrandStory) with only a thin icon-grid between them — this order
+ * alternates light/dark bands so no two full-bleed dark sections are
+ * adjacent, and every homepage CTA now points at a distinct destination
+ * (previously "Tư vấn chọn mùi" and "/cau-chuyen-thuong-hieu" each had 2-3
+ * separate homepage entry points repeating the same pitch).
+ *
+ * ExperienceCards.tsx is intentionally not rendered here — audited during
+ * P2.1: 4 of its 5 tiles (advisor, loyalty, welcome offer, shipping)
+ * duplicate messaging already covered by HeroCampaign's second slide,
+ * AdvisorBanner, and PermanentBenefits, using placeholder-gradient art with
+ * no real photography. Kept unused, same precedent as CategoryShowcase.tsx/
+ * ComboOffers.tsx (see HH_LPM_UI_ALIGNMENT_PASS_2_REPORT.md) — no data
+ * deleted, just not rendered on this page. BrandStoryTeaser.tsx remains
+ * superseded by FullBleedBrandStory.tsx; MembershipSection.tsx's loyalty CTA
+ * still lives via the footer/header entry points, not a homepage band.
  */
 export default function HHHomePage() {
   return (
@@ -41,16 +54,15 @@ export default function HHHomePage() {
       <PromoBar />
       <Header />
       <main className="flex flex-1 flex-col">
-        <HeroCampaign />
+        <HeroCampaign isPageHeading />
         <BestSellers />
-        <ExperienceCards />
         <FeaturedCollection />
-        <AdvisorBanner />
-        <BrandValues />
-        <FullBleedBrandStory />
-        <SocialFeed />
-        <SeoTextBlock />
         <PermanentBenefits />
+        <BrandValues />
+        <AdvisorBanner />
+        <SocialFeed />
+        <FullBleedBrandStory />
+        <SeoTextBlock />
       </main>
       <Footer />
     </HHShell>

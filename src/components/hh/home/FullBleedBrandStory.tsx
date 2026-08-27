@@ -24,7 +24,7 @@ export function FullBleedBrandStory() {
     <section className="relative flex min-h-[400px] w-full items-center justify-center overflow-hidden md:min-h-[500px]">
       <div
         className="absolute inset-0"
-        style={{ background: "linear-gradient(160deg, #204a37, #2f6b4f 55%, #7c6a3f)" }}
+        style={{ background: "linear-gradient(160deg, #244a57, #193a45 55%, #5f8e91)" }}
       />
       {showImage && (
         <Image
@@ -36,13 +36,13 @@ export function FullBleedBrandStory() {
           onError={() => setImageFailed(true)}
         />
       )}
-      <div className="absolute inset-0 bg-black/35" />
+      <div className="absolute inset-0 bg-hh-primary-dark/40" />
       <div className="relative z-10 mx-auto max-w-[600px] px-4 text-center">
-        <h2 className="text-4xl font-light text-white">{BRAND_STORY.heading}</h2>
+        <h2 className="hh-heading-section text-white">{BRAND_STORY.heading}</h2>
         <p className="mt-4 text-center text-base text-white">{BRAND_STORY.intro}</p>
         <Link
           href="/cau-chuyen-thuong-hieu"
-          className="mt-6 inline-block rounded-md bg-white px-6 py-3 text-hh-primary"
+          className="hh-cta-editorial mt-6 px-6 py-3"
         >
           Khám phá câu chuyện
         </Link>

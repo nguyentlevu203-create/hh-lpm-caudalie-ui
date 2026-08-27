@@ -9,6 +9,7 @@ import { Footer } from "@/components/hh/layout/Footer";
 import { ProductBreadcrumb } from "@/components/hh/product/ProductBreadcrumb";
 import { ProductPlaceholderArt } from "@/components/hh/ProductPlaceholderArt";
 import { ContentCardCarousel } from "@/components/hh/content/ContentCardCarousel";
+import { ContentBody } from "@/components/hh/content/ContentBody";
 import { getCardsForRoute } from "@/data/cards";
 import { HH_ARTICLES, getArticleBySlug } from "@/data/articles";
 
@@ -49,13 +50,13 @@ export default async function BaiVietDetailPage({ params }: Props) {
           )}
         </div>
 
-        {art.topic && <p className="mt-6 text-xs uppercase tracking-wide text-hh-primary">{art.topic}</p>}
-        <h1 className="mt-2 text-3xl font-normal text-hh-ink md:text-4xl">{art.title}</h1>
-        {art.intro && <p className="mt-3 text-base text-hh-muted-foreground">{art.intro}</p>}
+        <div className="mx-auto max-w-[65ch]">
+          {art.topic && <p className="mt-6 text-xs uppercase tracking-wide text-hh-primary">{art.topic}</p>}
+          <h1 className="mt-2 hh-heading-page text-hh-ink">{art.title}</h1>
+          {art.intro && <p className="mt-3 hh-body-lg text-hh-muted-foreground">{art.intro}</p>}
 
-        {art.mainContent && (
-          <div className="mt-8 whitespace-pre-line text-base text-hh-ink">{art.mainContent}</div>
-        )}
+          {art.mainContent && <ContentBody text={art.mainContent} className="mt-8 space-y-4 hh-body text-hh-ink" />}
+        </div>
 
         <ContentCardCarousel cards={getCardsForRoute(`/bai-viet/${slug}`)} heading="Nội dung liên quan" />
       </main>

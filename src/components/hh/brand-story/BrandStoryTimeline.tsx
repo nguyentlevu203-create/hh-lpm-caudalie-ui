@@ -6,7 +6,7 @@ import { BRAND_STORY } from "@/data/site-content";
 const MILESTONE_COLORS: [string, string][] = [
   ["#8fa06a", "#c7d3a8"],
   ["#7c6fb0", "#b8aede"],
-  ["#2f6b4f", "#a8c7b6"],
+  ["#244a57", "#a8c7b6"],
 ];
 
 /**

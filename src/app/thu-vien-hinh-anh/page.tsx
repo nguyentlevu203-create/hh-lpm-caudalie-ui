@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { HH_BASE_METADATA } from "@/data/site-content";
+import { ALWAYS_NOINDEX_ROBOTS } from "@/lib/seo";
 import { HHShell } from "@/components/hh/HHShell";
 import { PromoBar } from "@/components/hh/layout/PromoBar";
 import { Header } from "@/components/hh/layout/Header";
@@ -10,10 +11,13 @@ import { MediaLibraryFilterBar } from "@/components/hh/media/MediaLibraryFilterB
 import { MediaRecordCard } from "@/components/hh/media/MediaRecordCard";
 import { HH_MEDIA_LIBRARY } from "@/data/media-library";
 
+// P2.9: internal data-library/QA route, stays noindex regardless of
+// NEXT_PUBLIC_SITE_ENV — not meant for public search results.
 export const metadata: Metadata = {
   ...HH_BASE_METADATA,
   title: "Thư viện hình ảnh",
   description: "Metadata của toàn bộ 1.161 ảnh nhập từ website hãng Le Petit Marseillais.",
+  robots: ALWAYS_NOINDEX_ROBOTS,
 };
 
 const PAGE_SIZE = 60;
@@ -45,7 +49,7 @@ export default async function ThuVienHinhAnhPage({ searchParams }: Props) {
         <ProductBreadcrumb items={[{ label: "Trang chủ", href: "/" }, { label: "Thư viện hình ảnh" }]} />
 
         <div className="mt-6 text-center">
-          <h1 className="text-3xl font-normal text-hh-ink md:text-4xl">Thư viện hình ảnh</h1>
+          <h1 className="hh-heading-page text-hh-ink">Thư viện hình ảnh</h1>
           <p className="mx-auto mt-4 max-w-2xl text-base text-hh-muted-foreground">
             Metadata của toàn bộ {HH_MEDIA_LIBRARY.length} ảnh nhập từ thư viện ảnh hãng — {downloadedCount} ảnh đã
             được tải và host cục bộ (trùng URL với ảnh đang dùng thật trong sản phẩm/nguyên liệu/bài viết/nội dung

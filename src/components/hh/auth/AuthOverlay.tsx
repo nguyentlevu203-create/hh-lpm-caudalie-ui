@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { X } from "lucide-react";
 import { useSiteUI } from "@/components/hh/SiteUIContext";
 import { useAccount } from "@/components/hh/AccountContext";
 import { SignInForm } from "@/components/hh/auth/SignInForm";
 import { RegisterForm } from "@/components/hh/auth/RegisterForm";
 import { cn } from "@/lib/utils";
+import { useFocusTrap } from "@/lib/use-focus-trap";
 
 /** Centered modal that swaps between sign-in and register in place —
  * pattern cloned from /reference/login + /reference/register's shared
@@ -18,23 +19,26 @@ export function AuthOverlay() {
   const isOpen = active === "auth";
   const [view, setView] = useState<"sign-in" | "register">("sign-in");
   const [email, setEmail] = useState("");
+  const panelRef = useRef<HTMLDivElement>(null);
+  useFocusTrap(panelRef, isOpen);
 
   return (
     <>
       <div
         className={cn(
-          "fixed inset-0 z-40 bg-black/30 transition-opacity",
+          "fixed inset-0 z-40 bg-hh-primary/30 transition-opacity",
           isOpen ? "opacity-100" : "pointer-events-none opacity-0"
         )}
         onClick={close}
         aria-hidden="true"
       />
       <div
+        ref={panelRef}
         role="dialog"
         aria-label={view === "sign-in" ? "Đăng nhập" : "Đăng ký thành viên"}
         aria-hidden={!isOpen}
         className={cn(
-          "fixed inset-x-4 top-1/2 z-50 max-w-md -translate-y-1/2 rounded-2xl bg-white p-6 shadow-xl transition-all sm:inset-x-auto sm:left-1/2 sm:-translate-x-1/2 sm:p-8",
+          "hh-shadow-md fixed inset-x-4 top-1/2 z-50 max-w-md -translate-y-1/2 rounded-xl bg-hh-surface p-6 transition-all sm:inset-x-auto sm:left-1/2 sm:-translate-x-1/2 sm:p-8",
           isOpen ? "scale-100 opacity-100" : "pointer-events-none scale-95 opacity-0"
         )}
       >
@@ -42,7 +46,7 @@ export function AuthOverlay() {
           type="button"
           onClick={close}
           aria-label="Đóng"
-          className="absolute right-4 top-4 text-hh-muted-foreground"
+          className="absolute right-4 top-4 flex size-8 items-center justify-center text-hh-muted-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hh-primary"
         >
           <X className="size-5" />
         </button>

@@ -21,19 +21,30 @@ interface FieldProps {
 }
 
 function Field({ label, value, onChange, error, type = "text" }: FieldProps) {
+  const id = `register-${label.toLowerCase().replace(/[^a-zđ]+/gi, "-")}`;
+  const errorId = `${id}-error`;
   return (
     <div>
-      <label className="text-sm text-hh-ink">{label}</label>
+      <label htmlFor={id} className="text-sm text-hh-ink">
+        {label}
+      </label>
       <input
+        id={id}
         type={type}
         value={value}
         onChange={(e) => onChange(e.target.value)}
+        aria-invalid={Boolean(error)}
+        aria-describedby={error ? errorId : undefined}
         className={cn(
-          "mt-1 w-full border-b bg-transparent py-2 text-sm text-hh-ink outline-none",
+          "mt-1 w-full border-b bg-transparent py-2 text-sm text-hh-ink outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hh-primary",
           error ? "border-red-500" : "border-hh-border"
         )}
       />
-      {error && <p className="mt-1 text-xs text-red-500">{error}</p>}
+      {error && (
+        <p id={errorId} className="mt-1 text-xs text-red-500">
+          {error}
+        </p>
+      )}
     </div>
   );
 }
@@ -77,7 +88,7 @@ export function RegisterForm({ email, onEmailChange, onSwitchToSignIn, onRegiste
         <button
           type="button"
           onClick={onSuccess}
-          className="mt-2 h-11 rounded-md bg-hh-primary px-6 text-sm font-semibold text-white"
+          className="hh-cta-editorial mt-2 h-11 px-6 text-sm"
         >
           Bắt đầu mua sắm
         </button>
@@ -110,7 +121,7 @@ export function RegisterForm({ email, onEmailChange, onSwitchToSignIn, onRegiste
       </label>
       {errors.agree && <p className="text-xs text-red-500">{errors.agree}</p>}
 
-      <button type="submit" className="h-11 w-full rounded-md bg-hh-primary text-sm font-semibold text-white">
+      <button type="submit" className="hh-cta-transactional h-11 w-full text-sm">
         Tạo tài khoản
       </button>
 

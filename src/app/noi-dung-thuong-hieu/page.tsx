@@ -38,7 +38,7 @@ export default function NoiDungThuongHieuPage() {
         <ProductBreadcrumb items={[{ label: "Trang chủ", href: "/" }, { label: "Nội dung thương hiệu" }]} />
 
         <div className="mt-6 text-center">
-          <h1 className="text-3xl font-normal text-hh-ink md:text-4xl">Nội dung thương hiệu</h1>
+          <h1 className="hh-heading-page text-hh-ink">Nội dung thương hiệu</h1>
           <p className="mx-auto mt-4 max-w-2xl text-base text-hh-muted-foreground">
             {HH_CONTENT_PAGES.length} trang nội dung thương hiệu gốc từ Le Petit Marseillais, cộng thêm{" "}
             {HH_CONTENT_DUPLICATES.length} bản scrape trùng lặp đã được đối chiếu và gộp về đúng trang chính (xem

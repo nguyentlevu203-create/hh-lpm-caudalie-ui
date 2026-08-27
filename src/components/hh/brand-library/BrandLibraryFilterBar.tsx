@@ -32,14 +32,14 @@ export function BrandLibraryFilterBar({
           e.preventDefault();
           router.push(buildHref({ category: activeCategory, q }));
         }}
-        className="flex items-center gap-2 rounded-md bg-hh-muted px-4 py-2.5"
+        className="flex items-center gap-2 rounded-md bg-hh-surface-soft px-4 py-2.5"
       >
         <Search className="size-4 shrink-0 text-hh-muted-foreground" />
         <input
           value={q}
           onChange={(e) => setQ(e.target.value)}
           placeholder="Tìm trong danh mục tham khảo hãng..."
-          className="flex-1 bg-transparent text-sm text-hh-ink outline-none placeholder:text-hh-muted-foreground"
+          className="flex-1 bg-transparent text-sm text-hh-ink outline-none placeholder:text-hh-muted-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hh-primary"
         />
         <button type="submit" className="text-sm font-medium text-hh-primary">
           Tìm
@@ -51,7 +51,7 @@ export function BrandLibraryFilterBar({
           href={buildHref({ q: activeQuery })}
           className={cn(
             "rounded-full border px-3 py-1.5 text-sm transition-colors",
-            !activeCategory ? "border-hh-primary bg-hh-primary text-white" : "border-hh-border text-hh-ink"
+            !activeCategory ? "border-hh-primary bg-hh-primary-soft text-hh-primary" : "border-hh-border text-hh-ink"
           )}
         >
           Tất cả
@@ -62,7 +62,7 @@ export function BrandLibraryFilterBar({
             href={buildHref({ category: cat, q: activeQuery })}
             className={cn(
               "rounded-full border px-3 py-1.5 text-sm transition-colors",
-              activeCategory === cat ? "border-hh-primary bg-hh-primary text-white" : "border-hh-border text-hh-ink"
+              activeCategory === cat ? "border-hh-primary bg-hh-primary-soft text-hh-primary" : "border-hh-border text-hh-ink"
             )}
           >
             {cat}

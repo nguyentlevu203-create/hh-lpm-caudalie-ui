@@ -39,7 +39,7 @@ export function TaiKhoanContent() {
       <Header />
       <main className="mx-auto w-full max-w-[900px] flex-1 px-4 py-6 md:px-8">
         <ProductBreadcrumb items={[{ label: "Trang chủ", href: "/" }, { label: "Tài khoản" }]} />
-        <h1 className="mt-6 text-3xl font-normal text-hh-ink md:text-4xl">Tài khoản của tôi</h1>
+        <h1 className="mt-6 hh-heading-page text-hh-ink">Tài khoản của tôi</h1>
 
         {!user ? (
           <div className="mt-8 rounded-md border border-hh-border p-8 text-center">
@@ -47,7 +47,7 @@ export function TaiKhoanContent() {
             <button
               type="button"
               onClick={openAuth}
-              className="mt-4 rounded-md bg-hh-primary px-6 py-3 text-sm font-semibold text-white"
+              className="hh-cta-transactional mt-4 px-6 py-3 text-sm"
             >
               Đăng nhập / Đăng ký
             </button>
@@ -121,7 +121,7 @@ export function TaiKhoanContent() {
                         {product.image ? (
                           <Image src={product.image} alt={product.name} fill sizes="150px" className="object-contain p-3" />
                         ) : (
-                          <ProductPlaceholderArt colorFrom="#c7ab7a" colorTo="#e8d5ac" className="h-full w-full" />
+                          <ProductPlaceholderArt colorFrom="#d9bd87" colorTo="#f5e7c9" className="h-full w-full" />
                         )}
                       </div>
                       <p className="line-clamp-2 text-sm text-hh-ink">{product.name}</p>

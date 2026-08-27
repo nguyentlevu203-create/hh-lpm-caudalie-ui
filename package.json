@@ -1,35 +1,37 @@
 {
-  "name": "ai-website-clone-template",
-  "version": "0.3.1",
+  "name": "hh-lpm-website",
+  "version": "1.0.0",
   "private": true,
-  "description": "Clone any website into a clean, modern Next.js codebase using AI coding agents",
-  "author": "JCodesMore",
-  "license": "MIT",
+  "description": "Website Le Petit Marseillais Vietnam by Hoang Ha Distribution",
+  "author": "Hoang Ha Distribution",
+  "license": "UNLICENSED",
   "repository": {
     "type": "git",
-    "url": "https://github.com/JCodesMore/ai-website-cloner-template.git"
+    "url": "https://github.com/nguyentlevu203-create/hh-lpm-caudalie-ui.git"
   },
-  "homepage": "https://github.com/JCodesMore/ai-website-cloner-template",
+  "homepage": "https://github.com/nguyentlevu203-create/hh-lpm-caudalie-ui",
   "bugs": {
-    "url": "https://github.com/JCodesMore/ai-website-cloner-template/issues"
+    "url": "https://github.com/nguyentlevu203-create/hh-lpm-caudalie-ui/issues"
   },
   "keywords": [
-    "claude-code",
-    "website-clone",
-    "reverse-engineering",
+    "le-petit-marseillais",
+    "hoang-ha-distribution",
     "nextjs",
-    "ai",
-    "template",
-    "tailwindcss",
-    "shadcn-ui"
+    "ecommerce",
+    "vietnam",
+    "beauty",
+    "personal-care"
   ],
   "engines": {
     "node": ">=24"
   },
   "scripts": {
     "dev": "next dev",
+    "dev:lan": "next dev --hostname 0.0.0.0 --port 3000",
     "build": "next build",
-    "start": "next start",
+    "prepare:standalone": "node scripts/prepare-standalone.mjs",
+    "prestart": "npm run prepare:standalone",
+    "start": "node .next/standalone/server.js",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "check": "npm run lint && npm run typecheck && npm run build"

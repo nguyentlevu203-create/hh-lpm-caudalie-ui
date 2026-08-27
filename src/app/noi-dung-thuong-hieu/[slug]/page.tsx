@@ -9,6 +9,7 @@ import { Footer } from "@/components/hh/layout/Footer";
 import { ProductBreadcrumb } from "@/components/hh/product/ProductBreadcrumb";
 import { ProductPlaceholderArt } from "@/components/hh/ProductPlaceholderArt";
 import { ContentCardCarousel } from "@/components/hh/content/ContentCardCarousel";
+import { ContentBody } from "@/components/hh/content/ContentBody";
 import { getCardsForRoute } from "@/data/cards";
 import { HH_CONTENT_PAGES, getContentPageBySlug } from "@/data/content-library";
 
@@ -57,9 +58,11 @@ export default async function NoiDungThuongHieuDetailPage({ params }: Props) {
           )}
         </div>
 
-        <h1 className="mt-6 text-3xl font-normal text-hh-ink md:text-4xl">{page.h1 || page.pageName}</h1>
+        <h1 className="mt-6 hh-heading-page text-hh-ink">{page.h1 || page.pageName}</h1>
         {page.intro && <p className="mt-3 text-base text-hh-muted-foreground">{page.intro}</p>}
-        {page.sections && <div className="mt-8 whitespace-pre-line text-base text-hh-ink">{page.sections}</div>}
+        {page.sections && (
+          <ContentBody text={page.sections} className="mt-8 max-w-[65ch] space-y-4 text-base text-hh-ink" />
+        )}
 
         <ContentCardCarousel cards={getCardsForRoute(`/noi-dung-thuong-hieu/${slug}`)} heading="Nội dung liên quan" />
       </main>

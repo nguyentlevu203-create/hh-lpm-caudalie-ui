@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ChevronDown, SlidersHorizontal, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { HH_CATEGORIES, HH_PRODUCTS, type HHCategorySlug } from "@/data/products";
+import { useFocusTrap } from "@/lib/use-focus-trap";
 
 interface ProductFilterDrawerProps {
   activeCategory?: HHCategorySlug;
@@ -50,6 +51,25 @@ function buildFilterHref(
 export function ProductFilterDrawer({ activeCategory, activeScent, activeLine, activeVolume }: ProductFilterDrawerProps) {
   const [open, setOpen] = useState(false);
   const [expanded, setExpanded] = useState<string[]>(["Danh mục"]);
+  const panelRef = useRef<HTMLDivElement>(null);
+  useFocusTrap(panelRef, open);
+
+  // Escape-to-close + background-scroll lock — this drawer manages its own
+  // local `open` state instead of SiteUIContext's shared `active`, so it
+  // needs its own copy of the same behavior added there.
+  useEffect(() => {
+    if (!open) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    function onKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") setOpen(false);
+    }
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [open]);
 
   const hasActiveFilter = Boolean(activeCategory || activeScent || activeLine || activeVolume);
 
@@ -73,7 +93,7 @@ export function ProductFilterDrawer({ activeCategory, activeScent, activeLine, a
 
       <div
         className={cn(
-          "fixed inset-0 z-40 bg-black/30 transition-opacity",
+          "fixed inset-0 z-40 bg-hh-primary/30 transition-opacity",
           open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         )}
         onClick={() => setOpen(false)}
@@ -81,8 +101,9 @@ export function ProductFilterDrawer({ activeCategory, activeScent, activeLine, a
       />
 
       <div
+        ref={panelRef}
         className={cn(
-          "fixed inset-y-0 right-0 z-50 flex w-[88%] max-w-sm flex-col overflow-y-auto bg-white transition-transform duration-300",
+          "fixed inset-y-0 right-0 z-50 flex w-[88%] max-w-sm flex-col overflow-y-auto bg-hh-surface transition-transform duration-300",
           open ? "translate-x-0" : "translate-x-full"
         )}
         role="dialog"
@@ -126,7 +147,7 @@ export function ProductFilterDrawer({ activeCategory, activeScent, activeLine, a
                   className={cn(
                     "rounded-full border px-3 py-1.5 text-sm transition-colors",
                     !activeCategory
-                      ? "border-hh-primary bg-hh-primary text-white"
+                      ? "border-hh-primary bg-hh-primary-soft text-hh-primary"
                       : "border-hh-border text-hh-ink"
                   )}
                 >
@@ -140,7 +161,7 @@ export function ProductFilterDrawer({ activeCategory, activeScent, activeLine, a
                     className={cn(
                       "rounded-full border px-3 py-1.5 text-sm transition-colors",
                       activeCategory === cat.slug
-                        ? "border-hh-primary bg-hh-primary text-white"
+                        ? "border-hh-primary bg-hh-primary-soft text-hh-primary"
                         : "border-hh-border text-hh-ink"
                     )}
                   >
@@ -176,7 +197,7 @@ export function ProductFilterDrawer({ activeCategory, activeScent, activeLine, a
                     className={cn(
                       "rounded-full border px-3 py-1.5 text-sm transition-colors",
                       activeLine?.toLowerCase() === line.toLowerCase()
-                        ? "border-hh-primary bg-hh-primary text-white"
+                        ? "border-hh-primary bg-hh-primary-soft text-hh-primary"
                         : "border-hh-border text-hh-ink"
                     )}
                   >
@@ -212,7 +233,7 @@ export function ProductFilterDrawer({ activeCategory, activeScent, activeLine, a
                     className={cn(
                       "rounded-full border px-3 py-1.5 text-sm transition-colors",
                       activeVolume?.toLowerCase() === volume.toLowerCase()
-                        ? "border-hh-primary bg-hh-primary text-white"
+                        ? "border-hh-primary bg-hh-primary-soft text-hh-primary"
                         : "border-hh-border text-hh-ink"
                     )}
                   >
@@ -248,7 +269,7 @@ export function ProductFilterDrawer({ activeCategory, activeScent, activeLine, a
                     className={cn(
                       "rounded-full border px-3 py-1.5 text-sm transition-colors",
                       activeScent?.toLowerCase() === scent.toLowerCase()
-                        ? "border-hh-primary bg-hh-primary text-white"
+                        ? "border-hh-primary bg-hh-primary-soft text-hh-primary"
                         : "border-hh-border text-hh-ink"
                     )}
                   >

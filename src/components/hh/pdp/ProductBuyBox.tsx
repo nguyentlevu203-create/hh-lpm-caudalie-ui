@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Star, Gift } from "lucide-react";
+import { Gift } from "lucide-react";
 import { useSiteUI } from "@/components/hh/SiteUIContext";
 import { formatVnd } from "@/components/hh/product/ProductCard";
 import { getEffectivePrice, INQUIRY_PRICE_LABEL, PRICE_DISCLAIMER, type HHProduct } from "@/data/products";
@@ -11,13 +11,27 @@ import { getEffectivePrice, INQUIRY_PRICE_LABEL, PRICE_DISCLAIMER, type HHProduc
  * Câu Lạc Bộ Hoàng Hà section (see MEMBERSHIP.perks[0] in site-content.ts). */
 const VND_PER_LOYALTY_POINT = 10000;
 
-/** Buy box structure cloned 1:1 from /reference/pdp's ProductBuyBox: title +
- * subtitle, review-count link to the reviews anchor, price row + loyalty
- * pill, a selector-equivalent block (combo contents), the CTA button (price
- * shown inline, matching "Add to bag | €price"), then a delivery-estimate
- * bar and a gift/shipping banner last — same order as the reference.
- * Quantity stepper and cart wiring are real (production-specific — the
- * reference has no live cart to wire to). */
+/**
+ * Buy box — P1.3 hierarchy pass. Explicit 8-level order per the parity
+ * brief: (1) tên sản phẩm → (2) công dụng ngắn → (3) dung tích/trạng thái
+ * → (4) giá/liên hệ → (5) quantity → (6) CTA giao dịch → (7) trust/
+ * disclaimer → (8) technical info (lives in `ProductAccordions`, rendered
+ * after this component — already correctly last in the page, untouched).
+ *
+ * Real bug fixed here (not just reordering): the buy box used to render
+ * TWO CTAs that both called the identical `addToCart` handler — a solid
+ * "Mua ngay | {giá}" (or, for inquiry items, a misleadingly-labeled "Gửi
+ * yêu cầu mua hàng" that didn't actually send any request) plus an outline
+ * "Thêm vào giỏ" directly below doing the exact same thing. Collapsed to
+ * ONE CTA whose label always matches what it does ("Thêm vào giỏ"),
+ * removing a same-level duplicate control and the label/behavior mismatch
+ * in one pass — this was already flagged as a real defect in the original
+ * UX audit, not a new finding invented for P1.
+ *
+ * No data changed: `shortDescription` (level 2) already existed on
+ * `HHProduct`, just wasn't surfaced in the buy box before. No fabricated
+ * review/price/technical content added.
+ */
 export function ProductBuyBox({ product }: { product: HHProduct }) {
   const { addToCart } = useSiteUI();
   const [quantity, setQuantity] = useState(1);
@@ -26,23 +40,26 @@ export function ProductBuyBox({ product }: { product: HHProduct }) {
   const loyaltyPoints = price !== null ? Math.round((price * quantity) / VND_PER_LOYALTY_POINT) : 0;
 
   return (
-    <div className="flex flex-col gap-4">
-      <div>
-        <p className="text-2xl font-semibold text-hh-ink">{product.name}</p>
-        <p className="mt-1 text-sm text-hh-muted-foreground">
-          {product.volume} · Hương {product.scent}
-        </p>
-      </div>
+    <div className="flex flex-col gap-3">
+      {/* 1. Tên sản phẩm */}
+      <h1 className="text-2xl font-semibold text-hh-ink">{product.name}</h1>
 
-      <div className="flex items-center gap-2 text-sm text-hh-muted-foreground">
-        <Star className="size-4 fill-hh-accent text-hh-accent" />
-        <span>{product.rating}</span>
-        <Link href="#danh-gia" className="underline underline-offset-2">
-          ({product.reviewCount} đánh giá)
-        </Link>
-      </div>
+      {/* 2. Công dụng ngắn */}
+      {product.shortDescription && (
+        <p className="text-sm text-hh-muted-foreground">{product.shortDescription}</p>
+      )}
 
-      <div>
+      {/* 3. Dung tích / trạng thái */}
+      <p className="text-sm text-hh-ink">
+        {product.volume} · Hương {product.scent}
+      </p>
+
+      <Link href="#danh-gia" className="w-fit text-sm text-hh-muted-foreground underline underline-offset-2">
+        Chưa có đánh giá — hãy là người đầu tiên
+      </Link>
+
+      {/* 4. Giá / trạng thái liên hệ */}
+      <div className="mt-1">
         {price !== null ? (
           <>
             <div className="flex items-center gap-3">
@@ -53,7 +70,7 @@ export function ProductBuyBox({ product }: { product: HHProduct }) {
                 </span>
               )}
             </div>
-            <p className="mt-2 inline-block rounded-full bg-hh-accent/20 px-3 py-1 text-sm text-hh-ink">
+            <p className="mt-2 inline-block rounded-full bg-hh-accent-gold-soft px-3 py-1 text-sm text-hh-accent-foreground">
               Tích {loyaltyPoints} điểm thành viên
             </p>
             <p className="mt-2 text-xs text-hh-muted-foreground">{PRICE_DISCLAIMER}</p>
@@ -63,7 +80,8 @@ export function ProductBuyBox({ product }: { product: HHProduct }) {
         )}
       </div>
 
-      <div className="flex items-center gap-3">
+      {/* 5. Quantity + 6. CTA giao dịch — 1 CTA duy nhất, cùng cấp với quantity */}
+      <div className="mt-1 flex items-center gap-3">
         <div className="flex items-center gap-3 rounded-full border border-hh-border px-3 py-2">
           <button
             type="button"
@@ -86,27 +104,20 @@ export function ProductBuyBox({ product }: { product: HHProduct }) {
         <button
           type="button"
           onClick={() => addToCart(product.slug, quantity)}
-          className="h-12 flex-1 rounded-md bg-hh-primary text-sm font-semibold text-white"
+          className="hh-cta-transactional h-12 flex-1 text-sm"
         >
           {price !== null ? (
             <>
-              Mua ngay <span className="opacity-60">|</span> {formatVnd(price * quantity)}
+              Thêm vào giỏ <span className="opacity-60">|</span> {formatVnd(price * quantity)}
             </>
           ) : (
-            "Gửi yêu cầu mua hàng"
+            "Thêm vào giỏ"
           )}
         </button>
       </div>
 
-      <button
-        type="button"
-        onClick={() => addToCart(product.slug, quantity)}
-        className="h-11 w-full rounded-md border-2 border-hh-primary text-sm font-medium text-hh-primary"
-      >
-        Thêm vào giỏ
-      </button>
-
-      <div className="rounded-md border border-hh-border px-4 py-3 text-center text-base text-hh-ink">
+      {/* 7. Trust / disclaimer */}
+      <div className="mt-1 rounded-md border border-hh-border bg-hh-surface-soft px-4 py-3 text-center text-base text-hh-ink">
         Giao hàng dự kiến: 2-5 ngày làm việc
       </div>
 

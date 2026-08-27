@@ -10,7 +10,7 @@ import type { HHMediaRecord } from "@/data/media-library";
 export function MediaRecordCard({ record }: { record: HHMediaRecord }) {
   return (
     <div className="flex flex-col gap-2">
-      <div className="relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-sm bg-hh-muted">
+      <div className="relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-sm border border-hh-border bg-hh-cream">
         {record.localPath ? (
           <Image
             src={record.localPath}

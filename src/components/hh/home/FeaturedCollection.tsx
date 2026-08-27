@@ -65,17 +65,17 @@ export function FeaturedCollection() {
           <span className="text-sm text-hh-primary">{FEATURED_COLLECTION.eyebrow}</span>
         </div>
 
-        <p className="text-3xl font-semibold text-hh-ink md:text-4xl">{FEATURED_COLLECTION.heading}</p>
+        <p className="hh-heading-section text-hh-ink">{FEATURED_COLLECTION.heading}</p>
 
         <Link
           href={FEATURED_COLLECTION.cta.href}
-          className="w-fit rounded-md bg-hh-primary px-6 py-3 text-sm font-medium text-white"
+          className="hh-cta-transactional w-fit px-6 py-3 text-sm"
         >
           {FEATURED_COLLECTION.cta.label}
         </Link>
       </div>
 
-      <div className="flex w-full gap-4 overflow-x-auto bg-hh-muted px-6 py-16 md:w-1/2 md:px-16 md:py-24">
+      <div className="flex w-full gap-4 overflow-x-auto bg-hh-surface-blue px-6 py-16 md:w-1/2 md:px-16 md:py-24">
         {HH_CATEGORIES.map((cat, index) => {
           const product = getProductsByCategory(cat.slug).find((p) => p.image);
           return (

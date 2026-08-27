@@ -84,13 +84,13 @@ export function CheckoutContent() {
             liên hệ với bạn qua số {confirmedOrder.customerPhone} để xác nhận
             {confirmedOrder.hasInquiryItems ? " đơn hàng và báo giá các sản phẩm cần liên hệ" : " đơn hàng"}.
           </p>
-          <p className="mt-4 text-lg font-medium text-hh-ink">Tạm tính: {formatVnd(confirmedOrder.subtotal)}</p>
+          <p className="mt-4 text-lg font-semibold text-hh-ink">Tạm tính: {formatVnd(confirmedOrder.subtotal)}</p>
           <p className="mt-1 text-xs text-hh-muted-foreground">{PRICE_DISCLAIMER}</p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
-            <Link href="/tai-khoan" className="rounded-md border-2 border-hh-primary px-6 py-3 text-sm font-medium text-hh-primary">
+            <Link href="/tai-khoan" className="rounded-md border border-hh-primary px-6 py-3 text-sm font-medium text-hh-primary">
               Xem lịch sử đơn hàng
             </Link>
-            <Link href="/san-pham" className="rounded-md bg-hh-primary px-6 py-3 text-sm font-semibold text-white">
+            <Link href="/san-pham" className="hh-cta-editorial px-6 py-3 text-sm">
               Tiếp tục mua sắm
             </Link>
           </div>
@@ -106,12 +106,12 @@ export function CheckoutContent() {
       <Header />
       <main className="mx-auto w-full max-w-[1000px] flex-1 px-4 py-6 md:px-8">
         <ProductBreadcrumb items={[{ label: "Trang chủ", href: "/" }, { label: "Thanh toán" }]} />
-        <h1 className="mt-6 text-3xl font-normal text-hh-ink md:text-4xl">Thanh toán</h1>
+        <h1 className="mt-6 hh-heading-page text-hh-ink">Thanh toán</h1>
 
         {items.length === 0 ? (
           <div className="mt-8 text-center">
             <p className="text-base text-hh-muted-foreground">Giỏ hàng của bạn đang trống.</p>
-            <Link href="/san-pham" className="mt-4 inline-block rounded-md bg-hh-primary px-6 py-3 text-sm font-semibold text-white">
+            <Link href="/san-pham" className="hh-cta-editorial mt-4 px-6 py-3 text-sm">
               Tiếp tục mua sắm
             </Link>
           </div>
@@ -125,7 +125,7 @@ export function CheckoutContent() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   className={cn(
-                    "mt-1 w-full border-b bg-transparent py-2 text-sm text-hh-ink outline-none",
+                    "mt-1 w-full border-b bg-transparent py-2 text-sm text-hh-ink outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hh-primary",
                     errors.name ? "border-red-500" : "border-hh-border"
                   )}
                 />
@@ -137,7 +137,7 @@ export function CheckoutContent() {
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   className={cn(
-                    "mt-1 w-full border-b bg-transparent py-2 text-sm text-hh-ink outline-none",
+                    "mt-1 w-full border-b bg-transparent py-2 text-sm text-hh-ink outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hh-primary",
                     errors.phone ? "border-red-500" : "border-hh-border"
                   )}
                 />
@@ -149,7 +149,7 @@ export function CheckoutContent() {
                   value={address}
                   onChange={(e) => setAddress(e.target.value)}
                   className={cn(
-                    "mt-1 w-full border-b bg-transparent py-2 text-sm text-hh-ink outline-none",
+                    "mt-1 w-full border-b bg-transparent py-2 text-sm text-hh-ink outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hh-primary",
                     errors.address ? "border-red-500" : "border-hh-border"
                   )}
                 />
@@ -161,7 +161,7 @@ export function CheckoutContent() {
                   value={note}
                   onChange={(e) => setNote(e.target.value)}
                   rows={3}
-                  className="mt-1 w-full rounded-md border border-hh-border bg-transparent p-2 text-sm text-hh-ink outline-none"
+                  className="mt-1 w-full rounded-md border border-hh-border bg-transparent p-2 text-sm text-hh-ink outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hh-primary"
                 />
               </div>
 
@@ -189,7 +189,7 @@ export function CheckoutContent() {
                 </div>
               </div>
 
-              <button type="submit" className="mt-4 h-12 w-full rounded-md bg-hh-primary text-sm font-semibold text-white">
+              <button type="submit" className="hh-cta-transactional mt-4 h-12 w-full text-sm">
                 Đặt hàng
               </button>
               <p className="text-center text-xs text-hh-muted-foreground">
@@ -199,7 +199,7 @@ export function CheckoutContent() {
 
             <div>
               <h2 className="text-lg font-medium text-hh-ink">Đơn hàng của bạn</h2>
-              <div className="mt-4 divide-y divide-hh-border rounded-md border border-hh-border">
+              <div className="mt-4 divide-y divide-hh-border rounded-md border border-hh-border bg-hh-surface">
                 {items.map(({ product, quantity }) => {
                   const price = getEffectivePrice(product);
                   return (
@@ -219,7 +219,7 @@ export function CheckoutContent() {
                   );
                 })}
               </div>
-              <div className="mt-4 flex items-center justify-between text-lg font-medium text-hh-ink">
+              <div className="mt-4 flex items-center justify-between text-lg font-semibold text-hh-ink">
                 <span>Tạm tính</span>
                 <span>{formatVnd(subtotal)}</span>
               </div>

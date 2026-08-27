@@ -36,26 +36,40 @@ export function SignInForm({ email, onEmailChange, onSwitchToRegister, onSuccess
       <h2 className="text-center text-xl font-semibold text-hh-ink">Đăng nhập</h2>
 
       <div>
-        <label className="text-sm text-hh-ink">Email hoặc số điện thoại</label>
+        <label htmlFor="signin-email" className="text-sm text-hh-ink">
+          Email hoặc số điện thoại
+        </label>
         <input
+          id="signin-email"
           value={email}
           onChange={(e) => onEmailChange(e.target.value)}
+          aria-invalid={Boolean(errors.email)}
+          aria-describedby={errors.email ? "signin-email-error" : undefined}
           className={cn(
-            "mt-1 w-full border-b bg-transparent py-2 text-sm text-hh-ink outline-none",
+            "mt-1 w-full border-b bg-transparent py-2 text-sm text-hh-ink outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hh-primary",
             errors.email ? "border-red-500" : "border-hh-border"
           )}
         />
-        {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
+        {errors.email && (
+          <p id="signin-email-error" className="mt-1 text-xs text-red-500">
+            {errors.email}
+          </p>
+        )}
       </div>
 
       <div className="relative">
-        <label className="text-sm text-hh-ink">Mật khẩu</label>
+        <label htmlFor="signin-password" className="text-sm text-hh-ink">
+          Mật khẩu
+        </label>
         <input
+          id="signin-password"
           type={showPassword ? "text" : "password"}
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          aria-invalid={Boolean(errors.password)}
+          aria-describedby={errors.password ? "signin-password-error" : undefined}
           className={cn(
-            "mt-1 w-full border-b bg-transparent py-2 pr-8 text-sm text-hh-ink outline-none",
+            "mt-1 w-full border-b bg-transparent py-2 pr-8 text-sm text-hh-ink outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hh-primary",
             errors.password ? "border-red-500" : "border-hh-border"
           )}
         />
@@ -68,10 +82,14 @@ export function SignInForm({ email, onEmailChange, onSwitchToRegister, onSuccess
         >
           {showPassword ? <EyeOff className="size-4" /> : <Eye className="size-4" />}
         </button>
-        {errors.password && <p className="mt-1 text-xs text-red-500">{errors.password}</p>}
+        {errors.password && (
+          <p id="signin-password-error" className="mt-1 text-xs text-red-500">
+            {errors.password}
+          </p>
+        )}
       </div>
 
-      <button type="submit" className="h-11 w-full rounded-md bg-hh-primary text-sm font-semibold text-white">
+      <button type="submit" className="hh-cta-transactional h-11 w-full text-sm">
         Đăng nhập
       </button>
 

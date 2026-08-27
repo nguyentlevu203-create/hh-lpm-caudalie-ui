@@ -41,17 +41,17 @@ export function TimelineEntry({ milestone, align, colorFrom, colorTo }: Timeline
 
       <div
         className={cn(
-          "relative col-start-1 row-start-1 flex w-[85%] flex-col gap-3 self-end bg-white/80 p-6 sm:w-[45%] sm:p-8",
+          "relative col-start-1 row-start-1 flex w-[85%] flex-col gap-3 self-end bg-hh-surface/85 p-6 sm:w-[45%] sm:p-8",
           align === "left" ? "justify-self-start" : "justify-self-end"
         )}
       >
-        <p className="text-2xl font-semibold text-hh-primary md:text-[38px]">{year}</p>
-        <p className="text-xl text-hh-ink md:text-[28px]">{heading}</p>
+        <p className="hh-label text-hh-muted-foreground">{year}</p>
+        <p className="hh-heading-card-serif text-hh-ink">{heading}</p>
         <p className="text-sm leading-relaxed text-hh-muted-foreground">{body}</p>
         {cta && (
           <a
             href={cta.href}
-            className="mt-2 inline-flex h-11 w-fit items-center justify-center rounded-md border-2 border-hh-primary px-5 text-base text-hh-primary transition-colors hover:bg-hh-primary hover:text-white"
+            className="hh-cta-editorial mt-2 h-11 w-fit px-5 text-base"
           >
             {cta.label}
           </a>

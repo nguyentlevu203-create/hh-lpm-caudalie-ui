@@ -10,8 +10,8 @@ import type { HHBrandLibraryProduct } from "@/data/brand-library";
 export function BrandLibraryCard({ product }: { product: HHBrandLibraryProduct }) {
   return (
     <Link href={`/thu-vien-san-pham-hang/${product.slug}`} className="flex flex-col gap-2">
-      <div className="relative aspect-square w-full overflow-hidden rounded-sm bg-hh-cream">
-        <span className="absolute left-2 top-2 z-10 rounded bg-hh-ink/70 px-[10px] py-1 text-xs font-normal text-white">
+      <div className="relative aspect-square w-full overflow-hidden rounded-sm border border-hh-border bg-hh-surface">
+        <span className="absolute left-2 top-2 z-10 rounded bg-slate-600 px-[10px] py-1 text-xs font-normal text-white">
           Tham khảo
         </span>
         {product.image ? (
@@ -26,7 +26,7 @@ export function BrandLibraryCard({ product }: { product: HHBrandLibraryProduct }
           <ProductPlaceholderArt colorFrom="#8a8f98" colorTo="#c4c8ce" className="h-full w-full rounded-sm" />
         )}
       </div>
-      <p className="line-clamp-2 text-base font-light text-hh-ink">{product.nameVi}</p>
+      <p className="line-clamp-2 text-base font-normal text-hh-ink">{product.nameVi}</p>
       <p className="text-sm text-hh-muted-foreground">
         {[product.volume, product.productLine].filter(Boolean).join(" · ")}
       </p>

@@ -49,34 +49,36 @@ export default async function NguyenLieuDetailPage({ params }: Props) {
           )}
         </div>
 
-        <h1 className="mt-6 text-3xl font-normal text-hh-ink md:text-4xl">{ing.h1 || ing.name}</h1>
-        {ing.intro && <p className="mt-3 text-base text-hh-muted-foreground">{ing.intro}</p>}
+        <div className="mx-auto max-w-[65ch]">
+          <h1 className="mt-6 hh-heading-page text-hh-ink">{ing.h1 || ing.name}</h1>
+          {ing.intro && <p className="mt-3 hh-body-lg text-hh-muted-foreground">{ing.intro}</p>}
 
-        <div className="mt-8 space-y-6 text-base text-hh-ink">
-          {ing.origin && (
-            <section>
-              <h2 className="text-lg font-medium">Nguồn gốc</h2>
-              <p className="mt-2 whitespace-pre-line text-hh-muted-foreground">{ing.origin}</p>
-            </section>
-          )}
-          {ing.benefit && (
-            <section>
-              <h2 className="text-lg font-medium">Công dụng</h2>
-              <p className="mt-2 whitespace-pre-line text-hh-muted-foreground">{ing.benefit}</p>
-            </section>
-          )}
-          {ing.beautyTip && (
-            <section>
-              <h2 className="text-lg font-medium">Bí quyết làm đẹp</h2>
-              <p className="mt-2 whitespace-pre-line text-hh-muted-foreground">{ing.beautyTip}</p>
-            </section>
-          )}
-          {ing.scentExperience && (
-            <section>
-              <h2 className="text-lg font-medium">Hương/Trải nghiệm</h2>
-              <p className="mt-2 whitespace-pre-line text-hh-muted-foreground">{ing.scentExperience}</p>
-            </section>
-          )}
+          <div className="mt-8 space-y-6 hh-body text-hh-ink">
+            {ing.origin && (
+              <section>
+                <h2 className="text-lg font-medium">Nguồn gốc</h2>
+                <p className="mt-2 whitespace-pre-line text-hh-muted-foreground">{ing.origin}</p>
+              </section>
+            )}
+            {ing.benefit && (
+              <section>
+                <h2 className="text-lg font-medium">Công dụng</h2>
+                <p className="mt-2 whitespace-pre-line text-hh-muted-foreground">{ing.benefit}</p>
+              </section>
+            )}
+            {ing.beautyTip && (
+              <section>
+                <h2 className="text-lg font-medium">Bí quyết làm đẹp</h2>
+                <p className="mt-2 whitespace-pre-line text-hh-muted-foreground">{ing.beautyTip}</p>
+              </section>
+            )}
+            {ing.scentExperience && (
+              <section>
+                <h2 className="text-lg font-medium">Hương/Trải nghiệm</h2>
+                <p className="mt-2 whitespace-pre-line text-hh-muted-foreground">{ing.scentExperience}</p>
+              </section>
+            )}
+          </div>
         </div>
 
         <ContentCardCarousel cards={getCardsForRoute(`/nguyen-lieu/${slug}`)} heading="Nội dung liên quan" />

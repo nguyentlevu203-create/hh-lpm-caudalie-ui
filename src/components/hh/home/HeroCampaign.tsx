@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { HERO_CAMPAIGN, HERO_SECONDARY_SLIDE } from "@/data/site-content";
@@ -8,7 +8,7 @@ import { getBrandPageBySlug, THUONG_HIEU_SLUG } from "@/data/brand-pages";
 import { HH_INGREDIENTS } from "@/data/ingredients";
 import { cn } from "@/lib/utils";
 
-const CONTAINER = "mx-auto w-full max-w-[1440px] px-4 md:px-8";
+const AUTOPLAY_MS = 6000;
 
 interface Slide {
   id: string;
@@ -16,6 +16,10 @@ interface Slide {
   heading: string;
   body: string;
   cta: { label: string; href: string };
+  /** Slide 1 "Mua ngay" is a real purchase entry point (transactional);
+   * slide 2 "Tư vấn ngay" opens the scent-advisor quiz, a discovery/content
+   * flow with no purchase (editorial) — V4 CTA hierarchy, Phase 5. */
+  ctaVariant: "transactional" | "editorial";
   colorFrom: string;
   colorTo: string;
   image: string | null;
@@ -31,8 +35,9 @@ const SLIDES: Slide[] = [
     heading: HERO_CAMPAIGN.heading,
     body: HERO_CAMPAIGN.body,
     cta: HERO_CAMPAIGN.primaryCta,
-    colorFrom: "#2f6b4f",
-    colorTo: "#204a37",
+    ctaVariant: "transactional",
+    colorFrom: "#1c4548",
+    colorTo: "#13363a",
     image: heroBrandImage,
   },
   {
@@ -41,8 +46,9 @@ const SLIDES: Slide[] = [
     heading: HERO_SECONDARY_SLIDE.heading,
     body: HERO_SECONDARY_SLIDE.body,
     cta: HERO_SECONDARY_SLIDE.cta,
-    colorFrom: "#e08a3e",
-    colorTo: "#b8672a",
+    ctaVariant: "editorial",
+    colorFrom: "#9e7c52",
+    colorTo: "#7d6140",
     image: heroIngredientImage,
   },
 ];
@@ -51,7 +57,7 @@ const SLIDES: Slide[] = [
  * catalogue) with a gradient + dark-overlay wash for text legibility, and
  * an `onError` fallback to the plain gradient placeholder if the local file
  * ever fails to load — no Caudalie imagery, no unrelated filler photo. */
-function SlideBackground({ slide }: { slide: Slide }) {
+function SlideBackground({ slide, priority }: { slide: Slide; priority: boolean }) {
   const [imageFailed, setImageFailed] = useState(false);
   const showImage = slide.image && !imageFailed;
 
@@ -65,10 +71,10 @@ function SlideBackground({ slide }: { slide: Slide }) {
           src={slide.image as string}
           alt=""
           fill
-          sizes="100vw"
+          sizes="(min-width: 1024px) 50vw, 100vw"
           className="object-cover opacity-80"
           onError={() => setImageFailed(true)}
-          priority
+          priority={priority}
         />
       )}
       {!showImage && (
@@ -77,23 +83,51 @@ function SlideBackground({ slide }: { slide: Slide }) {
           <circle cx="10" cy="90" r="34" fill="#000000" fillOpacity="0.15" />
         </svg>
       )}
-      <div className="absolute inset-0 bg-black/25" />
-      <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/50 to-transparent" />
+      <div className="absolute inset-0 bg-hh-primary-dark/20" />
+      <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-hh-primary-dark/60 to-transparent" />
     </div>
   );
 }
 
-function SlidePanel({ slide }: { slide: Slide }) {
+function SlidePanel({
+  slide,
+  headingAs: Heading = "h2",
+  priority = false,
+  active,
+}: {
+  slide: Slide;
+  headingAs?: "h1" | "h2";
+  /** Only the slide visible at mount (index 0) needs eager loading — inactive
+   * carousel slides sit behind it at opacity-0 until the user/autoplay
+   * advances to them. */
+  priority?: boolean;
+  active: boolean;
+}) {
   return (
-    <div className="relative h-full w-full overflow-hidden">
-      <SlideBackground slide={slide} />
-      <div className="relative z-10 flex h-full flex-col items-start justify-end gap-3 p-8 text-white sm:p-10 lg:p-12">
+    <div
+      className={cn(
+        "absolute inset-0 transition-opacity duration-700",
+        active ? "z-10 opacity-100" : "pointer-events-none z-0 opacity-0"
+      )}
+      aria-hidden={!active}
+    >
+      <SlideBackground slide={slide} priority={priority} />
+      <div className="relative z-10 mx-auto flex h-full w-full max-w-[1440px] flex-col items-start justify-center gap-3 px-6 text-white sm:px-10 lg:px-16">
         <p className="text-sm font-medium uppercase tracking-widest text-white/80">{slide.eyebrow}</p>
-        <h2 className="max-w-md text-3xl font-semibold leading-tight sm:text-4xl">{slide.heading}</h2>
-        <p className="max-w-sm text-sm text-white/85 sm:text-base">{slide.body}</p>
+        <Heading className="hh-display max-w-md text-balance text-3xl font-medium leading-[1.05] sm:text-4xl lg:text-[2.75rem]">
+          {slide.heading}
+        </Heading>
+        {/* P2.2: widened from max-w-sm — slide 1's longer body copy was
+            wrapping to 4 lines at max-w-sm, past the ~2-3 line desktop
+            target; max-w-md keeps both slides' copy unchanged but fits
+            slide 1 in 3 lines. */}
+        <p className="max-w-md text-sm text-white/85 sm:text-base">{slide.body}</p>
         <Link
           href={slide.cta.href}
-          className="mt-2 rounded-md bg-white px-8 py-3 text-sm font-semibold text-hh-primary transition-colors hover:bg-white/90"
+          className={cn(
+            "mt-2 px-8 py-3 text-sm",
+            slide.ctaVariant === "transactional" ? "hh-cta-transactional" : "hh-cta-editorial"
+          )}
         >
           {slide.cta.label}
         </Link>
@@ -102,59 +136,58 @@ function SlidePanel({ slide }: { slide: Slide }) {
   );
 }
 
-/** Hero pattern cloned from the shared Caudalie homepage hero
- * (src/components/HeroBanner.tsx): two full-bleed campaign slides shown
- * side-by-side on desktop, and a single-slide carousel with dot indicators
- * on mobile/tablet — rebuilt with HH color gradients (no Caudalie
- * photography) and LPM-Vietnam campaign copy. */
-export function HeroCampaign() {
+/** Single full-bleed hero banner, matching the live Caudalie homepage hero
+ * (en.caudalie.com): one edge-to-edge image spanning the full viewport
+ * width with no side gutters, text overlay pinned to the left, and a
+ * carousel between campaign slides via small dot indicators bottom-right —
+ * at every breakpoint, not just mobile. Rebuilt with HH color gradients (no
+ * Caudalie photography) and LPM-Vietnam campaign copy.
+ *
+ * Earlier revision split the two slides side-by-side on desktop
+ * (recoverable via git history) — replaced because it didn't match the
+ * large single banner the live Caudalie site shows.
+ *
+ * `isPageHeading` (default `false`) controls whether slide 1's heading
+ * renders as the page's `<h1>` — only the homepage should pass `true`.
+ * Since there's now a single DOM tree (all slides stacked via
+ * absolute/opacity, not two parallel trees), slide 1's heading is the only
+ * element that ever needs to become `<h1>` — no duplicate-H1 risk. */
+export function HeroCampaign({ isPageHeading = false }: { isPageHeading?: boolean }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
+  useEffect(() => {
+    const id = setInterval(() => {
+      setActiveIndex((current) => (current + 1) % SLIDES.length);
+    }, AUTOPLAY_MS);
+    return () => clearInterval(id);
+  }, []);
+
   return (
-    <section className={cn("flex min-h-[70vh] pb-6", CONTAINER, "pt-6")}>
-      <div className="flex w-full flex-col">
-        {/* Desktop: both slides side-by-side */}
-        <div className="hidden w-full flex-1 gap-4 lg:flex">
-          {SLIDES.map((slide) => (
-            <div key={slide.id} className="min-h-[70vh] flex-1 overflow-hidden">
-              <SlidePanel slide={slide} />
-            </div>
-          ))}
-        </div>
+    <section className="relative h-[440px] w-full overflow-hidden sm:h-[500px] lg:h-[600px]">
+      {SLIDES.map((slide, index) => (
+        <SlidePanel
+          key={slide.id}
+          slide={slide}
+          headingAs={isPageHeading && index === 0 ? "h1" : "h2"}
+          priority={index === 0}
+          active={index === activeIndex}
+        />
+      ))}
 
-        {/* Mobile / tablet: single slide with dot indicators */}
-        <div className="flex w-full flex-1 flex-col lg:hidden">
-          <div className="relative min-h-[70vh] w-full flex-1 overflow-hidden">
-            {SLIDES.map((slide, index) => (
-              <div
-                key={slide.id}
-                className={cn(
-                  "absolute inset-0 transition-opacity",
-                  index === activeIndex ? "z-10 opacity-100" : "pointer-events-none z-0 opacity-0"
-                )}
-                aria-hidden={index !== activeIndex}
-              >
-                <SlidePanel slide={slide} />
-              </div>
-            ))}
-          </div>
-
-          <div className="flex items-center justify-center gap-2 pt-4">
-            {SLIDES.map((slide, index) => (
-              <button
-                key={slide.id}
-                type="button"
-                aria-label={`Xem banner ${index + 1}: ${slide.heading}`}
-                aria-current={index === activeIndex}
-                onClick={() => setActiveIndex(index)}
-                className={cn(
-                  "h-2.5 w-2.5 rounded-full border border-hh-primary transition-colors",
-                  index === activeIndex ? "bg-hh-primary" : "bg-transparent"
-                )}
-              />
-            ))}
-          </div>
-        </div>
+      <div className="absolute inset-x-0 bottom-5 z-20 flex items-center justify-center gap-2 sm:justify-end sm:pr-10 lg:pr-16">
+        {SLIDES.map((slide, index) => (
+          <button
+            key={slide.id}
+            type="button"
+            aria-label={`Xem banner ${index + 1}: ${slide.heading}`}
+            aria-current={index === activeIndex}
+            onClick={() => setActiveIndex(index)}
+            className={cn(
+              "h-2 w-2 rounded-full border border-white/80 transition-colors",
+              index === activeIndex ? "bg-white" : "bg-white/30"
+            )}
+          />
+        ))}
       </div>
     </section>
   );

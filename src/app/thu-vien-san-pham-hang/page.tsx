@@ -51,7 +51,7 @@ export default async function ThuVienSanPhamHangPage({ searchParams }: Props) {
         <ProductBreadcrumb items={[{ label: "Trang chủ", href: "/" }, { label: "Thư viện sản phẩm hãng" }]} />
 
         <div className="mt-6 text-center">
-          <h1 className="text-3xl font-normal text-hh-ink md:text-4xl">Thư viện sản phẩm hãng</h1>
+          <h1 className="hh-heading-page text-hh-ink">Thư viện sản phẩm hãng</h1>
           <p className="mx-auto mt-4 max-w-2xl text-base text-hh-muted-foreground">
             {HH_BRAND_LIBRARY.length} sản phẩm Le Petit Marseillais (Pháp) — dữ liệu tham khảo trực tiếp từ website
             hãng, dùng để đối chiếu công thức/ảnh gốc.

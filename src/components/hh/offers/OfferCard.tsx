@@ -13,13 +13,22 @@ import type { HHOffer } from "@/data/site-content";
  * beneath the card). Uses `ProductPlaceholderArt` in place of the
  * reference's real campaign photography, since no real HH campaign
  * photography exists yet. */
+/** P2.4: every offer now sets an explicit `ctaVariant` — the
+ * transactional/editorial split is a semantic field on the data, not
+ * inferred from the CTA label text. This fallback set only covers offers
+ * that omit `ctaVariant` (backward compatibility for any caller outside
+ * this file's own `OFFERS` array), matching the same "Mua ngay"/"Đặt hàng"
+ * labels used before this field existed (V4 CTA hierarchy, Phase 5). */
+const TRANSACTIONAL_OFFER_CTA_LABELS = new Set(["Mua ngay", "Đặt hàng"]);
+
 export function OfferCard({ offer }: { offer: HHOffer }) {
   const [termsOpen, setTermsOpen] = useState(false);
-  const { heading, body, code, cta, colorFrom, colorTo, shape, hasGiftBadge, terms } = offer;
+  const { heading, body, code, cta, ctaVariant, colorFrom, colorTo, shape, hasGiftBadge, terms } = offer;
+  const isTransactional = ctaVariant ? ctaVariant === "transactional" : TRANSACTIONAL_OFFER_CTA_LABELS.has(cta);
 
   return (
     <div>
-      <div className="flex bg-hh-muted">
+      <div className="flex bg-hh-surface-blue">
         <div className="relative w-1/2 shrink-0 sm:w-2/5">
           <ProductPlaceholderArt
             colorFrom={colorFrom}
@@ -36,13 +45,13 @@ export function OfferCard({ offer }: { offer: HHOffer }) {
           <p className="text-lg font-medium leading-snug text-hh-ink">{heading}</p>
           <p className="whitespace-pre-line text-sm leading-relaxed text-hh-muted-foreground">{body}</p>
           {code && (
-            <p className="inline-block rounded bg-white px-3 py-1 text-sm font-medium text-hh-primary">
+            <p className="inline-block rounded bg-hh-surface px-3 py-1 text-sm font-semibold text-hh-primary">
               Mã: {code}
             </p>
           )}
           <Link
             href="/san-pham"
-            className="mt-2 inline-flex h-11 items-center justify-center rounded-md bg-hh-primary px-5 text-base text-white transition-opacity hover:opacity-90"
+            className={cn("mt-2 h-11 px-5 text-base", isTransactional ? "hh-cta-transactional" : "hh-cta-editorial")}
           >
             {cta}
           </Link>

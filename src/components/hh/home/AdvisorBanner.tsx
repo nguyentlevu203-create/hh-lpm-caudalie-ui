@@ -23,7 +23,7 @@ export function AdvisorBanner() {
       <div className="relative min-h-[500px] w-full overflow-hidden md:min-h-[600px]">
         <div
           className="absolute inset-0"
-          style={{ background: "linear-gradient(135deg, #2f6b4f, #5c9b7c 60%, #e08a3e)" }}
+          style={{ background: "linear-gradient(135deg, #244a57, #5f8e91 60%, #c99a4a)" }}
         />
         {showImage ? (
           <Image
@@ -42,17 +42,17 @@ export function AdvisorBanner() {
             aria-hidden="true"
           >
             <circle cx="78" cy="24" r="20" fill="#ffffff" fillOpacity="0.25" />
-            <circle cx="20" cy="80" r="30" fill="#204a37" fillOpacity="0.35" />
+            <circle cx="20" cy="80" r="30" fill="#193a45" fillOpacity="0.35" />
           </svg>
         )}
-        <div className="absolute inset-0 bg-black/10" />
+        <div className="absolute inset-0 bg-hh-primary-dark/10" />
 
-        <div className="absolute bottom-8 left-8 max-w-[400px] bg-white px-8 py-6">
-          <h2 className="text-2xl font-normal text-hh-ink">{SCENT_ADVISOR_BANNER.heading}</h2>
+        <div className="absolute bottom-8 left-8 max-w-[400px] bg-hh-surface px-8 py-6">
+          <h2 className="hh-heading-section text-hh-ink">{SCENT_ADVISOR_BANNER.heading}</h2>
           <p className="mt-2 text-base text-hh-ink">{SCENT_ADVISOR_BANNER.body}</p>
           <Link
             href={SCENT_ADVISOR_BANNER.cta.href}
-            className="mt-4 inline-block rounded-md border border-hh-primary/30 bg-white px-4 py-3 text-hh-primary"
+            className="hh-cta-editorial mt-4 px-6 py-3 text-sm"
           >
             {SCENT_ADVISOR_BANNER.cta.label}
           </Link>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { X, ChevronLeft, ChevronDown, Minus, Plus, ShoppingBag, Lock } from "lucide-react";
@@ -14,6 +14,7 @@ import {
   type HHProduct,
 } from "@/data/products";
 import { cn } from "@/lib/utils";
+import { useFocusTrap } from "@/lib/use-focus-trap";
 
 const FREE_SHIP_THRESHOLD = 399000;
 
@@ -35,6 +36,8 @@ export function CartDrawer() {
   const { active, close, cartLines, updateCartQuantity, removeFromCart } = useSiteUI();
   const isOpen = active === "cart";
   const [summaryOpen, setSummaryOpen] = useState(false);
+  const panelRef = useRef<HTMLDivElement>(null);
+  useFocusTrap(panelRef, isOpen);
 
   const items: CartLineWithProduct[] = cartLines.flatMap((line) => {
     const product = getProductBySlug(line.slug);
@@ -53,18 +56,19 @@ export function CartDrawer() {
     <>
       <div
         className={cn(
-          "fixed inset-0 z-40 bg-black/30 transition-opacity",
+          "fixed inset-0 z-40 bg-hh-primary/30 transition-opacity",
           isOpen ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         )}
         onClick={close}
         aria-hidden="true"
       />
       <div
+        ref={panelRef}
         role="dialog"
         aria-label="Giỏ hàng"
         aria-hidden={!isOpen}
         className={cn(
-          "fixed inset-y-0 right-0 z-50 flex w-[92%] max-w-md flex-col bg-white transition-transform duration-300",
+          "fixed inset-y-0 right-0 z-50 flex w-[92%] max-w-md flex-col bg-hh-surface transition-transform duration-300",
           isOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
@@ -73,7 +77,7 @@ export function CartDrawer() {
             type="button"
             onClick={close}
             aria-label="Đóng giỏ hàng"
-            className="absolute left-4 flex h-8 w-8 items-center justify-center text-hh-ink"
+            className="absolute left-4 flex h-8 w-8 items-center justify-center text-hh-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hh-primary"
           >
             <ChevronLeft className="size-6" />
           </button>
@@ -100,7 +104,7 @@ export function CartDrawer() {
             <Link
               href="/san-pham"
               onClick={close}
-              className="mt-6 w-full rounded-md bg-hh-primary px-6 py-3 text-base font-medium text-white"
+              className="hh-cta-editorial mt-6 w-full px-6 py-3 text-base"
             >
               Tiếp tục mua sắm
             </Link>
@@ -126,8 +130,8 @@ export function CartDrawer() {
                         <Image src={product.image} alt={product.name} fill sizes="80px" className="object-contain p-1.5" />
                       ) : (
                         <ProductPlaceholderArt
-                          colorFrom="#c7ab7a"
-                          colorTo="#e8d5ac"
+                          colorFrom="#d9bd87"
+                          colorTo="#f5e7c9"
                           shape={product.category === "xa-phong-banh" ? "soap" : product.category === "cham-soc-tay" ? "tube" : "bottle"}
                           className="size-20"
                         />
@@ -227,7 +231,7 @@ export function CartDrawer() {
               <Link
                 href="/thanh-toan"
                 onClick={close}
-                className="flex w-full items-center justify-center rounded-md bg-hh-primary px-6 py-4 text-base font-semibold text-white"
+                className="hh-cta-transactional w-full px-6 py-4 text-base"
               >
                 Đến trang thanh toán | {formatVnd(subtotal)}
               </Link>

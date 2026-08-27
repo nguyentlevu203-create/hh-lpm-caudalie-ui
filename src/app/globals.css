@@ -62,13 +62,34 @@
   --color-hh-primary: var(--hh-primary);
   --color-hh-primary-foreground: var(--hh-primary-foreground);
   --color-hh-primary-dark: var(--hh-primary-dark);
+  --color-hh-primary-soft: var(--hh-primary-soft);
   --color-hh-accent: var(--hh-accent);
   --color-hh-accent-foreground: var(--hh-accent-foreground);
+  --color-hh-accent-gold-soft: var(--hh-accent-gold-soft);
+  --color-hh-champagne: var(--hh-champagne);
+  --color-hh-brass: var(--hh-brass);
+  --color-hh-cta-transactional: var(--hh-cta-transactional);
+  --color-hh-cta-transactional-hover: var(--hh-cta-transactional-hover);
+  --color-hh-cta-transactional-text: var(--hh-cta-transactional-text);
+  --color-hh-cta-transactional-focus: var(--hh-cta-transactional-focus);
+  --color-hh-cta-editorial: var(--hh-cta-editorial);
+  --color-hh-cta-editorial-hover: var(--hh-cta-editorial-hover);
+  --color-hh-cta-editorial-active: var(--hh-cta-editorial-active);
+  --color-hh-cta-editorial-text: var(--hh-cta-editorial-text);
+  --color-hh-cta-editorial-border: var(--hh-cta-editorial-border);
+  --color-hh-cta-editorial-focus: var(--hh-cta-editorial-focus);
   --color-hh-cream: var(--hh-cream);
   --color-hh-ink: var(--hh-ink);
   --color-hh-muted: var(--hh-muted);
   --color-hh-muted-foreground: var(--hh-muted-foreground);
+  --color-hh-text-muted: var(--hh-text-muted);
   --color-hh-border: var(--hh-border);
+  --color-hh-border-soft: var(--hh-border-soft);
+  --color-hh-canvas: var(--hh-canvas);
+  --color-hh-surface: var(--hh-surface);
+  --color-hh-surface-soft: var(--hh-surface-soft);
+  --color-hh-surface-warm: var(--hh-surface-warm);
+  --color-hh-surface-blue: var(--hh-surface-blue);
 }
 
 :root {
@@ -112,17 +133,82 @@
   --brand-terracotta: #cd3c1f;
 
   /* Hoàng Hà / Le Petit Marseillais Việt Nam brand tokens (production UI
-     only — an independent palette, not derived from any Caudalie color). */
-  --hh-primary: #2f6b4f; /* deep herb green — Provence / savon de Marseille */
-  --hh-primary-dark: #204a37;
-  --hh-primary-foreground: #ffffff;
-  --hh-accent: #e08a3e; /* warm terracotta / Provence sun */
-  --hh-accent-foreground: #2a1a08;
-  --hh-cream: #fbf6ec;
-  --hh-ink: #20241f;
-  --hh-muted: #eef1e8;
-  --hh-muted-foreground: #5b6459;
-  --hh-border: #dfe4d8;
+     only — an independent palette, not derived from any Caudalie color).
+     Maison Luxury V4 pass — "Porcelain Maison Luxury / quiet luxury":
+     lighter porcelain canvas, teal restored as the TRANSACTIONAL CTA fill
+     (ivory text, ~10:1 contrast), champagne reserved for EDITORIAL CTAs
+     only (ink text, ~9:1 contrast) — see the CTA-hierarchy block below.
+     This is the *fifth* color pass on these tokens (V1 French
+     Mediterranean Beauty → V2 micro polish → V3 world-class → V4 Luminous
+     Champagne → V4 Maison Luxury). Token *names* mostly kept unchanged
+     across passes (avoids a mechanical rename across ~550 call sites).
+     Consolidated the 3-swatch champagne system from the Champagne pass
+     (`accent-champagne`/`accent-champagne-strong`/`accent-mineral`) down
+     to the spec's simpler 2 swatches (`--hh-champagne`/`--hh-brass`) —
+     `accent-mineral` had zero call sites, dropped rather than kept as dead
+     weight. See HH_LPM_MAISON_LUXURY_V4_REPORT.md §4 for the full
+     before/after table and contrast measurements. */
+
+  --hh-canvas: #faf9f6; /* page background — porcelain, slightly cooler/lighter than Champagne pass's #faf8f3 */
+  --hh-surface: #fffefc; /* cards, modals, dropdowns, product surfaces (unchanged across passes) */
+  --hh-surface-soft: #f1efeb; /* neutral secondary surface */
+  --hh-surface-warm: #f3eadf; /* warm parchment tint — quote/editorial blocks only */
+  --hh-surface-blue: #edf3f1; /* "surface-mineral" role — name kept for the 7 existing call sites, see V3 note */
+
+  --hh-primary: #1c4548; /* deep teal — back to the TRANSACTIONAL CTA fill in V4 (was secondary-only in the
+    Champagne pass). Also used for secondary/outline CTA border+text, links, focus ring, and any
+    solid-teal band (e.g. footer "Quyền lợi"). */
+  --hh-primary-dark: #13363a; /* hover/pressed for transactional CTA and any solid-teal surface */
+  --hh-primary-foreground: #fffefc; /* text-inverse — ivory text, used on solid teal (transactional CTA), never on champagne */
+  --hh-primary-soft: #dde9e7; /* tinted primary bg — selected filters, focus chips */
+
+  /* Champagne/brass — 2 canonical swatches (V4 spec §4, down from 3 in the
+     Champagne pass). `--hh-accent`/`--hh-accent-gold-soft` (pre-existing
+     token names, ~10 call sites) alias into this system rather than
+     holding independent hex — one champagne family in the codebase. */
+  --hh-champagne: #d9c7a8; /* editorial CTA fill — champagne now used "tiết chế" (restrained): editorial CTA only, not every button */
+  --hh-brass: #9e7c52; /* deeper brass — editorial CTA border, emphasis accents */
+  --hh-accent: var(--hh-brass); /* legacy name alias */
+  --hh-accent-foreground: #16282b; /* dark ink text on accent surfaces — same value as --hh-ink, never white-on-accent */
+  --hh-accent-gold-soft: var(--hh-champagne); /* legacy name alias (was the "soft tint" role) */
+
+  /* CTA hierarchy — Phase 5. Two peer systems now (not one "primary" +
+     variants): TRANSACTIONAL (teal fill + ivory text) for purchase/account
+     actions, EDITORIAL (champagne fill + ink text) for discovery/content
+     actions. Both share the same shape language (radius/shadow/hover-lift/
+     focus/disabled) via `.hh-cta-transactional`/`.hh-cta-editorial` in
+     @layer components below.
+     Contrast verified: ivory-on-teal = 10.45:1 (default) / 12.89:1
+     (hover) — both far above AA. Ink-on-champagne = 9.24:1 — also well
+     above AA. Champagne fill-vs-canvas is intentionally low (~1.6:1,
+     the same "luminous" trade-off documented in the Champagne pass) —
+     definition comes from the 1px brass border (~3.65–3.82:1 against
+     canvas/surface, meets the 3:1 non-text UI boundary threshold) plus a
+     very light shadow. Re-verified live in browser this doesn't read as
+     disabled (see report §9) — champagne is now used on fewer buttons
+     than the previous pass ("champagne chỉ dùng tiết chế"), so the
+     remaining instances read as a deliberate accent, not the default. */
+  --hh-cta-transactional: var(--hh-primary);
+  --hh-cta-transactional-hover: var(--hh-primary-dark);
+  --hh-cta-transactional-text: var(--hh-primary-foreground);
+  --hh-cta-transactional-focus: var(--hh-champagne);
+
+  --hh-cta-editorial: var(--hh-champagne);
+  --hh-cta-editorial-hover: #cdb98f;
+  --hh-cta-editorial-active: #c2a97c;
+  --hh-cta-editorial-text: #16282b;
+  --hh-cta-editorial-border: var(--hh-brass);
+  --hh-cta-editorial-focus: var(--hh-brass);
+
+  --hh-cream: var(--hh-surface-warm); /* legacy name, now aliased to surface-warm */
+  --hh-ink: #16282b; /* primary text */
+  --hh-muted: var(--hh-surface-soft); /* legacy name, now aliased to surface-soft */
+  --hh-muted-foreground: #59686a; /* secondary text */
+  --hh-text-muted: #748082; /* third text tier — placeholders/deep de-emphasis only, never body copy */
+  --hh-border: #c2b8a4; /* spec value #D8D3CA measured only 1.42:1 against --hh-canvas (same recurring
+    issue as V3/Champagne's border token) — deepened within the same warm-taupe family to ~1.87–1.95:1. */
+  --hh-border-soft: #d3ccba; /* same fix, lighter tier — spec's #E9E5DE was ~1.2:1; now ~1.52–1.59:1 */
+  --hh-shadow-color: rgba(39, 63, 62, 0.07);
 }
 
 .dark {
@@ -168,5 +254,290 @@
   }
   html {
     @apply font-sans;
+  }
+}
+
+/**
+ * Hoàng Hà / Le Petit Marseillais Việt Nam typography scale — premium
+ * typography pass. Scoped entirely to `.hh-*` classes consumed inside
+ * `HHShell` (see src/components/hh/HHShell.tsx); this has no effect on
+ * `/reference/*`. Editorial display headings use `--hh-font-display`
+ * (Cormorant Garamond); everything UI/functional (nav, buttons, prices,
+ * badges, forms, breadcrumbs, footer) stays on `--hh-font-sans` (Be Vietnam
+ * Pro) — see HH_LPM_PREMIUM_TYPOGRAPHY_REPORT.md for which components use
+ * which and why.
+ *
+ * `--hh-font-display`/`--hh-font-sans` are declared on `.font-hh` (the same
+ * class HHShell applies alongside next/font's `.variable` classNames), not
+ * on `:root` — CSS custom-property inheritance resolves `var()` references
+ * at the element where the property is *declared*, not at each inheriting
+ * descendant, so a `:root`-level declaration referencing
+ * `var(--font-hh-cormorant)` would permanently resolve to nothing (that
+ * variable only exists on `.font-hh` itself, never on `:root`/`<html>`).
+ * Declaring them on `.font-hh` puts them in the same cascade as the real
+ * next/font variables so the `var()` reference resolves correctly, and the
+ * fully-resolved value is what then inherits down to every `.hh-*` element.
+ */
+.font-hh {
+  --hh-font-sans: var(--font-hh-vietnam-pro), "Be Vietnam Pro", ui-sans-serif,
+    system-ui, Arial, sans-serif;
+  --hh-font-display: var(--font-hh-cormorant), Georgia, "Times New Roman",
+    serif;
+  --hh-font-display-italic: var(--font-hh-cormorant-italic), Georgia,
+    "Times New Roman", serif;
+}
+
+@layer components {
+  .hh-display {
+    font-family: var(--hh-font-display);
+  }
+
+  /* Sizes/line-heights updated for V4 "Maison Luxury" (Phase 3). Font A/B
+     tested Cormorant Garamond vs Bodoni Moda for this pass (see
+     HH_LPM_MAISON_LUXURY_V4_REPORT.md §2) — kept Cormorant Garamond, no
+     clear improvement from switching.
+
+     `HeroCampaign`'s split-panel slides still use their own ad-hoc Tailwind
+     sizing (not this class) because a full hero-scale heading doesn't fit
+     a half-viewport-width panel — see HeroCampaign.tsx. The heading class
+     actually carrying "hero-weight" visual duty sitewide is
+     `.hh-heading-page` (18 call sites, incl. every page H1).
+
+     `letter-spacing` deliberately kept off (V4 spec: "không letter-spacing
+     âm nếu gây lỗi dấu"). V3 found a real bug: negative letter-spacing on
+     Cormorant Garamond drops the dấu nặng (dot-below) on "ạ" via broken
+     GPOS mark-positioning — confirmed again unnecessary to re-test since
+     no letter-spacing value changed in V4; policy carried forward
+     unconditionally rather than re-risking it. */
+  .hh-heading-hero {
+    font-family: var(--hh-font-display);
+    font-weight: 500;
+    font-size: clamp(3.1rem, 5.2vw, 5.4rem);
+    line-height: 1.02;
+    text-wrap: balance;
+  }
+
+  /* Page H1 scale — Phase 8A P0.1 (Caudalie parity pass). Was
+     clamp(2.7rem,4vw,4.3rem) — measured 57.6px/weight 500 at 1440px vs
+     reference's 36px/weight 400 at the same viewport (60% larger). Not a
+     mechanical copy of reference's 36px — a deliberately tempered scale
+     that keeps this token's own identity (weight 500, display serif)
+     while pulling the size down toward reference's restraint. Does NOT
+     touch `.hh-heading-hero` (hero stays full-size, unaffected by this
+     pass) and keeps letter-spacing unset — negative letter-spacing on
+     Cormorant Garamond previously dropped the dấu nặng on "ạ" (see V3
+     report §4.2), so this pass never re-introduces it. */
+  .hh-heading-page {
+    font-family: var(--hh-font-display);
+    font-weight: 500;
+    font-size: clamp(2rem, 2.8vw, 2.625rem);
+    line-height: 1.1;
+    text-wrap: balance;
+  }
+
+  .hh-heading-section {
+    font-family: var(--hh-font-display);
+    font-weight: 500;
+    font-size: clamp(2rem, 3vw, 3.1rem);
+    line-height: 1.08;
+    text-wrap: balance;
+  }
+
+  /* Utility/product/commerce card heading — sans by default per V3 §4
+     ("ưu tiên Be Vietnam Pro cho product/utility card"). Used by
+     GiftDiscoveryTiles, SeoTextBlock, ProductReviews. */
+  .hh-heading-card {
+    font-family: var(--hh-font-sans);
+    font-weight: 600;
+    font-size: clamp(1.15rem, 1.6vw, 1.375rem);
+    line-height: 1.3;
+  }
+
+  /* Editorial-card heading — the old (V1/V2) `.hh-heading-card` serif
+     definition, kept under its own name for the one genuinely editorial
+     card context (TimelineEntry milestone titles) per V3 §4 ("chỉ dùng
+     Cormorant trong editorial card"). */
+  .hh-heading-card-serif {
+    font-family: var(--hh-font-display);
+    font-weight: 500;
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    line-height: 1.25;
+  }
+
+  .hh-quote {
+    font-family: var(--hh-font-display-italic);
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(1.6rem, 3.5vw, 2.75rem);
+    line-height: 1.25;
+  }
+
+  .hh-body-lg {
+    font-family: var(--hh-font-sans);
+    font-size: 1.0625rem; /* 17px — V4 keeps body sizes within the spec's 16–17px band */
+    line-height: 1.72;
+  }
+
+  .hh-body {
+    font-family: var(--hh-font-sans);
+    font-size: 1rem; /* 16px */
+    line-height: 1.7;
+  }
+
+  .hh-caption {
+    font-family: var(--hh-font-sans);
+    font-size: 0.8125rem; /* 13px */
+    line-height: 1.5;
+  }
+
+  .hh-label {
+    font-family: var(--hh-font-sans);
+    font-size: 0.75rem; /* 12px */
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* Premium Color System — shared soft-shadow utilities. Both intentionally
+     restrained (small blur/offset, low opacity, tinted with --hh-shadow-color
+     instead of pure black) per "không dùng shadow đậm". `.hh-shadow-sm` is
+     the default resting elevation (cards, dropdowns); `.hh-shadow-md` is the
+     hover/raised state (product card hover, mega menu). */
+  .hh-shadow-sm {
+    box-shadow: 0 1px 3px var(--hh-shadow-color);
+  }
+
+  .hh-shadow-md {
+    box-shadow: 0 6px 20px var(--hh-shadow-color);
+  }
+
+  /* Maison Luxury V4 — CTA hierarchy (Phase 5). Two peer button treatments,
+     reused sitewide instead of re-declaring color/border/radius/elevation/
+     state per component. Callers still add their own sizing utilities
+     (h-12, px-8, w-full, flex-1...) — these classes own color/border/
+     radius/elevation/state only, never layout/size. Radius 12px per V4
+     spec ("CTA radius: 10–12px" — down from the Champagne pass's 14px).
+     Hover lifts 1px + shows a very light shadow; active drops back down.
+     Disabled gets its own muted/neutral styling on both. Never apply
+     either class to destructive/error actions. */
+
+  /* TRANSACTIONAL — deep teal fill + ivory text. Mua ngay / Thêm vào giỏ /
+     Thanh toán / Đặt hàng / form submit quan trọng (đăng nhập/đăng ký/gửi
+     đánh giá). Focus ring uses champagne for a deliberate, restrained
+     accent moment against the teal fill. */
+  .hh-cta-transactional {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--hh-cta-transactional);
+    background-color: var(--hh-cta-transactional);
+    color: var(--hh-cta-transactional-text);
+    font-family: var(--hh-font-sans);
+    font-weight: 600;
+    box-shadow: 0 1px 2px var(--hh-shadow-color);
+    transition:
+      background-color 150ms ease,
+      border-color 150ms ease,
+      box-shadow 150ms ease,
+      transform 150ms ease;
+  }
+
+  .hh-cta-transactional:hover {
+    background-color: var(--hh-cta-transactional-hover);
+    border-color: var(--hh-cta-transactional-hover);
+    box-shadow: 0 4px 10px var(--hh-shadow-color);
+    transform: translateY(-1px);
+  }
+
+  .hh-cta-transactional:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px var(--hh-shadow-color);
+  }
+
+  .hh-cta-transactional:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px var(--hh-surface),
+      0 0 0 4px var(--hh-cta-transactional-focus);
+  }
+
+  .hh-cta-transactional:disabled,
+  .hh-cta-transactional[aria-disabled="true"] {
+    background-color: var(--hh-surface-soft);
+    border-color: var(--hh-border);
+    color: var(--hh-text-muted);
+    box-shadow: none;
+    transform: none;
+    cursor: not-allowed;
+  }
+
+  /* EDITORIAL — champagne fill + ink text. Khám phá / Tìm hiểu thêm / Xem
+     câu chuyện / Đọc bài viết — dùng tiết chế (chỉ cho hành động khám
+     phá/nội dung, không phải mọi CTA). */
+  .hh-cta-editorial {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--hh-cta-editorial-border);
+    background-color: var(--hh-cta-editorial);
+    color: var(--hh-cta-editorial-text);
+    font-family: var(--hh-font-sans);
+    font-weight: 600;
+    box-shadow: 0 1px 2px var(--hh-shadow-color);
+    transition:
+      background-color 150ms ease,
+      border-color 150ms ease,
+      box-shadow 150ms ease,
+      transform 150ms ease;
+  }
+
+  .hh-cta-editorial:hover {
+    background-color: var(--hh-cta-editorial-hover);
+    box-shadow: 0 4px 10px var(--hh-shadow-color);
+    transform: translateY(-1px);
+  }
+
+  .hh-cta-editorial:active {
+    background-color: var(--hh-cta-editorial-active);
+    transform: translateY(0);
+    box-shadow: 0 1px 2px var(--hh-shadow-color);
+  }
+
+  .hh-cta-editorial:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px var(--hh-surface),
+      0 0 0 4px var(--hh-cta-editorial-focus);
+  }
+
+  .hh-cta-editorial:disabled,
+  .hh-cta-editorial[aria-disabled="true"] {
+    background-color: var(--hh-surface-soft);
+    border-color: var(--hh-border);
+    color: var(--hh-text-muted);
+    box-shadow: none;
+    transform: none;
+    cursor: not-allowed;
+  }
+}
+
+/* P1.8 — global prefers-reduced-motion. Every micro-interaction added
+   across this site (card hover-lift, CTA hover-lift, drawer/overlay
+   slide, chevron rotate, image scale) is a `transition`/`transform`, never
+   a `@keyframes` animation loop — so a single blanket rule collapsing all
+   transition/animation durations to near-zero for motion-sensitive users
+   is enough; no per-component opt-out logic needed. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

@@ -14,8 +14,8 @@ export function MembershipSection() {
 
   return (
     <section id="hoi-vien" className="mx-auto w-full max-w-[1280px] px-4 py-12 md:px-8">
-      <div className="rounded-2xl bg-hh-primary px-6 py-10 text-white sm:px-12">
-        <h2 className="text-2xl font-semibold sm:text-3xl">{MEMBERSHIP.heading}</h2>
+      <div className="rounded-xl bg-hh-primary px-6 py-10 text-white sm:px-12">
+        <h2 className="hh-heading-section">{MEMBERSHIP.heading}</h2>
         <p className="mt-3 max-w-xl text-sm text-white/85 sm:text-base">{MEMBERSHIP.body}</p>
         <div className="mt-8 grid gap-6 sm:grid-cols-3">
           {MEMBERSHIP.perks.map((perk) => (
@@ -28,7 +28,7 @@ export function MembershipSection() {
         <button
           type="button"
           onClick={openAuth}
-          className="mt-8 inline-flex h-12 items-center justify-center rounded-md bg-white px-8 text-sm font-semibold text-hh-primary"
+          className="hh-cta-editorial mt-8 h-12 px-8 text-sm"
         >
           {MEMBERSHIP.cta.label}
         </button>

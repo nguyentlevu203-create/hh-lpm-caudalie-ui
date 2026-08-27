@@ -21,11 +21,28 @@ export function generateStaticParams() {
   return HH_BRAND_LIBRARY.map((p) => ({ slug: p.slug }));
 }
 
+/** Same-name entries (e.g. one product scraped under two different pack
+ * sizes) would otherwise share a byte-identical <title>. */
+const DUPLICATE_BRAND_LIBRARY_NAMES = new Set(
+  Object.entries(
+    HH_BRAND_LIBRARY.reduce<Record<string, number>>((counts, p) => {
+      counts[p.nameVi] = (counts[p.nameVi] ?? 0) + 1;
+      return counts;
+    }, {})
+  )
+    .filter(([, count]) => count > 1)
+    .map(([name]) => name)
+);
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const product = getBrandLibraryProductBySlug(slug);
   if (!product) return HH_BASE_METADATA;
-  return { ...HH_BASE_METADATA, title: product.nameVi, description: product.shortDescription || HH_BASE_METADATA.description };
+  const title =
+    DUPLICATE_BRAND_LIBRARY_NAMES.has(product.nameVi) && product.volume
+      ? `${product.nameVi} — ${product.volume}`
+      : product.nameVi;
+  return { ...HH_BASE_METADATA, title, description: product.shortDescription || HH_BASE_METADATA.description };
 }
 
 export default async function ThuVienSanPhamHangDetailPage({ params }: Props) {
@@ -56,7 +73,7 @@ export default async function ThuVienSanPhamHangDetailPage({ params }: Props) {
           )}
         </div>
 
-        <h1 className="mt-6 text-3xl font-normal text-hh-ink md:text-4xl">{product.nameVi}</h1>
+        <h1 className="mt-6 hh-heading-page text-hh-ink">{product.nameVi}</h1>
         {product.nameOriginal && (
           <p className="mt-1 text-sm italic text-hh-muted-foreground">{product.nameOriginal}</p>
         )}

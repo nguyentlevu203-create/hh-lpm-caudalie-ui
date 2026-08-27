@@ -23,13 +23,31 @@ export function generateStaticParams() {
   return HH_PRODUCTS.map((product) => ({ slug: product.slug }));
 }
 
+/** Names shared by more than one product (same scent sold in different
+ * volumes, e.g. "Gel Tắm ... Hoa Tiaré" at 250ml and 650ml) — their <title>
+ * would otherwise be byte-identical across two distinct PDPs. */
+const DUPLICATE_PRODUCT_NAMES = new Set(
+  Object.entries(
+    HH_PRODUCTS.reduce<Record<string, number>>((counts, p) => {
+      counts[p.name] = (counts[p.name] ?? 0) + 1;
+      return counts;
+    }, {})
+  )
+    .filter(([, count]) => count > 1)
+    .map(([name]) => name)
+);
+
 export async function generateMetadata({ params }: ProductDetailPageProps): Promise<Metadata> {
   const { slug } = await params;
   const product = getProductBySlug(slug);
   if (!product) return HH_BASE_METADATA;
+  const title =
+    DUPLICATE_PRODUCT_NAMES.has(product.name) && product.volume
+      ? `${product.name} — ${product.volume}`
+      : product.name;
   return {
     ...HH_BASE_METADATA,
-    title: product.name,
+    title,
     description: product.shortDescription,
   };
 }
@@ -65,7 +83,7 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
         <TrustBadges />
         <ProductDescription product={product} />
         <ProductAccordions product={product} />
-        <ProductReviews product={product} />
+        <ProductReviews />
         <RelatedProducts products={related} />
       </main>
       <Footer />

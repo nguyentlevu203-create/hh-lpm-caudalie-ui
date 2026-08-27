@@ -1,13 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, ChevronLeft, Gift, User } from "lucide-react";
+import { ChevronDown, ChevronLeft, Gift, MapPin, User } from "lucide-react";
 import { useSiteUI } from "@/components/hh/SiteUIContext";
 import { HH_CATEGORIES } from "@/data/products";
 import { BRAND_NAME, NAV_ITEMS, BRAND_MEGA_MENU_LINKS, BRAND_LIBRARY_LINK, isNavPathActive } from "@/data/site-content";
 import { cn } from "@/lib/utils";
+import { useFocusTrap } from "@/lib/use-focus-trap";
 
 /** Left slide-in mobile nav drawer — structure cloned from the shared
  * Caudalie Header's mobile drawer: a centered-brand row with a left close
@@ -20,6 +21,8 @@ export function MobileDrawer() {
   const pathname = usePathname();
   const isOpen = active === "menu";
   const [expanded, setExpanded] = useState<string[]>([]);
+  const panelRef = useRef<HTMLDivElement>(null);
+  useFocusTrap(panelRef, isOpen);
 
   const toggle = (id: string) =>
     setExpanded((prev) => (prev.includes(id) ? prev.filter((h) => h !== id) : [...prev, id]));
@@ -28,18 +31,19 @@ export function MobileDrawer() {
     <>
       <div
         className={cn(
-          "fixed inset-0 z-40 bg-black/30 transition-opacity",
+          "fixed inset-0 z-40 bg-hh-primary/35 transition-opacity",
           isOpen ? "opacity-100" : "pointer-events-none opacity-0"
         )}
         onClick={close}
         aria-hidden="true"
       />
       <div
+        ref={panelRef}
         role="dialog"
         aria-label="Menu"
         aria-hidden={!isOpen}
         className={cn(
-          "fixed inset-y-0 left-0 z-50 flex w-[85%] max-w-xs flex-col overflow-y-auto bg-white transition-transform duration-300",
+          "fixed inset-y-0 left-0 z-50 flex w-[85%] max-w-xs flex-col overflow-y-auto bg-hh-surface transition-transform duration-300",
           isOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >
@@ -130,6 +134,10 @@ export function MobileDrawer() {
             <Gift className="size-5" />
             <span className="text-sm">Câu Lạc Bộ Hoàng Hà</span>
           </Link>
+          <div className="flex cursor-not-allowed items-center gap-3 px-4 py-4 opacity-60" title="Đang cập nhật">
+            <MapPin className="size-5" />
+            <span className="text-sm">Tìm cửa hàng — đang cập nhật</span>
+          </div>
         </div>
       </div>
     </>

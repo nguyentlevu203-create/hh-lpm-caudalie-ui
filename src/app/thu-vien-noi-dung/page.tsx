@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { HH_BASE_METADATA } from "@/data/site-content";
+import { ALWAYS_NOINDEX_ROBOTS } from "@/lib/seo";
 import { HHShell } from "@/components/hh/HHShell";
 import { PromoBar } from "@/components/hh/layout/PromoBar";
 import { Header } from "@/components/hh/layout/Header";
@@ -8,10 +9,13 @@ import { ProductBreadcrumb } from "@/components/hh/product/ProductBreadcrumb";
 import { ContentCardGrid } from "@/components/hh/content/ContentCardGrid";
 import { HH_CARDS, CARD_CATEGORY_LABEL, type HHCardCategory } from "@/data/cards";
 
+// P2.9: internal data-library/QA route, stays noindex regardless of
+// NEXT_PUBLIC_SITE_ENV — not meant for public search results.
 export const metadata: Metadata = {
   ...HH_BASE_METADATA,
   title: "Thư viện nội dung",
   description: "Toàn bộ 159 card/CTA nhập từ website hãng Le Petit Marseillais, phân nhóm theo loại nội dung.",
+  robots: ALWAYS_NOINDEX_ROBOTS,
 };
 
 const ORDER: HHCardCategory[] = [
@@ -33,7 +37,7 @@ export default function ThuVienNoiDungPage() {
         <ProductBreadcrumb items={[{ label: "Trang chủ", href: "/" }, { label: "Thư viện nội dung" }]} />
 
         <div className="mt-6 text-center">
-          <h1 className="text-3xl font-normal text-hh-ink md:text-4xl">Thư viện nội dung</h1>
+          <h1 className="hh-heading-page text-hh-ink">Thư viện nội dung</h1>
           <p className="mx-auto mt-4 max-w-2xl text-base text-hh-muted-foreground">
             Toàn bộ {HH_CARDS.length} card/CTA nhập từ sheet <code>07_Cards_CTA</code> của website hãng, phân nhóm
             theo loại nội dung. Card có đích rõ ràng dẫn thẳng tới trang tương ứng; card chưa xác định được vị trí

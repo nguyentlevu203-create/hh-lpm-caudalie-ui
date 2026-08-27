@@ -92,6 +92,30 @@ export const HH_CATEGORIES: HHCategory[] = [
  * fabricated number to any total. */
 export type PriceMode = "official" | "demo" | "inquiry";
 
+/** One image in a PDP gallery — Phase 8A P0.5. Optional, additive field;
+ * every existing product keeps working unchanged via the `image` fallback
+ * (see `getProductGalleryItems` below). Not populated by any product in
+ * the current catalogue import (audited: 40/83 products have exactly the
+ * single `image`, 0 have a second angle, 0 have video — see
+ * `HH_LPM_CAUDALIE_PARITY_P0_REPORT.md` §P0.5 for the full count) — this
+ * type exists so the gallery component and data pipeline have a real,
+ * typed place to grow into once multi-angle photography exists, without
+ * another schema migration. */
+export interface ProductGalleryImage {
+  src: string;
+  alt: string;
+  type?: "packshot" | "lifestyle" | "detail" | "ingredient";
+}
+
+/** A real product video — Phase 8A P0.5. Same additive/unused-today status
+ * as `ProductGalleryImage`. Never fabricate a `src`/`poster` for this —
+ * only wire it up when a real video URL exists for that exact SKU. */
+export interface ProductVideo {
+  src: string;
+  poster?: string;
+  title?: string;
+}
+
 export interface HHProduct {
   id: string;
   sku: string;
@@ -124,6 +148,13 @@ export interface HHProduct {
   /** Matched LPM France source image URL, kept for traceability/redownload
    * even before (or instead of) a local copy exists. */
   imageSourceUrl?: string | null;
+  /** Optional multi-angle gallery — see `ProductGalleryImage`. When absent
+   * (every product today), the gallery falls back to `image` alone via
+   * `getProductGalleryItems`. */
+  galleryImages?: ProductGalleryImage[];
+  /** Optional real product video — see `ProductVideo`. Not present on any
+   * product in the current import. */
+  video?: ProductVideo;
   sellable: boolean;
   referenceOnly: boolean;
   /** "exact" | "medium" | "low" | "unmatched" — see product-matches.json. */
@@ -156,6 +187,27 @@ export function getProductsByCategory(category: HHCategorySlug): HHProduct[] {
   return HH_PRODUCTS.filter((p) => p.category === category);
 }
 
+/**
+ * Matches a `?scent=` query value against a product's descriptive scent
+ * string. Product scents are always long free-text phrases (e.g. "Dịu Nhẹ
+ * Hoa Cam Hữu Cơ"), never a literal match for the short mood/scent-family
+ * labels used by the scent advisor (SCENT_ADVISOR_QUESTIONS, e.g. "Hoa
+ * cam", "Mật ong & sữa") or for compound filter-chip strings that contain
+ * "&". Splitting the query on "&" and checking substring containment
+ * against each part — instead of strict equality — lets both the advisor's
+ * short labels and the filter drawer's full-string chips resolve to real
+ * products (a chip's own value always contains itself as a substring, so
+ * exact-match behavior for chips is preserved, just widened).
+ */
+export function scentMatches(productScent: string, queryScent: string): boolean {
+  const haystack = productScent.toLowerCase();
+  return queryScent
+    .split("&")
+    .map((part) => part.trim().toLowerCase())
+    .filter(Boolean)
+    .some((part) => haystack.includes(part));
+}
+
 export function getRelatedProducts(product: HHProduct, limit = 4): HHProduct[] {
   return HH_PRODUCTS.filter(
     (p) => p.id !== product.id && (p.category === product.category || p.scent === product.scent)
@@ -173,4 +225,30 @@ export function getEffectivePrice(product: HHProduct): number | null {
 
 export function hasRealPrice(product: HHProduct): boolean {
   return getEffectivePrice(product) !== null;
+}
+
+/** Normalizes a product's photography into the ordered list `ProductGallery`
+ * renders — Phase 8A P0.5. Single source of truth for "how many real
+ * images does this product have", so the gallery component never has to
+ * guess or duplicate a single photo into fake thumbnails:
+ *
+ * - `galleryImages` (if populated) wins outright — a real multi-angle set.
+ * - Otherwise, the existing single `image` field becomes a 1-item list
+ *   (every product's current real-world state — see the audit note on
+ *   `ProductGalleryImage`).
+ * - No image at all → empty list, `ProductGallery` renders
+ *   `ProductPlaceholderArt` and no gallery controls.
+ *
+ * Deliberately does NOT fall back to `imageSourceUrl` (a remote LPM France
+ * URL, not a vetted local asset) or invent a second image by repeating the
+ * first — an empty/1-item result is the honest answer for this catalogue
+ * today. */
+export function getProductGalleryItems(product: HHProduct): ProductGalleryImage[] {
+  if (product.galleryImages && product.galleryImages.length > 0) {
+    return product.galleryImages;
+  }
+  if (product.image) {
+    return [{ src: product.image, alt: product.name, type: "packshot" }];
+  }
+  return [];
 }

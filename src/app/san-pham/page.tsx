@@ -4,10 +4,12 @@ import { HHShell } from "@/components/hh/HHShell";
 import { PromoBar } from "@/components/hh/layout/PromoBar";
 import { Header } from "@/components/hh/layout/Header";
 import { Footer } from "@/components/hh/layout/Footer";
+import Link from "next/link";
 import { ProductBreadcrumb, type ProductBreadcrumbItem } from "@/components/hh/product/ProductBreadcrumb";
 import { ProductFilterDrawer } from "@/components/hh/product/ProductFilterDrawer";
 import { ProductGrid } from "@/components/hh/product/ProductGrid";
-import { HH_PRODUCTS, HH_CATEGORIES, type HHCategorySlug } from "@/data/products";
+import { ProductSort } from "@/components/hh/product/ProductSort";
+import { HH_PRODUCTS, HH_CATEGORIES, scentMatches, getEffectivePrice, type HHCategorySlug } from "@/data/products";
 
 export const metadata: Metadata = {
   ...HH_BASE_METADATA,
@@ -17,7 +19,7 @@ export const metadata: Metadata = {
 };
 
 interface SanPhamPageProps {
-  searchParams: Promise<{ category?: string; scent?: string; line?: string; volume?: string }>;
+  searchParams: Promise<{ category?: string; scent?: string; line?: string; volume?: string; sort?: string }>;
 }
 
 /** Category/listing page — structure cloned 1:1 from /reference/category
@@ -25,18 +27,35 @@ interface SanPhamPageProps {
  * trigger, responsive product grid), wired to real `?category=`/`?scent=`
  * filtering over the static catalog. */
 export default async function SanPhamPage({ searchParams }: SanPhamPageProps) {
-  const { category, scent, line, volume } = await searchParams;
+  const { category, scent, line, volume, sort } = await searchParams;
   const activeCategory = HH_CATEGORIES.find((c) => c.slug === category)?.slug as
     | HHCategorySlug
     | undefined;
 
   const products = HH_PRODUCTS.filter((product) => {
     if (activeCategory && product.category !== activeCategory) return false;
-    if (scent && product.scent.toLowerCase() !== scent.toLowerCase()) return false;
+    if (scent && !scentMatches(product.scent, scent)) return false;
     if (line && product.productLine?.toLowerCase() !== line.toLowerCase()) return false;
     if (volume && product.volume?.toLowerCase() !== volume.toLowerCase()) return false;
     return true;
   });
+
+  // P1.2 — sort, applied after filtering, keeps existing filter query-param
+  // logic above untouched. Inquiry-priced products (no `getEffectivePrice`)
+  // sort to the end of either price direction rather than colliding at 0.
+  if (sort === "price-asc" || sort === "price-desc") {
+    const sign = sort === "price-asc" ? 1 : -1;
+    products.sort((a, b) => {
+      const priceA = getEffectivePrice(a);
+      const priceB = getEffectivePrice(b);
+      if (priceA === null && priceB === null) return 0;
+      if (priceA === null) return 1;
+      if (priceB === null) return -1;
+      return sign * (priceA - priceB);
+    });
+  } else if (sort === "bestseller") {
+    products.sort((a, b) => Number(Boolean(b.bestSeller)) - Number(Boolean(a.bestSeller)));
+  }
 
   const activeCategoryInfo = HH_CATEGORIES.find((c) => c.slug === activeCategory);
   const hasAnyFilter = Boolean(activeCategoryInfo || scent || line || volume);
@@ -69,12 +88,26 @@ export default async function SanPhamPage({ searchParams }: SanPhamPageProps) {
         <ProductBreadcrumb items={breadcrumbItems} />
 
         <div className="mt-6 text-center">
-          <h1 className="text-3xl font-normal text-hh-ink md:text-4xl">{heading}</h1>
+          <h1 className="hh-heading-page text-hh-ink">{heading}</h1>
           <p className="mx-auto mt-4 max-w-2xl text-base text-hh-muted-foreground">{description}</p>
         </div>
 
-        <div className="mt-8 flex justify-end">
-          <ProductFilterDrawer activeCategory={activeCategory} activeScent={scent} activeLine={line} activeVolume={volume} />
+        <div className="mt-8 flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center gap-3 text-sm text-hh-muted-foreground">
+            <span>{products.length} sản phẩm</span>
+            {hasAnyFilter && (
+              <Link
+                href="/san-pham"
+                className="text-hh-primary underline underline-offset-2 hover:no-underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-hh-primary"
+              >
+                Xoá bộ lọc
+              </Link>
+            )}
+          </div>
+          <div className="flex items-center gap-3">
+            <ProductSort value={sort} />
+            <ProductFilterDrawer activeCategory={activeCategory} activeScent={scent} activeLine={line} activeVolume={volume} />
+          </div>
         </div>
 
         <div className="mt-6 pb-16">

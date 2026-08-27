@@ -237,3 +237,18 @@ No image was downloaded, no price was invented, and no product page was built in
 - No commit — `data-source/*.xlsx` remains untracked and gitignored; this report is the only new file.
 
 Stopping here per instruction.
+
+## 11. Phase 3 update (2026-08-24) — audit of 43 currently-missing product images
+
+Catalogue has since grown from this report's original 89 rows to 83 live products in `src/data/catalog/hh-products-derived.json` (40 with a downloaded `image` + `imageSourceUrl`, 43 without). Re-ran the classification from §6 against the current 43-missing list, matching by SKU:
+
+| Nhóm | SKU count | SKUs |
+|---|---|---|
+| Already in **§6.3** ("không tìm được ảnh phù hợp") — confirmed no defensible LPM match exists | **15** | `ST01496, ST01601, ST68867, ST55031, ST55055, ST53379, ST53386, ST00526, ST00557, ST00991, ST01295, DG90435, DG90442, NR50675, NR73601` |
+| Already in **§6.2** ("khớp gần đúng") — real overlap found in Phase 1 but never downloaded (lower confidence than §6.1) | **27** | `ST55017, ST54494, ST01902, ST68816, ST06999, ST39109, ST00755, ST01318, ST01356, ST01172, DT04660, DT55885, DT77412, DG31372, DG74554, DG37429, DX74752, MN75209, DG74035, DG37467, ST00823, DG37450, DG74608, DX61909, NR73618, NR50620, XP80651` |
+| Not in the original 89-row Phase 1 dataset — needs fresh matching | **1** | `NR50491` |
+| In §6.1 (exact match) yet still missing an image (would indicate a linking bug) | **0** | none — confirmed the 40 downloaded images map 1:1 to `public/images/hh/products/*`, no orphaned downloads |
+
+**Chưa thực hiện tải/matching trong lần cập nhật này** — người dùng đã xác nhận dừng ở mức audit, không sourcing/tải ảnh cho nhóm 27+1, và giữ nguyên UI placeholder hiện tại cho nhóm 15. Ghi lại rõ ở đây để lần sau (khi quyết định tiếp tục) không phải audit lại từ đầu — chỉ cần lấy đúng 2 danh sách SKU ở bảng trên và làm theo đúng quy trình xác minh thủ công của §5 trước khi tải qua `scripts/download-product-images.mjs`.
+
+Stopping here — audit only, per instruction.
